@@ -17,10 +17,12 @@ public class BoardExe {
 		BoardService bs = new BoardApp();
 		Date now = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy년 MM월 dd일 hh시 mm분 ss초");
-		int menu = 0;
-		int boardNum = 0;
-		int writeNum = 0;
+
 		while (true) {
+			int menu = 0;
+			int boardNum = 0;
+			int writeNum = 0, comment = 0;
+			;
 			System.out.println("1. 게시판 글 목록보기 2.게시글 보기 3. 게시글 등록 4.게시글 수정 5.게시글 삭제 9.종료");
 			try {
 				menu = scn.nextInt();
@@ -68,26 +70,34 @@ public class BoardExe {
 						System.out.println();
 					}
 					if (sux.user != null) {
-						System.out.println("댓글 : 1번, 종료 : 2번");
-						int comment = scn.nextInt();
-						if (comment == 1) {
-							System.out.println("댓글을 작성해주세요.");
-							scn.nextLine();
-							String commet = scn.nextLine();
+						while (true) {
+							System.out.println("댓글 : 1번, 종료 : 2번");
+							try {
+								comment = scn.nextInt();
+								scn.nextLine();
+							} catch (InputMismatchException e) {
+								scn.nextLine();
+							}
+							if (comment == 1) {
+								System.out.println("댓글을 작성해주세요.");
+								String commet = scn.nextLine();
 
-							comMentNum = bs.CommentNum();
-							comMentNum += 1;
+								comMentNum = bs.CommentNum();
+								comMentNum += 1;
 
-							Board cmd = new Board(boardNum, comMentNum, commet);
-							bs.boardCommentInsert(cmd);
-						} else if (comment == 2) {
-							System.out.println("기존 화면으로 돌아갑니다.");
-							commentHits = bs.getCommentHits(boardNum);
-							commentHits += 1;
-							Board hits = new Board(boardNum, commentHits);
-							bs.CommentHits(hits);
-						} else
-							System.out.println("잘못된 번호입니다.");
+								Board cmd = new Board(boardNum, comMentNum, commet);
+								bs.boardCommentInsert(cmd);
+								break;
+							} else if (comment == 2) {
+								System.out.println("기존 화면으로 돌아갑니다.");
+								commentHits = bs.getCommentHits(boardNum);
+								commentHits += 1;
+								Board hits = new Board(boardNum, commentHits);
+								bs.CommentHits(hits);
+								break;
+							} else
+								System.out.println("잘못된 번호입니다. 다시 입력하세요.");
+						}
 					}
 				}
 
@@ -126,23 +136,26 @@ public class BoardExe {
 						try {
 							writeNum = scn.nextInt();
 							scn.nextLine();
+							checkNum = bs.CheckPwd(writeNum);
+							if (checkNum == false)
+								System.out.println("게시글 번호를 똑바로 입력해주세요.");
+							else {
+								System.out.println("게시글 제목 : ");
+								String title = scn.nextLine();
+								System.out.println("게시글 내용 : ");
+								String write = scn.nextLine();
+								String date = sdf.format(now);
+
+								Board board = new Board(writeNum, null, null, title, write, date,
+										sux.user.getUserNum());
+								bs.modifyBoard(board);
+								System.out.println("수정이 완료되었습니다.");
+							}
 						} catch (InputMismatchException e) {
+							System.out.println("잘못 입력하셨습니다.");
 							scn.nextLine();
 						}
-						checkNum = bs.CheckPwd(writeNum);
-						if (checkNum == false)
-							System.out.println("게시글 번호를 똑바로 입력해주세요.");
-						else {
-							System.out.println("게시글 제목 : ");
-							String title = scn.nextLine();
-							System.out.println("게시글 내용 : ");
-							String write = scn.nextLine();
-							String date = sdf.format(now);
 
-							Board board = new Board(writeNum, null, null, title, write, date, sux.user.getUserNum());
-							bs.modifyBoard(board);
-							System.out.println("수정이 완료되었습니다.");
-						}
 					}
 				} else {
 					System.out.println("글 수정을 위해서라면 로그인을 하셔야 합니다.");
@@ -161,20 +174,23 @@ public class BoardExe {
 						System.out.println("삭제하고자 하는 게시글의 번호를 입력하세요 : ");
 						try {
 							writeNum = scn.nextInt();
-						} catch (InputMismatchException e) {
-						}
-						checkNum = bs.CheckPwd(writeNum);
-						if (checkNum == true) {
-							System.out.println("삭제할 게시글의 비밀번호를 입력하세요");
-							String pwd = scn.next();
-							boolean checkDelete = bs.BoardDelete(pwd);
-							if (checkDelete == true)
-								System.out.println("삭제가 완료되었습니다.");
-							else {
-								System.out.println("비밀번호가 틀립니다.");
+							scn.nextLine();
+							checkNum = bs.CheckPwd(writeNum);
+							if (checkNum == true) {
+								System.out.println("삭제할 게시글의 비밀번호를 입력하세요");
+								String pwd = scn.next();
+								boolean checkDelete = bs.BoardDelete(pwd,writeNum);
+								if (checkDelete == true)
+									System.out.println("삭제가 완료되었습니다.");
+								else {
+									System.out.println("비밀번호가 틀립니다.");
+								}
 							}
-						} else
+						} catch (InputMismatchException e) {
 							System.out.println("게시글 번호를 다시한번 확인하세요.");
+							scn.nextLine();
+						}
+
 					}
 				} else {
 					System.out.println("글을 삭제하시려면 로그인을 해야합니다.");

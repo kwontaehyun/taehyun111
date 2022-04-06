@@ -7,7 +7,7 @@ public interface BoardService {
 	public List<Board> BoardList();
 	public void insertBoard(Board board);
 	public void modifyBoard(Board board);
-	public boolean BoardDelete(String pwd);
+	public boolean BoardDelete(String pwd, int boardNum);
 	public boolean CheckNum();
 	public Board boardView(int boardNum);
 	public boolean CheckPwd(int writeNum);

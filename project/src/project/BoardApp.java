@@ -83,13 +83,14 @@ public class BoardApp extends DAO implements BoardService {
 
 	}
 
-	public boolean BoardDelete(String pwd) {
+	public boolean BoardDelete(String pwd, int boardNum) {
 		conn = getConnect();
-		String sql = "delete from board_info where board_pwd = ? and user_num = ?";
+		String sql = "delete from board_info where board_pwd = ? and user_num = ? and board_num = ?";
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, pwd);
 			psmt.setInt(2, sux.user.getUserNum());
+			psmt.setInt(3, boardNum);
 			psmt.executeUpdate();
 			return true;
 		} catch (SQLException e) {

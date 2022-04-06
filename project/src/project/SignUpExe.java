@@ -18,10 +18,10 @@ public class SignUpExe {
 		
 		Scanner scn = new Scanner(System.in);
 		SignUpService sign = new SignUpApp();
-		int menu = 0;
+		
 		while (true) {
 			System.out.println("1.로그인 2.회원 가입. 3.아이디찾기 4.비밀번호 찾기 5.손님으로 게시판 보기 6.종료");
-			
+			int menu = 0;
 			try {
 				menu = scn.nextInt();
 				scn.nextLine();
