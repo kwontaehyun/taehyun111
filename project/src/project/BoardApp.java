@@ -84,13 +84,12 @@ public class BoardApp extends DAO implements BoardService {
 	}
 
 	public boolean BoardDelete(String pwd) {
-
+		conn = getConnect();
 		String sql = "delete from board_info where board_pwd = ? and user_num = ?";
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, pwd);
 			psmt.setInt(2, sux.user.getUserNum());
-
 			psmt.executeUpdate();
 			return true;
 		} catch (SQLException e) {
@@ -103,7 +102,7 @@ public class BoardApp extends DAO implements BoardService {
 	}
 
 	public boolean PwdCheck(String pwd) {
-
+		conn = getConnect();
 		String sql = "select* from board_info where board_pwd = ? and user_num = ?";
 		try {
 			psmt = conn.prepareStatement(sql);

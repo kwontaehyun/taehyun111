@@ -59,16 +59,18 @@ public class SignUpExe {
 				String pwd = scn.next();
 				System.out.println("한번 더 비밀번호를 입력하세요 : ");
 				String pwdequals = scn.next();
-				System.out.println("이메일을 입력하세요 : ");
-				String email = scn.next();
-				scn.nextLine();
-				System.out.println("휴대폰번호를 입력하세요 : ");
-				String phoneNumber = scn.nextLine();
-				phoneNumber = phoneNumber.replace(" ","");
-				phoneNumber = phoneNumber.replace("-","");
+				
 				
 				while (true) {
 					if (pwd.equals(pwdequals)) {
+						System.out.println("이메일을 입력하세요 : ");
+						String email = scn.next();
+						scn.nextLine();
+						System.out.println("휴대폰번호를 입력하세요 : ");
+						String phoneNumber = scn.nextLine();
+						phoneNumber = phoneNumber.replace(" ","");
+						phoneNumber = phoneNumber.replace("-","");
+						
 						List<SignUp> list = sign.searchNumber();
 
 						for (SignUp a : list) { // 9 +1 10.....

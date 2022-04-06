@@ -2,6 +2,7 @@ package project;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -16,43 +17,51 @@ public class BoardExe {
 		BoardService bs = new BoardApp();
 		Date now = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy년 MM월 dd일 hh시 mm분 ss초");
-
+		int menu = 0;
+		int boardNum = 0;
+		int writeNum = 0;
 		while (true) {
 			System.out.println("1. 게시판 글 목록보기 2.게시글 보기 3. 게시글 등록 4.게시글 수정 5.게시글 삭제 9.종료");
-			int menu = scn.nextInt();
+			try {
+				menu = scn.nextInt();
+				scn.nextLine();
+			} catch (InputMismatchException e) {
+				System.out.println("숫자를 입력하세요.");
+				scn.nextLine();
+			}
 
 			if (menu == 1) {
 				System.out.println("NO			제목			작성자		작성시간				댓글 수		조회 수");
 				System.out.println("-------------------------------------------------------------------"
-									+ "-------------------------------------------------------");
+						+ "-------------------------------------------------------");
 				int commentNumber = 0;
 				List<Board> list = bs.BoardList();
 				for (Board brd : list) {
 					commentNumber = bs.ToComment(brd.getBoardNum());
 					commentHits = bs.getCommentHits(brd.getBoardNum());
-					System.out.print(brd.toString() + "		" + commentNumber + "		"+ commentHits);
+					System.out.print(brd.toString() + "		" + commentNumber + "		" + commentHits);
 					System.out.println();
 				}
-
 			} else if (menu == 2) {
 				System.out.println("보고자 하는 게시글의 번호를 입력해주세요");
-				int boardNum = scn.nextInt();
 
+				try {
+					boardNum = scn.nextInt();
+					scn.nextLine();
+				} catch (InputMismatchException e) {
+					scn.nextLine();
+				}
 				Board trueFalse = bs.boardView(boardNum);
 				if (trueFalse == null)
 					System.out.println("게시글 번호가 틀립니다.");
 				else {
-					
-					
-					
 					List<Board> list = bs.boardComment(boardNum);
-						
+
 					System.out.println(trueFalse.writeToString());
 					for (Board board : list) {
 						try {
-						System.out.println("작성자 : " + sux.user.getUserName());
-						}catch(NullPointerException e)
-						{
+							System.out.println("작성자 : " + sux.user.getUserName());
+						} catch (NullPointerException e) {
 							System.out.println("로그인 사용자가아니라면 작성자를 확인할 수 없습니다.");
 						}
 						System.out.println("댓글 : " + board.comMent());
@@ -63,7 +72,8 @@ public class BoardExe {
 						int comment = scn.nextInt();
 						if (comment == 1) {
 							System.out.println("댓글을 작성해주세요.");
-							String commet = scn.next();
+							scn.nextLine();
+							String commet = scn.nextLine();
 
 							comMentNum = bs.CommentNum();
 							comMentNum += 1;
@@ -86,9 +96,9 @@ public class BoardExe {
 					num = bs.writeNum();
 					num += 1;
 					System.out.println("글제목을 입력하세요");
-					String title = scn.next();
+					String title = scn.nextLine();
 					System.out.println("글내용을 입력하세요");
-					String writer = scn.next();
+					String writer = scn.nextLine();
 
 					System.out.println("게시판 비밀번호를 입력하세요");
 					String pwd = scn.next();
@@ -112,16 +122,21 @@ public class BoardExe {
 					else {
 						// 리스트받아서 내가쓴글만 조회.
 						System.out.println("수정하고자 하는 게시글의 번호를 입력하세요 : ");
-						int writeNum = scn.nextInt();
 
+						try {
+							writeNum = scn.nextInt();
+							scn.nextLine();
+						} catch (InputMismatchException e) {
+							scn.nextLine();
+						}
 						checkNum = bs.CheckPwd(writeNum);
 						if (checkNum == false)
 							System.out.println("게시글 번호를 똑바로 입력해주세요.");
 						else {
 							System.out.println("게시글 제목 : ");
-							String title = scn.next();
+							String title = scn.nextLine();
 							System.out.println("게시글 내용 : ");
-							String write = scn.next();
+							String write = scn.nextLine();
 							String date = sdf.format(now);
 
 							Board board = new Board(writeNum, null, null, title, write, date, sux.user.getUserNum());
@@ -144,7 +159,10 @@ public class BoardExe {
 						System.out.println("조회된 게시글이 없습니다.");
 					} else {
 						System.out.println("삭제하고자 하는 게시글의 번호를 입력하세요 : ");
-						int writeNum = scn.nextInt();
+						try {
+							writeNum = scn.nextInt();
+						} catch (InputMismatchException e) {
+						}
 						checkNum = bs.CheckPwd(writeNum);
 						if (checkNum == true) {
 							System.out.println("삭제할 게시글의 비밀번호를 입력하세요");
@@ -160,8 +178,8 @@ public class BoardExe {
 					}
 				} else {
 					System.out.println("글을 삭제하시려면 로그인을 해야합니다.");
-				}
 
+				}
 			} else if (menu == 9) {
 				System.out.println("프로그램 종료.");
 				break;
