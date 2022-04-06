@@ -82,6 +82,9 @@ public class SignUp {
 
 	@Override
 	public String toString() {
+		
+		userBirth = userBirth.substring(0, 10);
+		
 		return "	회원정보\n\n"
 				+ "회원번호 : " + userNum 
 				+ "\n이름 : " + userName 
