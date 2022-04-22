@@ -20,4 +20,7 @@ public interface BoardService {
 	public int ToComment(int boardNum);
 	public int getCommentHits(int boardNum);
 	public void CommentHits(Board board);
+	public void commentModefy(String modefyComment, int modefy, int boardNum);
+	public void commentDelete(int delete, int boardNum);
+	public boolean selectComment(int modefy);
 }

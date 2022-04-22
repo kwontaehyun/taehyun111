@@ -85,13 +85,13 @@ public class SignUp {
 		
 		userBirth = userBirth.substring(0, 10);
 		
-		return "	회원정보\n\n"
-				+ "회원번호 : " + userNum 
-				+ "\n이름 : " + userName 
-				+ "\n생일 : " + userBirth 
-				+ "\n아이디 : "+ userID
-				+ "\n이메일 주소 : " + userEmail
-				+ "\n핸드폰 번호 : " + userPhoneNumber;
+		return "		회원정보\n\n"
+				+ "	회원번호 : " + userNum 
+				+ "\n	이름 : " + userName 
+				+ "\n	생일 : " + userBirth 
+				+ "\n	아이디 : "+ userID
+				+ "\n	이메일 주소 : " + userEmail
+				+ "\n	핸드폰 번호 : " + userPhoneNumber;
 	}
 	
 

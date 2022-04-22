@@ -255,13 +255,14 @@ public class BoardApp extends DAO implements BoardService {
 	public List<Board> boardComment(int boardNum) {
 		conn = getConnect();
 		List<Board> list = new ArrayList<Board>();
-		String sql = "select comment_write, user_name from comment_info where board_num = ? ";
+		String sql = "select comment_num, comment_write, user_name from comment_info where board_num = ? ";
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setInt(1, boardNum);
 			rs = psmt.executeQuery();
 			while (rs.next()) {
 				Board board = new Board();
+				board.setCommentNum(rs.getInt("comment_num"));
 				board.setComment(rs.getString("comment_write"));
 				list.add(board);
 			}
@@ -361,5 +362,59 @@ public class BoardApp extends DAO implements BoardService {
 		finally {
 			disconnect();
 		}
+	}
+	
+	public void commentDelete(int delete, int boardNum) {
+		conn = getConnect();
+		String sql = "delete from comment_info where comment_num = ? and user_num = ? and board_num = ?";
+		try {
+			SignUpExe sux = new SignUpExe();
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, delete);
+			psmt.setInt(2, sux.user.getUserNum());
+			psmt.setInt(3, boardNum);
+			psmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			disconnect();
+		}
+	}
+	
+	public void commentModefy(String modefyComment, int modefy, int boardNum) {
+		conn = getConnect();
+		String sql = "update comment_info set comment_write = ? where user_num = ? and comment_num = ? and board_num = ? ";
+		try {
+			SignUpExe sux = new SignUpExe();
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, modefyComment);
+			psmt.setInt(2, sux.user.getUserNum());
+			psmt.setInt(3, modefy);
+			psmt.setInt(4, boardNum);
+			psmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			disconnect();
+		}
+	}
+	public boolean selectComment(int modefy) {
+		conn = getConnect();
+		String sql = "select comment_num from comment_info where comment_num = ?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, modefy);
+			int r = psmt.executeUpdate();
+			if(r > 0)
+				return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			disconnect();
+		}
+		return false;
 	}
 }

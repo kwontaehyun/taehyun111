@@ -40,7 +40,7 @@ public class LoginApp extends DAO implements LoginService {
 				+ "from user_info u join comment_info c\r\n"
 				+ "on(u.user_num = c.user_num)\r\n"
 				+ "join board_info b\r\n"
-				+ "on(c.user_num = b.user_num and c.board_num = b.board_num)\r\n"
+				+ "on(c.board_num = b.board_num)\r\n"
 				+ "where u.user_num = ?";
 		try {
 			psmt = conn.prepareStatement(sql);
@@ -66,10 +66,12 @@ public class LoginApp extends DAO implements LoginService {
 	// 2.회원정보수정 3.회원탈퇴
 	public void userDelete(String pwd) {
 		conn = getConnect();
-		String sql = "delete from user_info where user_pwd = ? ";
+		String sql = "delete from user_info where user_pwd = ? and user_num = ?";
 		try {
+			SignUpExe sux = new SignUpExe();
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, pwd);
+			psmt.setInt(2,sux.user.getUserNum());
 			psmt.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -119,27 +121,25 @@ public class LoginApp extends DAO implements LoginService {
 
 	
 	//패스워드 점검 및 로그인상태확인
-	public int userPwdCheck(String pwd) {
+	public boolean userPwdCheck(String pwd) {
 		conn = getConnect();
 		int sno = 0;
-		String sql = "select * from user_info where user_pwd = ? ";
+		String sql = "select * from user_info where user_pwd = ? and user_num = ?";
 		try {
+			SignUpExe sux = new SignUpExe();
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, pwd);
-			psmt.executeUpdate();
-			rs = psmt.executeQuery();
+			psmt.setInt(2, sux.user.getUserNum());
+			int r = psmt.executeUpdate();
+			if(r> 0)
+				return true;
 			
-			if(rs.next())
-			{
-				sno = rs.getInt("user_num");
-				return sno;
-			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
 			disconnect();
 		}
-		return sno;
+		return false;
 	
 	}
 	
@@ -184,8 +184,9 @@ public class LoginApp extends DAO implements LoginService {
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setInt(1, modefy);
-			psmt.executeUpdate();
-			return true;
+			int r = psmt.executeUpdate();
+			if(r > 0)
+				return true;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

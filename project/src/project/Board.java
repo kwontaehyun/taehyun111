@@ -123,27 +123,27 @@ public class Board {
 
 	@Override
 	public String toString() {
-		return boardNum + "			" + boardTitle + "			" + boardWriter + "	" + boardDate;
+		return "	"+boardNum + "	" + boardWriter  + "		" + commentNum +"	  " + commentHits + "	    " + boardTitle ;
 	}
 	
 	public String writeToString() {
-		return "-------------------------------------------------------------------------------------	\n"
-				+ "				" + boardTitle + "				\n-------------------------------------------------------------------------------------\n" + boardWrite
-				+ "\n-------------------------------------------------------------------------------------\n									" + boardWriter + "\n-------------------------------------------------------------------------------------\n									"
+		return "	-------------------------------------------------------------------------------------	\n"
+				+ "						" + boardTitle + "				\n	-------------------------------------------------------------------------------------\n	" + boardWrite
+				+ "\n	-------------------------------------------------------------------------------------\n								작성자 : " + boardWriter + "\n	-------------------------------------------------------------------------------------\n						작성 시간 : "
 				+ boardDate;
 	}
 
 	public String boardReference() {
-		return "NO : " + boardNum + "	글 제목 : " + boardTitle;
+		return "	NO : " + boardNum + "	글 제목 : " + boardTitle;
 	}
 
 	public String comMent() {
-		return comment;
+		return "	NO : " + commentNum + "	댓글 : " +comment;
 	}
 	
 	public String userCommentInfo() {
-		return "댓글NO	:	"+ commentNum + "	게시판NO	:	" + boardNum + "	글 제목	:	" + boardTitle
-				+"		댓글	:	" + comment;
+		return "	[게시판NO : " + boardNum + "	글 제목 :	" + boardTitle
+				+"\n	댓글NO : "+ commentNum +"	댓글 : " + comment +  "]\n";
 	}
 	
 
