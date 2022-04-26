@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="addForm">
+    <form name="frm" action="../main.html" method="post" onsubmit="saveFnc(event)">
+      Id: <input type="text" name="uid" id="userId" value = "104"><br>
+      Name: <input type="text" name="uname" id="userNameed" value = "홍길동"><br>
+      Score: <input type="text" name="uscore" id="userScore" value = "80"><br>
+      Age: <input type="text" name="uage" id="userAge" value = "26"><br>
+      <input type="submit" value="저장">
+    </form>
+  </div>
+
+  <div id="show">
+    <table border="1">
+      <thead>
+        <tr>
+          <th>아이디</th>
+          <th>이름</th>
+          <th>점수</th>
+          <th>나이</th>
+        </tr>
+      </thead>
+      <tbody id="body">
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    //페이지가 로딩 된 후에 데이터를 화면에 뿌려주기.
+    function init(){
+      let data = 
+      [
+        {id:101, name:'홍길동', score : 80, age: 19},
+        {id:102, name:'박길동', score : 88, age: 22},
+        {id:103, name:'김길동', score : 90, age: 27}
+      ]
+      data.forEach(person => {
+        document.getElementById('body').appendChild(makeTr(person));
+      })
+    }
+    init();
+    // console.log(document.forms['frm'].elements[0].value);
+    function saveFnc(e) {
+      e.preventDefault(); // 기본 기능을 차단.
+      
+      let id = document.forms['frm'].elements[0].value;
+      let name = document.forms['frm'].elements[1].value;
+      let score = document.forms['frm'].elements[2].value;
+      let age = document.forms['frm'].elements['uage'].value;
+      if(!id || !age || !name || !score){
+        alert('값을 입력하세요!!');
+        retrun;
+      }
+
+      let person = {};
+      person.id = id;
+      person.name = name;
+      person.score = score;
+      person.age = age;
+
+      document.getElementById('body').appendChild(makeTr(person))
+      document.forms['frm'].elements[0].value = '';
+      document.forms['frm'].elements[1].value = '';
+      document.forms['frm'].elements[2].value = '';
+      document.forms['frm'].elements['uage'].value = '';
+
+      document.forms['frm'].elements[0].focus();
+
+    }
+
+    function makeTr(obj) {
+      let tr = document.createElement('tr');
+
+      for (let field in obj) {
+        let td = document.createElement('td');
+        td.innerHTML = obj[field];
+        tr.appendChild(td);
+      }
+      return tr;
+    }
+  </script>
+</body>
+
+</html>
