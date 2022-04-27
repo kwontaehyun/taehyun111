@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div id="show"></div>
+	<table border="1">
+		<thead>
+			<tr>
+			<th>학생번호</th>
+			<th>학생이름</th>
+			<th>영어점수</th>
+			<th>국어점수</th>
+			</tr>
+		</thead>
+		<tbody id = "list">
+		</tbody>
+	</table>
+	<script>
+		// 서버에 파일을 요청하고, 읽어들이도록.
+		let xhtp = new XMLHttpRequest(); // new String();
+		xhtp.open("get", "../studentList.json"); //get or post, 요청할 페이지
+		xhtp.send(); //호출시작.
+		xhtp.onload = function() {
+			let data = JSON.parse(xhtp.response);
+			console.log(data);
+			let list = document.getElementById('list');
+			data.forEach(element => {
+				list.appendChild(makeTr(element));
+			})
+		};
+		
+		function makeTr(student) {
+			let tr = document.createElement('tr');
+			for(let field in student){
+				let td = document.createElement('td');
+				td.innerHTML = student[field];
+				tr.appendChild(td);
+			}
+			return tr;
+		}
+	</script>
+</body>
+</html>
