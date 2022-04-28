@@ -12,5 +12,15 @@ document.addEventListener('DOMContentLoaded',function(){
     console.log(li);
   });
   document.getElementById('show').appendChild(ulTag);
-
 })
+
+h1
+id =red
+{
+  span
+  span
+  span
+  span
+} 
+h2
+

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div id = "addFrm">
+		<form action = "addStudentServlet" onsubmit = "addStudent(event)">
+			학생번호<input type = "number" name = "sno" value="117"><br>
+			학생이름<input type = "text" name = "sname" value="서현일"><br>
+			영어점수<input type = "number" name = "seng" value="4"><br>
+			국어점수<input type = "number" name = "skor" value="2"><br>
+			<input type = "submit" value = "전송">
+			<input type = "button" value = "변경">
+		</form>
+	</div>
+	
+	<div id = "studentList">
+		<table border = "1">
+			<thead>
+				<tr>
+					<th>학생번호</th>
+					<th>학생이름</th>
+					<th>영어점수</th>
+					<th>국어점수</th>
+					<th>삭제버튼</th>
+				</tr>
+			</thead>
+			<tbody id = "list">
+			
+			</tbody>
+		</table>
+	</div>
+	<script src = "post.js"></script>
+</body>
+</html>
