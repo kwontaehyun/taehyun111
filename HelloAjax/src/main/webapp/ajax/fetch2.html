@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script src = "ajax2.js"></script>
+	<script>
+		//Ajax = XMLHttpRequest: <- 구버전 => fetch() <- 신버전
+
+		let xhtp = new XMLHttpRequest();
+		xhtp.open('get', '../studentList.json');
+		xhtp.send();
+		xhtp.onload = function() {
+			console.log(xhtp.responseText);
+		}
+		
+		fetch('../studentList.json')
+			.then(function(result){ // 성공적이면 실행.
+				let val = result.json(); // pending 처리중.
+				console.log(val);
+				return val;
+			})
+			.then(function(result){
+				console.log(result); //
+			})
+			.catch(function(error){ // error발생하면 실행
+				console.log(error);
+			})
+	</script>
+</body>
+</html>

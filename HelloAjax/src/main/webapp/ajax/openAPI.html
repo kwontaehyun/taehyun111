@@ -5,15 +5,21 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<script>
-	let url = `https://api.odcloud.kr/api/15077586/v1/centers?page=1&perPage=284&returnType=JSON&serviceKey=8PIUhwI8DldGqZATrV5BC%2BxZnCk72BhR5x8ych8FavqbPelV6SEaQQ1IynjgkEiORd8LvYs6UbQ%2FeY7eUaZvcg%3D%3D`
-	let xhtp = new XMLHttpRequest();
-		xhtp.open('get', url);
-		xhtp.send();
-		xhtp.onload = function() {
-			let data = JSON.parse(xhtp.responseText);
-			console.log(data);
-		}
-	</script>
+
+	<input type = "text" id = "sido" value = "대전광역시">
+	<button id = "findBtn">찾기</button>
+	<hr>
+
+	<div id="show">
+		<table border="1">
+			<thead id = "thead">
+			</thead>
+			<tbody id = "tbody">
+			</tbody>
+		</table>
+
+	</div>
+
+	<script src = "openAPI.js"></script>
 </body>
 </html>

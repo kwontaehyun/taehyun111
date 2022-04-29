@@ -85,7 +85,6 @@ function successCallBack2(retObj) {
 	};
 	document.getElementById('list').appendChild(makeTr(obj));
 } // end of successCallBack2()
-
 function successCallBack() {
 	//사용자 입력값을 id='list' 하위 추가
 	let no = document.querySelector('input[name="sno"]').value;
