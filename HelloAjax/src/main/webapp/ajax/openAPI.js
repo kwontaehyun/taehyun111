@@ -82,15 +82,15 @@ function makeBody(ary) {
 				aTag.setAttribute("target", `_blank`);
 				aTag.innerHTML = center[val];
 				td.appendChild(aTag);
-			}else{
+			}
+			else{
 				td.innerHTML = center[val];
 			}
 			
 			tr.appendChild(td);
-		})
 
 	})//body
-}//end of makeBody();
+})//end of makeBody();
 
 
 function findCallBack() {

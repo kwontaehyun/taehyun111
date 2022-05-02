@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>promise.html</title>
+</head>
+<body>
+	<script>
+	// promise 객체.
+	
+	setTimeout(function(){
+		console.log('func1');
+		setTimeout(function(){
+			console.log('func2');
+			setTimeout(function(){
+				console.log('func3');
+			},4000)
+		},2000)
+	},1000)
+	
+	let val = 4;
+	
+	let prom = new Promise(function(resolve, reject){
+		setTimeout(function() {
+		if(val > 0){
+			resolve('success');
+			val-=2;
+		}
+		else{
+			reject('error');
+		}}, 2000);
+	})
+	prom
+		.then(function(resolve){
+			console.log(resolve);
+			return new Promise(function (resolve, reject){
+				setTimeout(function() {
+					if(val > 0){
+						resolve('5678');
+						val-=2;
+					}
+					else{
+						reject('error');
+					}}, 2000);
+			})
+		})
+		.then(function(resolve){
+			console.log(resolve);
+			return new Promise(function (resolve, reject){
+				setTimeout(function() {
+					if(val > 0){
+						resolve('1234');
+						val-=2;
+					}
+					else{
+						reject('error');
+					}}, 2000);
+			})
+		})
+		.catch(function(reject){
+			console.log(reject)
+		})
+	
+	</script>
+</body>
+</html>
