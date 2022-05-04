@@ -11,23 +11,23 @@ function init() {
 	xhtp.onload = loadCallBack;
 	let findBtn = document.getElementById('findBtn');
 
-	findBtn.addEventListener('click', findCallBack); 
+	findBtn.addEventListener('click', findCallBack);
 
 }// end of init()
 
 // this.
 let obj = {
-	name : 'Hong',
-	age : 20,
-	showInfo : function(){
+	name: 'Hong',
+	age: 20,
+	showInfo: function() {
 		return this.name + ' , ' + this.age;
 	}
 }
-function globalFnc(){
+function globalFnc() {
 	console.log(this);
 }
 globalFnc(); // 이벤트가 시작하기전이기때문에 this는 window를 가르킴
-init(); 
+init();
 function loadCallBack() {
 	result = JSON.parse(this.responseText);
 	console.log(result);
@@ -72,10 +72,10 @@ function makeBody(ary) {
 	ary.forEach(function(center) {
 		let tr = document.createElement('tr');
 		body.appendChild(tr);
-		field.forEach(function (val) {
+		field.forEach(function(val) {
 			let td = document.createElement('td');
 			//address 필드 일 경우 링크.
-			if(val == 'address'){
+			if (val == 'address') {
 				let aTag = document.createElement('a');
 				aTag.style.textDecoration = "none"
 				aTag.setAttribute("href", `daumApi.html?x=${center.lat}&y=${center.lng}&z=${center.facilityName}`);
@@ -83,15 +83,15 @@ function makeBody(ary) {
 				aTag.innerHTML = center[val];
 				td.appendChild(aTag);
 			}
-			else{
+			else {
 				td.innerHTML = center[val];
 			}
-			
+
 			tr.appendChild(td);
 
-	})//body
-})//end of makeBody();
-
+		})//body
+	})//end of makeBody();
+}
 
 function findCallBack() {
 	//기능구현. input.value 속성을 읽어와서 filterAry => 헤더, 바디.
