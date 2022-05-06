@@ -5,6 +5,7 @@ public class MemberVO {
 	private String name;
 	private String passwd;
 	private String email;
+	private String profile;
 	
 	public MemberVO() {
 		
@@ -19,6 +20,18 @@ public class MemberVO {
 		this.email = email;
 	}
 	
+	
+	
+	public MemberVO(String id, String name, String passwd, String email, String profile) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.passwd = passwd;
+		this.email = email;
+		this.profile = profile;
+	}
+
+
 	public String getId() {
 		return id;
 	}
@@ -45,11 +58,19 @@ public class MemberVO {
 	}
 
 
+	public String getProfile() {
+		return profile;
+	}
+
+
+	public void setProfile(String profile) {
+		this.profile = profile;
+	}
+
 	@Override
 	public String toString() {
-		return "MemberVO [id=" + id + ", name=" + name + ", passwd=" + passwd + ", email=" + email + "]";
+		return "MemberVO [id=" + id + ", name=" + name + ", passwd=" + passwd + ", email=" + email + ", profile="
+				+ profile + "]";
 	}
-	
-	
 	
 }
