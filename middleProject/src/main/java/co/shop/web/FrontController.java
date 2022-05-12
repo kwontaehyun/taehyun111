@@ -24,7 +24,6 @@ public class FrontController extends HttpServlet {
         super();
     }
 
-
 	public void init(ServletConfig config)
 			throws ServletException {
 
@@ -32,10 +31,8 @@ public class FrontController extends HttpServlet {
 		enc = config.getInitParameter("encoding");
 		map = new HashMap<String, Controller>();
 		map.put("/Insert.do", new InsertControl());
-		
-		
-		
-		
+		map.put("/login.do", new loginControl());
+
 		map.put("/productMain.do", new productControl());
 		
 		
