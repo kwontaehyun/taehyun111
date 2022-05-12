@@ -7,7 +7,7 @@
 <title>login.jsp</title>
 </head>
 <body>
-	<form action="${pageContext.servletContext.contextPath }/login.do" method="get">
+	<form action="${pageContext.servletContext.contextPath }/login.do" method="post">
 	<p>아이디 : <input type="email" name="email"></p><br>
 	<p>비밀번호 : <input type="password" name="pw"></p><br>
 	<input type="submit" value="로그인">

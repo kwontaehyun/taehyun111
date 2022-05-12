@@ -20,6 +20,12 @@ public class loginControl extends HttpServlet implements  Controller {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		
+
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		System.out.println("로그인 ");
 
 		String email = request.getParameter("email");
@@ -38,12 +44,6 @@ public class loginControl extends HttpServlet implements  Controller {
 		
 		
 		response.getWriter().print("<h3>로그인성공</h3>");
-
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		doGet(request, response);
 	}
 
 	@Override
