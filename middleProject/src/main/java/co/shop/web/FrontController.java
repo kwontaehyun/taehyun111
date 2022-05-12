@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import co.shop.web2.productControl;
+
 @WebServlet("/FrontController")
 public class FrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -28,10 +30,13 @@ public class FrontController extends HttpServlet {
 
 		
 		enc = config.getInitParameter("encoding");
-		
 		map = new HashMap<String, Controller>();
-		
 		map.put("/Insert.do", new InsertControl());
+		
+		
+		
+		
+		map.put("/productMain.do", new productControl());
 		
 		
 	}
