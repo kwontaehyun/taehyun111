@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path=""/>
+	<classpathentry kind="src" output="target/classes" path="src/main/java">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" output="target/test-classes" path="src/test/java">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v9.0">
 		<attributes>
 			<attribute name="module" value="true"/>
@@ -9,47 +21,394 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-11">
 		<attributes>
 			<attribute name="module" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Dev/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/T20220510/WEB-INF/lib/jackson-annotations-2.13.2.jar">
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/aether-api-0.9.0.M2.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Dev/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/T20220510/WEB-INF/lib/jackson-core-2.13.2.jar">
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/aether-impl-0.9.0.M2.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Dev/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/T20220510/WEB-INF/lib/jackson-databind-2.13.2.1.jar">
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/aether-spi-0.9.0.M2.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Dev/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/T20220510/WEB-INF/lib/ojdbc8_g.jar">
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/aether-util-0.9.0.M2.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Dev/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/T20220510/WEB-INF/lib/taglibs-standard-compat-1.2.5.jar">
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/aopalliance-1.0.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Dev/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/T20220510/WEB-INF/lib/taglibs-standard-impl-1.2.5.jar">
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/asm-3.3.1.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Dev/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/T20220510/WEB-INF/lib/taglibs-standard-jstlel-1.2.5.jar">
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/cdi-api-1.0.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Dev/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/T20220510/WEB-INF/lib/taglibs-standard-spec-1.2.5.jar">
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/commons-beanutils-1.8.0.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="output" path="bin"/>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/commons-collections-3.2.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/commons-digester-2.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/commons-io-2.6.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/commons-lang-2.4.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/commons-lang3-3.8.1.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/compiler-0.8.4.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/freemarker-2.3.15.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/guava-12.0.1.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/javassist-3.7.ga.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/javax.inject-1.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/jcl-over-slf4j-1.7.6.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/jsr250-api-1.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/jsr305-1.3.9.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/maven-aether-provider-3.1.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/maven-artifact-3.1.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/maven-core-3.1.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/maven-filtering-3.2.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/maven-model-3.1.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/maven-model-builder-3.1.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/maven-plugin-api-3.1.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/maven-repository-metadata-3.1.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/maven-resources-plugin-3.2.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/maven-settings-3.1.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/maven-settings-builder-3.1.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/maven-shared-utils-3.3.3.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/mvel2-2.0.11.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/ognl-2.7.3.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/org.eclipse.sisu.inject-0.0.0.M2a.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/org.eclipse.sisu.plexus-0.0.0.M2a.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/oro-2.0.8.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/plexus-build-api-0.0.7.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/plexus-cipher-1.4.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/plexus-classworlds-2.4.2.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/plexus-component-annotations-2.0.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/plexus-interpolation-1.26.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/plexus-sec-dispatcher-1.3.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/plexus-utils-3.0.10.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/sisu-guice-3.1.0-no_aop.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/slf4j-api-1.7.6.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/spring-aop-3.2.0.RELEASE.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/spring-beans-3.2.0.RELEASE.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/spring-context-3.2.0.RELEASE.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/spring-core-3.2.0.RELEASE.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/spring-expression-3.2.0.RELEASE.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/spring-web-3.2.0.RELEASE.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/tiles-api-3.0.8.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/tiles-autotag-core-runtime-1.2.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/tiles-compat-3.0.8.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/tiles-core-3.0.8.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/tiles-el-3.0.8.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/tiles-extras-3.0.8.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/tiles-freemarker-3.0.8.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/tiles-jsp-3.0.8.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/tiles-mvel-3.0.8.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/tiles-ognl-3.0.8.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/tiles-request-api-1.0.7.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/tiles-request-freemarker-1.0.7.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/tiles-request-jsp-1.0.7.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/tiles-request-mustache-1.0.7.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/tiles-request-servlet-1.0.7.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/tiles-request-servlet-wildcard-1.0.7.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/tiles-request-velocity-1.0.7.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/tiles-servlet-3.0.8.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/tiles-template-3.0.8.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/tiles-velocity-3.0.8.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/velocity-1.6.2.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/velocity-tools-2.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/p20220503/WEB-INF/lib/gson-2.9.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="output" path="target/classes"/>
 </classpath>
