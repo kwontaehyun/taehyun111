@@ -8,7 +8,7 @@
 </head>
 <body>
 <h3>회원가입</h3>
-<form action="" method ="post">
+<form action="${pageContext.servletContext.contextPath }/Insert.do" method ="post">
  <p>아이디(이메일) : <input type="email" name="email"></p><br>
  <p>비밀번호 : <input type="password" name="pw" ></p><br>
  <p>비밀번호 확인 : <input type="password" name="pw" ></p><br>
