@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
 @WebServlet("/FrontController")
 public class FrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -32,6 +33,8 @@ public class FrontController extends HttpServlet {
 		map = new HashMap<String, Controller>();
 		
 		map.put("/Insert.do", new InsertControl());
+		
+		map.put("/login.do", new loginControl());
 		
 		
 	}
