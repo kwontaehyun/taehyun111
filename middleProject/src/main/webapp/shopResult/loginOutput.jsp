@@ -9,11 +9,11 @@
 <body>
 
 
+<h4>로그인완료</h4>
 <%
-String email =(String) login.getAttribute("email");
-String pw=(String) login.getAttrbute("pw");
+//String email =(String) login.getAttribute("email");
+//String pw=(String) login.getAttrbute("pw");
 %>
-
 
 </body>
 </html>
