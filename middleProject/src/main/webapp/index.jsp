@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-페이지
+
 <jsp:forward page="myapp.homepage.tiles"></jsp:forward>
 </body>
 </html>

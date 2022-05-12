@@ -14,6 +14,18 @@
 		<servlet-name>Tiles Dispatch Servlet</servlet-name>
 		<url-pattern>*.tiles</url-pattern>
 	</servlet-mapping>
+	<servlet>
+		<servlet-name>front</servlet-name>
+		<servlet-class>co.shop.web.FrontController</servlet-class>
+		<init-param>
+			<param-name>charset</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>front</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
   
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>

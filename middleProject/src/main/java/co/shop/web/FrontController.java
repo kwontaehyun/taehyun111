@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import co.shop.web2.productControl;
 
 @WebServlet("/FrontController")
 public class FrontController extends HttpServlet {
@@ -23,25 +24,22 @@ public class FrontController extends HttpServlet {
         super();
     }
 
-
 	public void init(ServletConfig config)
 			throws ServletException {
 
 		
 		enc = config.getInitParameter("encoding");
-		
 		map = new HashMap<String, Controller>();
-		
 		map.put("/Insert.do", new InsertControl());
-		
 		map.put("/login.do", new loginControl());
+
+		map.put("/productMain.do", new productControl());
 		
 		
 	}
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.setCharacterEncoding(enc);
 		
 		String uri = request.getRequestURI();
 		String context = request.getContextPath();
