@@ -37,7 +37,7 @@ public class loginControl extends HttpServlet implements  Controller {
 		login.setAttribute("pw", pw);
 		
 		
-		response.sendRedirect("loginOutput.jsp");
+		response.getWriter().print("<h3>로그인성공</h3>");
 
 	}
 
