@@ -3,6 +3,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+body{
+margin a auto;
+}
+
+
+</style>
+
 <meta charset="UTF-8">
 <title>login.jsp</title>
 </head>

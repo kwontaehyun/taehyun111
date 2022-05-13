@@ -33,6 +33,7 @@ public class loginDAO extends DAO {
 			}
 			// 아이디없음
 			System.out.println("아이디없음");
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
