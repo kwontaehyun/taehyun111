@@ -9,9 +9,9 @@ import co.shop.vo.productVO;
 public class productDAO extends DAO{
 	
 	public List<productVO> proDuctList(){
+		conn();
 		String sql = "select* from product";
 		List<productVO> list = new ArrayList<productVO>();
-		conn();
 		try {
 			psmt = conn.prepareStatement(sql);
 			rs = psmt.executeQuery();
