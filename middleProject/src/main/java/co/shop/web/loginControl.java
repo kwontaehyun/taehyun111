@@ -1,5 +1,6 @@
 package co.shop.web;
 
+import java.io.Console;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -29,60 +30,86 @@ public class loginControl extends HttpServlet implements Controller {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("로그인 ");
-		
-		String email = request.getParameter("email");
-		String pw = request.getParameter("pw");
-		
-		
-		loginDAO dao=new loginDAO();
-		
-	
-		loginVO vo=new loginVO();
-		vo.setEmail(email);
-		vo.setPw(pw);
-		
-		
-		ShopService service= new ShopService();
-		service.login(email, pw);
-		
-		
-	
-		
-		
+//		System.out.println("로그인 ");
+//		HttpSession login = null;
 
-		if (email.isEmpty() || pw.isBlank()) {
-			request.setAttribute("error", "모든항목을 입력하세요");
-			request.getRequestDispatcher("view/login.do").forward(request, response);
-			return;
-		}
-		HttpSession login = null;
-		
-		int result=dao.login(vo.getEmail(),vo.getPw());
-		login = request.getSession();
-		PrintWriter out = response.getWriter();
-		if(result==1) {
-			out.print("<h3>로그인성공</h3>");
-		}else if(result==0) {
-			out.print("<h3>계정미일치</h3>");
-		}else if(result==-1) {
-			out.print("<h3>아이디없음</h3>");
-		}else if(result==-2) {
-			out.print("<h3>오류</h3>");
-		}
-		
+//		String email = request.getParameter("email");
+//		String pw = request.getParameter("pw");
 
-		login.setAttribute("email", email);
-		login.setAttribute("pw", pw);
-		
-		
-	//	response.getWriter().print("<h3>로그인성공</h3>");
-		
-		request.getRequestDispatcher("../index.jsp").forward(request, response);
+//		if (email.isEmpty() || pw.isBlank()) {
+//			request.setAttribute("error", "모든항목을 입력하세요");
+//			request.getRequestDispatcher("view/login.do").forward(request, response);
+//			return;
+//		}
+//
+//		ShopService service = new ShopService();
+//		service.login(email, pw);
+//
+//		loginDAO dao = new loginDAO();
+//		loginVO vo = dao.login(email, pw);
+//		vo.setEmail(email);
+//		
+//		vo.setPw(pw);
+
+//		if (vo != null) {
+//		request.setAttribute("email", email);
+//		request.setAttribute("pw", pw);
+//		request.getRequestDispatcher("/index.jsp").forward(request, response);
+//		}
+
+//		loginVO vo=new loginVO();
+//		vo.setEmail(email);
+//		vo.setPw(pw);
+
+		// response.getWriter().print("<h3>로그인성공</h3>");
+
 	}
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("로그인 화면");
+//		HttpSession login = null;
+
+		String email = request.getParameter("email");
+		String pw = request.getParameter("pw");
+
+//		if (email.isEmpty() || pw.isBlank()) {
+//			request.setAttribute("error", "모든항목을 입력하세요");
+//			request.getRequestDispatcher("shopView/login.do").forward(request, response);
+//			return;
+//		}
+
+
+
+		loginDAO dao = new loginDAO();
+		loginVO vo = dao.login(email, pw);
+		System.out.println("fefef");
+		vo.setEmail(email);
+		vo.setPw(pw);
+		System.out.println("fefef");
+//		ShopService service = new ShopService();
+//		service.login(email, pw);
+		System.out.println("fefef");
+		
+		
+
+		if (vo != null) {
+			request.setAttribute("email", email);
+			request.setAttribute("pw", pw);
+			request.getRequestDispatcher("/index.jsp").forward(request, response);
+//			response.sendRedirect("index.jsp");
+			
+		}
+		
+//			response.sendRedirect("session2.jsp");
+//		request.getRequestDispatcher("/index.jsp").forward(request, response);
+
+//		loginVO vo = new loginVO();
+//		vo.setEmail(email);
+		
+//		vo.setPw(pw);
+
+		response.getWriter().print("<h3>로그인성공</h3>");
 
 	}
 
