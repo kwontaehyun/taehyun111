@@ -8,7 +8,6 @@ import co.shop.vo.loginVO;
 public class ShopService {
 
 	ShopDAO dao;
-	loginDAO dao1;
 
 	public ShopService() {
 		dao = new ShopDAO();
@@ -19,10 +18,6 @@ public class ShopService {
 		dao.insertMember(members);
 	}
 
-	// 로그인
-	public loginVO login(String email, String pw) {
-		return dao1.login(email, pw);
-
-	}
+	
 
 }

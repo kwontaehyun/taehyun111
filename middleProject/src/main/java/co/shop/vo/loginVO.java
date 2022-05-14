@@ -4,10 +4,6 @@ public class loginVO {
 	private String email;
 	private String pw;
 	
-	
-	
-	
-	
 	@Override
 	public String toString() {
 		return "loginVO [email=" + email + ", pw=" + pw + "]";

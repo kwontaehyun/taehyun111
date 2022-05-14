@@ -24,7 +24,7 @@
 					<li><a class="dropdown-item" href="#!">Bottom</a></li>
 					<li><a class="dropdown-item" href="#!">Shoses</a></li>
 				</ul>
-				<a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="35"
+				<a href="http://localhost/middleProject/shopView/login.jsp"><svg xmlns="http://www.w3.org/2000/svg" width="35"
 						height="35" fill="currentColor" class="bi bi-person"
 						viewBox="0 0 16 16" id="loginBtn">
   <path
