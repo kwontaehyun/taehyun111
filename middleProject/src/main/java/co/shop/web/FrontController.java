@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import co.shop.web2.productControl;
+import co.prod.web.detailControl;
+import co.prod.web.productControl;
+import co.review.web.reviewControl;
 
 @WebServlet("/FrontController")
 public class FrontController extends HttpServlet {
@@ -34,6 +36,8 @@ public class FrontController extends HttpServlet {
 		map.put("/login.do", new loginControl());
 
 		map.put("/productMain.do", new productControl());
+		map.put("/detailProduct.do", new detailControl());
+		map.put("/review.do", new reviewControl());
 		
 		
 	}

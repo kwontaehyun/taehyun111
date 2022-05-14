@@ -1,4 +1,4 @@
-package co.shop.web2;
+package co.prod.web;
 
 import java.io.IOException;
 import java.util.List;
@@ -11,6 +11,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import co.shop.dao.productDAO;
+import co.shop.service.productService;
 import co.shop.vo.productVO;
 import co.shop.web.Controller;
 
@@ -21,8 +22,8 @@ public class productControl implements Controller{
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/json;charset=utf-8");
 		
-		productDAO dao = new productDAO();
-		List<productVO> list = dao.proDuctList();
+		productService service = new productService();
+		List<productVO> list = service.homeList();
 		
 		Gson gson = new GsonBuilder().create();
 		response.getWriter().print(gson.toJson(list));

@@ -79,8 +79,6 @@ public class loginControl extends HttpServlet implements Controller {
 //			return;
 //		}
 
-
-
 		loginDAO dao = new loginDAO();
 		loginVO vo = dao.login(email, pw);
 //		System.out.println("fefef");
@@ -90,28 +88,27 @@ public class loginControl extends HttpServlet implements Controller {
 //		ShopService service = new ShopService();
 //		service.login(email, pw);
 //		System.out.println("fefef");
-		
-		
 
 		if (vo != null) {
 			request.setAttribute("email", email);
 			request.setAttribute("pw", pw);
 			request.getRequestDispatcher("/index.jsp").forward(request, response);
 //			response.sendRedirect("index.jsp");
-		}else if() {
-			
-		}
+//		}else if() {
+//			
+//		}
 //		response.getWriter().print("<script>alert('로그인 성공')</script>");
 //			response.sendRedirect("session2.jsp");
 //		request.getRequestDispatcher("/index.jsp").forward(request, response);
 
 //		loginVO vo = new loginVO();
 //		vo.setEmail(email);
-		
+
 //		vo.setPw(pw);
 
 //		response.getWriter().print("<h3>로그인성공</h3>");
 
-	}
+		}
 
+	}
 }
