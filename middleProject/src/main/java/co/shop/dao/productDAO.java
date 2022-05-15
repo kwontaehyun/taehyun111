@@ -37,6 +37,55 @@ public class productDAO extends DAO{
 		return list;
 	}
 	
+	public List<String> menuList(){
+		conn();
+		String sql = "select category from product group by category";
+		List<String> list = new ArrayList<String>();
+		try {
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			while(rs.next()) {
+				String vo = rs.getString("category");
+				list.add(vo);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			disconn();
+		}
+		return list;
+	}
+	public List<productVO> menuClickEvent(String category) {
+		conn();
+		String sql = "select* from product where category = ?";
+		List<productVO> list = new ArrayList<productVO>();
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, category);
+			rs = psmt.executeQuery();
+			while(rs.next()) {
+				productVO vo = new productVO();
+				vo.setProDuctNum(rs.getInt("productnum"));
+				vo.setProDuctName(rs.getString("productname"));
+				vo.setProDuctPrice(rs.getInt("productprice"));
+				vo.setCateGory(rs.getString("category"));
+				vo.setComment(rs.getString("coment"));
+				vo.setSale(rs.getInt("sale"));
+				vo.setpImg(rs.getString("pimg"));
+				vo.setGender(rs.getString("gender"));
+				vo.setEmail(rs.getString("email"));
+				list.add(vo);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			disconn();
+		}
+		return list;
+	}
+	
 	public productVO searchProd(String proDuctNum){
 		conn();
 		productVO vo = null;

@@ -13,4 +13,12 @@ public class productService {
 	public productVO detailSearch(String proDuctNum) {
 		return dao.searchProd(proDuctNum);
 	}
+	public List<String> cateGory(){
+		return dao.menuList();
+	}
+	
+	public List<productVO> cateGoryList(String category){
+		return dao.menuClickEvent(category);
+	}
+	
 }

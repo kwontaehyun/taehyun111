@@ -38,7 +38,6 @@
 			<c:if test="${!empty list.RImg}">
 				<li>이미지사진</li>
 			</c:if>
-
 		</c:forEach>
 
 

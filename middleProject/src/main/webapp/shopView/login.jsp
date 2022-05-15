@@ -6,7 +6,7 @@
 <head>
 <style>
 body{
-margin a auto;
+	margin : 0 auto;
 }
 
 
@@ -16,6 +16,9 @@ margin a auto;
 <title>login.jsp</title>
 </head>
 <body>
+
+	<a href="http://localhost/middleProject/">yedam shop</a>
+
 	<form action="${pageContext.servletContext.contextPath }/login.do" method="post">
 	<p>아이디 : <input type="email" name="email" required></p><br>
 	<p>비밀번호 : <input type="password" name="pw" required></p><br>

@@ -5,7 +5,8 @@
 let cnt = 1;
 let sale = 0;
 let sales = 0;
-fetch('productMain.do')
+
+fetch('categoryList.do?category=악세사리')
 	.then(result => result.json())
 	.then(result => {
 		console.log(result);
@@ -65,8 +66,6 @@ fetch('productMain.do')
 				})
 			})
 		})
-
-
 	})
 
 
@@ -83,13 +82,6 @@ function firstPage(val) {
 	div5.className = "card-body p-4"
 	let div6 = document.createElement('div');
 	div6.className = "text-center"
-	
-	let cardfooterDiv = document.createElement('div');
-	cardfooterDiv.className = "card-footer p-4 pt-0 border-top-0 bg-transparent";
-	let cardfooterDiv2 = document.createElement('div');
-	cardfooterDiv2.className = "text-center"
-	let cartAtag = document.createElement('a');
-	cartAtag.className = "btn btn-outline-dark mt-auto"
 
 	let h5 = document.createElement('h5')
 	h5.className = "fw-bolder"
@@ -99,7 +91,6 @@ function firstPage(val) {
 		if (field == 'proDuctNum') {
 			aTag.setAttribute("id", `aTag${val[field]}`)
 			aTag.setAttribute("href", `http://localhost/middleProject/detailProduct.do?proDuctNum=${val[field]}`);
-			cartAtag.setAttribute("href", `http://localhost/middleProject/shoppingBasket.do?proDuctNum=${val[field]}`);
 		}
 
 		if (field == 'pImg') {
@@ -161,8 +152,13 @@ function firstPage(val) {
 		div5.appendChild(div6)
 
 	}
-	
-	
+	let cardfooterDiv = document.createElement('div');
+	cardfooterDiv.className = "card-footer p-4 pt-0 border-top-0 bg-transparent";
+	let cardfooterDiv2 = document.createElement('div');
+	cardfooterDiv2.className = "text-center"
+	let cartAtag = document.createElement('a');
+	cartAtag.className = "btn btn-outline-dark mt-auto"
+	cartAtag.setAttribute("href", "#");
 	cartAtag.innerHTML = "Add to cart";
 
 

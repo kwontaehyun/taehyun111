@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
 <style>
 	#loginBtn{
 		margin-right : 25px;

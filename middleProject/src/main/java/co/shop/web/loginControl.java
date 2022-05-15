@@ -26,7 +26,6 @@ public class loginControl implements Controller {
 			session.setAttribute("email", email);
 			session.setAttribute("pw", pw);
 			response.sendRedirect("index.jsp");
-
 		} else if (trueFalse == false) {
 			String error = "";
 			boolean IdCheck = service.loginIderror(email);
