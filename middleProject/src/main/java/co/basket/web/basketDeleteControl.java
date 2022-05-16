@@ -1,6 +1,8 @@
 package co.basket.web;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -13,9 +15,14 @@ public class basketDeleteControl implements Controller{
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String proDuctName = request.getParameter("proDuctName");
+		
+		int cnt = Integer.parseInt(request.getParameter("cnt"));
 		basketService service = new basketService();
-		service.deletebasket(proDuctName);
+		for(int i =0; i<cnt; i++) {
+			String proDuctName = request.getParameter("proDuctName"+i);
+			service.deletebasket(proDuctName);
+		}
+		
 		request.getRequestDispatcher("/shoppingBasket.do").forward(request, response);
 	}
 

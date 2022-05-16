@@ -21,8 +21,16 @@ fetch('Productmenu.do')
 		div.prepend(ulTag);
 
 	})
-	.then(error => console.log(error))
+	.catch(error => console.log(error))
 
-
+fetch('cartCntCheck.do')
+	.then(result => result.json())
+	.then(result => {
+		console.log(result)
+		let cartCnt = document.querySelector('#CartCnt');
+		cartCnt.innerHTML = result.length;
+		
+	})
+	.catch(error => console.log(error))
 
 

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import co.basket.web.basketControl;
 import co.basket.web.basketDeleteControl;
 import co.basket.web.shoppingBasketControl;
 import co.prod.web.detailControl;
@@ -38,6 +39,7 @@ public class FrontController extends HttpServlet {
 		map = new HashMap<String, Controller>();
 		map.put("/Insert.do", new InsertControl());
 		map.put("/login.do", new loginControl());
+		map.put("/logout.do", new logoutControl());
 
 		map.put("/productMain.do", new productControl());
 		map.put("/detailProduct.do", new detailControl());
@@ -46,6 +48,7 @@ public class FrontController extends HttpServlet {
 		map.put("/categoryList.do", new productMenuListControl());
 		map.put("/shoppingBasket.do", new shoppingBasketControl());
 		map.put("/basketDelete.do", new basketDeleteControl());
+		map.put("/cartCntCheck.do", new basketControl());
 	}
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response)
