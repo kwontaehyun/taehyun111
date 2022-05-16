@@ -189,7 +189,6 @@ function firstPage(val) {
 	
 	cartAtag.innerHTML = "Add to cart";
 
-
 	cardfooterDiv.appendChild(cardfooterDiv2)
 	cardfooterDiv2.appendChild(cartAtag)
 	div4.appendChild(cardfooterDiv)

@@ -52,7 +52,8 @@
 					</div>
 			</c:forEach>
 			<c:if test = "${!empty moneySum}"><h4>총 합계 : ${moneySum}원</h4> </c:if>
-			<button id = "delBtn">삭제</button>
+			<button id = "delBtn">선택삭제</button>
+			<button id = "selBtn">전체선택</button>
 
 		</c:if>
 	</div>
