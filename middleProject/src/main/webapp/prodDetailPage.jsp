@@ -42,7 +42,7 @@
 
 
 		<h3>댓글</h3>
-		<form action="" method="post">
+		<form action="${pageContext.servletContext.contextPath }/review.do" method="post">
 			<span>내용:</span> <input type=text name="content"><br> 
 			<span>평점:</span> <select
 				name="평점">
