@@ -24,20 +24,6 @@
   <definition name="WILDCARD:*/*" extends="user.homepage">
   	<put-attribute name="body" value="/{1}/{2}.jsp"/>
   </definition>
-  
-  <definition name="myapp.menuList" template="/WEB-INF/view/layout.jsp">
-    <put-attribute name="header" value="/WEB-INF/view/header.jsp" />
-    <put-attribute name="menu" value="/WEB-INF/view/menu.jsp" />
-    <put-attribute name="body" value="/WEB-INF/menu/menuList.jsp"/>
-    <put-attribute name="footer" value="/WEB-INF/view/footer.jsp" />
-  </definition>
-  
-  <definition name="WILDCARD:*/*" extends="myapp.menuList">
-  	<put-attribute name="body" value="/{1}/{2}.jsp"/>
-  	
-  	
-  	
-  </definition>
-  
+
   
 </tiles-definitions>

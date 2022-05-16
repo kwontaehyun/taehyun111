@@ -1,15 +1,42 @@
 /**
  * 
  */
+		
 
 let cnt = 1;
 let sale = 0;
 let sales = 0;
+
+btnAry = [];
+
 fetch('productMain.do')
 	.then(result => result.json())
 	.then(result => {
-		console.log(result);
-		let div = document.createElement('div');
+		let aTagAry = document.querySelectorAll("ul > li > a")
+		pageing(result);
+		aTagAry.forEach(val =>{
+			val.addEventListener('click', function(){
+				fetch(`categoryList.do?category=${val.innerHTML}`)
+					.then(result => result.json())
+					.then(result => {
+						let list = document.querySelectorAll("section > div");
+						list[0].remove();
+						let btnlist = document.querySelectorAll("#btn >button");
+						btnlist.forEach(val =>{
+							val.remove();
+						})
+						cnt=1;
+						pageing(result);
+					})
+					.error(error => console.log(error))
+			})
+		})
+	})
+
+	.catch(error => console.log(error));
+	
+function pageing(result){
+	let div = document.createElement('div');
 		div.className = "container px-4 px-lg-5 mt-5";
 		let div2 = document.createElement('div');
 		div2.className = "row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center"
@@ -65,12 +92,9 @@ fetch('productMain.do')
 				})
 			})
 		})
-
-
-	})
-
-
-	.catch(error => console.log(error));
+}	
+	
+	
 function firstPage(val) {
 	let div2 = document.createElement('div');
 	div2.className = "row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center";
@@ -104,8 +128,8 @@ function firstPage(val) {
 
 		if (field == 'pImg') {
 			img.src = "upload/" + val[field];
-			img.width = 206;
-			img.height = 137.33;
+			img.setAttribute("width", "100%");
+			img.setAttribute("height", "100%");
 			div4.appendChild(img);
 		}
 

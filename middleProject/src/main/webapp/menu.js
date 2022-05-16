@@ -15,7 +15,6 @@ fetch('Productmenu.do')
 			aTag.innerHTML = val;
 			aTag.className = "dropdown-item";
 			aTag.setAttribute("id", `${val}`)
-			aTag.setAttribute("href", `http://localhost/middleProject/menuList.jsp`);
 			liTag.appendChild(aTag);
 			ulTag.appendChild(liTag);
 		})

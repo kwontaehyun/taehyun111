@@ -18,7 +18,7 @@
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4" id = "ulTag">
 				</ul>
 				<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35"
 					fill="currentColor" class="bi bi-person-lines-fill"
