@@ -25,6 +25,8 @@ public class reviewControl implements Controller {
 		Gson gson = new GsonBuilder().create();
 		response.getWriter().print(gson.toJson(list));
 		
+		
+		
 
 		
 	}
