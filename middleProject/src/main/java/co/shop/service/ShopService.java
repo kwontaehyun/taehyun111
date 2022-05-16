@@ -18,6 +18,11 @@ public class ShopService {
 		dao.insertMember(members);
 	}
 
+	//아이디중복
+	public boolean idcheck(String email) {
+		return dao.idcheck(email);
+		
+	}
 	
 
 }
