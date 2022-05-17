@@ -91,4 +91,14 @@
   	<put-attribute name="body" value="/{1}/{2}.jsp"/>
   </definition>
   
+    <definition name="admin.chartpage" template="/WEB-INF/usermypage/layout.jsp">
+    <put-attribute name="mypageheader" value="/WEB-INF/usermypage/header.jsp" />
+    <put-attribute name="mypagemenu" value="/WEB-INF/adminLoginview/adminmypagemenu.jsp" />
+    <put-attribute name="mypagebody" value="/WEB-INF/adminmypage/genderchart.jsp" />
+  </definition>
+  
+  <definition name="WILDCARD:*/*" extends="admin.chartpage">
+  	<put-attribute name="body" value="/{1}/{2}.jsp"/>
+  </definition>
+  
 </tiles-definitions>

@@ -7,10 +7,26 @@
 <title>Insert title here</title>
 <script type="text/javascript"
 	src="https://www.gstatic.com/charts/loader.js"></script>
+	<style>
+	#piechart{
+		float : left;
+		margin-top : 250px;
+		margin-left : 250px;
+	}
+	#piechart2{
+		float : right;
+		margin-right : 250px;
+		margin-top : 250px;
+	}
+	</style>
 </head>
+
+
 <body>
-	<span id="piechart" style="width: 900px; height: 500px;"></span>
-	<span id="piechart2" style="width: 900px; height: 500px;"></span>
+	<div>
+		<span id="piechart" style="width: 500px; height: 400px;"></span> <span
+			id="piechart2" style="width: 500px; height: 400px;"></span>
+	</div>
 	<script type="text/javascript">
 	google.charts.load('current', { 'packages': ['corechart'] });
 	google.charts.setOnLoadCallback(drawChart);

@@ -8,7 +8,20 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+	<%
+	int role = (Integer) session.getAttribute("role");
+	%>
+
 	<h4>상품목록페이지입니다.</h4>
+	
+<!-- 	<c:if test="${role == 1}">
+
+			<form action="/productUpdate.do">
+				<input type="submit" value="수정하기">
+			</form>
+		</c:if>
+ -->	
 	<c:if test="${!empty vo}">
 		<img src="upload/${vo.pImg}">
 		<h4>제품이름 : ${vo.proDuctName}</h4>
@@ -24,8 +37,9 @@
 			<h4>${vo.proDuctPrice - (vo.proDuctPrice*(vo.sale/100))}원</h4>
 		</c:if>
 		<h4>성별 : ${vo.gender}</h4>
-		<h4>평점 : 
-		<c:forEach var="cnt" begin ="1" end = "${avgGrade}" step ="1">
+		<h4>
+			평점 :
+			<c:forEach var="cnt" begin="1" end="${avgGrade}" step="1">
 			★
 		</c:forEach>
 		</h4>
@@ -42,19 +56,20 @@
 
 
 		<h3>댓글</h3>
-		<form action="${pageContext.servletContext.contextPath }/review.do" method="post">
-			<p>내용</p><textarea rows="6" cols="50" name="content"></textarea><br> 
-			<span>평점:</span> 
-			<select name="grade">
+		<form action="${pageContext.servletContext.contextPath }/review.do"
+			method="post">
+			<p>내용</p>
+			<textarea rows="6" cols="50" name="content"></textarea>
+			<br> <span>평점:</span> <select name="grade">
 				<option value="five">5
 				<option value="four">4
 				<option value="three">3
 				<option value="two">2
 				<option value="one">1
-			</select><br> 
+			</select><br>
 			<!--  <p><input type='hidden' name='prodNum' value='${review.productnum }'></p>-->
-			<input type="file" name="profile"><br> 
-			<input type="submit" value="작성하기">
+			<input type="file" name="profile"><br> <input
+				type="submit" value="작성하기">
 		</form>
 
 

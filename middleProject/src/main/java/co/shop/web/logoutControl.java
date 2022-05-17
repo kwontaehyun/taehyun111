@@ -16,6 +16,7 @@ public class logoutControl implements Controller{
 		String pw = (String) session.getAttribute("pw");
 		session.removeAttribute("email");
 		session.removeAttribute("pw");
+		session.removeAttribute("role");
 		response.sendRedirect("index.jsp");
 	}
 

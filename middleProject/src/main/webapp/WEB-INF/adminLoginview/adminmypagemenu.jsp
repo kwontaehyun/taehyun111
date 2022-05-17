@@ -40,9 +40,14 @@
 					<div class="collapse" id="collapseLayouts"
 						aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 						<nav class="sb-sidenav-menu-nested nav">
-							<a class="nav-link" href="layout-static.html">회원정보보기</a> <a
-								class="nav-link" href="layout-static.html">회원정보수정</a> <a
-								class="nav-link" href="layout-sidenav-light.html">회원탈퇴</a>
+							<a class="nav-link" href="">회원정보보기</a> <a
+								class="nav-link" href="">회원정보수정</a> <a
+								class="nav-link" href="">회원탈퇴</a>
+						</nav>
+						<nav class="sb-sidenav-menu-nested nav">
+							<a class="nav-link" href="http://localhost/middleProject/chart.jsp">차트보기</a> <a
+								class="nav-link" href="l">회원정보수정</a> <a
+								class="nav-link" href="">회원탈퇴</a>
 						</nav>
 					</div>
 
