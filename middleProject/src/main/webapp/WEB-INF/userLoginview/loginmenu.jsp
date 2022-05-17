@@ -21,7 +21,7 @@
 	<!-- Navigation-->
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<div class="container px-4 px-lg-5">
-			<a class="navbar-brand" href="#!">yedam shop</a>
+			<a class="navbar-brand" href="http://localhost/middleProject/">yedam shop</a>
 			
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -33,7 +33,7 @@
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4" id = "ulTag">
 				</ul>
 				
-				<a class="navbar-brand" id = "mypage" href = "#">마이페이지</a>
+				<a class="navbar-brand" id = "mypage" href = "mypage.jsp">마이페이지</a>
 				<a class="navbar-brand" id = "logout" href = "logout.do">로그아웃</a>
 				
 				<form class="d-flex">

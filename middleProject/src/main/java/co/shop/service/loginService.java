@@ -18,4 +18,8 @@ public class loginService {
 		return dao.idCheck(pw);
 	}
 	
+	public int selectClass(String email, String pw) {
+		return dao.selectRole(email,pw);
+	}
+	
 }

@@ -1,5 +1,7 @@
 package co.shop.service;
 
+import java.util.Map;
+
 import co.shop.dao.ShopDAO;
 import co.shop.dao.loginDAO;
 import co.shop.vo.ShopVO;
@@ -22,6 +24,9 @@ public class ShopService {
 	public boolean idcheck(String email) {
 		return dao.idcheck(email);
 		
+	}
+	public Map<String, Integer> userGenderChart(){
+		return dao.genderChart();
 	}
 	
 

@@ -66,6 +66,27 @@ public class loginDAO extends DAO {
 		return false;
 	}
 	
+	public int selectRole(String email, String pw) {
+		conn();
+		int role = -1;
+		String sql = "select* from membership where email = ? and pw = ?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, email);
+			psmt.setString(2, pw);
+			rs = psmt.executeQuery();
+			if(rs.next()) {
+				role = rs.getInt("class");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			disconn();
+		}
+		return role;
+	}
+	
 	public boolean idCheck(String email) {
 		conn();
 		String sql = "select* from membership where email= ?";

@@ -1,6 +1,8 @@
 package co.shop.dao;
 
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 
 import co.shop.vo.ShopVO;
 
@@ -50,5 +52,26 @@ public class ShopDAO extends DAO {
 			disconn();
 		}
 		return false;
+	}
+
+	public Map<String, Integer> genderChart() {
+		conn();
+		String sql = "select gender, count(*) as cnt\r\n" + "from membership\r\n" + "group by gender";
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		try {
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			while (rs.next()) {
+				// department_name, cnt
+				map.put(rs.getString("gender"), rs.getInt("cnt"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			disconn();
+		}
+		return map;
+
 	}
 }

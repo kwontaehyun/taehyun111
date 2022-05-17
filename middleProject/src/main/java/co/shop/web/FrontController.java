@@ -14,9 +14,12 @@ import javax.servlet.http.HttpServletResponse;
 import co.basket.web.basketControl;
 import co.basket.web.basketDeleteControl;
 import co.basket.web.shoppingBasketControl;
+import co.chart.web.genderChartControl;
+import co.chart.web.prodGenderChartControl;
 import co.prod.web.detailControl;
 import co.prod.web.prodMenuControl;
 import co.prod.web.productControl;
+import co.prod.web.productInsertControl;
 import co.prod.web.productMenuListControl;
 import co.review.web.reviewControl;
 
@@ -49,6 +52,10 @@ public class FrontController extends HttpServlet {
 		map.put("/shoppingBasket.do", new shoppingBasketControl());
 		map.put("/basketDelete.do", new basketDeleteControl());
 		map.put("/cartCntCheck.do", new basketControl());
+		map.put("/productInsert.do", new productInsertControl());
+	
+		map.put("/userChart.do", new genderChartControl());
+		map.put("/prodChart.do", new prodGenderChartControl());
 	}
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response)

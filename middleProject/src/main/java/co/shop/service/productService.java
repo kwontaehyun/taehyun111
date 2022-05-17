@@ -1,6 +1,7 @@
 package co.shop.service;
 
 import java.util.List;
+import java.util.Map;
 
 import co.shop.dao.productDAO;
 import co.shop.vo.productVO;
@@ -21,4 +22,10 @@ public class productService {
 		return dao.menuClickEvent(category);
 	}
 	
+	public void insertProduct(productVO vo) {
+		dao.adminInsertProduct(vo);
+	}
+	public Map<String, Integer> prodGenderChart(){
+		return dao.genderChart();
+	}
 }

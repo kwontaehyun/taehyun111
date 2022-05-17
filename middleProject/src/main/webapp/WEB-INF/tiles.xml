@@ -32,7 +32,7 @@
     <put-attribute name="footer" value="/WEB-INF/view/footer.jsp" />
   </definition>
   
-  <definition name="WILDCARD:*/*" extends="user.homepage">
+  <definition name="WILDCARD:*/*" extends="guest.detailpage">
   	<put-attribute name="body" value="/{1}/{2}.jsp"/>
   </definition>
   
@@ -44,7 +44,7 @@
     <put-attribute name="footer" value="/WEB-INF/view/footer.jsp" />
   </definition>
   
-  <definition name="WILDCARD:*/*" extends="user.homepage">
+  <definition name="WILDCARD:*/*" extends="user.detailpage">
   	<put-attribute name="body" value="/{1}/{2}.jsp"/>
   </definition>
   
@@ -55,7 +55,39 @@
     <put-attribute name="footer" value="/WEB-INF/view/footer.jsp" />
   </definition>
   
-  <definition name="WILDCARD:*/*" extends="user.homepage">
+  <definition name="WILDCARD:*/*" extends="user.shoppingPage">
+  	<put-attribute name="body" value="/{1}/{2}.jsp"/>
+  </definition>
+  
+  <definition name="user.mypage" template="/WEB-INF/usermypage/layout.jsp">
+    <put-attribute name="mypageheader" value="/WEB-INF/usermypage/header.jsp" />
+    <put-attribute name="mypagemenu" value="/WEB-INF/usermypage/menu.jsp" />
+    <put-attribute name="mypagebody" value="/WEB-INF/usermypage/body.jsp" />
+  </definition>
+  
+  <definition name="WILDCARD:*/*" extends="user.mypage">
+  	<put-attribute name="body" value="/{1}/{2}.jsp"/>
+  </definition>
+  
+  <definition name="admin.homepage" template="/WEB-INF/view/layout.jsp">
+    <put-attribute name="header" value="/WEB-INF/view/header.jsp" />
+    <put-attribute name="menu" value="/WEB-INF/adminLoginview/adminpagemenu.jsp" />
+    <put-attribute name="body" value="/WEB-INF/adminLoginview/adminpagebody.jsp"/>
+    <put-attribute name="footer" value="/WEB-INF/view/footer.jsp" />
+  </definition>
+  
+  <definition name="WILDCARD:*/*" extends="admin.homepage">
+  	<put-attribute name="body" value="/{1}/{2}.jsp"/>
+  </definition>
+  
+  
+  <definition name="admin.mypage" template="/WEB-INF/usermypage/layout.jsp">
+    <put-attribute name="mypageheader" value="/WEB-INF/usermypage/header.jsp" />
+    <put-attribute name="mypagemenu" value="/WEB-INF/adminLoginview/adminmypagemenu.jsp" />
+    <put-attribute name="mypagebody" value="/WEB-INF/adminLoginview/adminmypagebody.jsp" />
+  </definition>
+  
+  <definition name="WILDCARD:*/*" extends="admin.mypage">
   	<put-attribute name="body" value="/{1}/{2}.jsp"/>
   </definition>
   

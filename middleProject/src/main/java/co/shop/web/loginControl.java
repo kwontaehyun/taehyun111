@@ -25,6 +25,10 @@ public class loginControl implements Controller {
 			HttpSession session = request.getSession();
 			session.setAttribute("email", email);
 			session.setAttribute("pw", pw);
+			
+			int role = service.selectClass(email, pw);
+			session.setAttribute("role", role);
+			
 			response.sendRedirect("index.jsp");
 		} else if (trueFalse == false) {
 			String error = "";
