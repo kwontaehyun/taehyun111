@@ -37,45 +37,44 @@ public class InsertControl implements Controller {
 
 		ShopService service = new ShopService();
 		service.insertMember(vo);
-		
+
+
+		// 아이디중복
 		boolean id = service.idcheck(email);
-		
-	
-		if(id == true) {
-			response.sendRedirect("shopView/login.jsp");
+
+		if (id == true) {
+			//비밀번호 확인
+			if (pw.equals(pwcheck)) {
+				//전화번호길이
+				if (phone.length() == 11) {
+					//주민번호길이
+					if (jumin.length() == 12) {
+						HttpSession session = request.getSession();
+						session.setAttribute("email", email);
+						session.setAttribute("pw", pw);
+						response.sendRedirect("index.jsp");
+					} else {
+						String error = "주민번호를 다시 입력해주세요.";
+						request.setAttribute("error", error);
+						request.getRequestDispatcher("shopView/insert.jsp").forward(request, response);
+					}
+				} else {
+					String error = "전화번호를 다시 입력해주세요.";
+					request.setAttribute("error", error);
+					request.getRequestDispatcher("shopView/insert.jsp").forward(request, response);
+				}
+			} else if (!pw.equals(pwcheck)) {
+				String error = "비밀번호가 일치하지 않습니다.";
+
+				request.setAttribute("error", error);
+				request.getRequestDispatcher("shopView/insert.jsp").forward(request, response);
+
+			}
 		} else if (id == false) {
 			String error = "중복된 아이디입니다.";
 			request.setAttribute("error", error);
 			request.getRequestDispatcher("shopView/insert.jsp").forward(request, response);
-			
-		}
-		
 
-		if (pw.equals(pwcheck)) {
-			response.sendRedirect("shopView/login.jsp");
-
-		} else if (!pw.equals(pwcheck)) {
-			String error = "비밀번호가 일치하지 않습니다.";
-
-			request.setAttribute("error", error);
-			request.getRequestDispatcher("shopView/insert.jsp").forward(request, response);
-
-		}
-
-		if (phone.length() == 11) {
-			response.sendRedirect("shopView/login.jsp");
-		} else {
-			String error = "전화번호를 다시 입력해주세요.";
-			request.setAttribute("error", error);
-			request.getRequestDispatcher("shopView/insert.jsp").forward(request, response);
-		}
-
-		if (jumin.length() == 13) {
-			response.sendRedirect("shopView/login.jsp");
-		} else {
-			String error = "주민번호를 다시 입력해주세요.";
-			request.setAttribute("error", error);
-			request.getRequestDispatcher("shopView/insert.jsp").forward(request, response);
 		}
 
 	}
