@@ -24,5 +24,15 @@ public class ShopService {
 		
 	}
 	
+	//회원정보 수정
+	public void update (ShopVO vo){
+		dao.update(vo);
+	}
+	
+	//탈퇴
+	public void delete(String email) {
+		dao.delete(email);
+	}
+	
 
 }
