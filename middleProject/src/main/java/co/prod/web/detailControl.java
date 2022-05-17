@@ -6,6 +6,7 @@ import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import co.shop.service.productService;
 import co.shop.service.reviewService;
@@ -28,11 +29,14 @@ public class detailControl implements Controller {
 		List<reviewVO> list = service2.detailPagelist(proDuctNum);
 		
 		int avgGrade = service2.AvgGrade(proDuctNum);
+		HttpSession session = request.getSession();
+		String email = (String) session.getAttribute("email");
 		
 		request.setAttribute("list", list);
 		request.setAttribute("vo", vo);
 		request.setAttribute("avgGrade", avgGrade);
-		request.getRequestDispatcher("/prodDetailPage.jsp").forward(request, response);
+		request.setAttribute("email", email);
+		request.getRequestDispatcher("/detailPage.jsp").forward(request, response);
 	}
 
 }
