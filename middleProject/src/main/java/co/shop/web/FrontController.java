@@ -43,6 +43,7 @@ public class FrontController extends HttpServlet {
 		map.put("/Insert.do", new InsertControl());
 		map.put("/login.do", new loginControl());
 		map.put("/logout.do", new logoutControl());
+		//map.put("/update.do", new updateControl());
 
 		map.put("/productMain.do", new productControl());
 		map.put("/detailProduct.do", new detailControl());

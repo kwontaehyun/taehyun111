@@ -16,4 +16,12 @@ public class reviewService {
 		return dao.avgGrade(productNum);
 	}
 	
+	public void reviewInsert(reviewVO review) {
+		dao.reviewInsert(review);
+	}
+	
+	public int getSeq(int reviewNum) {
+		return dao.getSeq(reviewNum);
+	}
+	
 }

@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
 <style>
 body{
 	margin : 10px auto;
@@ -27,7 +28,7 @@ body{
  <br>
  <p>성별 : <input type="radio" name="gender" value="M">남성
           <input type="radio" name="gender" value="F">여성</p><br>
- <p>주민번호 : <input type="number" name="jumin" id ="jumin"required
+ <p>주민번호 : <input type="number" name="jumin" id ="jumin" required
 style="width:250px;"
  placeholder="숫자만 입력하세요 ex)YYMMDD000000"
  ></p><br>
@@ -35,7 +36,8 @@ style="width:250px;"
  <input type="hidden" name="acces"><br>
  <p>휴대폰번호 : <input type="number"  id="phone" name="phone" style="width:250px;" required
  placeholder="숫자만 입력하세요 ex)01010041004"></p><br>
- <p><input type="submit" value="회원가입" ></p>
+ <p><input type="submit" value="회원가입" >
+<input type="button" value="홈으로" onclick="location.href='${pageContext.servletContext.contextPath }/index.jsp'"></p>
 </form>
 	
 
