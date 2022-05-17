@@ -43,15 +43,16 @@
 
 		<h3>댓글</h3>
 		<form action="${pageContext.servletContext.contextPath }/review.do" method="post">
-			<span>내용:</span> <input type=text name="content"><br> 
-			<span>평점:</span> <select
-				name="평점">
-				<option value="five">5
+			<p>내용</p><textarea rows="6" cols="50" name="content"></textarea><br> 
+			<span>평점:</span> 
+			<select name="grade">
+				<option value="five"><span>5</span>
 				<option value="four">4
 				<option value="three">3
 				<option value="two">2
 				<option value="one">1
 			</select><br> 
+			<!--  <p><input type='hidden' name='prodNum' value='${review.productnum }'></p>-->
 			<input type="file" name="profile"><br> 
 			<input type="submit" value="작성하기">
 		</form>

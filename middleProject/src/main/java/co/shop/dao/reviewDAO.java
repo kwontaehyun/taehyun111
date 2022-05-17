@@ -57,21 +57,45 @@ public class reviewDAO extends DAO {
 
 	// 댓글 생성
 	public void reviewInsert(reviewVO review) {
+//		conn();
+//		String sql1 = "select * from review where  PRODUCTNUM= ?";
+//		try {
+//			psmt = conn.prepareStatement(sql1);
+//			psmt.setInt(1, review.getProDuctNum());
+//			rs = psmt.executeQuery();
+//			while (rs.next()) {
+//				String sql2 = "insert into review values(review_num_seq.nextval,?,?,?,?,?)";
+//				psmt = conn.prepareStatement(sql2);
+//				psmt.setString(1, review.getRImg());
+//				psmt.setString(2, review.getContent());
+//				psmt.setInt(3, review.getProDuctNum());
+//				psmt.setString(4, review.getEmail());
+//				psmt.setInt(5, review.getGrade());
+//				int r = psmt.executeUpdate();
+//				System.out.println(r + "건 입력");
+//			}
+//
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		} finally {
+//			disconn();
+//		}
 		conn();
 		String sql1 = "select * from review where  PRODUCTNUM= ?";
 		try {
 			psmt = conn.prepareStatement(sql1);
 			psmt.setInt(1, review.getProDuctNum());
 			rs = psmt.executeQuery();
-			if (rs.next()) {
-				String sql2 = "insert into review values(review_num_seq.nextval,?,?,?,?,0)";
+			while (rs.next()) {
+				String sql2 = "insert into review values(review_num_seq.nextval,?,?,?,?,?)";
 				psmt = conn.prepareStatement(sql2);
 				psmt.setString(1, review.getRImg());
 				psmt.setString(2, review.getContent());
 				psmt.setInt(3, review.getProDuctNum());
 				psmt.setString(4, review.getEmail());
+				psmt.setInt(5, review.getGrade());
 				int r = psmt.executeUpdate();
-				System.out.println(r+"건 입력");
+				System.out.println(r + "건 입력");
 			}
 
 		} catch (SQLException e) {
@@ -79,6 +103,25 @@ public class reviewDAO extends DAO {
 		} finally {
 			disconn();
 		}
+	}
+
+	public int getSeq(int reviewNum) {
+		conn();
+		reviewNum=1;
+		String sql = "select review_num_seq.nextval from dual";
+		try {
+			psmt = conn.prepareStatement(sql.toString());
+			rs = psmt.executeQuery();
+
+			if (rs.next()) {
+				reviewNum = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disconn();
+		}
+		return reviewNum;
 
 	}
 

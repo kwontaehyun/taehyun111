@@ -11,7 +11,7 @@
 <body>
 <h3>회원가입</h3>
 
-<c:if> test = "${!empty error}"><script>alert(`${error}`)</script></c:if>
+<c:if test = "${!empty error}"><script>alert(`${error}`)</script></c:if>
 <form id ="join" name="join" action="${pageContext.servletContext.contextPath }/Insert.do" method ="post">
  <p>아이디(이메일) : <input type="email" name="email" required></p><br>
  <p>비밀번호 : <input type="password" name="pw" id="pw" required></p><br>
