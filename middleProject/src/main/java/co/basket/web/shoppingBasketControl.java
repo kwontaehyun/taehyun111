@@ -36,7 +36,7 @@ public class shoppingBasketControl implements Controller{
 				}
 				request.setAttribute("moneySum", moneySum);
 				request.setAttribute("list", list);
-				request.getRequestDispatcher("shoppingBasket.jsp").forward(request, response);
+				request.getRequestDispatcher("shoppingpage.jsp").forward(request, response);
 			}else {
 				basketVO vo = service.productList(proDuctNum);
 				vo.setEmail(email);
