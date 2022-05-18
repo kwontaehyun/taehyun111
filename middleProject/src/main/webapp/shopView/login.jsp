@@ -16,12 +16,7 @@ body{
 <body>
 	<c:if test = "${!empty error}">
 	<script>
-	window.onload = function() {
-	    if(!window.location.hash) {
-	        window.location = window.location + '#loaded';
-	        window.location.reload();
-	    }
-	}
+	
 	alert(`${error}`)
 	</script></c:if>
 	<a href="http://localhost/middleProject/">yedam shop</a>
