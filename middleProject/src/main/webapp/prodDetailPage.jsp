@@ -9,9 +9,6 @@
 </head>
 <body>
 
-	<%
-	int role = (Integer) session.getAttribute("role");
-	%>
 
 	<h4>상품목록페이지입니다.</h4>
 	
@@ -58,18 +55,19 @@
 		<h3>댓글</h3>
 		<form action="${pageContext.servletContext.contextPath }/review.do"
 			method="post">
+			<p><input type='hidden' name='prodNum' value='${list.reviewNum }'></p>
 			<p>내용</p>
 			<textarea rows="6" cols="50" name="content"></textarea>
+			<p>1111111111</p>
 			<br> <span>평점:</span> <select name="grade">
-				<option value="five">5
-				<option value="four">4
-				<option value="three">3
-				<option value="two">2
-				<option value="one">1
+				<option value="5">5
+				<option value="4">4
+				<option value="3">3
+				<option value="2">2
+				<option value="1">1
 			</select><br>
-			<!--  <p><input type='hidden' name='prodNum' value='${review.productnum }'></p>-->
-			<input type="file" name="profile"><br> <input
-				type="submit" value="작성하기">
+			<input type="file" name="profile"><br> 
+			<input type="submit" value="작성하기">
 		</form>
 
 

@@ -8,6 +8,10 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%
+String email = (String) session.getAttribute("email");
+%>
+
 <c:choose>
 		<c:when test="${!empty email}"><jsp:forward
 				page="user.detailpage.tiles"></jsp:forward></c:when>
