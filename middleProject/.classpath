@@ -24,37 +24,65 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="C:/Users/admin/git/taehyun111/P20220503/src/main/webapp/WEB-INF/lib/cos.jar">
+=======
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/cos.jar">
+>>>>>>> branch 'master' of https://github.com/kwontaehyun/taehyun111
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="C:/Users/admin/git/taehyun111/P20220503/src/main/webapp/WEB-INF/lib/gson-2.9.0.jar">
+=======
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/gson-2.9.0.jar">
+>>>>>>> branch 'master' of https://github.com/kwontaehyun/taehyun111
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="C:/Users/admin/git/taehyun111/P20220503/src/main/webapp/WEB-INF/lib/ojdbc6_g.jar">
+=======
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/ojdbc6_g.jar">
+>>>>>>> branch 'master' of https://github.com/kwontaehyun/taehyun111
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="C:/Users/admin/git/taehyun111/P20220503/src/main/webapp/WEB-INF/lib/taglibs-standard-compat-1.2.5.jar">
+=======
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/taglibs-standard-compat-1.2.5.jar">
+>>>>>>> branch 'master' of https://github.com/kwontaehyun/taehyun111
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="C:/Users/admin/git/taehyun111/P20220503/src/main/webapp/WEB-INF/lib/taglibs-standard-impl-1.2.5.jar">
+=======
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/taglibs-standard-impl-1.2.5.jar">
+>>>>>>> branch 'master' of https://github.com/kwontaehyun/taehyun111
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="C:/Users/admin/git/taehyun111/P20220503/src/main/webapp/WEB-INF/lib/taglibs-standard-jstlel-1.2.5.jar">
+=======
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/taglibs-standard-jstlel-1.2.5.jar">
+>>>>>>> branch 'master' of https://github.com/kwontaehyun/taehyun111
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="C:/Users/admin/git/taehyun111/P20220503/src/main/webapp/WEB-INF/lib/taglibs-standard-spec-1.2.5.jar">
+=======
+	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/taglibs-standard-spec-1.2.5.jar">
+>>>>>>> branch 'master' of https://github.com/kwontaehyun/taehyun111
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>

@@ -57,31 +57,8 @@ public class reviewDAO extends DAO {
 
 	// 댓글 생성
 	public void reviewInsert(reviewVO review) {
-//		conn();
-//		String sql1 = "select * from review where  PRODUCTNUM= ?";
-//		try {
-//			psmt = conn.prepareStatement(sql1);
-//			psmt.setInt(1, review.getProDuctNum());
-//			rs = psmt.executeQuery();
-//			while (rs.next()) {
-//				String sql2 = "insert into review values(review_num_seq.nextval,?,?,?,?,?)";
-//				psmt = conn.prepareStatement(sql2);
-//				psmt.setString(1, review.getRImg());
-//				psmt.setString(2, review.getContent());
-//				psmt.setInt(3, review.getProDuctNum());
-//				psmt.setString(4, review.getEmail());
-//				psmt.setInt(5, review.getGrade());
-//				int r = psmt.executeUpdate();
-//				System.out.println(r + "건 입력");
-//			}
-//
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		} finally {
-//			disconn();
-//		}
 		conn();
-		String sql1 = "select * from review where  PRODUCTNUM= ?";
+		String sql1 = "select * from product where  PRODUCTNUM= ?";
 		try {
 			psmt = conn.prepareStatement(sql1);
 			psmt.setInt(1, review.getProDuctNum());
@@ -105,23 +82,20 @@ public class reviewDAO extends DAO {
 		}
 	}
 
-	public int getSeq(int reviewNum) {
+	// 댓글삭제
+	public void reviewDelete(String email) {
 		conn();
-		reviewNum=1;
-		String sql = "select review_num_seq.nextval from dual";
+		String sql = "delete from review where email=?";
 		try {
-			psmt = conn.prepareStatement(sql.toString());
-			rs = psmt.executeQuery();
-
-			if (rs.next()) {
-				reviewNum = rs.getInt(1);
-			}
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, email);
+			int r = psmt.executeUpdate();
+			System.out.println(r+" 건 삭제 ");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			disconn();
 		}
-		return reviewNum;
 
 	}
 

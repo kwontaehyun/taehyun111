@@ -20,8 +20,7 @@ public class reviewService {
 		dao.reviewInsert(review);
 	}
 	
-	public int getSeq(int reviewNum) {
-		return dao.getSeq(reviewNum);
+	public void reviewDelete(String email) {
+		dao.reviewDelete(email);
 	}
-	
 }
