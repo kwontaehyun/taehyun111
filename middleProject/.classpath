@@ -13,45 +13,45 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/delet/git/taehyun111/P20220503/src/main/webapp/WEB-INF/lib/cos.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/delet/git/taehyun111/P20220503/src/main/webapp/WEB-INF/lib/gson-2.9.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/delet/git/taehyun111/P20220503/src/main/webapp/WEB-INF/lib/ojdbc6_g.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/delet/git/taehyun111/P20220503/src/main/webapp/WEB-INF/lib/taglibs-standard-compat-1.2.5.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/delet/git/taehyun111/P20220503/src/main/webapp/WEB-INF/lib/taglibs-standard-impl-1.2.5.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/delet/git/taehyun111/P20220503/src/main/webapp/WEB-INF/lib/taglibs-standard-jstlel-1.2.5.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/delet/git/taehyun111/P20220503/src/main/webapp/WEB-INF/lib/taglibs-standard-spec-1.2.5.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-11">
 		<attributes>
 			<attribute name="module" value="true"/>
 			<attribute name="maven.pomderived" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/admin/git/gahee/P20220503/src/main/webapp/WEB-INF/lib/cos.jar">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/admin/git/gahee/P20220503/src/main/webapp/WEB-INF/lib/gson-2.9.0.jar">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/admin/git/gahee/P20220503/src/main/webapp/WEB-INF/lib/ojdbc6_g.jar">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/admin/git/gahee/P20220503/src/main/webapp/WEB-INF/lib/taglibs-standard-compat-1.2.5.jar">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/admin/git/gahee/P20220503/src/main/webapp/WEB-INF/lib/taglibs-standard-impl-1.2.5.jar">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/admin/git/gahee/P20220503/src/main/webapp/WEB-INF/lib/taglibs-standard-jstlel-1.2.5.jar">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/admin/git/gahee/P20220503/src/main/webapp/WEB-INF/lib/taglibs-standard-spec-1.2.5.jar">
-		<attributes>
-			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v9.0">
@@ -59,72 +59,6 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-	<classpathentry kind="lib" path="C:/Users/admin/git/taehyun111/P20220503/src/main/webapp/WEB-INF/lib/cos.jar">
-=======
-	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/cos.jar">
->>>>>>> branch 'master' of https://github.com/kwontaehyun/taehyun111
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
-<<<<<<< HEAD
-	<classpathentry kind="lib" path="C:/Users/admin/git/taehyun111/P20220503/src/main/webapp/WEB-INF/lib/gson-2.9.0.jar">
-=======
-	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/gson-2.9.0.jar">
->>>>>>> branch 'master' of https://github.com/kwontaehyun/taehyun111
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
-<<<<<<< HEAD
-	<classpathentry kind="lib" path="C:/Users/admin/git/taehyun111/P20220503/src/main/webapp/WEB-INF/lib/ojdbc6_g.jar">
-=======
-	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/ojdbc6_g.jar">
->>>>>>> branch 'master' of https://github.com/kwontaehyun/taehyun111
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
-<<<<<<< HEAD
-	<classpathentry kind="lib" path="C:/Users/admin/git/taehyun111/P20220503/src/main/webapp/WEB-INF/lib/taglibs-standard-compat-1.2.5.jar">
-=======
-	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/taglibs-standard-compat-1.2.5.jar">
->>>>>>> branch 'master' of https://github.com/kwontaehyun/taehyun111
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
-<<<<<<< HEAD
-	<classpathentry kind="lib" path="C:/Users/admin/git/taehyun111/P20220503/src/main/webapp/WEB-INF/lib/taglibs-standard-impl-1.2.5.jar">
-=======
-	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/taglibs-standard-impl-1.2.5.jar">
->>>>>>> branch 'master' of https://github.com/kwontaehyun/taehyun111
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
-<<<<<<< HEAD
-	<classpathentry kind="lib" path="C:/Users/admin/git/taehyun111/P20220503/src/main/webapp/WEB-INF/lib/taglibs-standard-jstlel-1.2.5.jar">
-=======
-	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/taglibs-standard-jstlel-1.2.5.jar">
->>>>>>> branch 'master' of https://github.com/kwontaehyun/taehyun111
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
-<<<<<<< HEAD
-	<classpathentry kind="lib" path="C:/Users/admin/git/taehyun111/P20220503/src/main/webapp/WEB-INF/lib/taglibs-standard-spec-1.2.5.jar">
-=======
-	<classpathentry kind="lib" path="C:/Dev/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/middleProject/WEB-INF/lib/taglibs-standard-spec-1.2.5.jar">
->>>>>>> branch 'master' of https://github.com/kwontaehyun/taehyun111
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
->>>>>>> branch 'master' of https://github.com/kwontaehyun/taehyun111.git
 	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
