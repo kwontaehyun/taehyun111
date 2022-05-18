@@ -111,4 +111,14 @@
   	<put-attribute name="body" value="/{1}/{2}.jsp"/>
   </definition>
   
+  <definition name="map.page" template="/WEB-INF/usermypage/layout.jsp">
+    <put-attribute name="mypageheader" value="/WEB-INF/usermypage/header.jsp" />
+    <put-attribute name="mypagemenu" value="/WEB-INF/adminLoginview/adminmypagemenu.jsp" />
+    <put-attribute name="mypagebody" value="/WEB-INF/adminmypage/usermypage/yedamMap.jsp" />
+  </definition>
+  
+  <definition name="WILDCARD:*/*" extends="map.page">
+  	<put-attribute name="body" value="/{1}/{2}.jsp"/>
+  </definition>
+  
 </tiles-definitions>

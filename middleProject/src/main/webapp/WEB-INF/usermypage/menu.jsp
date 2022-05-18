@@ -42,6 +42,7 @@
 							<a class="nav-link" href="${pageContext.request.contextPath }/list.do">회원정보보기</a>
 							<a class="nav-link" href="${pageContext.request.contextPath }/update.do">회원정보수정</a> 
 							<a class="nav-link" href="layout-sidenav-light.html">회원탈퇴</a>
+							<a class="nav-link" href="${pageContext.request.contextPath }/findMap.jsp">찾아오시는길</a>
 						</nav>
 					</div>
 

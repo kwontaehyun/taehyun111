@@ -13,10 +13,11 @@ public class logoutControl implements Controller{
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		String email = (String) session.getAttribute("email");
-		String pw = (String) session.getAttribute("pw");
+		int role = (Integer) session.getAttribute("role");
 		session.removeAttribute("email");
-		session.removeAttribute("pw");
 		session.removeAttribute("role");
+		String kakaoLogout = "카카오로그아웃";
+		request.setAttribute("kakaoLogout", kakaoLogout);
 		response.sendRedirect("index.jsp");
 	}
 

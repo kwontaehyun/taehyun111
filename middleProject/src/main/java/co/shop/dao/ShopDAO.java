@@ -13,7 +13,7 @@ public class ShopDAO extends DAO {
 	// 회원가입
 	public void insertMember(ShopVO members) {
 		conn();
-		String sql = "insert into membership(email, pw, gender, idcardnumber, address, class, tel)\r\n"
+		String sql = "insert into membership(email, pw, gender, idcardnumber, address, class, tel, loginway)\r\n"
 				+ "values (?, ?, ?, ?, ? ,0, ?, 'site')";
 		try {
 			psmt = conn.prepareStatement(sql);
@@ -32,6 +32,27 @@ public class ShopDAO extends DAO {
 			disconn();
 		}
 	}
+	
+	public void kakoInsertMember(ShopVO members) {
+		conn();
+		String sql = "insert into membership(email,gender, idcardnumber, class, loginway)\r\n"
+				+ "values (?, ?, ?, 0, 'kakao')";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, members.getEmail());
+			psmt.setString(2, members.getGender());
+			psmt.setString(3, members.getJumin());
+
+			int r = psmt.executeUpdate();
+			System.out.println(r + "건 등록");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disconn();
+		}
+	}
+	
+	
 
 	// 아이디 중복체크
 	public boolean idcheck(String email) {

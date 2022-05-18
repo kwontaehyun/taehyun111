@@ -24,7 +24,6 @@ public class loginControl implements Controller {
 		if (trueFalse == true) {
 			HttpSession session = request.getSession();
 			session.setAttribute("email", email);
-			session.setAttribute("pw", pw);
 			
 			int role = service.selectClass(email, pw);
 			session.setAttribute("role", role);

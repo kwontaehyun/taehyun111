@@ -34,7 +34,33 @@
 				</ul>
 				
 				<a class="navbar-brand" id = "mypage" href = "mypage.jsp">마이페이지</a>
-				<a class="navbar-brand" id = "logout" href = "logout.do">로그아웃</a>
+				<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+				<a class="navbar-brand" id = "logout" href="javascript:kakaoLogout();">로그아웃</a>
+				<form id="form-kakao-logout" method="post" action="/middleProject/logout.do">
+				</form>
+				<script>
+				window.Kakao.init("046c047958de0cd3b816a19cdd02fa4b")
+					function kakaoLogout() {
+			            if (!Kakao.Auth.getAccessToken()) {
+			                alert('Not logged in.');
+			                return;
+			            }
+			            Kakao.Auth.logout(function() {
+			                alert('logout ok\naccess token -> ' + Kakao.Auth.getAccessToken());
+			                document.querySelector('#form-kakao-logout').submit();
+			            });
+			            Kakao.API.request({
+			            	  url: '/v1/user/unlink',
+			            	  success: function(response) {
+			            	    console.log(response);
+			            	  },
+			            	  fail: function(error) {
+			            	    console.log(error);
+			            	  },
+			            	});
+			        }
+				</script>
+				
 				
 				<form class="d-flex">
 					<a class="btn btn-outline-dark" href= "http://localhost/middleProject/shoppingBasket.do">

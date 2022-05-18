@@ -20,6 +20,11 @@ public class ShopService {
 	public void insertMember(ShopVO members) {
 		dao.insertMember(members);
 	}
+	
+	public void kakaoInsertMember(ShopVO members) {
+		dao.kakoInsertMember(members);
+	}
+	
 
 	//아이디중복
 	public boolean idcheck(String email) {

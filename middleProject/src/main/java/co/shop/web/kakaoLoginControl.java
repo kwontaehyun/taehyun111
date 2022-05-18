@@ -1,60 +1,44 @@
 package co.shop.web;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.net.URL;
 
-import javax.net.ssl.HttpsURLConnection;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import co.shop.service.ShopService;
+import co.shop.vo.ShopVO;
 
 public class kakaoLoginControl implements Controller {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		// 'account_email, gender , birthday',
-
-		String code = request.getParameter("code");
-		System.out.println(code);
-
-		// System.out.println("code :"+code);
-		// Post요청, x-www-form-urlencoded
-
-		String endpoint = "https://kauth.kakao.com/oauth/token";
-		URL url = new URL(endpoint);
-
-		String bodyData = "grant_type=authorization_code&";
-		bodyData += "client_id=046c047958de0cd3b816a19cdd02fa4b&";
-		bodyData += "http://localhost/middleProject/kakaologin.do&";
-		bodyData += "code=" + code + "HTTP/1.1";
-
-		// Stream 연결
-		HttpsURLConnection conn = (HttpsURLConnection) url.openConnection();
-		// http header 값 넣기
-		conn.setRequestMethod("POST");
-		conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
-		conn.setDoOutput(true);
-		// request 하기
-		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(conn.getOutputStream(), "UTF-8"));
-		bw.write(bodyData);
-		bw.flush();
-
-		//BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
-		String input = "";
-		StringBuilder sb = new StringBuilder();
+		String email = request.getParameter("email");
+		String birthday = request.getParameter("birthday");
+		String gender = request.getParameter("gender");
 		
-		System.out.println(sb.toString());
-		// Gson으로 파싱
-		Gson gson = new GsonBuilder().create();
-		response.getWriter().print(gson.toJson(sb.toString()));
-
+		ShopVO members = new ShopVO();
+		ShopService service = new ShopService();
+		
+		
+		HttpSession session = request.getSession();
+		session.setAttribute("email", email);
+		int role = 0;
+		session.setAttribute("role", role);
+		
+		boolean TrueFalse = service.idcheck(email);
+		if(TrueFalse == true) {
+			
+		}else {
+			members.setEmail(email);
+			members.setGender(gender.substring(0,1).toUpperCase());
+			members.setJumin(birthday);
+			service.kakaoInsertMember(members);
+		}
+		response.sendRedirect("index.jsp");
+		
+		
 	}
 }
