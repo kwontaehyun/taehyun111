@@ -43,9 +43,15 @@ public class FrontController extends HttpServlet {
 		map.put("/Insert.do", new InsertControl());
 		map.put("/login.do", new loginControl());
 		map.put("/logout.do", new logoutControl());
+<<<<<<< HEAD
 		map.put("/update.do", new updateControl());
 		map.put("/list.do", new listControl());
 		map.put("/delete.do", new deleteControl());
+=======
+		map.put("/kakaologin.do", new kakaoLoginControl());
+		
+		//map.put("/update.do", new updateControl());
+>>>>>>> branch 'master' of https://github.com/kwontaehyun/taehyun111.git
 
 		map.put("/productMain.do", new productControl());
 		map.put("/detailProduct.do", new detailControl());

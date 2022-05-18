@@ -14,7 +14,7 @@ public class ShopDAO extends DAO {
 	public void insertMember(ShopVO members) {
 		conn();
 		String sql = "insert into membership(email, pw, gender, idcardnumber, address, class, tel)\r\n"
-				+ "values (?, ?, ?, ?, ? ,0, ?)";
+				+ "values (?, ?, ?, ?, ? ,0, ?, 'site')";
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, members.getEmail());
