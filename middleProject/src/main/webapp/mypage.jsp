@@ -16,7 +16,6 @@ int role = (Integer) session.getAttribute("role");
 		<c:otherwise>
 			<jsp:forward page="user.mypage.tiles"></jsp:forward>
 		</c:otherwise>
-		
 	</c:choose>
 </body>
 </html>

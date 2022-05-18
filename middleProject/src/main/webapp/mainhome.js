@@ -62,8 +62,8 @@ function pageing(result){
 			}
 		})
 
-		let btnAry = document.querySelectorAll('div > button');
-
+		let btnAry = document.querySelectorAll('div > button'); 
+	
 		result.forEach((val, idx) => {
 			btnAry.forEach((btn, btnIdx) => {
 				btn.addEventListener('click', function() {
