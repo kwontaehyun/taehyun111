@@ -1,7 +1,9 @@
 package co.shop.dao;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import co.shop.vo.ShopVO;
@@ -30,6 +32,7 @@ public class ShopDAO extends DAO {
 			disconn();
 		}
 	}
+
 	// 아이디 중복체크
 	public boolean idcheck(String email) {
 		conn();
@@ -93,12 +96,68 @@ public class ShopDAO extends DAO {
 		}
 	}
 
+	// 한 건 조회
+	public ShopVO search(String email) {
+		conn();
+		String sql = "select * from membership where email=?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, email);
+			rs = psmt.executeQuery();
+			if (rs.next()) {
+				ShopVO vo = new ShopVO();
+				vo.setEmail(rs.getString("email"));
+				vo.setPw(rs.getString("pw"));
+				vo.setGender(rs.getString("gender"));
+				vo.setJumin(rs.getString("idcardnumber"));
+				vo.setAddress(rs.getString("address"));
+				vo.setPhone(rs.getString("tel"));
+				return vo;
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disconn();
+		}
+		return null;
+	}
+
+	// 리스트
+	public List<ShopVO> listShop() {
+		conn();
+		List<ShopVO> list = new ArrayList<ShopVO>();
+		String sql = "select * from membership";
+
+		try {
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			while (rs.next()) {
+				ShopVO vo = new ShopVO();
+				vo.setEmail(rs.getString("email"));
+				vo.setPw(rs.getString("pw"));
+				vo.setGender(rs.getString("gender"));
+				vo.setJumin(rs.getString("idcardnumber"));
+				vo.setAddress(rs.getString("address"));
+				vo.setPhone(rs.getString("tel"));
+				list.add(vo);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disconn();
+		}
+		return list;
+
+	}
+
 	// 탈퇴
 	public void delete(String email) {
 		conn();
 		String sql = "delete from membership where email=?";
 		try {
-			psmt=conn.prepareStatement(sql);
+			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, email);
 			int r = psmt.executeUpdate();
 			System.out.println(r + "건 삭제");
@@ -107,6 +166,6 @@ public class ShopDAO extends DAO {
 		} finally {
 			disconn();
 		}
-		
+
 	}
 }

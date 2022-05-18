@@ -15,7 +15,6 @@ public class InsertControl implements Controller {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		System.out.println("회원가입");
 
 		String email = request.getParameter("email");
 		String pw = request.getParameter("pw");
@@ -48,7 +47,7 @@ public class InsertControl implements Controller {
 				//전화번호길이
 				if (phone.length() == 11) {
 					//주민번호길이
-					if (jumin.length() == 12) {
+					if (jumin.length() == 13) {
 						HttpSession session = request.getSession();
 						session.setAttribute("email", email);
 						session.setAttribute("pw", pw);

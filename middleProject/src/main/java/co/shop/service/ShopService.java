@@ -1,5 +1,6 @@
 package co.shop.service;
 
+import java.util.List;
 import java.util.Map;
 
 import co.shop.dao.ShopDAO;
@@ -25,6 +26,7 @@ public class ShopService {
 		return dao.idcheck(email);
 		
 	}
+	
 	public Map<String, Integer> userGenderChart(){
 		return dao.genderChart();
 	}
@@ -39,5 +41,14 @@ public class ShopService {
 		dao.delete(email);
 	}
 	
+	//회원리스트
+	public List<ShopVO> listShop() {
+		return dao.listShop();
+		
+	}
 
+	//회원정보조회
+	public ShopVO search(String email) {
+		return dao.search(email);
+	}
 }
