@@ -11,7 +11,9 @@
 
 
 	<h4>상품목록페이지입니다.</h4>
-	
+	<form action = "">
+	<input type ="submit" value = "수정하기">
+	</form>
 <!-- 	<c:if test="${role == 1}">
 
 			<form action="/productUpdate.do">

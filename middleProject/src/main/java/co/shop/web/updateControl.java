@@ -40,6 +40,7 @@ public class updateControl implements Controller {
 		service.update(vo);
 		
 		
+		
 		request.setAttribute("email", email);
 		
 		request.getRequestDispatcher("shopView/update.jsp").forward(request, response);

@@ -1,11 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>상품수정</title>
     <style>
    @charset "utf-8";
 * {margin:0;padding:0;}
@@ -118,10 +117,13 @@ ul{list-style:none; }
 <div class="wrap wd668">
       <div class="container">
         <div class="form_txtInput">
-          <h2 class="sub_tit_txt">📒회원가입📒</h2>
+          ${error }
+          <h2 class="sub_tit_txt">📦상품수정📦</h2>
            
-           <c:if test = "${!empty error}"><script>alert(`${error}`)</script></c:if>
-           <form id ="join" name="join" action="${pageContext.servletContext.contextPath }/Insert.do" method="post">
+           <c:choose>
+    <c:when test="${!empty vo }"><h3>${vo }</h3></c:when>
+    <c:otherwise>
+           <form action="${pageContext.servletContext.contextPath }/modify.do" method="post" enctype="multipart/form-data">
    
           <div class="join_form">
             <table>
@@ -131,43 +133,48 @@ ul{list-style:none; }
               </colgroup>
               <tbody>
                 <tr>
-                  <th><p><span>👉아이디</span></p></th>
-                  <td><input type="email" name="email" required placeholder = "ID를 입력하세요.(email@email.com)."></td>
+                  <th><span>📦상품번호</span></p></th>
+                  <td><p><input type="number" name="num" value="${vo.productnum }" placeholder = "수정할 상품번호를 입력하세요."></td>
                 </tr>
                 <tr>
-                  <th><p><span>🔒비밀번호</span></p></th>
-                  <td><input type="password" name="pw" id="pw" required placeholder = "비밀번호를 입력하세요."></td>
+                  <th><p><span>✍상품이름</span></p></th>
+                  <td><input type="text" name="name" value="${vo.productname }" placeholder = "수정할 상품이름을 입력하세요."></td>
                 </tr>
                 <tr>
-                  <th><p><span>🔐비밀번호 확인</span></p></th>
-                  <td><input type="password" name="pwcheck" id="pwcheck" required placeholder = "비밀번호를 한번 더 입력하세요."></td>
+                  <th><p><span>💵상품가격</span></p></th>
+                  <td><input type="number" name="price" value="${vo.productprice }" placeholder = "수정할 상품가격을 입력하세요."></td>
+                </tr>
+                <tr>
+                  <th><p><span>👓카테고리</span></p></th>
+                  <td><input type="text" name="category" value="${vo.category }" placeholder = "수정할 카테고리를 입력하세요."></td>
+                </tr>
+                <tr>
+                  <th><p><span>📃상품설명</span></p></th>
+                  <td><input type="text" name="comment" value="${vo.comment }" placeholder = "수정할 상품설명을 입력하세요."></td>
+                </tr>
+                <tr>
+                  <th><p><span>🔮세일</span></p></th>
+                  <td><input type="number" name="sale" value="${vo.sale }" placeholder = "수정할 할인을 입력하세요."></td>
                 </tr>
                 <tr>
                   <th><p><span>👫성별</span></p></th>
-                  <td><input type="radio" name="gender"value="M">남성<br>
-               <input type="radio" name="gender" value="F">여성</td>
+                  <td><input type="text" name="gender" value="${vo.gender }" placeholder = "수정할 성별을 입력하세요.(MF, M, F)"></td>
                 </tr>
                 <tr>
-                  <th><p><span>📆생년월일</span></p></th>
-                  <td><input type="date" name="jumin" id="jumin"> 
+                  <th><p><span>👉아이디</span></p></th>
+                  <td><input type="email" name="id" value="${vo.email }" placeholder = "ID를 입력하세요(email@email.com)"></td>
                 </tr>
-                
-     <tr>
-                  <th><p><span>📪주소</span></p></th>
-                  <td><input type="text" name="address"  required placeholder = "주소를 입력하세요."></td>
-               <input type="hidden" name="acces"></td>
+                 <tr>
+                <th><p><span>💷사진</span></p></th>
+                 <td><input type="file" name="img" value="${vo.pimg }" placeholder = "할인을 입력하세요."></td>
                 </tr>
-      
-      <tr>
-                  <th><p><span>📞연락처</span></p></th>
-                  <td><input type="number" name="phone" id="phone" required placeholder = "전화번호를 입력하세요. ex)01012345678"></td>
-                </tr>
-                <tr>
-                  <th><td><input type="submit" value="✔회원가입">
-          <input type="hidden" name="loginway">
+                <tr>s
+                  <th><td><input type="submit" value="✔등록">
                   </td></th>
                 </tr>
                 </form>
+                 </c:otherwise>
+  </c:choose>
               </tbody>
             </table>
           <div class="btn_wrap">
