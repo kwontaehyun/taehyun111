@@ -7,6 +7,10 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
+<<<<<<< HEAD
+
+</style>
+=======
 #area {
 	float: left;
 }
@@ -47,6 +51,7 @@
 }
 </style>
 
+>>>>>>> branch 'master' of https://github.com/kwontaehyun/taehyun111.git
 </head>
 <body>
 	<%
@@ -85,6 +90,38 @@
 			★
 		</c:forEach>
 		</h4>
+<<<<<<< HEAD
+		<form action="${pageContext.servletContext.contextPath }/delReview.do" method="post" enctype="multipart/form-data">
+		
+		<input type='hidden' name='proDucNum' value='${vo.proDuctNum }' >
+		
+		<table border="1">
+			<tr>
+				<th>삭제선택 </th>
+				<th>수정선택</th>
+				<th>작성자 </th>
+				<th>댓글  </th>
+				<th>평점  </th>
+				<th>이미지 </th>
+			</tr>
+			
+			<c:forEach items="${list}" var="list">
+			<tr>
+			<td><a href="http://localhost/middleProject/delReview.do?proDuctNum=${vo.proDuctNum }&reNum=${list.reviewNum}" >삭제</a>
+			</td>
+			<td><a href="review/find.jsp" >조회</a>
+			</td>
+			<td> ${list.email}</td>
+			<td>${list.content}<input type="hidden" name='content' value='${list.content}'></td>
+			<td>${list.grade}<input type="hidden" name='grade' value='${list.grade}'></td>
+			<td><c:if test="${!empty list.RImg}">
+			<img src="${pageContext.servletContext.contextPath }/reviewUpload/${list.RImg }" name="img">
+			</c:if>
+			</td>
+			</tr>
+			</c:forEach>
+			
+=======
 		<form action="${pageContext.servletContext.contextPath }/delReview.do"
 			method="post" enctype="multipart/form-data">
 
@@ -118,6 +155,7 @@
 					</tr>
 				</c:forEach>
 
+>>>>>>> branch 'master' of https://github.com/kwontaehyun/taehyun111.git
 			</table>
 		</form>
 
@@ -147,6 +185,10 @@
 
 		</form>
 	</c:if>
+<<<<<<< HEAD
+	
+	
+=======
 
 	<script type="text/javascript">
 	document.addEventListener('DomContentLoaded',function(){
@@ -198,5 +240,6 @@
 	
 	</script>
 
+>>>>>>> branch 'master' of https://github.com/kwontaehyun/taehyun111.git
 </body>
 </html>

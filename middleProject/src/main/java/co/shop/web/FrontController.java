@@ -25,6 +25,7 @@ import co.prod.web.productModifyControl;
 import co.review.web.delReviewControl;
 import co.review.web.modiReviewControl;
 import co.review.web.reviewControl;
+import co.review.web.selReviewControl;
 
 @WebServlet("/FrontController")
 public class FrontController extends HttpServlet {
@@ -75,6 +76,7 @@ public class FrontController extends HttpServlet {
 		map.put("/review.do", new reviewControl());
 		map.put("/delReview.do", new delReviewControl());
 		map.put("/moReview.do",new modiReviewControl());
+		map.put("/select.do",new selReviewControl());
 	}
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response)
