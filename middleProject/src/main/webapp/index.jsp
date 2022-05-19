@@ -13,14 +13,12 @@ String email = (String) session.getAttribute("email");
 int role = (Integer) session.getAttribute("role");
 %>
 
-	
 	<c:choose>
 		<c:when test="${!empty email && role == 0}"><jsp:forward page="user.homepage.tiles"></jsp:forward></c:when>
 		<c:when test = "${!empty email && role == 1}"><jsp:forward page="admin.homepage.tiles"></jsp:forward></c:when>
 		<c:when test = "${email == null}">
 		<jsp:forward page="myapp.homepage.tiles"></jsp:forward>
 		</c:when>
-		
 	</c:choose>
 
 </body>

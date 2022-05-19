@@ -143,6 +143,50 @@ public class productDAO extends DAO {
 			disconn();
 		}
 	}
+	
+	public boolean modifyMember(productVO vo) {
+		conn();
+		String sql = "update product set productname=?, productprice=?, category=?, comment=?, sale=?, pimg=?, gender=?, email=? where productnum=?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, vo.getProDuctNum());
+			psmt.setString(2, vo.getProDuctName());
+			psmt.setInt(3, vo.getProDuctPrice());
+			psmt.setString(4, vo.getCateGory());
+			psmt.setString(5, vo.getComment());
+			psmt.setInt(6, vo.getSale());
+			psmt.setString(7, vo.getpImg());
+			psmt.setString(8, vo.getGender());
+			psmt.setString(9, vo.getEmail());
+			
+			int r = psmt.executeUpdate();			
+			System.out.println(r + "건 변경.");
+			if(r>0) {
+				return true;
+			}
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disconn();
+		}
+		return false;
+	}
+
+	public void deleteMember(String eMail) {
+		conn();
+		String sql = "delete from product where email=?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, eMail);
+			psmt.executeUpdate();
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disconn();
+		}
+	}
 
 	public Map<String, Integer> genderChart(){
 		conn();
@@ -164,4 +208,6 @@ public class productDAO extends DAO {
 		}
 		return map;
 	}
+
+	
 }

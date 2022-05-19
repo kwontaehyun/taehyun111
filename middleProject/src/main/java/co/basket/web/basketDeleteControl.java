@@ -22,8 +22,6 @@ public class basketDeleteControl implements Controller{
 			String proDuctName = request.getParameter("proDuctName"+i);
 			service.deletebasket(proDuctName);
 		}
-		
 		request.getRequestDispatcher("/shoppingBasket.do").forward(request, response);
 	}
-
 }
