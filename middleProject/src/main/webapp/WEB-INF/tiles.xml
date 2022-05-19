@@ -117,18 +117,24 @@
    <definition name="userlist.page" template="/WEB-INF/usermypage/layout.jsp">
     <put-attribute name="mypageheader" value="/WEB-INF/usermypage/header.jsp" />
     <put-attribute name="mypagemenu" value="/WEB-INF/adminLoginview/adminmypagemenu.jsp" />
-    <put-attribute name="mypagebody" value="/WEB-INF/userinfo/list.jsp" />
+    <put-attribute name="mypagebody" value="/WEB-INF/userInfo/list.jsp" />
   </definition>
+  
+    <definition name="WILDCARD:*/*" extends="userlist.page">
+  	<put-attribute name="body" value="/{1}/{2}.jsp"/>
+  </definition>
+  
   
      <definition name="userUpdate.page" template="/WEB-INF/usermypage/layout.jsp">
     <put-attribute name="mypageheader" value="/WEB-INF/usermypage/header.jsp" />
     <put-attribute name="mypagemenu" value="/WEB-INF/adminLoginview/adminmypagemenu.jsp" />
-    <put-attribute name="mypagebody" value="/WEB-INF/userinfo/update.jsp" />
+    <put-attribute name="mypagebody" value="/WEB-INF/userInfo/update.jsp" />
   </definition>
   
-  <definition name="WILDCARD:*/*" extends="userlist.page">
+      <definition name="WILDCARD:*/*" extends="userUpdate.page">
   	<put-attribute name="body" value="/{1}/{2}.jsp"/>
   </definition>
+
   
   <definition name="map.page" template="/WEB-INF/usermypage/layout.jsp">
     <put-attribute name="mypageheader" value="/WEB-INF/usermypage/header.jsp" />

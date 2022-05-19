@@ -177,7 +177,69 @@ ul{list-style:none; }
         </div> <!-- form_txtInput E -->
       </div><!-- content E-->
     </div> <!-- container E -->
-=======
+   
+    </style>
+<div class="wrap wd668">
+      <div class="container">
+        <div class="form_txtInput">
+          <h2 class="sub_tit_txt">📒회원가입📒</h2>
+           
+           <c:if test = "${!empty error}"><script>alert(`${error}`)</script></c:if>
+           <form id ="join" name="join" action="${pageContext.servletContext.contextPath }/Insert.do" method="post">
+   
+          <div class="join_form">
+            <table>
+              <colgroup>
+                <col width="30%"/>
+                <col width="auto"/>
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th><p><span>👉아이디</span></p></th>
+                  <td><input type="email" name="email" required placeholder = "ID를 입력하세요.(email@email.com)."></td>
+                </tr>
+                <tr>
+                  <th><p><span>🔒비밀번호</span></p></th>
+                  <td><input type="password" name="pw" id="pw" required placeholder = "비밀번호를 입력하세요."></td>
+                </tr>
+                <tr>
+                  <th><p><span>🔐비밀번호 확인</span></p></th>
+                  <td><input type="password" name="pwcheck" id="pwcheck" required placeholder = "비밀번호를 한번 더 입력하세요."></td>
+                </tr>
+                <tr>
+                  <th><p><span>👫성별</span></p></th>
+                  <td><input type="radio" name="gender"value="M">남성<br>
+               <input type="radio" name="gender" value="F">여성</td>
+                </tr>
+                <tr>
+                  <th><p><span>📆생년월일</span></p></th>
+                  <td><input type="date" name="jumin" id="jumin"> 
+                </tr>
+                
+     <tr>
+                  <th><p><span>📪주소</span></p></th>
+                  <td><input type="text" name="address"  required placeholder = "주소를 입력하세요."></td>
+               <input type="hidden" name="acces"></td>
+                </tr>
+      
+      <tr>
+                  <th><p><span>📞연락처</span></p></th>
+                  <td><input type="number" name="phone" id="phone" required placeholder = "전화번호를 입력하세요. ex)01012345678"></td>
+                </tr>
+                <tr>
+                  <th><td><input type="submit" value="✔회원가입">
+          <input type="hidden" name="loginway">
+                  </td></th>
+                </tr>
+                </form>
+              </tbody>
+            </table>
+          <div class="btn_wrap">
+            <a id="homepage" href="${pageContext.servletContext.contextPath }/index.jsp">Main Page</a>
+          </div>
+        </div> <!-- form_txtInput E -->
+      </div><!-- content E-->
+    </div> <!-- container E -->
 
 </style>
 
@@ -212,4 +274,3 @@ style="width:250px;"
 
 
 </body>
->>>>>>> branch 'master' of https://github.com/kwontaehyun/taehyun111.git

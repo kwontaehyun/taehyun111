@@ -27,4 +27,8 @@ public class reviewService {
 	public void reviewUpdate(reviewVO vo) {
 		dao.reviewUpdate(vo);
 	}
+	//수정을 위한 단건 조회 
+	public  reviewVO selReview(int reviewNum) {
+		return dao.selReview(reviewNum);
+	}
 }
