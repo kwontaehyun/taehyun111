@@ -22,6 +22,8 @@ import co.prod.web.productControl;
 import co.prod.web.productInsertControl;
 import co.prod.web.productMenuListControl;
 import co.prod.web.productModifyControl;
+import co.review.web.delReviewControl;
+import co.review.web.modiReviewControl;
 import co.review.web.reviewControl;
 
 @WebServlet("/FrontController")
@@ -41,20 +43,21 @@ public class FrontController extends HttpServlet {
 		
 		enc = config.getInitParameter("encoding");
 		map = new HashMap<String, Controller>();
+		
+		//회원가입 관련 
 		map.put("/Insert.do", new InsertControl());
-		map.put("/login.do", new loginControl());
-		map.put("/logout.do", new logoutControl());
 		map.put("/update.do", new updateControl());
 		map.put("/list.do", new listControl());
 		map.put("/delete.do", new deleteControl());
-		map.put("/kakaologin.do", new kakaoLoginControl());
 		
-		//map.put("/update.do", new updateControl());
+		//로그인 관련 
+		map.put("/login.do", new loginControl());
+		map.put("/logout.do", new logoutControl());
+		map.put("/kakaologin.do", new kakaoLoginControl());
 
 		map.put("/productMain.do", new productControl());
 		map.put("/detailProduct.do", new detailControl());
-		map.put("/review.do", new reviewControl());
-		map.put("/delReview.do", new delReviewControl());
+		
 		map.put("/Productmenu.do", new prodMenuControl());
 		map.put("/categoryList.do", new productMenuListControl());
 		map.put("/shoppingBasket.do", new shoppingBasketControl());
@@ -66,6 +69,11 @@ public class FrontController extends HttpServlet {
 	
 		map.put("/userChart.do", new genderChartControl());
 		map.put("/prodChart.do", new prodGenderChartControl());
+		
+		//리뷰관련
+		map.put("/review.do", new reviewControl());
+		map.put("/delReview.do", new delReviewControl());
+		map.put("/moReview.do",new modiReviewControl());
 	}
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response)

@@ -15,7 +15,10 @@ public class InsertControl implements Controller {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/json; charset=utf-8");
+		response.setCharacterEncoding("utf-8");
+		
 		String email = request.getParameter("email");
 		String pw = request.getParameter("pw");
 		String pwcheck = request.getParameter("pwcheck");
@@ -24,7 +27,10 @@ public class InsertControl implements Controller {
 		String address = request.getParameter("address");
 		String acces = request.getParameter("acces");
 		String phone = request.getParameter("phone");
+		String loginway = request.getParameter("loginway");
 
+		HttpSession session = request.getSession();
+		
 		ShopVO vo = new ShopVO();
 		vo.setEmail(email);
 		vo.setPw(pw);
@@ -33,30 +39,25 @@ public class InsertControl implements Controller {
 		vo.setAddress(address);
 		vo.setAcces(acces);
 		vo.setPhone(phone);
+		vo.setLoginway(loginway);
 
 		ShopService service = new ShopService();
 		service.insertMember(vo);
-
 
 		// 아이디중복
 		boolean id = service.idcheck(email);
 
 		if (id == true) {
-			//비밀번호 확인
+			// 비밀번호 확인
 			if (pw.equals(pwcheck)) {
-				//전화번호길이
+				// 전화번호길이
 				if (phone.length() == 11) {
-					//주민번호길이
-					if (jumin.length() == 13) {
-						HttpSession session = request.getSession();
-						session.setAttribute("email", email);
-						session.setAttribute("pw", pw);
-						response.sendRedirect("index.jsp");
-					} else {
-						String error = "주민번호를 다시 입력해주세요.";
-						request.setAttribute("error", error);
-						request.getRequestDispatcher("shopView/insert.jsp").forward(request, response);
-					}
+					request.getRequestDispatcher("shopView/login.jsp").forward(request, response);
+//						HttpSession session = request.getSession();
+//						session.setAttribute("email", email);
+					// session.setAttribute("pw", pw);
+//						response.sendRedirect("insert.jsp");
+
 				} else {
 					String error = "전화번호를 다시 입력해주세요.";
 					request.setAttribute("error", error);

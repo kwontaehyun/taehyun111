@@ -13,7 +13,7 @@ public class deleteControl implements Controller {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		String email = (String) session.getAttribute("email");
-		String pw = (String) session.getAttribute("pw");
+
 		session.removeAttribute("email");
 		session.removeAttribute("pw");
 		session.removeAttribute("role");

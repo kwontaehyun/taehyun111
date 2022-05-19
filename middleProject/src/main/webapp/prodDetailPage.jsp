@@ -17,6 +17,7 @@
 <!-- 	<c:if test="${role == 1}">
 
 			<form action="/productUpdate.do">
+				<vo.proDuctNum' hidden
 				<input type="submit" value="수정하기">
 			</form>
 		</c:if>
@@ -38,7 +39,7 @@
 		<h4>성별 : ${vo.gender}</h4>
 		<h4>
 			평점 :
-			<c:forEach var="cnt" begin="1" end="${avgGrade}" step="1">
+		<c:forEach var="cnt" begin="1" end="${avgGrade}" step="1">
 			★
 		</c:forEach>
 		</h4>
