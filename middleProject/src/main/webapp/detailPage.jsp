@@ -10,11 +10,14 @@
 <body>
 <%
 String email = (String) session.getAttribute("email");
+int role = (Integer) session.getAttribute("role");
 %>
 
 <c:choose>
-		<c:when test="${!empty email}"><jsp:forward
+		<c:when test="${!empty email && role == 0}"><jsp:forward
 				page="user.detailpage.tiles"></jsp:forward></c:when>
+		<c:when test ="${!empty email && role == 1}"><jsp:forward
+				page="admin.detailpage.tiles"></jsp:forward></c:when>
 		<c:otherwise><jsp:forward page="guest.detailpage.tiles"></jsp:forward></c:otherwise>
 	</c:choose>
 </body>
