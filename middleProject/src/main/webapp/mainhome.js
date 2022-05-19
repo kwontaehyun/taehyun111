@@ -135,14 +135,12 @@ function firstPage(val) {
 					location.href = `http://localhost/middleProject/index.jsp`
 				}
 			})
-			
-			
 		}
 
 		if (field == 'pImg') {
 			img.src = "upload/" + val[field];
 			img.setAttribute("width", "100%");
-			img.setAttribute("height", "100%");
+			img.setAttribute("height", "300px");
 			aTag.appendChild(img);
 		}
 
@@ -185,9 +183,7 @@ function firstPage(val) {
 					price.innerHTML = `${sale} 원`;
 					div6.appendChild(price)
 				}
-
 			}
-
 		}
 		aTag.style.textDecoration = "none";
 		aTag.style.color = "black";
