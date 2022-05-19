@@ -120,13 +120,13 @@
 
 			</table>
 		</form>
-
+		
 
 		<h3>댓글</h3>
 		<form action="${pageContext.servletContext.contextPath }/review.do"
 			method="post" enctype="multipart/form-data">
 			<p>
-				<input type='hidden' name='prodNum' value='${vo.proDuctNum }'>
+			<input type='hidden' name='prodNum' value='${vo.proDuctNum }'>
 			</p>
 			<p>내용</p>
 			<textarea rows="6" cols="50" name="content" required></textarea>
@@ -148,55 +148,6 @@
 		</form>
 	</c:if>
 
-	<script type="text/javascript">
-	document.addEventListener('DomContentLoaded',function(){
-	let ck = document.get
-
-	ck.addEventListener('click',function(){
 		
-	
-	
-
-	//)}
-	//ckdocument.addEventListener('click',function(){
-	
-	
-	
-	
-		//document.addEventListener('DOMContentLoaded',function(){
-		//	  let btn = document.querySelector('button');
-			  //버튼에 클릭 이벤트가 실행되면 function을 실행하세요
-		//	  btn.addEventListener('click', function () {
-			    //입력값1, 입력값2
-			//    let name = document.getElementById('userName').value
-			//    let age = document.getElementById('userAge').value
-			  
-			//    if(!name) {
-			//      alert('이름을 입력하세요..');
-			//      return; // function 종료 > return
-			//    }
-			//      alert('나이를 입력하세요..')
-			//      return;
-			 //   }
-			    //태그만들때 createElement
-			 //   let span1 = document.createElement('span'); //<span>${name}</span>
-			 //   span1.innerHTML = name;
-			 //   let span2 = document.createElement('span');//<span>${age}</span>
-			 //   span2.innerHTML = age;
-			 //   let div1 = document.createElement('div');
-			 //   div1.appendChild(span1); // <div><span></span></div>
-			 //   div1.appendChild(span2); // <div><span></span><span></span></div>
-			  
-			//    document.getElementById('show').appendChild(div1);
-			  
-			//  });
-		//	})
-	
-//})
-	
-
-	
-	</script>
-
 </body>
 </html>
