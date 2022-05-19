@@ -2,7 +2,6 @@
  * 
  */
 
-
 fetch('Productmenu.do')
 	.then(result => result.json())
 	.then(result => {
@@ -24,7 +23,7 @@ fetch('Productmenu.do')
 	.catch(error => console.log(error))
 
 fetch('cartCntCheck.do')
-	.then(result => result.json())
+	.then(result => result.json()) 
 	.then(result => {
 		console.log(result)
 		let cartCnt = document.querySelector('#CartCnt');
@@ -32,5 +31,3 @@ fetch('cartCntCheck.do')
 		
 	})
 	.catch(error => console.log(error))
-
-

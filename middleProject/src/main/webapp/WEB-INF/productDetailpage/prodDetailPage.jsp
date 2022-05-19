@@ -8,8 +8,22 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<%
+int role = (Integer) session.getAttribute("role");
+%>
+
+
 	<h4>상품목록페이지입니다.</h4>
 	<c:if test="${!empty vo}">
+	<c:if test ="${role == 1}">
+	<form action = "">
+	<input type = "submit" value ="상품수정">
+	</form>
+	<form action = "">
+	<input type = "submit" value ="상품삭제">
+	</form>
+</c:if>
+	
 		<img src="upload/${vo.pImg}">
 		<h4>제품이름 : ${vo.proDuctName}</h4>
 		<h4>${vo.comment}</h4>
@@ -89,19 +103,7 @@
 		
 	
 	
-	
-	
-	})//end of click
-	
-	})//end of DomContentLoaded
-	
-	
-	
-	
-	//let ck=document.=qeury
-	//ck.forEach(val=>
-	//val.add
-	
+
 	//)}
 	//ckdocument.addEventListener('click',function(){
 	

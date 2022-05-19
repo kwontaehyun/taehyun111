@@ -9,12 +9,16 @@ public class ShopVO {
 	private String phone;
 	private String address;
 	private String acces;
+	private String loginway;
 	
 	public ShopVO() {
 		
 	}
+
 	
-	public ShopVO(String email, String pw, String gender, String jumin, String phone, String address, String acces) {
+	
+	public ShopVO(String email, String pw, String gender, String jumin, String phone, String address, String acces,
+			String loginway) {
 		super();
 		this.email = email;
 		this.pw = pw;
@@ -23,6 +27,7 @@ public class ShopVO {
 		this.phone = phone;
 		this.address = address;
 		this.acces = acces;
+		this.loginway = loginway;
 	}
 
 
@@ -83,14 +88,25 @@ public class ShopVO {
 		this.acces = acces;
 	}
 
+	public String getLoginway() {
+		return loginway;
+	}
+
+	public void setLoginway(String loginway) {
+		this.loginway = loginway;
+	}
+
+
+
 	@Override
 	public String toString() {
 		return "ShopVO [email=" + email + ", pw=" + pw + ", gender=" + gender + ", jumin=" + jumin + ", phone=" + phone
-				+ ", address=" + address + ", acces=" + acces + "]";
+				+ ", address=" + address + ", acces=" + acces + ", loginway=" + loginway + "]";
 	}
 	
 
-	
+
+
 	
 	
 	

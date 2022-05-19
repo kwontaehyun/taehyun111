@@ -1,11 +1,13 @@
 /**
  * 
  */
-		
+
 
 let cnt = 1;
 let sale = 0;
 let sales = 0;
+
+let cartcnt = 0;
 
 btnAry = [];
 
@@ -14,18 +16,18 @@ fetch('productMain.do')
 	.then(result => {
 		let aTagAry = document.querySelectorAll("ul > li > a")
 		pageing(result);
-		aTagAry.forEach(val =>{
-			val.addEventListener('click', function(){
+		aTagAry.forEach(val => {
+			val.addEventListener('click', function() {
 				fetch(`categoryList.do?category=${val.innerHTML}`)
 					.then(result => result.json())
 					.then(result => {
 						let list = document.querySelectorAll("section > div");
 						list[0].remove();
 						let btnlist = document.querySelectorAll("#btn >button");
-						btnlist.forEach(val =>{
+						btnlist.forEach(val => {
 							val.remove();
 						})
-						cnt=1;
+						cnt = 1;
 						pageing(result);
 					})
 					.error(error => console.log(error))
@@ -34,67 +36,67 @@ fetch('productMain.do')
 	})
 
 	.catch(error => console.log(error));
-	
-function pageing(result){
+
+function pageing(result) {
 	let div = document.createElement('div');
-		div.className = "container px-4 px-lg-5 mt-5";
-		let div2 = document.createElement('div');
-		div2.className = "row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center"
-		div.appendChild(div2)
-		document.getElementById('list').appendChild(div);
-		result.forEach((val, idx) => {
+	div.className = "container px-4 px-lg-5 mt-5";
+	let div2 = document.createElement('div');
+	div2.className = "row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center"
+	div.appendChild(div2)
+	document.getElementById('list').appendChild(div);
+	result.forEach((val, idx) => {
 
-			if (idx % 8 == 0) {
-				let btn = document.createElement('button');
-				let spanBtn = document.getElementById("btn");
-				btn.innerHTML = cnt;
-				btn.setAttribute("id", `btn${cnt}`);
-				btn.style.margin = "10px";
-				btn.style.fontSize = "20px";
-				btn.style.border = "1px solid blue"
-				btn.style.background = "white";
-				cnt++;
-				spanBtn.appendChild(btn);
-				document.getElementById('list').appendChild(spanBtn);
-			}
-			if (idx < 8) {
-				div2.appendChild(firstPage(val))
-			}
-		})
+		if (idx % 8 == 0) {
+			let btn = document.createElement('button');
+			let spanBtn = document.getElementById("btn");
+			btn.innerHTML = cnt;
+			btn.setAttribute("id", `btn${cnt}`);
+			btn.style.margin = "10px";
+			btn.style.fontSize = "20px";
+			btn.style.border = "1px solid blue"
+			btn.style.background = "white";
+			cnt++;
+			spanBtn.appendChild(btn);
+			document.getElementById('list').appendChild(spanBtn);
+		}
+		if (idx < 8) {
+			div2.appendChild(firstPage(val))
+		}
+	})
 
-		let btnAry = document.querySelectorAll('div > button'); 
-	
-		result.forEach((val, idx) => {
-			btnAry.forEach((btn, btnIdx) => {
-				btn.addEventListener('click', function() {
-					if (btnIdx == 0) {
-						if (idx < 8) {
-							if (idx == 0) {
-								div2.remove();
-								div2 = document.createElement('div');
-								div2.className = "row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center"
-							}
-							div2.appendChild(firstPage(val))
-							div.appendChild(div2)
+	let btnAry = document.querySelectorAll('div > button');
+
+	result.forEach((val, idx) => {
+		btnAry.forEach((btn, btnIdx) => {
+			btn.addEventListener('click', function() {
+				if (btnIdx == 0) {
+					if (idx < 8) {
+						if (idx == 0) {
+							div2.remove();
+							div2 = document.createElement('div');
+							div2.className = "row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center"
 						}
+						div2.appendChild(firstPage(val))
+						div.appendChild(div2)
 					}
-					else {
-						if (idx < 8 * btnIdx) {
-							if (idx == 8 * (btnIdx - 1)) {
-								div2.remove();
-								div2 = document.createElement('div');
-								div2.className = "row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center"
-							}
-							div2.appendChild(firstPage(val))
-							div.appendChild(div2)
+				}
+				else {
+					if (idx < 8 * btnIdx) {
+						if (idx == 8 * (btnIdx - 1)) {
+							div2.remove();
+							div2 = document.createElement('div');
+							div2.className = "row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center"
 						}
+						div2.appendChild(firstPage(val))
+						div.appendChild(div2)
 					}
-				})
+				}
 			})
 		})
-}	
-	
-	
+	})
+}
+
+
 function firstPage(val) {
 	let div2 = document.createElement('div');
 	div2.className = "row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center";
@@ -107,7 +109,7 @@ function firstPage(val) {
 	div5.className = "card-body p-4"
 	let div6 = document.createElement('div');
 	div6.className = "text-center"
-	
+
 	let cardfooterDiv = document.createElement('div');
 	cardfooterDiv.className = "card-footer p-4 pt-0 border-top-0 bg-transparent";
 	let cardfooterDiv2 = document.createElement('div');
@@ -119,18 +121,29 @@ function firstPage(val) {
 	h5.className = "fw-bolder"
 
 	let img = document.createElement('img');
+
 	for (let field in val) {
 		if (field == 'proDuctNum') {
 			aTag.setAttribute("id", `aTag${val[field]}`)
-			aTag.setAttribute("href", `http://localhost/middleProject/detailProduct.do?proDuctNum=${val[field]}`);
-			cartAtag.setAttribute("href", `http://localhost/middleProject/shoppingBasket.do?proDuctNum=${val[field]}`);
+			aTag.addEventListener('click', function(){
+				location.href = `http://localhost/middleProject/detailProduct.do?proDuctNum=${val[field]}`
+			})
+			cartAtag.addEventListener('click', function() {
+				if (confirm("장바구니에 추가하시겠습니까?") == true) {    //확인
+					location.href = `http://localhost/middleProject/shoppingBasket.do?proDuctNum=${val[field]}`
+				} else {   //취소
+					location.href = `http://localhost/middleProject/index.jsp`
+				}
+			})
+			
+			
 		}
 
 		if (field == 'pImg') {
 			img.src = "upload/" + val[field];
 			img.setAttribute("width", "100%");
 			img.setAttribute("height", "100%");
-			div4.appendChild(img);
+			aTag.appendChild(img);
 		}
 
 		if (field == 'proDuctName') {
@@ -179,20 +192,19 @@ function firstPage(val) {
 		aTag.style.textDecoration = "none";
 		aTag.style.color = "black";
 		div3.appendChild(div4)
-		div3.appendChild(aTag)
-		aTag.appendChild(div4)
+		div4.appendChild(aTag)
+		aTag.appendChild(div5)
 		div4.appendChild(div5)
 		div5.appendChild(div6)
 
 	}
-	
-	
+
 	cartAtag.innerHTML = "Add to cart";
 
 	cardfooterDiv.appendChild(cardfooterDiv2)
 	cardfooterDiv2.appendChild(cartAtag)
-	div4.appendChild(cardfooterDiv)
 	div2.appendChild(div3)
+	div4.appendChild(cardfooterDiv)
 	return div3;
 }
 

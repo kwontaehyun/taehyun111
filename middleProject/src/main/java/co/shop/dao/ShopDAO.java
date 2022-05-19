@@ -99,7 +99,7 @@ public class ShopDAO extends DAO {
 	// 회원정보 수정
 	public void update(ShopVO vo) {
 		conn();
-		String sql = "update membership set pw=?, gender=?, idcardnumber=?, address=?, tel=? where email=? ";
+		String sql = "update membership set pw=?, gender=?, idcardnumber=?, address=?, class=0, loginway='site', tel=? where email=? ";
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, vo.getPw());
