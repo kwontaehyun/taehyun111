@@ -34,6 +34,7 @@
 					function kakaoLogout() {
 			            if (!Kakao.Auth.getAccessToken()) {
 			                alert('이미 로그아웃 되어있습니다.');
+			                document.querySelector('#form-kakao-logout2').submit();
 			                return;
 			            }
 			            Kakao.Auth.logout(function() {
