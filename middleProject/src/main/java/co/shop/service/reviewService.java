@@ -15,12 +15,16 @@ public class reviewService {
 	public int AvgGrade(String productNum) {
 		return dao.avgGrade(productNum);
 	}
-	
+	//리뷰 입력
 	public void reviewInsert(reviewVO review) {
 		dao.reviewInsert(review);
 	}
-	
-	public void reviewDelete(String email) {
-		dao.reviewDelete(email);
+	//리뷰삭제
+	public void reviewDelete(int reviewNum,String email) {
+		dao.reviewDelete(reviewNum,email);
+	}
+	//리뷰수정
+	public void reviewUpdate(reviewVO vo) {
+		dao.reviewUpdate(vo);
 	}
 }

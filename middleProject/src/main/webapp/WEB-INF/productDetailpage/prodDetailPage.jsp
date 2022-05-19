@@ -44,19 +44,25 @@ int role = (Integer) session.getAttribute("role");
 		</c:forEach>
 		</h4>
 		<form action="${pageContext.servletContext.contextPath }/delReview.do" method="post" enctype="multipart/form-data">
+		
 		<input type='hidden' name='proDucNum' value='${vo.proDuctNum }' >
 		
 		<table border="1">
 			<tr>
-				<th>선택 </th>
+				<th>삭제선택 </th>
+				<th>수정선택</th>
 				<th>작성자 </th>
 				<th>댓글  </th>
 				<th>평점  </th>
 				<th>이미지 </th>
 			</tr>
+			
 			<c:forEach items="${list}" var="list">
 			<tr>
-			<td><button type="button" id="delBtn">삭제</button><input type="hidden" value="${review.reviewNum }"></td>
+			<td><a href="http://localhost/middleProject/delReview.do?proDuctNum=${vo.proDuctNum }&reNum=${list.reviewNum}" >삭제</a>
+			</td>
+			<td><a href="http://localhost/middleProject/moReview.do?proDuctNum=${vo.proDuctNum }&reNum=${list.reviewNum}" >수정</a>
+			</td>
 			<td> ${list.email}</td>
 			<td>${list.content}</td>
 			<td>${list.grade}</td>
@@ -66,6 +72,7 @@ int role = (Integer) session.getAttribute("role");
 			</td>
 			</tr>
 			</c:forEach>
+			
 			</table>
 			</form>	
 	
@@ -89,12 +96,14 @@ int role = (Integer) session.getAttribute("role");
 	</c:if>
 	
 	<script type="text/javascript">
+	document.addEventListener('DomContentLoaded',function(){
+	let ck = document.get
+
+	ck.addEventListener('click',function(){
+		
 	
 	
-	//let ck=document.=qeury
-	//ck.forEach(val=>
-	//val.add
-	
+
 	//)}
 	//ckdocument.addEventListener('click',function(){
 	

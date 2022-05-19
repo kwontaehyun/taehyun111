@@ -83,12 +83,13 @@ public class reviewDAO extends DAO {
 	}
 
 	// 댓글삭제
-	public void reviewDelete(String email) {
+	public void reviewDelete(int reviewNum,String email) {
 		conn();
-		String sql = "delete from review where email=?";
+		String sql = "delete from review where REVIEWNUM=?AND email=?";
 		try {
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, email);
+			psmt.setInt(1, reviewNum);
+			psmt.setString(2, email);
 			int r = psmt.executeUpdate();
 			System.out.println(r+" 건 삭제 ");
 		} catch (SQLException e) {
@@ -97,6 +98,27 @@ public class reviewDAO extends DAO {
 			disconn();
 		}
 
+	}
+	
+	//댓글수정
+	//update review set rimg='여.안경2.PNG',content='ghfhfhfhf',grade=2 where reviewnum=104;
+	public void reviewUpdate(reviewVO vo) {
+		conn();
+		String sql="update review set rimg=?,content=?,grade=? where reviewnum=?AND email=?";
+		try {
+			psmt=conn.prepareStatement(sql);
+			psmt.setString(1, vo.getRImg());
+			psmt.setString(2, vo.getContent());
+			psmt.setInt(3, vo.getGrade());
+			psmt.setInt(4, vo.getReviewNum());
+			psmt.setString(5, vo.getEmail());
+			int r = psmt.executeUpdate();
+			System.out.println(r+"건 수정 ");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			disconn();
+		}
 	}
 
 }
