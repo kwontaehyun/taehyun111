@@ -6,6 +6,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+
+</style>
 </head>
 <body>
 	<%
@@ -61,13 +64,13 @@ int role = (Integer) session.getAttribute("role");
 			<tr>
 			<td><a href="http://localhost/middleProject/delReview.do?proDuctNum=${vo.proDuctNum }&reNum=${list.reviewNum}" >삭제</a>
 			</td>
-			<td><a href="http://localhost/middleProject/moReview.do?proDuctNum=${vo.proDuctNum }&reNum=${list.reviewNum}" >수정</a>
+			<td><a href="review/find.jsp" >조회</a>
 			</td>
 			<td> ${list.email}</td>
-			<td>${list.content}</td>
-			<td>${list.grade}</td>
+			<td>${list.content}<input type="hidden" name='content' value='${list.content}'></td>
+			<td>${list.grade}<input type="hidden" name='grade' value='${list.grade}'></td>
 			<td><c:if test="${!empty list.RImg}">
-			<img src="${pageContext.servletContext.contextPath }/reviewUpload/${list.RImg }">
+			<img src="${pageContext.servletContext.contextPath }/reviewUpload/${list.RImg }" name="img">
 			</c:if>
 			</td>
 			</tr>
@@ -95,55 +98,6 @@ int role = (Integer) session.getAttribute("role");
 		</form>
 	</c:if>
 	
-	<script type="text/javascript">
-	document.addEventListener('DomContentLoaded',function(){
-	let ck = document.get
-
-	ck.addEventListener('click',function(){
-		
-	
-	
-
-	//)}
-	//ckdocument.addEventListener('click',function(){
-	
-	
-	
-	
-		//document.addEventListener('DOMContentLoaded',function(){
-		//	  let btn = document.querySelector('button');
-			  //버튼에 클릭 이벤트가 실행되면 function을 실행하세요
-		//	  btn.addEventListener('click', function () {
-			    //입력값1, 입력값2
-			//    let name = document.getElementById('userName').value
-			//    let age = document.getElementById('userAge').value
-			  
-			//    if(!name) {
-			//      alert('이름을 입력하세요..');
-			//      return; // function 종료 > return
-			//    }
-			//      alert('나이를 입력하세요..')
-			//      return;
-			 //   }
-			    //태그만들때 createElement
-			 //   let span1 = document.createElement('span'); //<span>${name}</span>
-			 //   span1.innerHTML = name;
-			 //   let span2 = document.createElement('span');//<span>${age}</span>
-			 //   span2.innerHTML = age;
-			 //   let div1 = document.createElement('div');
-			 //   div1.appendChild(span1); // <div><span></span></div>
-			 //   div1.appendChild(span2); // <div><span></span><span></span></div>
-			  
-			//    document.getElementById('show').appendChild(div1);
-			  
-			//  });
-		//	})
-	
-//})
-	
-
-	
-	</script>
 	
 </body>
 </html>
