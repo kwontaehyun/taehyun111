@@ -120,6 +120,12 @@
     <put-attribute name="mypagebody" value="/WEB-INF/userinfo/list.jsp" />
   </definition>
   
+     <definition name="userUpdate.page" template="/WEB-INF/usermypage/layout.jsp">
+    <put-attribute name="mypageheader" value="/WEB-INF/usermypage/header.jsp" />
+    <put-attribute name="mypagemenu" value="/WEB-INF/adminLoginview/adminmypagemenu.jsp" />
+    <put-attribute name="mypagebody" value="/WEB-INF/userinfo/update.jsp" />
+  </definition>
+  
   <definition name="WILDCARD:*/*" extends="userlist.page">
   	<put-attribute name="body" value="/{1}/{2}.jsp"/>
   </definition>
