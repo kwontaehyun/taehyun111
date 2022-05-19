@@ -21,14 +21,10 @@ public class updateControl implements Controller {
 		HttpSession session = request.getSession();
 		String email = (String) session.getAttribute("email");
 
-		ShopService service = new ShopService();
-		ShopVO info = service.search(email);
 
-		request.setAttribute("info", info);
-		
 
+		email = (String) session.getAttribute("email");
 		String pw = request.getParameter("pw");
-		String pwcheck = request.getParameter("pwcheck");
 		String gender = request.getParameter("gender");
 		String jumin = request.getParameter("jumin");
 		String address = request.getParameter("address");
@@ -49,26 +45,11 @@ public class updateControl implements Controller {
 
 		ShopService service1 = new ShopService();
 		service1.update(vo);
-
-		request.setAttribute("email", email);
-//		if (pw.equals(pwcheck)) {
-//			// 전화번호길이
-//			if (phone.length() == 11) {
-//				request.getRequestDispatcher("userUpdate.jsp").forward(request, response);
-//
-//			} else {
-//				String error = "전화번호를 다시 입력해주세요.";
-//				request.setAttribute("error", error);
-//				request.getRequestDispatcher("userinfo/update.jsp").forward(request, response);
-//			}
-//		} else if (!pw.equals(pwcheck)) {
-//			String error = "비밀번호가 일치하지 않습니다.";
-//
-//			request.setAttribute("error", error);
-//			request.getRequestDispatcher("userinfo/update.jsp").forward(request, response);
-//
-//		}
 		
+		ShopService service = new ShopService();
+		ShopVO info = service.search(email);
+
+		request.setAttribute("info", info);
 		request.getRequestDispatcher("userUpdate.jsp").forward(request, response);
 		
 	}

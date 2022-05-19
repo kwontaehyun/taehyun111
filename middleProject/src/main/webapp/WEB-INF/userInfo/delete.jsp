@@ -7,8 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-<jsp:forward page="userlist.page.tiles"></jsp:forward>
-
+<h3>회원 탈퇴</h3>
+<form action="${pageContext.servletContext.contextPath }/delete.do" method="post">
+<p>${info.email } 님 안녕하세요</p>
+<input type="submit" value = "탈퇴">
+</form>
 </body>
 </html>

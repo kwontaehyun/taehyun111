@@ -10,28 +10,24 @@ import javax.servlet.http.HttpSession;
 import co.shop.service.ShopService;
 import co.shop.vo.ShopVO;
 
-public class deleteControl implements Controller {
+public class searchControl implements Controller {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
-		response.setContentType("text/json; charset=utf-8");
-		response.setCharacterEncoding("utf-8");
-
 		HttpSession session = request.getSession();
 		String email = (String) session.getAttribute("email");
 
+
+
+		email = (String) session.getAttribute("email");
+		
 		ShopService service = new ShopService();
-		service.delete(email);
 		ShopVO info = service.search(email);
 
 		request.setAttribute("info", info);
 
-		session.removeAttribute("email");
-		session.removeAttribute("pw");
-		session.removeAttribute("role");
-		response.sendRedirect("index.jsp");
-
 	}
+
+
 
 }

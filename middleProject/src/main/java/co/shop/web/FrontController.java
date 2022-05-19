@@ -48,6 +48,7 @@ public class FrontController extends HttpServlet {
 		map.put("/update.do", new updateControl());
 		map.put("/list.do", new listControl());
 		map.put("/delete.do", new deleteControl());
+		map.put("/search.do", new searchControl());
 		
 		//로그인 관련 
 		map.put("/login.do", new loginControl());
