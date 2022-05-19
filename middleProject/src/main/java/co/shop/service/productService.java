@@ -3,6 +3,7 @@ package co.shop.service;
 import java.util.List;
 import java.util.Map;
 
+
 import co.shop.dao.productDAO;
 import co.shop.vo.productVO;
 
@@ -25,6 +26,14 @@ public class productService {
 	public void insertProduct(productVO vo) {
 		dao.adminInsertProduct(vo);
 	}
+	// 수정
+	public void modifyMember(productVO vo) {
+		dao.modifyMember(vo);
+	}
+//		// 삭제
+//	public void deleteMember(String productnumber) {
+//		dao.deleteMember(productnumber);
+//	}
 	public Map<String, Integer> prodGenderChart(){
 		return dao.genderChart();
 	}

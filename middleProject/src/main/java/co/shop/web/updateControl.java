@@ -46,6 +46,10 @@ public class updateControl implements Controller {
 		vo.setPhone(phone);
 		vo.setLoginway(loginway);
 
+		service.update(vo);
+		
+		
+		
 
 		ShopService service1 = new ShopService();
 		service1.update(vo);
