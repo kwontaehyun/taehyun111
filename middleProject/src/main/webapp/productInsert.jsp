@@ -154,7 +154,7 @@ ul{list-style:none; }
                 </tr>
                 <tr>
                   <th><span>👫성별</span></th>
-                  <td><input type="text" name="gender"placeholder = "성별을 입력하세요.(MF, M, F)"></td>
+                  <td><input type="select" name="gender"placeholder = "성별을 입력하세요.(MF, M, F)"></td>
                 </tr>
                 <tr>
                   <th><span>👉아이디</span></th>

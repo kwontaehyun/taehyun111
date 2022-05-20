@@ -5,7 +5,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>상품수정</title>
+    <title>상품삭제</title>
     <style>
    @charset "utf-8";
 * {margin:0;padding:0;}
@@ -115,68 +115,6 @@ ul{list-style:none; }
 }
    
     </style>
- <body>
-<div class="wrap wd668">
-      <div class="container">
-        <div class="form_txtInput">
-          <h2 class="sub_tit_txt">📦상품수정📦</h2>
-           
-           <form action="${pageContext.servletContext.contextPath }/productModify.do" method="post" enctype="multipart/form-data">
-   
-          <div class="join_form">
-            <table>
-              <colgroup>
-                <col width="30%"/>
-                <col width="auto"/>
-              </colgroup>
-              <tbody>
-                <tr>
-                  <th><p><span>📦상품번호</span></p></th>
-                  <td><p><input type="number" name="num" value="${vo.proDuctNum }" placeholder = <%=request.getParameter("vo") %>></td>
-                </tr>
-                <tr>
-                  <th><p><span>👉아이디</span></p></th>
-                  <td><input type="email" name="email" value="${vo.eMail }" placeholder = "${vo.email }"></td>
-                </tr>
-                <tr>
-                  <th><p><span>✍상품이름</span></p></th>
-                  <td><input type="text" name="name" value="${vo.proDuctName }" placeholder = "${vo.productname }"></td>
-                </tr>
-                <tr>
-                  <th><p><span>💵상품가격</span></p></th>
-                  <td><input type="number" name="price" value="${vo.proDuctPrice }" placeholder = "${vo.productprice }"></td>
-                </tr>
-                <tr>
-                  <th><p><span>👓카테고리</span></p></th>
-                  <td><input type="text" name="category" value="${vo.cateGory }" placeholder = "${vo.category }"></td>
-                </tr>
-                <tr>
-                  <th><p><span>📃상품설명</span></p></th>
-                  <td><input type="text" name="comment" value="${vo.comment }" placeholder = "${vo.comment }"></td>
-                </tr>
-                <tr>
-                  <th><p><span>🔮세일</span></p></th>
-                  <td><input type="number" name="sale" value="${vo.sale }" placeholder = "${vo.sale }"></td>
-                </tr>
-                <tr>
-                  <th><p><span>👫성별</span></p></th>
-                  <td><input type="text" name="gender" value="${vo.gender }" placeholder = "${vo.gender }"></td>
-                </tr>
-                 <tr>
-                <th><p><span>💷사진</span></p></th>
-                 <td><input type="file" name="pimg" value="${vo.pimg }"></td>
-                </tr>
-                <tr>
-                  <th><td><input type="submit" value="✔등록">
-                  </td></th>
-                </tr>
-                </form>
-              </tbody>
-            </table>
-          <div class="btn_wrap">
-            <a id="homepage" href="${pageContext.servletContext.contextPath }/index.jsp">Main Page</a>
-          </div>
-        </div> <!-- form_txtInput E -->
-      </div><!-- content E-->
-    </div> <!-- container E -->
-</body>
+
+        
+     

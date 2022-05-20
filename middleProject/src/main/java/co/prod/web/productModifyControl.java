@@ -36,7 +36,7 @@ public class productModifyControl implements Controller {
 		String category = multi.getParameter("category");
 		String comment = multi.getParameter("comment");
 		int sale = Integer.parseInt(multi.getParameter("sale"));
-		String pimg = multi.getParameter("pimg");
+		String pimg = multi.getFilesystemName("pimg");
 		String gender = multi.getParameter("gender");
 		String email = multi.getParameter("email");
 		
@@ -51,10 +51,12 @@ public class productModifyControl implements Controller {
 		vo.setGender(gender);
 		vo.setEmail(email);
 		
+		
+		
 		productService service = new productService();
 		service.modifyMember(vo);
-		request.setAttribute("email", email);
-		request.getRequestDispatcher("../productModify.jsp").forward(request, response);
+		request.setAttribute("vo", vo);
+		request.getRequestDispatcher("/index.jsp").forward(request, response);
 		}
 
 	}

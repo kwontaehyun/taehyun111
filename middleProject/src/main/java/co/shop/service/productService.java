@@ -30,10 +30,10 @@ public class productService {
 	public void modifyMember(productVO vo) {
 		dao.modifyMember(vo);
 	}
-//		// 삭제
-//	public void deleteMember(String productnumber) {
-//		dao.deleteMember(productnumber);
-//	}
+		// 삭제
+	public void deleteMember(int number) {
+		dao.deleteMember(number);
+	}
 	public Map<String, Integer> prodGenderChart(){
 		return dao.genderChart();
 	}
