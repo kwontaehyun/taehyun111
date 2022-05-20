@@ -18,11 +18,12 @@ public class DelsearchControl implements Controller {
 		String email = (String) session.getAttribute("email");
 
 
-
 		email = (String) session.getAttribute("email");
 		
 		ShopService service = new ShopService();
 		ShopVO info = service.search(email);
+		
+		
 
 		request.setAttribute("info", info);
 		request.getRequestDispatcher("UserDelSearch.jsp").forward(request, response);

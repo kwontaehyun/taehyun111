@@ -34,7 +34,7 @@ public class deleteControl implements Controller {
 		response.sendRedirect("index.jsp");
 		
 		request.setAttribute("info", info);
-		request.getRequestDispatcher("UserDelete.jsp");
+		request.getRequestDispatcher("UserDelSearch.jsp");
 
 	}
 

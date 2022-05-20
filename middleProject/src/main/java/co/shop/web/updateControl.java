@@ -21,6 +21,8 @@ public class updateControl implements Controller {
 		HttpSession session = request.getSession();
 		String email = (String) session.getAttribute("email");
 
+
+
 		email = (String) session.getAttribute("email");
 		String pw = request.getParameter("pw");
 		String gender = request.getParameter("gender");
@@ -40,17 +42,31 @@ public class updateControl implements Controller {
 		vo.setPhone(phone);
 		vo.setLoginway(loginway);
 
-		// service.update(vo);
+		//service.update(vo);
+		
+		
 
 		ShopService service1 = new ShopService();
 		service1.update(vo);
-
+					
 		ShopService service = new ShopService();
 		ShopVO info = service.search(email);
+		request.setAttribute("info", info);
 		
-		request.getRequestDispatcher("userlist.jsp").forward(request, response);
+		
+		if(phone.length() == 11 ) {
+			request.setAttribute("info", info);
+			request.getRequestDispatcher("userSearch.jsp").forward(request, response);
 
-
+		} else  {
+			String error = "전화번호 다시 입력!!";
+			request.setAttribute("error", error);
+			request.getRequestDispatcher("userSearch.jsp").forward(request, response);
+		}
+		
+//		request.setAttribute("info", info);
+//		request.getRequestDispatcher("userlist.jsp").forward(request, response);
+		
 	}
 
 }
