@@ -116,7 +116,7 @@
   
    <definition name="userlist.page" template="/WEB-INF/usermypage/layout.jsp">
     <put-attribute name="mypageheader" value="/WEB-INF/usermypage/header.jsp" />
-    <put-attribute name="mypagemenu" value="/WEB-INF/adminLoginview/adminmypagemenu.jsp" />
+    <put-attribute name="mypagemenu" value="/WEB-INF/usermypage/menu.jsp" />
     <put-attribute name="mypagebody" value="/WEB-INF/userInfo/list.jsp" />
   </definition>
   
@@ -127,7 +127,7 @@
   
      <definition name="userUpdate.page" template="/WEB-INF/usermypage/layout.jsp">
     <put-attribute name="mypageheader" value="/WEB-INF/usermypage/header.jsp" />
-    <put-attribute name="mypagemenu" value="/WEB-INF/adminLoginview/adminmypagemenu.jsp" />
+    <put-attribute name="mypagemenu" value="/WEB-INF/usermypage/menu.jsp" />
     <put-attribute name="mypagebody" value="/WEB-INF/userInfo/update.jsp" />
   </definition>
   
@@ -138,7 +138,7 @@
   
   <definition name="map.page" template="/WEB-INF/usermypage/layout.jsp">
     <put-attribute name="mypageheader" value="/WEB-INF/usermypage/header.jsp" />
-    <put-attribute name="mypagemenu" value="/WEB-INF/adminLoginview/adminmypagemenu.jsp" />
+    <put-attribute name="mypagemenu" value="/WEB-INF/usermypage/menu.jsp" />
     <put-attribute name="mypagebody" value="/WEB-INF/usermypage/yedamMap.jsp" />
   </definition>
   
