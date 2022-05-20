@@ -14,9 +14,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
+//import org.json.simple.JSONObject;
+//import org.json.simple.parser.JSONParser;
+//import org.json.simple.parser.ParseException;
 
 
 
@@ -67,23 +67,23 @@ public class kakaoPayControl implements Controller{
         BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
         System.out.println(in);
         System.out.println(string_params);
-		String successUrl = null;
-		
-		try {
-			JSONParser parser = new JSONParser();
-			JSONObject obj = (JSONObject)parser.parse(in);
-			successUrl = (String)obj.get("next_redirect_pc_url");
-			session.setAttribute("tid", (String)obj.get("tid"));
-			session.setAttribute("partner_order_id", "으아아아");
-			session.setAttribute("partner_user_id", "kk@naver.com");
-			session.setAttribute("item_name", item_name);
-			session.setAttribute("item_code", item_code);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}finally {
-			in.close();
-		}
-		System.out.println(successUrl);
+//		String successUrl = null;
+//		
+//		try {
+//			JSONParser parser = new JSONParser();
+//			JSONObject obj = (JSONObject)parser.parse(in);
+//			successUrl = (String)obj.get("next_redirect_pc_url");
+//			session.setAttribute("tid", (String)obj.get("tid"));
+//			session.setAttribute("partner_order_id", "으아아아");
+//			session.setAttribute("partner_user_id", "kk@naver.com");
+//			session.setAttribute("item_name", item_name);
+//			session.setAttribute("item_code", item_code);
+//		} catch (ParseException e) {
+//			e.printStackTrace();
+//		}finally {
+//			in.close();
+//		}
+//		System.out.println(successUrl);
 		
 		//response.sendRedirect(successUrl);
 	}
