@@ -14,6 +14,14 @@ width: 5em; } .star-rating input { display: none; } .star-rating label {
 color: #ccc; cursor: pointer; } .star-rating :checked ~label { color:
 #fc0; } .star-rating label:hover, .star-rating label:hover ~label {
 color: #fc0; }
+
+
+
+
+
+
+
+
 </style>
 
 </head>
@@ -69,12 +77,15 @@ color: #fc0; }
 			<input type = "submit" value = "카카오페이결제">
 		</form>
 		
-		<form action="${pageContext.servletContext.contextPath }/delReview.do" method="post" enctype="multipart/form-data">
+			<form action="${pageContext.servletContext.contextPath }/select.do" method="post" enctype="multipart/form-data">
+		
 			<input type='hidden' name='proDucNum' value='${vo.proDuctNum }'>
+			<fieldset>
+			<legend>댓글</legend>
 			<table border="1">
 				<tr>
+					<th>수정</th>
 					<th>삭제선택</th>
-					<th>수정선택</th>
 					<th>작성자</th>
 					<th>댓글</th>
 					<th>평점</th>
@@ -82,25 +93,28 @@ color: #fc0; }
 				</tr>
 				<c:forEach items="${list}" var="list">
 					<tr>
-						<td><a
-							href="http://localhost/middleProject/delReview.do?proDuctNum=${vo.proDuctNum }&reNum=${list.reviewNum}">삭제</a>
+						<td><a href="#" id="mBtn" >수정</a></td>
+						<td><a href="http://localhost/middleProject/delReview.do?proDuctNum=${vo.proDuctNum }&reNum=${list.reviewNum}">삭제</a>
 						</td>
-						<td><a href="review/find.jsp">조회</a></td>
-						<td>${list.email}</td>
-						<td>${list.content}<input type="hidden" name='content' value='${list.content}'></td>
-						<td>${list.grade}<input type="hidden" name='grade' value='${list.grade}'></td>
+						<td><span id="em">${list.email}</span></td>
+						<td><span id="co">${list.content}</span></td>
+						<td><span id="gr">${list.grade}</span></td>
 						<td><c:if test="${!empty list.RImg}">
-							<img src="${pageContext.servletContext.contextPath }/reviewUpload/${list.RImg }" name="img">
+							<span id="im"><img src="${pageContext.servletContext.contextPath }/reviewUpload/${list.RImg }" name="img"></span>
 							</c:if>
 						</td>
 					</tr>
 				</c:forEach>
 					</table>
+					</fieldset>
 				</form>
+			
+				<hr>
 				
-				<h3>댓글</h3>
-				<form action="${pageContext.servletContext.contextPath }/review.do" method="post" enctype="multipart/form-data">
+				<form action="${pageContext.servletContext.contextPath }/review.do" method="post" enctype="multipart/form-data" id = "form">
 						<input type='hidden' name='prodNum' value='${vo.proDuctNum }'>
+						<input type='hidden' name='proNum' value='${list[0].proDuctNum }' >
+						<input type='hidden' name='reNum'  value='${list[0].reviewNum }'>
 					<p>내용</p>
 					<textarea rows="6" cols="50" name="content" required></textarea>
 					<br>
@@ -112,10 +126,28 @@ color: #fc0; }
 						<input type="radio" id="1-star" name="grade" value="1"> <label for="1-star" class="star">&#9733;</label>
 					</div>
 					<input type="file" name="profile"><br>
-					<input type="submit" value="작성하기">
-
+					<input type="submit" value="작성하기" id = "btn">
 				</form>
+				
+				
 				</c:if>
+		</body>
+		<script>
+				var mBtn = document.getElementById('mBtn');
+				document.addEventListener('DOMContentLoaded', function () {
+
+				      mBtn.addEventListener('click', function(){
+				    	  
+				    	  let btn = document.getElementById('btn')
+				    	  btn.setAttribute("value", "수정하기");
+				    	  let form = document.getElementById('form')
+				    	  form.setAttribute("action", "moReview.do")
+				    	  
+				      })
+
+
+				      });
+			</script>	
 </body>
 <script>
 
