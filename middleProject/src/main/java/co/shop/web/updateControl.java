@@ -45,16 +45,27 @@ public class updateControl implements Controller {
 		//service.update(vo);
 		
 		
-		
 
 		ShopService service1 = new ShopService();
 		service1.update(vo);
-		
+					
 		ShopService service = new ShopService();
 		ShopVO info = service.search(email);
-
 		request.setAttribute("info", info);
-		request.getRequestDispatcher("userUpdate.jsp").forward(request, response);
+		
+		
+		if(phone.length() == 11 ) {
+			request.setAttribute("info", info);
+			request.getRequestDispatcher("userSearch.jsp").forward(request, response);
+
+		} else  {
+			String error = "전화번호 다시 입력!!";
+			request.setAttribute("error", error);
+			request.getRequestDispatcher("userSearch.jsp").forward(request, response);
+		}
+		
+//		request.setAttribute("info", info);
+//		request.getRequestDispatcher("userlist.jsp").forward(request, response);
 		
 	}
 

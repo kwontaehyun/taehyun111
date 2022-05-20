@@ -602,17 +602,15 @@ ul {
    }
 }
 </style>
+
+   </head>
 <div class="wrap wd668">
    <div class="container">
       <div class="form_txtInput">
-         ${error }
-         <h2 class="sub_tit_txt">회원정보수정</h2>
-         <c:choose>
-            <c:when test="${!empty result }">
-               <h3>${result }</h3>
-            </c:when>
-            <c:otherwise>
 
+         <h2 class="sub_tit_txt">회원정보수정</h2>
+         
+ <c:if test = "${!empty error}"><script>alert(`${error}`)</script></c:if>
                <form action="${pageContext.servletContext.contextPath }/update.do"
                   method="post">
 
@@ -659,8 +657,7 @@ ul {
                               </th>
                            </tr>
                            </form>
-                           </c:otherwise>
-                           </c:choose>
+
                         </tbody>
                      </table>
                      <div class="btn_wrap">
@@ -674,3 +671,6 @@ ul {
       <!-- content E-->
    </div>
    <!-- container E -->
+   </div>
+
+   </html>
