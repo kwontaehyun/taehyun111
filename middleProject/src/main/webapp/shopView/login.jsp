@@ -31,7 +31,7 @@ body {
 		</p>
 		<br> <input type="submit" value="로그인">
 	</form>
-	<form action="insert.jsp" method="post">
+	<form action="${pageContext.servletContext.contextPath }/shopView/insert.jsp" method="post">
 		<input type="submit" value="회원가입"
 			onsubmit="location.href='${pageContext.servletContext.contextPath }/shopView/insert.jsp'">
 	</form>

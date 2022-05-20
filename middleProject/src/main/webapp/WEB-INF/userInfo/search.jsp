@@ -6,7 +6,7 @@
 
 <head>
 <meta charset="UTF-8">
-<title>회원정보수정</title>
+<title>상품추가</title>
 <style>
 @charset "utf-8";
 
@@ -606,7 +606,7 @@ ul {
    <div class="container">
       <div class="form_txtInput">
          ${error }
-         <h2 class="sub_tit_txt">✍회원정보수정✍</h2>
+         <h2 class="sub_tit_txt">회원정보수정</h2>
          <c:choose>
             <c:when test="${!empty result }">
                <h3>${result }</h3>
@@ -624,38 +624,38 @@ ul {
                         </colgroup>
                         <tbody>
                            <tr>
-                              <th><span>👉아이디</span></th>
+                              <th><span>아이디</span></th>
                               <td><input type="text" name="email" value="${info.email }"
-                                 placeholder="수정할 ID를 입력하세요."></td>
+                                 readonly ></td>
                            </tr>
                            <tr>
-                              <th><span>🔒비밀번호</span></th>
+                              <th><span>비밀번호</span></th>
                               <td><input type="text" name="pw" value="${info.pw }"
                                  placeholder="수정할 비밀번호를 입력하세요."></td>
                            </tr>
                            <tr>
-                              <th><span>👫성별</span></th>
-                              <td><input type="radio" name="gender" value="M">남성<br>
+                              <th><span>성별</span></th>
+                              <td><input type="radio" name="gender" checked value="M">남성
                                  <input type="radio" name="gender" value="F">여성</td>
                            </tr>
                            <tr>
-                              <th><span>📆생년월일</span></th>
+                              <th><span>생년월일</span></th>
                               <td><input type="date" name="jumin" value="${info.jumin }"
                                  placeholder="수정할 주민번호를 입력하세요."></td>
                            </tr>
                            <tr>
-                              <th><span>📪주소</span></th>
+                              <th><span>주소</span></th>
                               <td><input type="text" name="address" value="${info.address }"
                                  placeholder="수정할 주소를 입력하세요."></td>
                            </tr>
                            <tr>
-                              <th><span>📞연락처</span></th>
+                              <th><span>연락처</span></th>
                               <td><input type="text" name="phone" value="${info.phone }"
                                  placeholder="수정할 연락처를 입력하세요."></td>
                            </tr>
                            <tr>
                               <th>
-                              <td><input type="submit" value="✔수정"></td>
+                              <td><input type="submit" value="수정"></td>
                               </th>
                            </tr>
                            </form>

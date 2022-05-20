@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
 import co.shop.service.ShopService;
 import co.shop.vo.ShopVO;
 
-public class searchControl implements Controller {
+public class DelsearchControl implements Controller {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -25,9 +25,7 @@ public class searchControl implements Controller {
 		ShopVO info = service.search(email);
 
 		request.setAttribute("info", info);
-		request.getRequestDispatcher("userSearch.jsp").forward(request, response);
+		request.getRequestDispatcher("UserDelSearch.jsp").forward(request, response);
 	}
-
-
 
 }

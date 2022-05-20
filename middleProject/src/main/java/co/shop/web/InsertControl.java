@@ -55,7 +55,7 @@ public class InsertControl implements Controller {
 					request.getRequestDispatcher("shopView/login.jsp").forward(request, response);
 //						HttpSession session = request.getSession();
 //						session.setAttribute("email", email);
-					// session.setAttribute("pw", pw);
+//					session.setAttribute("pw", pw);
 //						response.sendRedirect("insert.jsp");
 
 				} else {

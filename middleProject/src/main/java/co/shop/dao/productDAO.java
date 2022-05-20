@@ -146,18 +146,18 @@ public class productDAO extends DAO {
 	
 	public boolean modifyMember(productVO vo) {
 		conn();
-		String sql = "update product set productname=?, productprice=?, category=?, comment=?, sale=?, pimg=?, gender=?, email=? where productnum=?";
+		String sql = "update product set productname=?, productprice=?, category=?, coment=?, sale=?, pimg=?, gender=?, email=? where productnum=?";
 		try {
 			psmt = conn.prepareStatement(sql);
-			psmt.setInt(1, vo.getProDuctNum());
-			psmt.setString(2, vo.getProDuctName());
-			psmt.setInt(3, vo.getProDuctPrice());
-			psmt.setString(4, vo.getCateGory());
-			psmt.setString(5, vo.getComment());
-			psmt.setInt(6, vo.getSale());
-			psmt.setString(7, vo.getpImg());
-			psmt.setString(8, vo.getGender());
-			psmt.setString(9, vo.getEmail());
+			psmt.setString(1, vo.getProDuctName());
+			psmt.setInt(2, vo.getProDuctPrice());
+			psmt.setString(3, vo.getCateGory());
+			psmt.setString(4, vo.getComment());
+			psmt.setInt(5, vo.getSale());
+			psmt.setString(6, vo.getpImg());
+			psmt.setString(7, vo.getGender());
+			psmt.setString(8, vo.getEmail());
+			psmt.setInt(9, vo.getProDuctNum());
 			
 			int r = psmt.executeUpdate();			
 			System.out.println(r + "건 변경.");
@@ -173,12 +173,12 @@ public class productDAO extends DAO {
 		return false;
 	}
 
-	public void deleteMember(String eMail) {
+	public void deleteMember(int proDuctNum) {
 		conn();
-		String sql = "delete from product where email=?";
+		String sql = "delete from product where productnum=?";
 		try {
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, eMail);
+			psmt.setInt(1, proDuctNum);
 			psmt.executeUpdate();
 		
 		} catch (SQLException e) {
@@ -187,6 +187,22 @@ public class productDAO extends DAO {
 			disconn();
 		}
 	}
+	
+	public void placeMember(productVO vo) {
+		conn();
+		String sql = "select* from product where productnum = ?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, vo.getProDuctNum());
+			psmt.executeUpdate();
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disconn();
+		}
+	}
+	
 
 	public Map<String, Integer> genderChart(){
 		conn();

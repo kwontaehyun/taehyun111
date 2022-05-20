@@ -25,12 +25,16 @@ public class deleteControl implements Controller {
 		service.delete(email);
 		ShopVO info = service.search(email);
 
-		request.setAttribute("info", info);
 
+		int role = (Integer) session.getAttribute("role");
 		session.removeAttribute("email");
-		session.removeAttribute("pw");
 		session.removeAttribute("role");
+		String kakaoLogout = "카카오로그아웃";
+		request.setAttribute("kakaoLogout", kakaoLogout);
 		response.sendRedirect("index.jsp");
+		
+		request.setAttribute("info", info);
+		request.getRequestDispatcher("UserDelete.jsp");
 
 	}
 

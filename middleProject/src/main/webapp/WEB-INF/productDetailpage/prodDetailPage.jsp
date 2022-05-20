@@ -26,12 +26,14 @@ color: #fc0; }
 	<h4>상품목록페이지입니다.</h4>
 	<c:if test="${!empty vo}">
 		<c:if test="${role == 1}">
-			<form action="">
+			<form action="${pageContext.servletContext.contextPath }/productModify.jsp" method="post" enctype="multipart/form-data">
+				<input type="hidden" value="${vo.proDuctNum}" name="num">
 				<input type="submit" value="상품수정">
 			</form>
-			<form action="">
-				<input type="submit" value="상품삭제">
-			</form>
+			   <form action="${pageContext.servletContext.contextPath }/productDelete.do">
+                  <input type="hidden" name="num" value="${vo.proDuctNum }" >
+                  <input type="submit" value="상품삭제">
+            </form>   
 		</c:if>
 
 		<img src="upload/${vo.pImg}">
