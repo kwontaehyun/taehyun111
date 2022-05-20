@@ -635,7 +635,7 @@ ul {
                            </tr>
                            <tr>
                               <th><span>👫성별</span></th>
-                              <td><input type="radio" name="gender" value="M">남성
+                              <td><input type="radio" name="gender" value="M">남성<br>
                                  <input type="radio" name="gender" value="F">여성</td>
                            </tr>
                            <tr>

@@ -113,7 +113,6 @@ ul{list-style:none; }
   .join_form table td a.btn_confirm{width: 100px; height: 35px;line-height: 35px; font-size: 12px;margin:5px 0 0 ;}
   .join_form table input.send_number + a{margin:0 0 0 5px;}
 }
-<<<<<<< HEAD
    
     </style>
 <div class="wrap wd668">
@@ -176,5 +175,6 @@ ul{list-style:none; }
           </div>
         </div> <!-- form_txtInput E -->
       </div><!-- content E-->
+    </div> <!-- container E -->
     </div> <!-- container E -->
   

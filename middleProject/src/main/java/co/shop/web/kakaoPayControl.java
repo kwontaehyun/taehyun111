@@ -74,6 +74,22 @@ public class kakaoPayControl implements Controller{
         BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
         System.out.println(in.readLine());
 		String successUrl = null;
+		
+//		try {
+//			JSONParser parser = new JSONParser();
+//			JSONObject obj = (JSONObject)parser.parse(in);
+//			successUrl = (String)obj.get("next_redirect_pc_url");
+//			session.setAttribute("tid", (String)obj.get("tid"));
+//			session.setAttribute("partner_order_id", "으아아아");
+//			session.setAttribute("partner_user_id", "kk@naver.com");
+//			session.setAttribute("item_name", item_name);
+//			session.setAttribute("item_code", item_code);
+//		} catch (ParseException e) {
+//			e.printStackTrace();
+//		}finally {
+//			in.close();
+//		}
+//		System.out.println(successUrl);
 		String next_redirect_pc_url = "next_redirect_pc_url";
 		try {
 			JSONParser parser = new JSONParser();
