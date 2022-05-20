@@ -45,7 +45,6 @@ public class kakaoPayControl implements Controller{
 		String total_amount = request.getParameter("total_amount");
 		String tax_free_amount = request.getParameter("tax_free_amount");
 		
-		
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("cid", "TC0ONETIME"); //가맹점 코드
 		map.put("partner_order_id", "00000000001"); //가맹점 주문번호 String
@@ -55,37 +54,38 @@ public class kakaoPayControl implements Controller{
 		map.put("quantity", quantity);
 		map.put("total_amount", total_amount);
 		map.put("tax_free_amount", tax_free_amount);
-		map.put("approval_url", "http://localhost/middleProject/sucess.jsp");
+		map.put("approval_url", "http://localhost/middleProject/payInfo.do");
 		map.put("cancel_url", "http://localhost/middleProject/cancel.jsp");
 		map.put("fail_url", "http://localhost/middleProject/fail.jsp");
-		
 		
 		String stringParams = "";
 		for(Map.Entry<String, String> elem : map.entrySet()) {
 			stringParams += (elem.getKey() + "=" + elem.getValue() + "&");
 		}
-		System.out.println(stringParams);
 		OutputStream out = conn.getOutputStream();
         out.write(stringParams.getBytes());
         out.flush();
         out.close(); // POST 호출
         BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-        System.out.println(in.readLine());
 		String successUrl = null;
-//		String next_redirect_pc_url = "next_redirect_pc_url";
-//		try {
-//			JSONParser parser = new JSONParser();
-//			Object object = parser.parse(in);
-//			JSONObject obj = (JSONObject) object;
-//			successUrl = (String)obj.get(next_redirect_pc_url);
-//		} catch (ParseException e) {
-//			e.printStackTrace();
-//		} finally {
-//			in.close(); // 응답 스트림 닫기
-//		}
-//		System.out.println(successUrl);
-//		
-//		response.sendRedirect(successUrl);
+		String next_redirect_pc_url = "next_redirect_pc_url";
+		try {
+			JSONParser parser = new JSONParser();
+			Object object = parser.parse(in.readLine());
+			JSONObject obj = (JSONObject) object;
+			successUrl = (String)obj.get(next_redirect_pc_url);
+			session.setAttribute("tid", (String)obj.get("tid"));
+			session.setAttribute("partner_order_id", "으아아아");
+			session.setAttribute("partner_user_id", "kk@naver.com");
+			session.setAttribute("item_name", item_name);
+			session.setAttribute("item_code", item_code);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		} finally {
+			in.close(); // 응답 스트림 닫기
+		}
+		
+		response.sendRedirect(successUrl);
 	}
 
 }

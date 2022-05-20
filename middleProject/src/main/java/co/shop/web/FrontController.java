@@ -53,7 +53,7 @@ public class FrontController extends HttpServlet {
 		map.put("/search.do", new searchControl());
 		
 		map.put("/kakaopay.do", new kakaoPayControl());
-		
+		map.put("/payInfo.do", new kakaoPayInfoControl());
 		//로그인 관련 
 		map.put("/login.do", new loginControl());
 		map.put("/logout.do", new logoutControl());

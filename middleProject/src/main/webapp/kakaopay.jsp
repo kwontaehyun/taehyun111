@@ -9,7 +9,7 @@
 <body>
 
 	<form action = "kakaopay.do">
-	<input type = "hidden" value = "가죽자켓" name = "item_name"> <!-- 상품명 String-->
+	<input type = "hidden" value = "검" name = "item_name"> <!-- 상품명 String-->
 	<input type = "hidden" value = "으아" name = "item_code"> <!-- 상품코드 String-->
 	<input type = "hidden" name = "quantity" value = "1">  <!-- 상품수량 int -->
 	<input type = "hidden" name = "total_amount" value = "24000"> <!-- 상품 총액 int -->

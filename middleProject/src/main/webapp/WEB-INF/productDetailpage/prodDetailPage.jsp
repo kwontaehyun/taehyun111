@@ -54,8 +54,14 @@ color: #fc0; }
 			★
 		</c:forEach>
 		</h4>
-		
-		
+		<form action = "kakaopay.do">
+			<input type = "hidden" name = "item_name" value = "${vo.proDuctName }"> <!-- 상품명 String-->
+			<input type = "hidden" name = "item_code" value = "${vo.proDuctNum}"> <!-- 상품코드 String-->
+			<input type = "hidden" name = "quantity" value = "1">  <!-- 상품수량 int -->
+			<input type = "hidden" name = "total_amount" value = "${vo.proDuctPrice}"> <!-- 상품 총액 int -->
+			<input type = "hidden" name = "tax_free_amount" value = "0"> <!-- 상품 비과세 금액 -->
+			<input type = "submit" value = "카카오페이결제">
+		</form>
 		
 		<form action="${pageContext.servletContext.contextPath }/delReview.do" method="post" enctype="multipart/form-data">
 			<input type='hidden' name='proDucNum' value='${vo.proDuctNum }'>

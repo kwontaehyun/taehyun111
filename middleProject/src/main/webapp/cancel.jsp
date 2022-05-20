@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h4>취소</h4>
+	<script>
+		if (confirm("결제가 취소되었습니다. 이전 창으로 돌아가시겠습니까?") == true) { //확인
+			location.href = `http://localhost/middleProject/shoppingBasket.do`
+		} else { //취소
+			location.href = `http://localhost/middleProject/index.jsp`
+		}
+	</script>
+
 </body>
 </html>
