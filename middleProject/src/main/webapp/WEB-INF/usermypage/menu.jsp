@@ -40,8 +40,8 @@
 						aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 						<nav class="sb-sidenav-menu-nested nav">
 							<a class="nav-link" href="${pageContext.request.contextPath }/list.do">회원정보보기</a>
-							<a class="nav-link" href="${pageContext.request.contextPath }/update.do">회원정보수정</a> 
-							<a class="nav-link" href="${pageContext.request.contextPath }/delete.do">회원탈퇴</a>
+							<a class="nav-link" href="${pageContext.request.contextPath }/search.do">회원정보수정</a> 
+							<a class="nav-link" href="${pageContext.request.contextPath }/delsearch.do">회원탈퇴</a>
 							<a class="nav-link" href="${pageContext.request.contextPath }/findMap.jsp">찾아오시는길</a>
 							
 						</nav>

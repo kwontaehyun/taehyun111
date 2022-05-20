@@ -14,10 +14,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONObject;
+
 import org.apache.tomcat.jni.Time;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
+
 
 
 
@@ -72,20 +74,20 @@ public class kakaoPayControl implements Controller{
         BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
         System.out.println(in.readLine());
 		String successUrl = null;
-//		String next_redirect_pc_url = "next_redirect_pc_url";
-//		try {
-//			JSONParser parser = new JSONParser();
-//			Object object = parser.parse(in);
-//			JSONObject obj = (JSONObject) object;
-//			successUrl = (String)obj.get(next_redirect_pc_url);
-//		} catch (ParseException e) {
-//			e.printStackTrace();
-//		} finally {
-//			in.close(); // 응답 스트림 닫기
-//		}
-//		System.out.println(successUrl);
-//		
-//		response.sendRedirect(successUrl);
+		String next_redirect_pc_url = "next_redirect_pc_url";
+		try {
+			JSONParser parser = new JSONParser();
+			Object object = parser.parse(in);
+			JSONObject obj = (JSONObject) object;
+			successUrl = (String)obj.get(next_redirect_pc_url);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			in.close(); // 응답 스트림 닫기
+		}
+		System.out.println(successUrl);
+		
+		response.sendRedirect(successUrl);
 	}
 
 }
