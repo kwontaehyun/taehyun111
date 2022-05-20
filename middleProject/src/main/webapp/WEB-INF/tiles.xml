@@ -116,7 +116,7 @@
   
    <definition name="userlist.page" template="/WEB-INF/usermypage/layout.jsp">
     <put-attribute name="mypageheader" value="/WEB-INF/usermypage/header.jsp" />
-    <put-attribute name="mypagemenu" value="/WEB-INF/adminLoginview/adminmypagemenu.jsp" />
+    <put-attribute name="mypagemenu" value="/WEB-INF/usermypage/menu.jsp" />
     <put-attribute name="mypagebody" value="/WEB-INF/userInfo/list.jsp" />
   </definition>
   
@@ -124,21 +124,50 @@
   	<put-attribute name="body" value="/{1}/{2}.jsp"/>
   </definition>
   
-  
-     <definition name="userUpdate.page" template="/WEB-INF/usermypage/layout.jsp">
+       <definition name="userUpdate.page" template="/WEB-INF/usermypage/layout.jsp">
     <put-attribute name="mypageheader" value="/WEB-INF/usermypage/header.jsp" />
-    <put-attribute name="mypagemenu" value="/WEB-INF/adminLoginview/adminmypagemenu.jsp" />
+    <put-attribute name="mypagemenu" value="/WEB-INF/usermypage/menu.jsp" />
     <put-attribute name="mypagebody" value="/WEB-INF/userInfo/update.jsp" />
   </definition>
   
       <definition name="WILDCARD:*/*" extends="userUpdate.page">
   	<put-attribute name="body" value="/{1}/{2}.jsp"/>
   </definition>
+  
+         <definition name="userDelete.page" template="/WEB-INF/usermypage/layout.jsp">
+    <put-attribute name="mypageheader" value="/WEB-INF/usermypage/header.jsp" />
+    <put-attribute name="mypagemenu" value="/WEB-INF/usermypage/menu.jsp" />
+    <put-attribute name="mypagebody" value="/WEB-INF/userInfo/delete.jsp" />
+  </definition>
+  
+      <definition name="WILDCARD:*/*" extends="userDelete.page">
+  	<put-attribute name="body" value="/{1}/{2}.jsp"/>
+  </definition>
+  
+     <definition name="userSearch.page" template="/WEB-INF/usermypage/layout.jsp">
+    <put-attribute name="mypageheader" value="/WEB-INF/usermypage/header.jsp" />
+    <put-attribute name="mypagemenu" value="/WEB-INF/usermypage/menu.jsp" />
+    <put-attribute name="mypagebody" value="/WEB-INF/userInfo/search.jsp" />
+  </definition>
+  
+      <definition name="WILDCARD:*/*" extends="userSearch.page">
+  	<put-attribute name="body" value="/{1}/{2}.jsp"/>
+  </definition>
+  
+       <definition name="userDelSearch.page" template="/WEB-INF/usermypage/layout.jsp">
+    <put-attribute name="mypageheader" value="/WEB-INF/usermypage/header.jsp" />
+    <put-attribute name="mypagemenu" value="/WEB-INF/usermypage/menu.jsp" />
+    <put-attribute name="mypagebody" value="/WEB-INF/userInfo/delsearch.jsp" />
+  </definition>
+  
+      <definition name="WILDCARD:*/*" extends="userDelSearch.page">
+  	<put-attribute name="body" value="/{1}/{2}.jsp"/>
+  </definition>
 
   
   <definition name="map.page" template="/WEB-INF/usermypage/layout.jsp">
     <put-attribute name="mypageheader" value="/WEB-INF/usermypage/header.jsp" />
-    <put-attribute name="mypagemenu" value="/WEB-INF/adminLoginview/adminmypagemenu.jsp" />
+    <put-attribute name="mypagemenu" value="/WEB-INF/usermypage/menu.jsp" />
     <put-attribute name="mypagebody" value="/WEB-INF/usermypage/yedamMap.jsp" />
   </definition>
   
