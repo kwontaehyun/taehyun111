@@ -40,6 +40,10 @@ color: #fc0; }
 
 		<c:if test="${vo.sale == null || vo.sale == 0}">
 			<h4>${vo.proDuctPrice}원</h4>
+			
+			<a name ="basket" href="http://localhost/middleProject/shoppingBasket.do?proDuctNum=${vo.proDuctNum }">장바구니
+			</a>
+			
 		</c:if>
 		<c:if test="${vo.sale ne 0}">
 			<p>
@@ -105,4 +109,7 @@ color: #fc0; }
 				</form>
 				</c:if>
 </body>
+<script>
+
+</script>
 </html>

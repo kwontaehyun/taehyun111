@@ -21,8 +21,6 @@ public class updateControl implements Controller {
 		HttpSession session = request.getSession();
 		String email = (String) session.getAttribute("email");
 
-
-
 		email = (String) session.getAttribute("email");
 		String pw = request.getParameter("pw");
 		String gender = request.getParameter("gender");
@@ -42,20 +40,17 @@ public class updateControl implements Controller {
 		vo.setPhone(phone);
 		vo.setLoginway(loginway);
 
-		//service.update(vo);
-		
-		
-		
+		// service.update(vo);
 
 		ShopService service1 = new ShopService();
 		service1.update(vo);
-		
+
 		ShopService service = new ShopService();
 		ShopVO info = service.search(email);
-
-		request.setAttribute("info", info);
-		request.getRequestDispatcher("userUpdate.jsp").forward(request, response);
 		
+		request.getRequestDispatcher("userlist.jsp").forward(request, response);
+
+
 	}
 
 }
