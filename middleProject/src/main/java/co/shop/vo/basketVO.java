@@ -8,7 +8,7 @@ public class basketVO {
 	private String pImg;
 	private String gender;
 	private String email;
-	
+	private int proDuctNum;
 	public basketVO() {
 		
 	}
@@ -24,6 +24,15 @@ public class basketVO {
 		this.gender = gender;
 		this.email = email;
 	}
+	
+	public int getProDuctNum() {
+		return proDuctNum;
+	}
+
+	public void setProDuctNum(int proDuctNum) {
+		this.proDuctNum = proDuctNum;
+	}
+
 	public String getProDuctName() {
 		return proDuctName;
 	}

@@ -19,7 +19,10 @@ public class basketService {
 		return dao.basketProductList(proDuctNum);
 	}
 	
-	public void deletebasket(String proDuctNum) {
+	public void deletebasket(int proDuctNum) {
 		dao.shoppingBasketDelete(proDuctNum);
+	}
+	public boolean repeatedCheck(String proDuctNum, String email) {
+		return dao.check(proDuctNum, email);
 	}
 }

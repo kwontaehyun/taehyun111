@@ -29,6 +29,8 @@ body {
 		<p>
 			비밀번호 : <input type="password" name="pw" required>
 		</p>
+		<a href = "http://localhost/middleProject/findID.jsp">아이디 찾기</a>
+		<a href = "http://localhost/middleProject/findPW.jsp">비밀번호 찾기</a>
 		<br> <input type="submit" value="로그인">
 	</form>
 	<form action="${pageContext.servletContext.contextPath }/shopView/insert.jsp" method="post">
@@ -40,6 +42,7 @@ body {
 		action="/middleProject/kakaologin.do">
 		<input type="hidden" name="email" /> <input type="hidden"
 			name="birthday" /> <input type="hidden" name="gender" />
+			<input type = "hidden" name = "age_range">
 	</form>
 
 	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
@@ -62,6 +65,9 @@ body {
 								'#form-kakao-login > input[name=gender]')
 								.setAttribute("value", account.gender)
 						// 사용자 정보가 포함된 폼을 서버로 제출한다.
+						document.querySelector(
+								'#form-kakao-login > input[name=age_range]')
+								.setAttribute("value", account.age_range)
 						document.querySelector('#form-kakao-login').submit();
 					},
 				});

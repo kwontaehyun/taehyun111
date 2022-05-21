@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h4>성공</h4>
+
 </body>
 </html>

@@ -17,6 +17,7 @@ public class basketDAO extends DAO{
 			rs = psmt.executeQuery();
 			while(rs.next()) {
 				basketVO vo = new basketVO();
+				vo.setProDuctNum(rs.getInt("productnum"));
 				vo.setProDuctName(rs.getString("productname"));
 				vo.setProDuctPrice(rs.getInt("productprice"));
 				vo.setComment(rs.getString("coment"));
@@ -37,16 +38,17 @@ public class basketDAO extends DAO{
 	
 	public void shoppingBasketInsert(basketVO vo) {
 		conn();
-		String sql = "insert into shoppingbasket(productname, productprice, coment, sale, pimg, gender, email) values(?,?,?,?,?,?,?)";
+		String sql = "insert into shoppingbasket(productnum,productname, productprice, coment, sale, pimg, gender, email) values(?,?,?,?,?,?,?,?)";
 		try {
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, vo.getProDuctName());
-			psmt.setInt(2, vo.getProDuctPrice());
-			psmt.setString(3, vo.getComment());
-			psmt.setInt(4, vo.getSale());
-			psmt.setString(5, vo.getpImg());
-			psmt.setString(6, vo.getGender());
-			psmt.setString(7, vo.getEmail());
+			psmt.setInt(1, vo.getProDuctNum());
+			psmt.setString(2, vo.getProDuctName());
+			psmt.setInt(3, vo.getProDuctPrice());
+			psmt.setString(4, vo.getComment());
+			psmt.setInt(5, vo.getSale());
+			psmt.setString(6, vo.getpImg());
+			psmt.setString(7, vo.getGender());
+			psmt.setString(8, vo.getEmail());
 			psmt.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -71,6 +73,7 @@ public class basketDAO extends DAO{
 				vo.setSale(rs.getInt("sale"));
 				vo.setpImg(rs.getString("pimg"));
 				vo.setGender(rs.getString("gender"));
+				vo.setProDuctNum(rs.getInt("productnum"));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -81,12 +84,12 @@ public class basketDAO extends DAO{
 		return vo;
 	}
 	
-	public void shoppingBasketDelete(String proDuctName) {
+	public void shoppingBasketDelete(int proDuctNum) {
 		conn();
-		String sql = "delete from shoppingbasket where productname = ?";
+		String sql = "delete from shoppingbasket where productnum = ?";
 		try {
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, proDuctName);
+			psmt.setInt(1, proDuctNum);
 			psmt.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -95,5 +98,29 @@ public class basketDAO extends DAO{
 			disconn();
 		}
 	}
+	
+	public boolean check(String proDuctNum, String email) {
+		conn();
+		String sql = "select* from shoppingbasket where productnum = ? and email = ?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, proDuctNum);
+			psmt.setString(2, email);
+			psmt.executeQuery();
+			int r = psmt.executeUpdate();
+			if (r > 0) {
+				return true;
+			} else {
+				return false;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			disconn();
+		}
+		return false;
+	}
+	
 	
 }

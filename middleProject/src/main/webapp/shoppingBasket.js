@@ -7,8 +7,13 @@ let checkBoxAry = document.querySelectorAll('#delete');
 let btn = document.getElementById('delBtn')
 let cnt = 0;
 let selcnt = 1;
+let paycnt = 0;
 let proDuctName = ""
 let proDuctNameAry = ""
+
+let proDuctNum = ""
+let proDuctNumAry = ""
+
 btn.addEventListener('click', function() {
 	checkBoxAry.forEach((val) => {
 		if (val.checked == true) {
@@ -41,3 +46,25 @@ selbtn.addEventListener('click',function(){
 	})
 	selcnt++;
 })
+
+let payBtn = document.getElementById('kakaopayBtn')
+payBtn.addEventListener('click', function(){
+	console.log('1111');
+	checkBoxAry.forEach((val) => {
+		if (val.checked == true) {
+			if(paycnt == 0){
+				proDuctNum = `?proDuctNum${paycnt}=`+val.value;
+				proDuctNumAry += proDuctNum;
+			}
+			else{
+				proDuctNum = `&proDuctNum${paycnt}=`+val.value;
+				proDuctNumAry += proDuctNum;
+			}
+			paycnt++;
+		}
+	})
+	location.href = `kakaopay.do${proDuctNumAry}&cnt=${paycnt}&check=check`;
+	paycnt=0;
+})
+
+

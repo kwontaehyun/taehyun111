@@ -32,7 +32,7 @@
 		<c:if test="${!empty list}">
 			<c:forEach items="${list}" var="list">
 					<div id="checkDelete">
-						<span>선택 : </span><input id = "delete" type = "checkbox" value = "${list.proDuctName}" name = "proDuctName">
+						<span>선택 : </span><input id = "delete" type = "checkbox" value = "${list.proDuctNum}" name = "proDuctName">
 						
 						<img src="upload/${list.pImg }" id="prodimg">
 						<div id="comment">
@@ -54,6 +54,7 @@
 			<c:if test = "${!empty moneySum}"><h4>총 합계 : ${moneySum}원</h4> </c:if>
 			<button id = "delBtn">선택삭제</button>
 			<button id = "selBtn">전체선택</button>
+			<button id = "kakaopayBtn">카카오페이 결제</button>
 
 		</c:if>
 	</div>
