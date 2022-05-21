@@ -54,9 +54,14 @@ public class FrontController extends HttpServlet {
 		map.put("/delete.do", new deleteControl());
 		map.put("/search.do", new searchControl());
 		map.put("/delsearch.do", new DelsearchControl());
-		
+		map.put("/idFind.do", new emailControl());
+		map.put("/idFindCheck.do", new keyCheckControl());
 		map.put("/kakaopay.do", new kakaoPayControl());
 		map.put("/payInfo.do", new kakaoPayInfoControl());
+		map.put("/basketPay.do", new basketPay());
+		map.put("/userPay.do", new userPayControl());
+		map.put("/adminPay.do", new adminPayControl());
+		
 		//로그인 관련 
 		map.put("/login.do", new loginControl());
 		map.put("/logout.do", new logoutControl());

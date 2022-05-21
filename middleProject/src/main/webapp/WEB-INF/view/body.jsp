@@ -13,6 +13,12 @@
 	alert('${error}')
 	</script>
 	</c:if>
+	<c:if test="${!empty buy }">
+		<script>
+			alert(`${buy}`)
+		</script>
+	</c:if>
+	
    <!-- Section-->
    <section class="py-5" id = "list">
       <script src = "mainhome.js"></script>

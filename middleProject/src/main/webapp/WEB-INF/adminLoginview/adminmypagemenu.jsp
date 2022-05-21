@@ -36,7 +36,20 @@
 									d="M192 384c-8.188 0-16.38-3.125-22.62-9.375l-160-160c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L192 306.8l137.4-137.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-160 160C208.4 380.9 200.2 384 192 384z"></path></svg>
 							<!-- <i class="fas fa-angle-down"></i> Font Awesome fontawesome.com -->
 						</div>
-					</a> <a class="nav-link"
+					</a> 
+					
+					<div class="collapse" id="collapseLayouts"
+						aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+						<nav class="sb-sidenav-menu-nested nav">
+							<a class="nav-link" href="${pageContext.request.contextPath }/adminPay.do">결제내역</a>
+							
+						</nav>
+					</div>
+					
+					
+					
+					
+					<a class="nav-link"
 						href="http://localhost/middleProject/chart.jsp">
 						<div class="sb-nav-link-icon">
 							<svg class="svg-inline--fa fa-chart-area" aria-hidden="true"

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,8 +45,8 @@
 							<c:if test="${list.sale ne 0}">
 								<p>
 									<span>${list.proDuctPrice}원</span> ${list.sale}%
-								<p>
-								<h4>${list.proDuctPrice - (vo.proDuctPrice*(list.sale/100))}원</h4>
+								</p>
+								<h4><fmt:formatNumber type="number"  pattern="0" value="${list.proDuctPrice - list.proDuctPrice * (list.sale/100)}" />원</h4>
 							</c:if>
 							<h4>성별 : ${list.gender}</h4>
 						</div>
@@ -58,6 +59,11 @@
 
 		</c:if>
 	</div>
+	<c:if test = "${!empty buy }">
+	<script>
+	alert(`${buy}`)
+	</script>
+	</c:if>
 	<script src = "shoppingBasket.js"></script>
 </body>
 </html>

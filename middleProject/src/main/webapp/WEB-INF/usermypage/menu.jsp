@@ -44,6 +44,7 @@
 							<a class="nav-link" href="${pageContext.request.contextPath }/delsearch.do">회원탈퇴</a>
 							<a class="nav-link" href="${pageContext.request.contextPath }/findMap.jsp">찾아오시는길</a>
 							<a class="nav-link" href="http://localhost/middleProject/shoppingBasket.do">장바구니</a>
+							<a class="nav-link" href="${pageContext.request.contextPath }/userPay.do">결제내역</a>
 							
 						</nav>
 					</div>

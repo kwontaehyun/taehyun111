@@ -29,8 +29,7 @@ body {
 		<p>
 			비밀번호 : <input type="password" name="pw" required>
 		</p>
-		<a href = "http://localhost/middleProject/findID.jsp">아이디 찾기</a>
-		<a href = "http://localhost/middleProject/findPW.jsp">비밀번호 찾기</a>
+		<a href = "http://localhost/middleProject/findID.jsp">비밀번호 찾기</a>
 		<br> <input type="submit" value="로그인">
 	</form>
 	<form action="${pageContext.servletContext.contextPath }/shopView/insert.jsp" method="post">

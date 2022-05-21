@@ -39,7 +39,6 @@ public class kakaoPayControl implements Controller{
 		conn.setDoInput(true);
 		conn.setDoOutput(true);
 		
-		int cnt = Integer.parseInt(request.getParameter("cnt"));
 		String check = request.getParameter("check");
 		basketService service = new basketService();
 		String proDuctName = "";
@@ -50,8 +49,12 @@ public class kakaoPayControl implements Controller{
 			String item_name = request.getParameter("item_name");
 			String item_code = request.getParameter("item_code");
 			String quantity = request.getParameter("quantity");
-			String total_amount = request.getParameter("total_amount");
+			int total_amount = Integer.parseInt(request.getParameter("total_amount"));
 			String tax_free_amount = request.getParameter("tax_free_amount");
+			int sale = Integer.parseInt(request.getParameter("sale"));
+			if(sale > 0) {
+				total_amount = total_amount - (total_amount * sale)/100;
+			}
 			
 			
 			map.put("cid", "TC0ONETIME"); //가맹점 코드
@@ -60,17 +63,24 @@ public class kakaoPayControl implements Controller{
 			map.put("item_name", item_name); //상품명
 			map.put("item_code", item_code); //상품코드
 			map.put("quantity", quantity); // 상품수량
-			map.put("total_amount", total_amount); // 가격
+			map.put("total_amount", Integer.toString(total_amount)); // 가격
 			map.put("tax_free_amount", tax_free_amount); // 비과세
-			
+			map.put("approval_url", "http://localhost/middleProject/payInfo.do");
 			session.setAttribute("item_code", item_code);
 			
 		}else{
+			int cnt = Integer.parseInt(request.getParameter("cnt"));
 			for(int i=0; i<cnt; i++) {
 				String proDuctNum = request.getParameter("proDuctNum"+i);
 				basketVO vo = new basketVO();
 				vo = service.productList(proDuctNum);
-				sumMoney+= vo.getProDuctPrice();
+				
+				if(vo.getSale() > 0) {
+					sumMoney += vo.getProDuctPrice() - (vo.getProDuctPrice()*vo.getSale())/100;
+				}else {
+					sumMoney += vo.getProDuctPrice();
+				}
+				
 				if(i == 0) {
 					proDuctName += vo.getProDuctName();
 					proDuctNumAry += proDuctNum;
@@ -83,19 +93,19 @@ public class kakaoPayControl implements Controller{
 				
 			}
 			session.setAttribute("proDuctNumAry", proDuctNumAry);
-			
+			map.put("cid", "TC0ONETIME"); //가맹점 코드
+			map.put("partner_order_id", "00000000001"); //가맹점 주문번호 String
+			map.put("partner_user_id", "kantaaaa"); // 가맹점 회원id String
+			map.put("item_name", proDuctName); //상품명
+			map.put("item_code", "104"); //상품코드
+			map.put("quantity", "1"); // 상품수량
+			map.put("total_amount", Integer.toString(sumMoney)); // 가격
+			map.put("tax_free_amount", "0"); // 비과세
+			map.put("approval_url", "http://localhost/middleProject/basketPay.do");
 		}
 		
-		map.put("cid", "TC0ONETIME"); //가맹점 코드
-		map.put("partner_order_id", "00000000001"); //가맹점 주문번호 String
-		map.put("partner_user_id", "kantaaaa"); // 가맹점 회원id String
-		map.put("item_name", proDuctName); //상품명
-		map.put("item_code", "104"); //상품코드
-		map.put("quantity", "1"); // 상품수량
-		map.put("total_amount", Integer.toString(sumMoney)); // 가격
-		map.put("tax_free_amount", "0"); // 비과세
 	
-		map.put("approval_url", "http://localhost/middleProject/payInfo.do");
+		
 		map.put("cancel_url", "http://localhost/middleProject/cancel.jsp");
 		map.put("fail_url", "http://localhost/middleProject/fail.jsp");
 		

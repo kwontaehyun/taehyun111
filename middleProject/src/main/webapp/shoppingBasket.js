@@ -17,54 +17,66 @@ let proDuctNumAry = ""
 btn.addEventListener('click', function() {
 	checkBoxAry.forEach((val) => {
 		if (val.checked == true) {
-			if(cnt == 0){
-				proDuctName = `?proDuctName${cnt}=`+val.value;
+			if (cnt == 0) {
+				proDuctName = `?proDuctName${cnt}=` + val.value;
 				proDuctNameAry += proDuctName;
 			}
-			else{
-				proDuctName = `&proDuctName${cnt}=`+val.value;
+			else {
+				proDuctName = `&proDuctName${cnt}=` + val.value;
 				proDuctNameAry += proDuctName;
 			}
 			cnt++;
 		}
 	})
-	location.href = `basketDelete.do${proDuctNameAry}&cnt=${cnt}`;
-	cnt=0;
-	
+
+	if (cnt == 0) {
+		alert('삭제하실 품목을 선택해주세요');
+	}
+	else {
+		location.href = `basketDelete.do${proDuctNameAry}&cnt=${cnt}`;
+		cnt = 0;
+	}
+
 })
 
 let selbtn = document.getElementById('selBtn')
-selbtn.addEventListener('click',function(){
-	checkBoxAry.forEach(val=>{
-		if(selcnt % 2 == 0){
+selbtn.addEventListener('click', function() {
+	checkBoxAry.forEach(val => {
+		if (selcnt % 2 == 0) {
 			val.checked = false;
-			
-		}else{
+
+		} else {
 			val.checked = true
 		}
-		
+
 	})
 	selcnt++;
 })
 
 let payBtn = document.getElementById('kakaopayBtn')
-payBtn.addEventListener('click', function(){
+payBtn.addEventListener('click', function() {
 	console.log('1111');
 	checkBoxAry.forEach((val) => {
 		if (val.checked == true) {
-			if(paycnt == 0){
-				proDuctNum = `?proDuctNum${paycnt}=`+val.value;
+			if (paycnt == 0) {
+				proDuctNum = `?proDuctNum${paycnt}=` + val.value;
 				proDuctNumAry += proDuctNum;
 			}
-			else{
-				proDuctNum = `&proDuctNum${paycnt}=`+val.value;
+			else {
+				proDuctNum = `&proDuctNum${paycnt}=` + val.value;
 				proDuctNumAry += proDuctNum;
 			}
 			paycnt++;
 		}
 	})
-	location.href = `kakaopay.do${proDuctNumAry}&cnt=${paycnt}&check=check`;
-	paycnt=0;
+
+	if (paycnt == 0) {
+		alert('구매하실 품목을 선택해주세요.')
+	}
+	else {
+		location.href = `kakaopay.do${proDuctNumAry}&cnt=${paycnt}&check=check`;
+		paycnt = 0;
+	}
 })
 
 
