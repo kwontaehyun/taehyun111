@@ -51,12 +51,10 @@ int role = (Integer) session.getAttribute("role");
 				window.Kakao.init("046c047958de0cd3b816a19cdd02fa4b")
 					function kakaoLogout() {
 			            if (!Kakao.Auth.getAccessToken()) {
-			                alert('Not logged in.');
 			                document.querySelector('#form-kakao-logout').submit();
 			                return;
 			            }
 			            Kakao.Auth.logout(function() {
-			                alert('logout ok\naccess token -> ' + Kakao.Auth.getAccessToken());
 			                document.querySelector('#form-kakao-logout').submit();
 			            });
 			            Kakao.API.request({
@@ -97,7 +95,7 @@ int role = (Integer) session.getAttribute("role");
 					<a class="btn btn-outline-dark"
 						href="http://localhost/middleProject/shoppingBasket.do"> <i
 						class="bi-cart-fill me-1"></i> Cart <span
-						class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+						class="badge bg-dark text-white ms-1 rounded-pill" id = "CartCnt"></span>
 					</a>
 
 				</form>

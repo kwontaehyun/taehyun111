@@ -58,15 +58,35 @@
 		<c:if test="${role == 1}">
 			<form
 				action="${pageContext.servletContext.contextPath }/productModify.jsp"
-				method="post" enctype="multipart/form-data">
-				<input type="hidden" value="${vo.proDuctNum}" name="num"> <input
-					type="submit" value="상품수정">
+				method="get" enctype="multipart/form-data">
+				<input type="hidden" value="${vo.proDuctNum}" name="num">
+				<input type="hidden" value="${vo.proDuctName}" name="name">
+				<input type="hidden" value="${vo.proDuctPrice}" name="price"> 
+				<input type="hidden" value="${vo.cateGory}" name="gory"> 
+				<input type="hidden" value="${vo.comment}" name="comment"> 
+				<input type="hidden" value="${vo.sale}" name="sale"> 
+				<input type="hidden" value="${vo.pImg}" name="pImg"> 
+				<input type="hidden" value="${vo.gender}" name="gender"> 
+				<input type="hidden" value="${vo.email}" name="email"> 
+				<input type="submit" value="상품수정">
 			</form>
 			<form
 				action="${pageContext.servletContext.contextPath }/productDelete.do">
 				<input type="hidden" name="num" value="${vo.proDuctNum }"> <input
-					type="submit" value="상품삭제">
+					type="submit" value="상품삭제" id = "delProdBtn">
 			</form>
+			
+			<script>
+			let delProdBtn = document.getElementById('delProdBtn');
+			delProdBtn.addEventListener('click', function(){
+				if (confirm("상품을 삭제 하시겠습니까?") == true) {    //확인
+					
+				}else{
+					 event.preventDefault();
+				}
+			})
+			</script>
+			
 		</c:if>
 
 		<img src="upload/${vo.pImg}">

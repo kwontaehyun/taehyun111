@@ -22,7 +22,7 @@ public class basketService {
 	public void deletebasket(int proDuctNum) {
 		dao.shoppingBasketDelete(proDuctNum);
 	}
-	public boolean repeatedCheck(String proDuctNum, String email) {
+	public boolean repeatedCheck(int proDuctNum, String email) {
 		return dao.check(proDuctNum, email);
 	}
 }

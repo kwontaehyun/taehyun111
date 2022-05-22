@@ -21,6 +21,9 @@ public class payService {
 	public int sumPayMoney() {
 		return dao.sumPay();
 	}
+	public int monthSum(String month) {
+		return dao.MonthsumPay(month);
+	}
 	
 	
 }

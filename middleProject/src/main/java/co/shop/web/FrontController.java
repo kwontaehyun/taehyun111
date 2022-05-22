@@ -29,7 +29,6 @@ import co.prod.web.productDeleteControl;
 import co.prod.web.productInsertControl;
 import co.prod.web.productMenuListControl;
 import co.prod.web.productModifyControl;
-import co.prod.web.productPlaceControl;
 import co.review.web.delReviewControl;
 import co.review.web.modiReviewControl;
 import co.review.web.reviewControl;
@@ -84,8 +83,6 @@ public class FrontController extends HttpServlet {
 		map.put("/productInsert.do", new productInsertControl());
 		map.put("/productModify.do", new productModifyControl());
 		map.put("/productDelete.do", new productDeleteControl());
-		map.put("/productPlace.do", new productPlaceControl());
-		
 	
 		map.put("/userChart.do", new genderChartControl());
 		map.put("/prodChart.do", new prodGenderChartControl());

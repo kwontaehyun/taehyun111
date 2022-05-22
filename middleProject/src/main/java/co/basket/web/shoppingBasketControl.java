@@ -26,15 +26,16 @@ public class shoppingBasketControl implements Controller {
 			request.setAttribute("error", error);
 			request.getRequestDispatcher("shopView/login.jsp").forward(request, response);
 		} else {
-			String proDuctNum = request.getParameter("proDuctNum");
+			String proDuctNumCheck = request.getParameter("proDuctNum");
 			basketService service = new basketService();
 
-			if (proDuctNum == null) {
+			if (proDuctNumCheck == null) {
 				List<basketVO> list = service.basketList(email);
 				request.setAttribute("list", list);
 				request.getRequestDispatcher("shoppingpage.jsp").forward(request, response);
 			} else {
-				boolean tf = service.repeatedCheck(proDuctNum, email);
+				String proDuctNum = request.getParameter("proDuctNum");
+				boolean tf = service.repeatedCheck(Integer.parseInt(proDuctNum), email);
 
 				if (tf == true) {
 					request.setAttribute("error", "이미 추가된 상품입니다.");
@@ -42,8 +43,9 @@ public class shoppingBasketControl implements Controller {
 				} else {
 					basketVO vo = service.productList(proDuctNum);
 					vo.setEmail(email);
+					vo.setProDuctNum(Integer.parseInt(proDuctNum));
 					service.insertbasket(vo);
-					response.sendRedirect(request.getHeader("referer"));
+					response.sendRedirect("index.jsp");
 				}
 			}
 		}

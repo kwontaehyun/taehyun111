@@ -9,6 +9,9 @@
 </head>
 <body>
 	<c:if test = "${!empty list}">
+		<h4>지난달 결제내역 : ${prevdate }</h4>
+		<h4>이번달 결제내역 : ${currSum }</h4>
+	
 		<c:forEach items="${list}" var="list">
 		<img src="upload/${list.pImg }">
 		<h4>제품이름 : ${list.proDuctName }</h4>

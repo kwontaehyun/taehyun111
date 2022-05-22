@@ -33,12 +33,10 @@
 					window.Kakao.init("046c047958de0cd3b816a19cdd02fa4b")
 					function kakaoLogout() {
 			            if (!Kakao.Auth.getAccessToken()) {
-			                alert('이미 로그아웃 되어있습니다.');
 			                document.querySelector('#form-kakao-logout2').submit();
 			                return;
 			            }
 			            Kakao.Auth.logout(function() {
-			                alert('로그아웃에 성공했습니다.'+ Kakao.Auth.getAccessToken());
 			                document.querySelector('#form-kakao-logout2').submit();
 			            });
 			            Kakao.API.request({

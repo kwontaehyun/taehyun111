@@ -116,6 +116,18 @@ ul{list-style:none; }
    
     </style>
  <body>
+
+<%
+	int num = Integer.parseInt(request.getParameter("num"));
+	String name = (String) request.getParameter("name");
+	int price = Integer.parseInt(request.getParameter("price"));
+	String gory = (String)request.getParameter("gory");
+	String comment = (String)request.getParameter("comment");
+	int sale = Integer.parseInt(request.getParameter("sale"));
+	String pImg = (String)request.getParameter("pImg");
+	String gender = (String)request.getParameter("gender");
+	String email = (String)request.getParameter("email");
+%>
  
 <div class="wrap wd668">
       <div class="container">
@@ -133,39 +145,39 @@ ul{list-style:none; }
               <tbody>
                 <tr>
                   <th><p><span>📦상품번호</span></p></th>
-                  <td><p><input type="number" name="num" value="${vo.proDuctNum }" placeholder = <%=request.getParameter("num") %> ></td>
+                  <td><p><input type="number" name="num" value= <%=num %> readonly ></td>
                 </tr>
                 <tr>
                   <th><p><span>👉아이디</span></p></th>
-                  <td><input type="email" name="email" value="${vo.eMail }" placeholder = "${vo.email }"></td>
+                  <td><input type="email" name="email" value= <%=email %> readonly></td>
                 </tr>
                 <tr>
                   <th><p><span>✍상품이름</span></p></th>
-                  <td><input type="text" name="name" value="${vo.proDuctName }" placeholder = "${vo.productname }"></td>
+                  <td><input type="text" name="name" value=<%=name %> ></td>
                 </tr>
                 <tr>
                   <th><p><span>💵상품가격</span></p></th>
-                  <td><input type="number" name="price" value="${vo.proDuctPrice }" placeholder = "${vo.productprice }"></td>
+                  <td><input type="number" name="price" value=<%=price %> ></td>
                 </tr>
                 <tr>
                   <th><p><span>👓카테고리</span></p></th>
-                  <td><input type="text" name="category" value="${vo.cateGory }" placeholder = "${vo.category }"></td>
+                  <td><input type="text" name="category" value=<%=gory %>></td>
                 </tr>
                 <tr>
                   <th><p><span>📃상품설명</span></p></th>
-                  <td><input type="text" name="comment" value="${vo.comment }" placeholder = "${vo.comment }"></td>
+                  <td><input type="text" name="comment" value=<%=comment %>></td>
                 </tr>
                 <tr>
                   <th><p><span>🔮세일</span></p></th>
-                  <td><input type="number" name="sale" value="${vo.sale }" placeholder = "${vo.sale }"></td>
+                  <td><input type="number" name="sale" value=<%=sale %>></td>
                 </tr>
                 <tr>
                   <th><p><span>👫성별</span></p></th>
-                  <td><input type="text" name="gender" value="${vo.gender }" placeholder = "${vo.gender }"></td>
+                  <td><input type="text" name="gender" value=<%=gender %>></td>
                 </tr>
                  <tr>
                 <th><p><span>💷사진</span></p></th>
-                 <td><input type="file" name="pimg" value="${vo.pimg }"></td>
+                 <td><input type="file" name="pimg" value=<%=pImg %>></td>
                 </tr>
                 <tr>
                   <th><td><input type="submit" value="✔등록">

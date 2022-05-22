@@ -97,4 +97,24 @@ public class payDAO extends DAO{
 		return sum;
 	}
 	
+	public int MonthsumPay(String month) {
+		conn();
+		String sql = "select sum(payprice) as pay from kakaopay where TO_CHAR(paydate, 'YYYY-MM') = ?";
+		int sum = 0;
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, month);
+			rs = psmt.executeQuery();
+			if(rs.next()) {
+				sum = rs.getInt("pay");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			disconn();
+		}
+		return sum;
+	}
+	
 }
