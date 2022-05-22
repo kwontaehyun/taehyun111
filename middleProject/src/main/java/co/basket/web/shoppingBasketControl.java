@@ -31,11 +31,6 @@ public class shoppingBasketControl implements Controller {
 
 			if (proDuctNum == null) {
 				List<basketVO> list = service.basketList(email);
-				int moneySum = 0;
-				for (int i = 0; i < list.size(); i++) {
-					moneySum += list.get(i).getProDuctPrice();
-				}
-				request.setAttribute("moneySum", moneySum);
 				request.setAttribute("list", list);
 				request.getRequestDispatcher("shoppingpage.jsp").forward(request, response);
 			} else {
@@ -48,7 +43,7 @@ public class shoppingBasketControl implements Controller {
 					basketVO vo = service.productList(proDuctNum);
 					vo.setEmail(email);
 					service.insertbasket(vo);
-					response.sendRedirect("index.jsp");
+					response.sendRedirect(request.getHeader("referer"));
 				}
 			}
 		}

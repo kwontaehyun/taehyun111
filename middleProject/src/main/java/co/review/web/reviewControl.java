@@ -24,10 +24,7 @@ public class reviewControl implements Controller {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("댓글입력");
-
 		request.setCharacterEncoding("utf-8");
-		response.setContentType("text/json; charset=utf-8");
 		response.setCharacterEncoding("utf-8");
 
 		HttpSession session = request.getSession();
@@ -43,7 +40,7 @@ public class reviewControl implements Controller {
 		
 		
 		if (email == null) {
-			request.setAttribute("error", "로그인후이용해주세요");
+			request.setAttribute("error", "로그인 이후 이용해주세요");
 			request.getRequestDispatcher("shopView/login.jsp").forward(request, response);
 			return ;
 		}
@@ -51,37 +48,37 @@ public class reviewControl implements Controller {
 		if (isMulti) { // 멀티요청
 
 			email = (String) session.getAttribute("email");
-			System.out.println(email);
 			int prodNum = Integer.parseInt(multi.getParameter("prodNum"));
-			System.out.println(prodNum);
 			String content = multi.getParameter("content");
-			System.out.println(content);
-			int grade = Integer.parseInt(multi.getParameter("grade"));
-			System.out.println(grade);
+			String gradecheck = multi.getParameter("grade");
+			int grade = 0;
+			if(gradecheck != null) {
+				grade = Integer.parseInt(multi.getParameter("grade"));
+			}
+			
 			String pf = multi.getFilesystemName("profile");
-			System.out.println(pf);
 
 			reviewVO vo = new reviewVO();
 			vo.setEmail(email);
 			vo.setContent(content);
 			vo.setProDuctNum(prodNum);
-			vo.setGrade(grade);
+			
+			if(grade != 0) {
+				vo.setGrade(grade);
+			}
+			
 			vo.setRImg(pf);
 
 			reviewService service = new reviewService();
 			service.reviewInsert(vo);
-			request.getRequestDispatcher("/detailProduct.do?proDuctNum=" + prodNum).forward(request, response);
-
+			//request.getRequestDispatcher("/detailProduct.do?proDuctNum=" + prodNum).forward(request, response);
+			response.sendRedirect("/middleProject/detailProduct.do?proDuctNum=" + prodNum);
 		} else {
 
 			email = (String) session.getAttribute("email");
-			System.out.println(email);
 			int prodNum = Integer.parseInt(request.getParameter("prodNum"));
-			System.out.println(prodNum);
 			String content = request.getParameter("content");
-			System.out.println(content);
 			int grade = Integer.parseInt(request.getParameter("grade"));
-			System.out.println(grade);
 			reviewVO vo = new reviewVO();
 			vo.setEmail(email);
 			vo.setContent(content);
@@ -90,7 +87,7 @@ public class reviewControl implements Controller {
 
 			reviewService service = new reviewService();
 			service.reviewInsert(vo);
-			request.getRequestDispatcher("/detailProduct.do?proDuctNum=" + prodNum).forward(request, response);
+			response.sendRedirect("/middleProject/detailProduct.do?proDuctNum=" + prodNum);
 		}
 
 	}

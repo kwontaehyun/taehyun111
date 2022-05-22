@@ -20,8 +20,6 @@ public class modiReviewControl implements Controller {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("수정 처리  ");
-
 		request.setCharacterEncoding("utf-8");
 		
 		boolean isMulti = ServletFileUpload.isMultipartContent(request);
@@ -34,11 +32,8 @@ public class modiReviewControl implements Controller {
 
 		HttpSession session = request.getSession();
 		String email = (String) session.getAttribute("email");
-		System.out.println(email+"1");
 		int prodNum = Integer.parseInt(multi.getParameter("proNum"));
-		System.out.println(prodNum+"2");
 		int reNum = Integer.parseInt(multi.getParameter("reNum"));
-		System.out.println(reNum+"8");
 		if (email == null) {
 			request.setAttribute("error", "로그인후 이용");
 			request.getRequestDispatcher("showView/login.jsp").forward(request, response);
@@ -49,49 +44,44 @@ public class modiReviewControl implements Controller {
 		if(isMulti) {
 			
 			String pf = multi.getFilesystemName("profile");
-			System.out.println(pf+"3");
 			String content =multi.getParameter("content");
-			System.out.println(content+"4");
-			int grade = Integer.parseInt(multi.getParameter("grade"));
-			System.out.println(grade+"5");
-			
+			String gradecheck = multi.getParameter("grade");
+			int grade = 0;
+			if(gradecheck != null) {
+				grade = Integer.parseInt(multi.getParameter("grade"));
+			}
 			reviewVO vo = new reviewVO();
 			vo.setRImg(pf);
 			vo.setContent(content);
-			vo.setGrade(grade);
+			if(grade != 0) {
+				vo.setGrade(grade);
+			}
 			vo.setReviewNum(reNum);
 			vo.setEmail(email);
 			
 			reviewService service = new reviewService();
 			service.reviewUpdate(vo);
-			request.getRequestDispatcher("/detailProduct.do?proDuctNum=" + prodNum).forward(request, response);
+			response.sendRedirect("/middleProject/detailProduct.do?proDuctNum=" + prodNum);
 		}else {
 			String content = request.getParameter("content");
-			System.out.println(content+"6");
-			int grade = Integer.parseInt(request.getParameter("grade"));
-			System.out.println(grade+"7");
+			String gradecheck = multi.getParameter("grade");
+			int grade = 0;
+			if(gradecheck != null) {
+				grade = Integer.parseInt(multi.getParameter("grade"));
+			}
 
 			reviewVO vo = new reviewVO();
 			vo.setContent(content);
-			vo.setGrade(grade);
+			if(grade != 0) {
+				vo.setGrade(grade);
+			}
 			vo.setReviewNum(reNum);
 			vo.setEmail(email);
-			
 			reviewService service= new reviewService();
 			service.reviewUpdate(vo);
-			
-			request.getRequestDispatcher("detailProduct.do?proDuctNum=" + prodNum).forward(request, response);
-			
+			response.sendRedirect("/middleProject/detailProduct.do?proDuctNum=" + prodNum);
 			
 		}
-		
-		
-		
-		
-		
-		
-
-		
 	}
 
 }

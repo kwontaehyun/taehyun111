@@ -8,6 +8,11 @@
 <title>Insert title here</title>
 </head>
 <body >
+<%
+String email = (String) session.getAttribute("email");
+int role = (Integer) session.getAttribute("role");
+%>
+
 <c:if test = "${!empty error }">
 	<script>
 	alert('${error}')
@@ -22,8 +27,18 @@
    <!-- Section-->
    <section class="py-5" id = "list">
       <script src = "mainhome.js"></script>
+      <div id = "btn" style = "text-align: center" > 
+       <c:if test ="${!empty email && role == 1}">
+      <div>
+				<form action="productInsert.jsp">
+					<input type="submit" value="상품등록">
+				</form>
+			</div>
+      </c:if>
+      </div>
       
-      <div id = "btn" style = "text-align: center" > </div>
+     
+      
    </section>
    
 </body>

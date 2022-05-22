@@ -43,6 +43,7 @@ function pageing(result) {
 	let div2 = document.createElement('div');
 	div2.className = "row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center"
 	div.appendChild(div2)
+	
 	document.getElementById('list').appendChild(div);
 	result.forEach((val, idx) => {
 
@@ -65,7 +66,6 @@ function pageing(result) {
 	})
 
 	let btnAry = document.querySelectorAll('div > button');
-
 	result.forEach((val, idx) => {
 		btnAry.forEach((btn, btnIdx) => {
 			btn.addEventListener('click', function() {

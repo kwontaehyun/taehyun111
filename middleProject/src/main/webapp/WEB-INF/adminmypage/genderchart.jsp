@@ -49,7 +49,7 @@
 			var data = google.visualization.arrayToDataTable(aryData);
 
 			var options = {
-				title: '남녀 상품 비율'
+				title: '남녀 가입 비율'
 			};
 
 			var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -77,7 +77,7 @@
 				var data = google.visualization.arrayToDataTable(aryData);
 
 				var options = {
-					title: '남녀 가입 비율'
+					title: '남녀 상품 비율'
 				};
 
 				var chart = new google.visualization.PieChart(document.getElementById('piechart2'));

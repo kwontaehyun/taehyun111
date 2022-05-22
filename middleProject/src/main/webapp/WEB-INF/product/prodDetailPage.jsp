@@ -51,7 +51,7 @@
 	<%
 	int role = (Integer) session.getAttribute("role");
 	%>
-	
+
 
 	<h4>상품목록페이지입니다.</h4>
 	<c:if test="${!empty vo}">
@@ -64,8 +64,8 @@
 			</form>
 			<form
 				action="${pageContext.servletContext.contextPath }/productDelete.do">
-				<input type="hidden" name="num" value="${vo.proDuctNum }">
-				<input type="submit" value="상품삭제">
+				<input type="hidden" name="num" value="${vo.proDuctNum }"> <input
+					type="submit" value="상품삭제">
 			</form>
 		</c:if>
 
@@ -85,7 +85,11 @@
 			<p>
 				<span>${vo.proDuctPrice}원</span> ${vo.sale}%
 			</p>
-			<h4><fmt:formatNumber type="number"  pattern="0" value="${vo.proDuctPrice - (vo.proDuctPrice*(vo.sale/100))}" />원</h4>
+			<h4>
+				<fmt:formatNumber type="number" pattern="0"
+					value="${vo.proDuctPrice - (vo.proDuctPrice*(vo.sale/100))}" />
+				원
+			</h4>
 		</c:if>
 		<h4>성별 : ${vo.gender}</h4>
 		<h4>
@@ -99,8 +103,8 @@
 			<!-- 상품명 String-->
 			<input type="hidden" name="item_code" value="${vo.proDuctNum}">
 			<!-- 상품코드 String-->
-			<input type ="hidden" name = "sale" value = "${vo.sale}">
-			<input type="hidden" name="quantity" value="1">
+			<input type="hidden" name="sale" value="${vo.sale}"> <input
+				type="hidden" name="quantity" value="1">
 			<!-- 상품수량 int -->
 			<input type="hidden" name="total_amount" value="${vo.proDuctPrice}">
 			<!-- 상품 총액 int -->
@@ -116,30 +120,35 @@
 			<fieldset>
 				<legend>댓글</legend>
 				<table border="1">
-					<tr>
-						<th>수정</th>
-						<th>삭제선택</th>
-						<th>작성자</th>
-						<th>댓글</th>
-						<th>평점</th>
-						<th>이미지</th>
-					</tr>
-					<c:forEach items="${list}" var="list">
+					<thead>
 						<tr>
-							<td><a href="#" id="mBtn">수정</a></td>
-							<td><a
-								href="http://localhost/middleProject/delReview.do?proDuctNum=${vo.proDuctNum }&reNum=${list.reviewNum}">삭제</a>
-							</td>
-							<td><span id="em">${list.email}</span></td>
-							<td><span id="co">${list.content}</span></td>
-							<td><span id="gr">${list.grade}</span></td>
-							<td><c:if test="${!empty list.RImg}">
-									<span id="im"><img
-										src="${pageContext.servletContext.contextPath }/reviewUpload/${list.RImg }"
-										name="img"></span>
-								</c:if></td>
+							<th>수정</th>
+							<th>삭제선택</th>
+							<th>작성자</th>
+							<th>댓글</th>
+							<th>평점</th>
+							<th>이미지</th>
 						</tr>
+					</thead>
+					<c:forEach items="${list}" var="list">
+						<tbody>
+							<tr>
+								<td><a href="#btn" id="mBtn">수정</a></td>
+								<td><a
+									href="http://localhost/middleProject/delReview.do?proDuctNum=${vo.proDuctNum }&reNum=${list.reviewNum}">삭제</a>
+								</td>
+								<td><span id="em">${list.email}</span></td>
+								<td><span id="co">${list.content}</span></td>
+								<td><span id="gr">${list.grade}</span></td>
+								<td><span id="im"><c:if test="${!empty list.RImg}">
+											<img
+												src="${pageContext.servletContext.contextPath }/reviewUpload/${list.RImg }"
+												name="img">
+										</c:if></span></td>
+							</tr>
+						</tbody>
 					</c:forEach>
+
 				</table>
 			</fieldset>
 		</form>
@@ -152,7 +161,7 @@
 			<input type='hidden' name='proNum' value='${list[0].proDuctNum }'>
 			<input type='hidden' name='reNum' value='${list[0].reviewNum }'>
 			<p>내용</p>
-			<textarea rows="6" cols="50" name="content" required></textarea>
+			<textarea id="textraea" rows="6" cols="50" name="content" required></textarea>
 			<br>
 			<div class="star-rating">
 				<input type="radio" id="5-stars" name="grade" value="5"> <label
@@ -167,28 +176,42 @@
 			</div>
 			<input type="file" name="profile"><br> <input
 				type="submit" value="작성하기" id="btn">
+			<div id="image_container"></div>
 		</form>
-
-
+		<span id="btnList"></span>
 	</c:if>
 </body>
 <script>
-	var mBtn = document.getElementById('mBtn');
+	let mBtn = document.querySelectorAll('#mBtn');
+	let co = document.querySelectorAll('#co');
+	let gr = document.querySelectorAll('#gr');
+	let im = document.querySelectorAll('#im');
+	let textarea = document.getElementById('textraea');
+	let img = document.createElement("img");
+	let grade =	document.querySelectorAll('#form > div > input[type=radio]')
+	let cnt = 1;
+	let tbody = document.querySelectorAll('table > tbody')
 	document.addEventListener('DOMContentLoaded', function() {
+		mBtn.forEach((val,idx) =>{
+			val.addEventListener('click', function() {
 
-		mBtn.addEventListener('click', function() {
+				let btn = document.getElementById('btn')
+				btn.setAttribute("value", "수정하기");
+				let form = document.getElementById('form')
+				form.setAttribute("action", "moReview.do")
+				
+				textarea.innerHTML = co[idx].innerHTML;
+				for(let i =0; i<5; i++){
+					if(grade[i].value == gr[idx].innerHTML){
+						grade[i].innerHTML = idx+1;
+					}
+				}
+				console.log(im[idx].firstElementChild.src)
+				img.setAttribute("src", im[idx].firstElementChild.src);
+				document.querySelector("#image_container").appendChild(img);
 
-			let btn = document.getElementById('btn')
-			btn.setAttribute("value", "수정하기");
-			let form = document.getElementById('form')
-			form.setAttribute("action", "moReview.do")
-
+			})
 		})
-
-	});
-</script>
-</body>
-<script>
-	
+	})	
 </script>
 </html>

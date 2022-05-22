@@ -1,4 +1,4 @@
-package co.shop.web;
+package co.kakao.web;
 
 import java.io.IOException;
 
@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import co.shop.service.ShopService;
 import co.shop.vo.ShopVO;
+import co.shop.web.Controller;
 
 public class kakaoLoginControl implements Controller {
 

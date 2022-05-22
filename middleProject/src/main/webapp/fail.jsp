@@ -7,9 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h4>실패</h4>
 <script>
-
+if (confirm("결제에 실패했습니다. 이전 창으로 돌아가시겠습니까?") == true) { //확인
+	location.href = `http://localhost/middleProject/shoppingBasket.do`
+} else { //취소
+	location.href = `http://localhost/middleProject/index.jsp`
+}
 </script>
 </body>
 </html>

@@ -3,7 +3,6 @@
  */
 
 let checkBoxAry = document.querySelectorAll('#delete');
-
 let btn = document.getElementById('delBtn')
 let cnt = 0;
 let selcnt = 1;

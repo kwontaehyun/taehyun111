@@ -1,4 +1,4 @@
-package co.shop.web;
+package co.kakao.web;
 
 import java.io.IOException;
 
@@ -12,6 +12,7 @@ import co.shop.service.payService;
 import co.shop.service.productService;
 import co.shop.vo.payVO;
 import co.shop.vo.productVO;
+import co.shop.web.Controller;
 
 public class kakaoPayInfoControl implements Controller {
 

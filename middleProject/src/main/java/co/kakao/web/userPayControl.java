@@ -1,4 +1,4 @@
-package co.shop.web;
+package co.kakao.web;
 
 import java.io.IOException;
 import java.util.List;
@@ -6,23 +6,24 @@ import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import co.shop.service.payService;
 import co.shop.vo.payVO;
+import co.shop.web.Controller;
 
-public class adminPayControl implements Controller {
+public class userPayControl implements Controller{
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		HttpSession session = request.getSession();
+		String email = (String) session.getAttribute("email");
 		payService service = new payService();
-		List<payVO> list = service.sumPaySelect();
-		
-		int money = service.sumPayMoney();
+		List<payVO> list = service.userPayment(email);
 		
 		request.setAttribute("list", list);
-		request.setAttribute("money", money);
-		request.getRequestDispatcher("/adminpay.jsp").forward(request, response);
+		request.getRequestDispatcher("/userpay.jsp").forward(request, response);
+		
 	}
 
 }
