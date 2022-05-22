@@ -26,7 +26,6 @@ public class productInsertControl implements Controller{
 		MultipartRequest multi = new MultipartRequest(request, saveDir, maxSize, encoding,
 				new DefaultFileRenamePolicy());
 		
-		int number = Integer.parseInt(multi.getParameter("num"));
 		String name = multi.getParameter("name");
 		int price = Integer.parseInt(multi.getParameter("price"));
 		String category = multi.getParameter("category");
@@ -37,7 +36,6 @@ public class productInsertControl implements Controller{
 		String email = multi.getParameter("email");
 		
 		productVO vo = new productVO();
-		vo.setProDuctNum(number);
 		vo.setProDuctName(name);
 		vo.setProDuctPrice(price);
 		vo.setCateGory(category);
@@ -51,6 +49,6 @@ public class productInsertControl implements Controller{
 		productService service = new productService();
 		service.insertProduct(vo);
 		
-		request.getRequestDispatcher("/index.jsp").forward(request, response);
+		response.sendRedirect("/middleProject/index.jsp");
 	}
 }

@@ -120,19 +120,18 @@ public class productDAO extends DAO {
 
 	public void adminInsertProduct(productVO vo) {
 		conn();
-		String sql = "insert into product(productnum, productname, productprice, category, coment, sale, pimg, gender, email) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql = "insert into product(productnum, productname, productprice, category, coment, sale, pimg, gender, email) values(prod_num_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 		try {
 			psmt = conn.prepareStatement(sql);
-			psmt.setInt(1, vo.getProDuctNum());
-			psmt.setString(2, vo.getProDuctName());
-			psmt.setInt(3, vo.getProDuctPrice());
-			psmt.setString(4, vo.getCateGory());
-			psmt.setString(5, vo.getComment());
-			psmt.setInt(6, vo.getSale());
-			psmt.setString(7, vo.getpImg());
-			psmt.setString(8, vo.getGender());
-			psmt.setString(9, vo.getEmail());
+			psmt.setString(1, vo.getProDuctName());
+			psmt.setInt(2, vo.getProDuctPrice());
+			psmt.setString(3, vo.getCateGory());
+			psmt.setString(4, vo.getComment());
+			psmt.setInt(5, vo.getSale());
+			psmt.setString(6, vo.getpImg());
+			psmt.setString(7, vo.getGender());
+			psmt.setString(8, vo.getEmail());
 
 			int r = psmt.executeUpdate();
 			System.out.println(r + "건 입력");

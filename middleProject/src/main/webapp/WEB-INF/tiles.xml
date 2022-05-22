@@ -137,20 +137,22 @@
   	<put-attribute name="body" value="/{1}/{2}.jsp"/>
   </definition>
   
-   <definition name="product.insert" template="/WEB-INF/usermypage/layout.jsp">
-    <put-attribute name="mypageheader" value="/WEB-INF/usermypage/header.jsp" />
-    <put-attribute name="mypagemenu" value="/WEB-INF/usermypage/menu.jsp" />
-    <put-attribute name="mypagebody" value="/WEB-INF/product/Insert.jsp" />
+   <definition name="product.insert" template="/WEB-INF/view/layout.jsp">
+    <put-attribute name="header" value="/WEB-INF/view/header.jsp" />
+    <put-attribute name="menu" value="/WEB-INF/view/menu.jsp" />
+    <put-attribute name="body" value="/WEB-INF/product/Insert.jsp" />
+    <put-attribute name="footer" value="/WEB-INF/view/footer.jsp" />
   </definition>
   
   <definition name="WILDCARD:*/*" extends="product.insert">
   	<put-attribute name="body" value="/{1}/{2}.jsp"/>
   </definition>
   
-   <definition name="product.modify" template="/WEB-INF/usermypage/layout.jsp">
-    <put-attribute name="mypageheader" value="/WEB-INF/usermypage/header.jsp" />
-    <put-attribute name="mypagemenu" value="/WEB-INF/usermypage/menu.jsp" />
-    <put-attribute name="mypagebody" value="/WEB-INF/product/Modify.jsp" />
+   <definition name="product.modify" template="/WEB-INF/view/layout.jsp">
+    <put-attribute name="header" value="/WEB-INF/view/header.jsp" />
+    <put-attribute name="menu" value="/WEB-INF/view/menu.jsp" />
+    <put-attribute name="body" value="/WEB-INF/product/Modify.jsp" />
+    <put-attribute name="footer" value="/WEB-INF/view/footer.jsp" />
   </definition>
   
   <definition name="WILDCARD:*/*" extends="product.modify">

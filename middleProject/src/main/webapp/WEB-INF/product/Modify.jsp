@@ -116,6 +116,7 @@ ul{list-style:none; }
    
     </style>
  <body>
+ 
 <div class="wrap wd668">
       <div class="container">
         <div class="form_txtInput">
@@ -132,7 +133,7 @@ ul{list-style:none; }
               <tbody>
                 <tr>
                   <th><p><span>📦상품번호</span></p></th>
-                  <td><p><input type="number" name="num" value="${vo.proDuctNum }" placeholder = <%=request.getParameter("vo") %>></td>
+                  <td><p><input type="number" name="num" value="${vo.proDuctNum }" placeholder = <%=request.getParameter("num") %> ></td>
                 </tr>
                 <tr>
                   <th><p><span>👉아이디</span></p></th>
@@ -170,13 +171,11 @@ ul{list-style:none; }
                   <th><td><input type="submit" value="✔등록">
                   </td></th>
                 </tr>
-                </form>
+                
               </tbody>
             </table>
-          <div class="btn_wrap">
-            <a id="homepage" href="${pageContext.servletContext.contextPath }/index.jsp">Main Page</a>
-          </div>
         </div> <!-- form_txtInput E -->
+        </form>
       </div><!-- content E-->
     </div> <!-- container E -->
 </body>

@@ -114,6 +114,13 @@ ul{list-style:none; }
 }
    
     </style>
+    
+<body>
+
+<% 
+String email = (String) session.getAttribute("email");
+%>
+
 <div class="wrap wd668">
       <div class="container">
         <div class="form_txtInput">
@@ -128,10 +135,6 @@ ul{list-style:none; }
                 <col width="auto"/>
               </colgroup>
               <tbody>
-                <tr>
-                  <th><span>📦상품번호</span></th>
-                  <td><input type="number" name="num"placeholder = "상품번호를 입력하세요."></td>
-                </tr>
                 <tr>
                   <th><span>✍상품이름</span></th>
                   <td><input type="text" name="name"placeholder = "상품이름을 입력하세요."></td>
@@ -152,28 +155,28 @@ ul{list-style:none; }
                   <th><span>🔮세일</span></th>
                   <td><input type="number" name="sale"placeholder = "할인을 입력하세요."></td>
                 </tr>
-                <tr>
-                  <th><span>👫성별</span></th>
-                  <td><input type="select" name="gender"placeholder = "성별을 입력하세요.(MF, M, F)"></td>
+               <tr>
+                  <th><p><span>👫성별</span></p></th>
+                  <td><span>남성</span><br><input type="radio" name="gender"value="M">
+               <span>여성</span><br><input type="radio" name="gender" value="F">
+               <span>공용</span><br><input type="radio" name="gender" value="MF"></td>
                 </tr>
                 <tr>
                   <th><span>👉아이디</span></th>
-                  <td><input type="email" name="email"placeholder = "ID를 입력하세요(email@email.com)"></td>
+                  <td><input type="email" name="email" value = "${email }" readonly></td>
                 </tr>
                  <tr>
                   <th><span>💷사진</span></th>
                   <td><input type="file" name="pimg"></td>
                 </tr>
                 <tr>
-                  <th><td><input type="submit" value="✔등록">
-                  </td></th>
+                  <th><td><input type="submit" value="✔등록"></td></th>
                 </tr>
-                </form>
+                
               </tbody>
             </table>
-          <div class="btn_wrap">
-            <a id="homepage" href="${pageContext.servletContext.contextPath }/index.jsp">Main Page</a>
-          </div>
         </div> <!-- form_txtInput E -->
+        </form>
       </div><!-- content E-->
     </div> <!-- container E -->
+</body>

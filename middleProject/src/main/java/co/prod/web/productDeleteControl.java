@@ -15,20 +15,12 @@ public class productDeleteControl implements Controller {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
-		response.setContentType("text/json; charset=utf-8");
-		response.setCharacterEncoding("utf-8");
-		HttpSession session = request.getSession();
-		
 		int number = Integer.parseInt(request.getParameter("num"));
 		
 		productService service = new productService();
 		service.deleteMember(number);
 		
-		request.setAttribute("number", number);
-		session.removeAttribute("number");
-		
-		request.getRequestDispatcher("/index.jsp").forward(request, response);
+		response.sendRedirect("/middleProject/index.jsp");
 	}
 
 }
