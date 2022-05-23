@@ -19,7 +19,11 @@ public class insertPhoneCheck implements Controller {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
-		String phoneNum = request.getParameter("phoneNum");
+		String phoneNum = (String) request.getParameter("phone");
+		String pw = (String) request.getParameter("pw");
+		String pwcheck = (String) request.getParameter("pwcheck");
+		String jumin = (String) request.getParameter("jumin");
+		String address = (String) request.getParameter("address");
 		String api_key = "NCSPIGAE2RY8UCUQ";
 		String api_secret = "NCKM4MSIEV91WW6I5JR0UXGJSPLXKQOJ";
 		Coolsms coolsms = new Coolsms(api_key, api_secret);
@@ -32,19 +36,23 @@ public class insertPhoneCheck implements Controller {
 		set.put("text", "인증번호는 " + numCode + " 입니다."); // 문자내용
 		set.put("type", "sms"); // 문자 타입
 		JSONObject result = coolsms.send(set); // 보내기&전송결과받기
+		
 		session.setAttribute("numCode", numCode);
-		request.setAttribute("msg", "msg");
-		request.setAttribute("msg2", "msg2");
-		request.getRequestDispatcher("shopView/insert.jsp").forward(request, response);
+		session.setAttribute("pw", pw);
+		session.setAttribute("pwcheck", pwcheck);
+		session.setAttribute("jumin", jumin);
+		session.setAttribute("address", address);
+		response.sendRedirect("/middleProject/shopView/insert.jsp");
 	}
 	public String numCode() {
 		
 		String num = null;
 		StringBuffer temp = new StringBuffer();
 		Random rnd = new Random();
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < 4; i++) {
 			temp.append((rnd.nextInt(10)));
 		}
+		num = temp.toString();
 		return num;
 	}
 }

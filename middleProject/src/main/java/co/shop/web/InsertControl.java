@@ -21,8 +21,8 @@ public class InsertControl implements Controller {
 
 		HttpSession session = request.getSession();
 
-		String phoneCheck = (String) session.getAttribute("phone");
-		String idCheck = (String) session.getAttribute("email");
+		String phoneCheck = (String) session.getAttribute("phoneNum");
+		String idCheck = (String) session.getAttribute("emailCheck");
 
 		if (idCheck == null) {
 			String error = "이메일 인증을 받으세요.";
@@ -34,8 +34,12 @@ public class InsertControl implements Controller {
 				request.setAttribute("error", error);
 				request.getRequestDispatcher("shopView/insert.jsp").forward(request, response);
 			} else {
-				session.removeAttribute("phone");
-				session.removeAttribute("email");
+				session.removeAttribute("emailCheck");
+				session.removeAttribute("phoneNum");
+				session.removeAttribute("pw");
+				session.removeAttribute("pwcheck");
+				session.removeAttribute("jumin");
+				session.removeAttribute("address");
 
 				String email = request.getParameter("email");
 				String pw = request.getParameter("pw");

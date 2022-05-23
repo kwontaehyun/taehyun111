@@ -116,6 +116,15 @@ ul{list-style:none; }
    
     </style>
 <body>
+<%
+	String emailCheck = (String) session.getAttribute("emailCheck");
+	String phoneNum = (String) session.getAttribute("phoneNum");
+	String pw = (String) session.getAttribute("pw");
+	String pwcheck = (String) session.getAttribute("pwcheck");
+	String jumin = (String) session.getAttribute("jumin");
+	String address = (String) session.getAttribute("address");
+%>
+
 <div class="wrap wd668">
       <div class="container">
         <div class="form_txtInput">
@@ -136,23 +145,35 @@ ul{list-style:none; }
               <tbody>
                 <tr>
                   <th><p><span>👉아이디</span></p></th>
-                  <td><input type="email" name="email" id = "email" value = "${email }" placeholder = "ID를 입력하세요.(email@email.com).">
-                  	  <a id = "emailcheck" href = "#">인증받기</a>
-                  	  <c:if test = "${!empty meg }">
-                  	  <br><span>인증번호 : </span><input type = "text" name = "key" id = "key">
-                  	  <a id = "idCheck" href = "#">완료</a>
+                  <td><input type="email" name="email" id = "email" value ="${emailCheck }" placeholder = "ID를 입력하세요.(email@email.com)." required></td>
+                <td><a id = "emailcheck" href = "#">인증받기</a></td>
+                  	  <td><p id = "ppp"></p></td>
+                  	  <c:if test = "${!empty emailCheck}">
+                  	  <br>
+                  	  <th><p>인증번호 : </th><p><td><input type = "text" name = "key" id = "key"></td>
+                  	  <td><a id = "idCheck" href = "#">완료</a></td>
+                  	  <script>
+                  		let idCheck = document.getElementById('idCheck')
+                  	  	idCheck.addEventListener('click', function() {
+							let key = document.getElementById('key');
+							location.href = "http://localhost/middleProject/idphoneCheck.do?key=" + key.value
+
+						})
+                  	  </script>
                   	  </c:if>
-                  </td>
-                  <td><input type="email" name="email"
-                   required placeholder = "ID를 입력하세요.(email@email.com)."></td>
                 </tr>
+                
+                
                 <tr>
                   <th><p><span>🔒비밀번호</span></p></th>
-                  <td><input type="password" name="pw" id="pw" placeholder = "비밀번호를 입력하세요."></td>
+                  <td><input type="password" name="pw" id="pw" value = "${pw}" placeholder = "비밀번호를 입력하세요."></td>
+                </tr>
+                <tr>
+                	<td><p id = "pwOverlapCheck"></p></td>
                 </tr>
                 <tr>
                   <th><p><span>🔐비밀번호 확인</span></p></th>
-                  <td><input type="password" name="pwcheck" id="pwcheck" placeholder = "비밀번호를 한번 더 입력하세요."></td>
+                  <td><input type="password" name="pwcheck" id="pwcheck" value = "${pwcheck}" placeholder = "비밀번호를 한번 더 입력하세요."></td>
                 </tr>
                 <tr>
                   <th><p><span>👫성별</span></p></th>
@@ -164,23 +185,35 @@ ul{list-style:none; }
                 </tr>
                 <tr>
                   <th><p><span>📆생년월일</span></p></th>
-                  <td><input type="date" name="jumin" id="jumin"> 
+                  <td><input type="date" name="jumin" value = "${jumin}" id="jumin"> 
                 </tr>
                 
      <tr>
                   <th><p><span>📪주소</span></p></th>
-                  <td><input type="text" name="address" placeholder = "주소를 입력하세요."></td>
+                  <td><input type="text" name="address" value = "${address}" placeholder = "주소를 입력하세요."></td>
                		<td><input type="hidden" name="acces"></td>
                 </tr>
       
       <tr>
                   <th><p><span>📞연락처</span></p></th>
-                  <td><input type="number" name="phone" id="phone" placeholder = "전화번호를 입력하세요. ex)01012345678">
+                  <td><input type="number" name="phone" id="phone" value = "${phoneNum}" placeholder = "전화번호를 입력하세요. ex)01012345678">
                   <a id = "phoneNumCheck" href = "#">휴대폰인증</a>
-                  <c:if test = "${!empty meg2 }">
+                  <c:if test = "${!empty phoneNum }">
                   	  <span>인증번호 : </span><input type = "text" name = "phonekey" id = "phonekey">
                   	  <a id = "phoneCheck" href = "#">완료</a>
-                  	  </c:if>
+                  	  <script>
+                  		let phoneCheck = document.getElementById('phoneCheck')
+                  	  	phoneCheck.addEventListener('click', function() {
+							let phonekey = document.getElementById('phonekey');
+							let pw = document.getElementById('pw');
+							let pwcheck = document.getElementById('pwcheck');
+							let jumin = document.getElementById('jumin');
+							let address = document.getElementById('address');
+							
+							location.href = "http://localhost/middleProject/idphoneCheck.do?phonekey=" + phonekey.value +"&pw="+pw.value+"&pwcheck="+pwcheck.value+"&jumin="+jumin.value+"&address="+address.value;
+                  	  	})
+                  	  </script>
+                  </c:if>
                   </td>
                 </tr>
                 <tr>
@@ -200,7 +233,6 @@ ul{list-style:none; }
     </div> <!-- container E -->
     
     <script src = "../insert.js">
-   
     </script>
     
     

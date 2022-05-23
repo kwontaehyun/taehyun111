@@ -24,8 +24,8 @@ public class insertCheckControl implements Controller {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-		String email = request.getParameter("email");
-		if(email == null) {
+		String emailCheck = request.getParameter("email");
+		if(emailCheck == null) {
 			System.out.println("이메일 값 안넘어옴.");
 		}else {
 			// 인증코드 생성
@@ -37,8 +37,8 @@ public class insertCheckControl implements Controller {
 			String password = "jpinpsjmnekvsbho";// 자신의 구글 패스워드
 
 			// 메일 받을 주소
-			String to_email = email;
-			System.out.println("inputedEmail : " + email);
+			String to_email = emailCheck;
+			System.out.println("inputedEmail : " + emailCheck);
 
 			// SMTP 서버 정보를 설정한다.
 			Properties prop = System.getProperties();
@@ -74,6 +74,7 @@ public class insertCheckControl implements Controller {
 				msg.setText("인증 번호 :" + AuthenticationKey);
 				HttpSession setion = request.getSession();
 				setion.setAttribute("AuthenticationKey", AuthenticationKey);
+				setion.setAttribute("emailCheck", emailCheck);
 				Transport.send(msg);
 
 			} catch (AddressException e) {
@@ -83,9 +84,7 @@ public class insertCheckControl implements Controller {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			request.setAttribute("meg", "meg");
-			request.setAttribute("email", email);
-			request.getRequestDispatcher("shopView/insert.jsp").forward(request, response);
+			response.sendRedirect("/middleProject/shopView/insert.jsp");
 		}
 		
 	}
