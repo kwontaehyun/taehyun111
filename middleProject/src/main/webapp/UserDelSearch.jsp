@@ -3,6 +3,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script>
+
+</script>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>

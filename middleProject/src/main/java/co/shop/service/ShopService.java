@@ -42,8 +42,8 @@ public class ShopService {
 	}
 	
 	//탈퇴
-	public void delete(String email) {
-		dao.delete(email);
+	public boolean delete(String email) {
+		return dao.delete(email);
 	}
 	
 	//회원리스트

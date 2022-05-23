@@ -19,7 +19,7 @@ body {
 }
 
 a:link {
-	color: pink;
+	color: black;
 }
 
 a:hover {
@@ -29,11 +29,16 @@ a:hover {
 a:active {
 	color: green;
 }
+#map{
+width:95%; 
+height:825px; 
+}
+
 </style>
 
 </head>
 <body>
-	<div id="map" style="width: 500px; height: 500px;"></div>
+	<div id="map" >	</div>
 
 	<script type="text/javascript"
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=13be2cad1a846175daeb3ba0ef15dde6"></script>
@@ -66,7 +71,9 @@ a:active {
 		// 마커가 지도 위에 표시되도록 설정합니다
 		marker.setMap(map);
 
-		var iwContent = '<div style="padding:5px;"><a id="nam">👉쇼핑몰 위치👈</a><br><a id="frm" href="https://map.kakao.com/link/to/도착지점 위치,'+35.86907273664552+','+128.5932806322255+'"target="_blank">🕶길찾기</a> <a id="frm"  href="https://map.kakao.com/link/roadview/35.86907273664552, 128.5932806322255,'+35.86907273664552+','+128.5932806322255+'" style=target="_blank">📷로드뷰</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+		
+
+		var iwContent = '<div style=" weight:200px; height:100px; margin:0 auto; padding:13px 6px 25px 10px;text-align:center; "><a id="nam">👉쇼핑몰 위치👈</a><br><a id="frm" href="https://map.kakao.com/link/to/도착지점 위치,'+35.86907273664552+','+128.5932806322255+'"target="_blank">🕶길찾기</a><br> <a id="frm"  href="https://map.kakao.com/link/roadview/35.86907273664552, 128.5932806322255,'+35.86907273664552+','+128.5932806322255+'" style=target="_blank">📷로드뷰</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
 		iwPosition = new kakao.maps.LatLng(lat, lng); //인포윈도우 표시 위치입니다
 
 		// 인포윈도우를 생성합니다
@@ -84,6 +91,7 @@ a:active {
 			content : '스페이스 닷원'
 		});
 		rLabel.open(rv, rMarker);
+	
 	</script>
 </body>
 </html>

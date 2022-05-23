@@ -58,21 +58,19 @@ public class ShopDAO extends DAO {
 	public boolean idcheck(String email) {
 		conn();
 		String sql = "select * from membership where email=?";
-
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, email);
 			int r = psmt.executeUpdate();
 			if (r > 0) {
-				return true;
-			}
-
+				return false;
+			} 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			disconn();
 		}
-		return false;
+		return true;
 	}
 
 	public Map<String, Integer> genderChart() {
@@ -172,21 +170,26 @@ public class ShopDAO extends DAO {
 		return list;
 
 	}
-
+	
 	// 탈퇴
-	public void delete(String email) {
+	public boolean delete(String email) {
 		conn();
 		String sql = "delete from membership where email=?";
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, email);
+			
 			int r = psmt.executeUpdate();
+			if (r > 0) {
+				return true;
+			} 
 			System.out.println(r + "건 삭제");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			disconn();
 		}
+		return false;
 
 	}
 }
