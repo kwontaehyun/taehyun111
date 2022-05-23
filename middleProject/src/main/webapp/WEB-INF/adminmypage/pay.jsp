@@ -6,21 +6,91 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+*{
+	box-sizing:border-box;
+	padding:0;
+	font-family: '고딕체';
+
+}
+.pading{
+margin: 0 auto;
+padding-right: 50px;
+}
+#right{
+float:right;
+overfliw:hidden;
+padding:20px;
+font-size: 20px;
+}
+#left{
+float:left;
+padding:20px;
+margin-left:2%;
+font-size: 20px;
+}
+table{
+clear:both;
+text-align: center;
+	width:800px;
+}
+.margin{
+	padding:20px;
+	margin: 0 auto;
+}
+tr{
+border: 1px solid;
+
+}
+
+th{
+background: black;
+color:white;
+padding:10px;
+}
+#img{
+ 	width:170px;
+}
+#center{
+text-align: center;
+margin-bottom:20px;
+margin-top:20px;
+
+}
+</style>
 </head>
 <body>
-	<c:if test = "${!empty list}">
-		<h4>지난달 결제내역 : ${prevdate }</h4>
-		<h4>이번달 결제내역 : ${currSum }</h4>
+<div class="pading">
 	
+	<c:if test = "${!empty list}">
+		<h4 id="left">${prevdate} 결제내역 : ${prevSum }<span>원</span></h4>
+		<h4 id="right">${date} 결제내역 : ${currSum }<span>원</span></h4>
+		<table>
+		<thead>
+		<tr >
+		<th>상품명</th>
+		<th>이미지</th>
+		<th>가격</th>
+		<th>수량</th>
+		<th>구매자 아이디</th>
+		<th>구매날짜</th>
+		</tr>
+		</thead>
 		<c:forEach items="${list}" var="list">
-		<img src="upload/${list.pImg }">
-		<h4>제품이름 : ${list.proDuctName }</h4>
-		<h4>가격 : ${list.payPrice}원</h4>
-		<h4>수량 : ${list.itemCount }개</h4>
-		<h4>구매자 아이디 : ${list.email }</h4>
-		<h4>구매 날짜 : ${list.date}</h4>
+		<tbody >
+		<tr class="margin">
+		<td>${list.proDuctName }</td>
+		<td><img src="upload/${list.pImg }" id="img"></td>
+		<td>${list.payPrice}<span>원</span></td>
+		<td>${list.itemCount }</td>
+		<td>${list.email }</td>
+		<td>${list.date}</td>
+		</tr>
+		</tbody >
 		</c:forEach>
-		<h4>총 판매가격 : ${money }</h4>
+		</table>
+		<h4 id="center">총 판매가격 : ${money }</h4>
 	</c:if>
+	</div>
 </body>
 </html>

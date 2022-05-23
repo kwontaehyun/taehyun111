@@ -54,47 +54,53 @@ public class reviewControl implements Controller {
 			int grade = 0;
 			if(gradecheck != null) {
 				grade = Integer.parseInt(multi.getParameter("grade"));
+
+				String pf = multi.getFilesystemName("profile");
+
+				reviewVO vo = new reviewVO();
+				vo.setEmail(email);
+				vo.setContent(content);
+				vo.setProDuctNum(prodNum);
+				
+				if(grade != 0) {
+					vo.setGrade(grade);
+				}
+				
+				vo.setRImg(pf);
+
+				reviewService service = new reviewService();
+				service.reviewInsert(vo);
+				//request.getRequestDispatcher("/detailProduct.do?proDuctNum=" + prodNum).forward(request, response);
+				response.sendRedirect("/middleProject/detailProduct.do?proDuctNum=" + prodNum);
+			}else {
+				request.setAttribute("error", "평점을 입력하세요");
+				request.getRequestDispatcher("/detailProduct.do?proDuctNum=" + prodNum).forward(request, response);
 			}
 			
-			String pf = multi.getFilesystemName("profile");
-
-			reviewVO vo = new reviewVO();
-			vo.setEmail(email);
-			vo.setContent(content);
-			vo.setProDuctNum(prodNum);
-			
-			if(grade != 0) {
-				vo.setGrade(grade);
-			}
-			
-			vo.setRImg(pf);
-
-			reviewService service = new reviewService();
-			service.reviewInsert(vo);
-			//request.getRequestDispatcher("/detailProduct.do?proDuctNum=" + prodNum).forward(request, response);
-			response.sendRedirect("/middleProject/detailProduct.do?proDuctNum=" + prodNum);
 		} else {
 
 			email = (String) session.getAttribute("email");
 			int prodNum = Integer.parseInt(request.getParameter("prodNum"));
 			String content = request.getParameter("content");
-			int grade = Integer.parseInt(request.getParameter("grade"));
-			reviewVO vo = new reviewVO();
-			vo.setEmail(email);
-			vo.setContent(content);
-			vo.setProDuctNum(prodNum);
-			vo.setGrade(grade);
+			String gradecheck = request.getParameter("grade");
+			int grade = 0;
+			if(gradecheck != null) {
+				grade = Integer.parseInt(request.getParameter("grade"));
+				reviewVO vo = new reviewVO();
+				vo.setEmail(email);
+				vo.setContent(content);
+				vo.setProDuctNum(prodNum);
+				vo.setGrade(grade);
 
-			reviewService service = new reviewService();
-			service.reviewInsert(vo);
-			response.sendRedirect("/middleProject/detailProduct.do?proDuctNum=" + prodNum);
+				reviewService service = new reviewService();
+				service.reviewInsert(vo);
+				response.sendRedirect("/middleProject/detailProduct.do?proDuctNum=" + prodNum);
+			}else {
+				request.setAttribute("error", "평점을 입력하세요");
+				request.getRequestDispatcher("/detailProduct.do?proDuctNum=" + prodNum).forward(request, response);
+			}
 		}
 
-	}
-
-	private ServletRequest getServletContext() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }

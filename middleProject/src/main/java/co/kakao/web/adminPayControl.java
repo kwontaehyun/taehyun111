@@ -39,7 +39,9 @@ public class adminPayControl implements Controller {
 		
 		request.setAttribute("list", list);
 		request.setAttribute("money", money);
+		request.setAttribute("date", date);
 		request.setAttribute("prevdate", prevdate);
+		request.setAttribute("prevSum", prevSum);
 		request.setAttribute("currSum", currSum);
 		request.getRequestDispatcher("/adminpay.jsp").forward(request, response);
 	}

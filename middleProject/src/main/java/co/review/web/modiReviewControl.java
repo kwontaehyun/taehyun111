@@ -49,37 +49,45 @@ public class modiReviewControl implements Controller {
 			int grade = 0;
 			if(gradecheck != null) {
 				grade = Integer.parseInt(multi.getParameter("grade"));
+				reviewVO vo = new reviewVO();
+				vo.setRImg(pf);
+				vo.setContent(content);
+				if(grade != 0) {
+					vo.setGrade(grade);
+				}
+				vo.setReviewNum(reNum);
+				vo.setEmail(email);
+				
+				reviewService service = new reviewService();
+				service.reviewUpdate(vo);
+				response.sendRedirect("/middleProject/detailProduct.do?proDuctNum=" + prodNum);
+			}else {
+				request.setAttribute("error", "평점을 입력하세요");
+				request.getRequestDispatcher("/detailProduct.do?proDuctNum=" + prodNum).forward(request, response);
 			}
-			reviewVO vo = new reviewVO();
-			vo.setRImg(pf);
-			vo.setContent(content);
-			if(grade != 0) {
-				vo.setGrade(grade);
-			}
-			vo.setReviewNum(reNum);
-			vo.setEmail(email);
 			
-			reviewService service = new reviewService();
-			service.reviewUpdate(vo);
-			response.sendRedirect("/middleProject/detailProduct.do?proDuctNum=" + prodNum);
 		}else {
 			String content = request.getParameter("content");
-			String gradecheck = multi.getParameter("grade");
+			String gradecheck = request.getParameter("grade");
 			int grade = 0;
 			if(gradecheck != null) {
-				grade = Integer.parseInt(multi.getParameter("grade"));
+				grade = Integer.parseInt(request.getParameter("grade"));
+				reviewVO vo = new reviewVO();
+				vo.setContent(content);
+				if(grade != 0) {
+					vo.setGrade(grade);
+				}
+				vo.setReviewNum(reNum);
+				vo.setEmail(email);
+				reviewService service= new reviewService();
+				service.reviewUpdate(vo);
+				response.sendRedirect("/middleProject/detailProduct.do?proDuctNum=" + prodNum);
+			}else {
+				request.setAttribute("error", "평점을 입력하세요");
+				request.getRequestDispatcher("/detailProduct.do?proDuctNum=" + prodNum).forward(request, response);
 			}
 
-			reviewVO vo = new reviewVO();
-			vo.setContent(content);
-			if(grade != 0) {
-				vo.setGrade(grade);
-			}
-			vo.setReviewNum(reNum);
-			vo.setEmail(email);
-			reviewService service= new reviewService();
-			service.reviewUpdate(vo);
-			response.sendRedirect("/middleProject/detailProduct.do?proDuctNum=" + prodNum);
+			
 			
 		}
 	}
