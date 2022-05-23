@@ -120,9 +120,12 @@ ul{list-style:none; }
         <div class="form_txtInput">
           <h2 class="sub_tit_txt">📒회원가입📒</h2>
            
-           <c:if test = "${!empty error}"><script>alert(`${error}`)</script></c:if>
+           <c:if test = "${!empty error}">
+           <script>
+           alert(`${error}`)
+           </script>
+           </c:if>
            <form id ="join" name="join" action="${pageContext.servletContext.contextPath }/Insert.do" method="post">
-   
           <div class="join_form">
             <table>
               <colgroup>
@@ -132,7 +135,8 @@ ul{list-style:none; }
               <tbody>
                 <tr>
                   <th><p><span>👉아이디</span></p></th>
-                  <td><input type="email" name="email" required placeholder = "ID를 입력하세요.(email@email.com)."></td>
+                  <td><input type="email" name="email"
+                   required placeholder = "ID를 입력하세요.(email@email.com)."></td>
                 </tr>
                 <tr>
                   <th><p><span>🔒비밀번호</span></p></th>
@@ -144,8 +148,11 @@ ul{list-style:none; }
                 </tr>
                 <tr>
                   <th><p><span>👫성별</span></p></th>
-                  <td><input type="radio" name="gender"value="M">남성<br>
-               <input type="radio" name="gender" value="F">여성</td>
+                  <td><input type="radio" name="gender" ckecked value="M" 
+                  style="width:18px;height:18px;border:1px">남성<br>
+               <input type="radio" name="gender" value="F" 
+               style="width:18px;height:18px;border:1px"
+               >여성</td>
                 </tr>
                 <tr>
                   <th><p><span>📆생년월일</span></p></th>
