@@ -115,6 +115,7 @@ ul{list-style:none; }
 }
    
     </style>
+<body>
 <div class="wrap wd668">
       <div class="container">
         <div class="form_txtInput">
@@ -132,15 +133,21 @@ ul{list-style:none; }
               <tbody>
                 <tr>
                   <th><p><span>👉아이디</span></p></th>
-                  <td><input type="email" name="email" required placeholder = "ID를 입력하세요.(email@email.com)."></td>
+                  <td><input type="email" name="email" id = "email" value = "${email }" placeholder = "ID를 입력하세요.(email@email.com).">
+                  	  <a id = "emailcheck" href = "#">인증받기</a>
+                  	  <c:if test = "${!empty meg }">
+                  	  <br><span>인증번호 : </span><input type = "text" name = "key" id = "key">
+                  	  <a id = "idCheck" href = "#">완료</a>
+                  	  </c:if>
+                  </td>
                 </tr>
                 <tr>
                   <th><p><span>🔒비밀번호</span></p></th>
-                  <td><input type="password" name="pw" id="pw" required placeholder = "비밀번호를 입력하세요."></td>
+                  <td><input type="password" name="pw" id="pw" placeholder = "비밀번호를 입력하세요."></td>
                 </tr>
                 <tr>
                   <th><p><span>🔐비밀번호 확인</span></p></th>
-                  <td><input type="password" name="pwcheck" id="pwcheck" required placeholder = "비밀번호를 한번 더 입력하세요."></td>
+                  <td><input type="password" name="pwcheck" id="pwcheck" placeholder = "비밀번호를 한번 더 입력하세요."></td>
                 </tr>
                 <tr>
                   <th><p><span>👫성별</span></p></th>
@@ -154,27 +161,39 @@ ul{list-style:none; }
                 
      <tr>
                   <th><p><span>📪주소</span></p></th>
-                  <td><input type="text" name="address"  required placeholder = "주소를 입력하세요."></td>
-               <input type="hidden" name="acces"></td>
+                  <td><input type="text" name="address" placeholder = "주소를 입력하세요."></td>
+               		<td><input type="hidden" name="acces"></td>
                 </tr>
       
       <tr>
                   <th><p><span>📞연락처</span></p></th>
-                  <td><input type="number" name="phone" id="phone" required placeholder = "전화번호를 입력하세요. ex)01012345678"></td>
+                  <td><input type="number" name="phone" id="phone" placeholder = "전화번호를 입력하세요. ex)01012345678">
+                  <a id = "phoneNumCheck" href = "#">휴대폰인증</a>
+                  <c:if test = "${!empty meg2 }">
+                  	  <span>인증번호 : </span><input type = "text" name = "phonekey" id = "phonekey">
+                  	  <a id = "phoneCheck" href = "#">완료</a>
+                  	  </c:if>
+                  </td>
                 </tr>
                 <tr>
-                  <th><td><input type="submit" value="✔회원가입">
-          <input type="hidden" name="loginway">
-                  </td></th>
+                  <td><input type="submit" value="✔회원가입">
+          <input type="hidden" name="loginway"></td>
                 </tr>
-                </form>
+                
               </tbody>
             </table>
+          
+          </form>
           <div class="btn_wrap">
             <a id="homepage" href="${pageContext.servletContext.contextPath }/index.jsp">Main Page</a>
           </div>
         </div> <!-- form_txtInput E -->
       </div><!-- content E-->
     </div> <!-- container E -->
-    </div> <!-- container E -->
-  
+    
+    <script src = "../insert.js">
+   
+    </script>
+    
+    
+</body> 

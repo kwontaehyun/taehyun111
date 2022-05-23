@@ -87,6 +87,7 @@ public class emailControl implements Controller {
 				e.printStackTrace();
 			}
 			request.setAttribute("meg", "meg");
+			request.setAttribute("email", email);
 			request.getRequestDispatcher("/findID.jsp").forward(request, response);
 		}
 		else {

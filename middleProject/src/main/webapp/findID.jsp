@@ -22,7 +22,7 @@
 	</c:if>
 
 	<form action = "${pageContext.servletContext.contextPath }/idFind.do">
-	<span>이메일 : </span><input type = "email" name = "email" placeholder="이메일을 입력해주세요...">
+	<span>이메일 : </span><input type = "email" name = "email" value = "${email }" placeholder="이메일을 입력해주세요...">
 	<input type = "submit" value = "인증번호 받기">	
 	</form>
 	<c:if test = "${!empty meg }">

@@ -36,56 +36,61 @@ body {
 		<input type="submit" value="회원가입"
 			onsubmit="location.href='${pageContext.servletContext.contextPath }/shopView/insert.jsp'">
 	</form>
-
 	<form id="form-kakao-login" method="post"
 		action="/middleProject/kakaologin.do">
 		<input type="hidden" name="email" /> <input type="hidden"
 			name="birthday" /> <input type="hidden" name="gender" />
 			<input type = "hidden" name = "age_range">
 	</form>
+	<p id="reauthenticate-popup-result"></p>
+	
 
-	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-	<script>
+<button id="custom-login-btn" onclick="javascript:Kakao.Auth.loginForm()">
+  <img
+    src="//k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg"
+    width="222"
+    alt="카카오 로그인 버튼"
+  />
+  
+  <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+	<script type="text/javascript">
 		window.Kakao.init("046c047958de0cd3b816a19cdd02fa4b")
-		Kakao.Auth.login({
-			success : function(auth) {
-				Kakao.API.request({
-					url : '/v2/user/me',
-					success : function(response) {
-						// 사용자 정보를 가져와서 폼에 추가.
-						var account = response.kakao_account;
-						document.querySelector(
-								'#form-kakao-login > input[name=email]')
-								.setAttribute("value", account.email)
-						document.querySelector(
-								'#form-kakao-login > input[name=birthday]')
-								.setAttribute("value", account.birthday)
-						document.querySelector(
-								'#form-kakao-login > input[name=gender]')
-								.setAttribute("value", account.gender)
-						// 사용자 정보가 포함된 폼을 서버로 제출한다.
-						document.querySelector(
-								'#form-kakao-login > input[name=age_range]')
-								.setAttribute("value", account.age_range)
-						document.querySelector('#form-kakao-login').submit();
-					},
-				});
-			}
-		});
 		
-		let a = document.createElement('a');
-		let img = document.createElement('img');
-		img.setAttribute("src", "../kakaologin/로그인이미지.png");
-		a.appendChild(img);
-		document.getElementById('body').appendChild(a);
-		
-		a.addEventListener('click',function(){
-			Kakao.Auth.login();
+		let custom = document.getElementById('custom-login-btn');
+		custom.addEventListener('click',function(){
+			Kakao.Auth.loginForm({
+				success : function(auth) {
+					Kakao.API.request({
+						url : '/v2/user/me',
+						success : function(response) {
+							// 사용자 정보를 가져와서 폼에 추가.
+							var account = response.kakao_account;
+							document.querySelector(
+									'#form-kakao-login > input[name=email]')
+									.setAttribute("value", account.email)
+							document.querySelector(
+									'#form-kakao-login > input[name=birthday]')
+									.setAttribute("value", account.birthday)
+							document.querySelector(
+									'#form-kakao-login > input[name=gender]')
+									.setAttribute("value", account.gender)
+							// 사용자 정보가 포함된 폼을 서버로 제출한다.
+							document.querySelector(
+									'#form-kakao-login > input[name=age_range]')
+									.setAttribute("value", account.age_range)
+							document.querySelector('#form-kakao-login').submit();
+						},
+					});
+				},
+				fail : console.log('1111')
+			});
+			
 		})
 		
 		
-		
 	</script>
+	
+</button>
 
 </body>
 </html>

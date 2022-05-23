@@ -112,7 +112,6 @@ public class kakaoPayControl implements Controller{
 				map.put("approval_url", "http://localhost/middleProject/basketPay.do");
 			}
 			
-		
 			
 			map.put("cancel_url", "http://localhost/middleProject/cancel.jsp");
 			map.put("fail_url", "http://localhost/middleProject/fail.jsp");
