@@ -171,16 +171,18 @@ function firstPage(val) {
 					div4.appendChild(saleDiv);
 
 					let priceSale = sale - (sale * (val[field] / 100));
-					Saleprice.innerHTML = `${priceSale} 원`;
+					Saleprice.style.fontWeight="700";
+					Saleprice.innerHTML = `  ${priceSale}원`;
 					div6.appendChild(Saleprice)
 
 					price.className = "text-muted text-decoration-line-through";
-					price.innerHTML = `${sale} 원`;
+					price.style.fontSize="15px";
+					price.innerHTML = `${sale}원`;
 					div6.appendChild(price)
 
 				} else {
 					price.className = "";
-					price.innerHTML = `${sale} 원`;
+					price.innerHTML = `${sale}원`;
 					div6.appendChild(price)
 				}
 			}

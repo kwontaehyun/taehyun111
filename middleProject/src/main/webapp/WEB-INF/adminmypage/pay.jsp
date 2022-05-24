@@ -17,6 +17,7 @@
 .pading{
 margin: 0 auto;
 padding-right: 50px;
+height:1000px;
 }
 #right{
 float:right;
@@ -90,7 +91,7 @@ margin-top:20px;
 		</tbody >
 		</c:forEach>
 		</table>
-		<h4 id="center">총 판매가격 : ${money }</h4>
+		<h4 id="center">총 판매가격 : ${money }<span>원</span></h4>
 	</c:if>
 	</div>
 </body>
