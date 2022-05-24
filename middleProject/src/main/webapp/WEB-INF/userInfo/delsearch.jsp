@@ -66,6 +66,10 @@ width:100%
  padding: 6px 0;
  position:relative;
 }
+input{
+border:none;
+
+}
 
 
 
@@ -88,7 +92,7 @@ width:100%
 		<h3>회원 탈퇴</h3>
 	</header>
 	<c:if test = "${memo}"><script>alert(`${memo}`)</script></c:if>
-		<form name="form_del" action="${pageContext.servletContext.contextPath }/delete.do"method="post">
+		<form name="form_del" method="post">
 		
 			<table>
 				<tr>

@@ -38,6 +38,7 @@ public class insertPhoneCheck implements Controller {
 		JSONObject result = coolsms.send(set); // 보내기&전송결과받기
 		
 		session.setAttribute("numCode", numCode);
+		session.setAttribute("phoneNum", phoneNum);
 		session.setAttribute("pw", pw);
 		session.setAttribute("pwcheck", pwcheck);
 		session.setAttribute("jumin", jumin);
