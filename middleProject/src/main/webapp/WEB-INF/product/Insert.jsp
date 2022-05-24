@@ -10,7 +10,7 @@
 * {margin:0;padding:0;}
 html {height:100%;}
 body {height:100%; font-family: 'Noto Sans KR';}
-table, tr, td, th, div, p, em, ol, ul, li, dl, dt, dd, a, address, img, h1, h2, h3, h4, h5, h6 {font-size:11pt; color:#666;text-decoration: none;}
+table, tr, td, th, div, p, em, ol, ul, li, dl, dt, dd, a, address, img, h1, h2, h3, h4, h5, h6 {font-size:11pt; color:#666;text-decoration: none; }
 img {border:0; }
 h1 { float:left; padding:0 0 0 0px;}
 h2 {padding:0 0 0 0px; text-align:center;}
@@ -112,7 +112,8 @@ ul{list-style:none; }
   .join_form table td a.btn_confirm{width: 100px; height: 35px;line-height: 35px; font-size: 12px;margin:5px 0 0 ;}
   .join_form table input.send_number + a{margin:0 0 0 5px;}
 }
-   
+
+
     </style>
     
 <body>
@@ -156,7 +157,7 @@ String email = (String) session.getAttribute("email");
                   <td><input type="number" name="sale"placeholder = "할인을 입력하세요."></td>
                 </tr>
                <tr>
-                  <th><p><span>👫성별</span></p></th>
+                  <th><p><span >👫성별</span></p></th>
                   <td><span>남성</span><br><input type="radio" name="gender"value="M">
                <span>여성</span><br><input type="radio" name="gender" value="F">
                <span>공용</span><br><input type="radio" name="gender" value="MF"></td>
@@ -170,7 +171,7 @@ String email = (String) session.getAttribute("email");
                   <td><input type="file" name="pimg"></td>
                 </tr>
                 <tr>
-                  <th><td><input type="submit" value="✔등록"></td></th>
+                  <th><td><input id="inin" type="submit" value="✔등록"></td></th>
                 </tr>
                 
               </tbody>
