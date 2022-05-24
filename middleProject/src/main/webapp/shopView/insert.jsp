@@ -8,10 +8,14 @@
     <title></title>
     <style>
    @charset "utf-8";
-* {margin:0;padding:0;}
+   @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+* {margin:0;padding:0;
+font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+
+}
 html {height:100%;}
 body {height:100%; font-family: 'Noto Sans KR';}
-table, tr, td, th, div, p, em, ol, ul, li, dl, dt, dd, a, address, img, h1, h2, h3, h4, h5, h6 {font-size:11pt; color:#666;text-decoration: none;}
+table, tr, td, th, div, p, em, a, h1, h2, h3, h4, h5, h6 {font-size:11pt; color:#666;text-decoration: none;}
 img {border:0; }
 h1 { float:left; padding:0 0 0 0px;}
 h2 {padding:0 0 0 0px; text-align:center;}
@@ -29,8 +33,16 @@ ul{list-style:none; }
 .con_term .term_txt ul li,.con_term .term_txt p ,.con_term .term_txt div{color:#818181;font-size:12px; line-height:17px;margin: 0 0 15px;}
 .left_margin{margin:0 0 0 20px;}
 .con_term .term_txt div.txt_bold{font-weight: bold; margin:0 0 25px;}
-.btn_wrap{text-align:center; margin:40px 0 30px;}
-.btn_wrap a{color: #fff; background-color: #6d6969; font-weight: bold; padding: 10px;  height: 30px; line-height: 30px; width: 168px; display: block; text-align: center; margin: 0 auto;}
+.btn_wrap{text-align:center; margin:40px 0 30px 139px;}
+.btn_wrap a{	color: #fff;
+	background-color: #4380ce;
+	font-weight: bold;
+	padding: 10px;
+	height: 22px;
+	line-height: 22px;
+	width: 103px;
+	display: block;
+	text-align: center;}
 .btn_wrap a.wide{width:587px;margin: 0 0 0 20px;}
 .find_txt ul li{color:#9a9a9a;font-size:13px;text-align:center; line-height:17px; margin:0 0 20px;}
 .form_txtInput .checkbox_wrap {position: relative;padding: 5px;text-align: right;}
@@ -113,7 +125,38 @@ ul{list-style:none; }
   .join_form table td a.btn_confirm{width: 100px; height: 35px;line-height: 35px; font-size: 12px;margin:5px 0 0 ;}
   .join_form table input.send_number + a{margin:0 0 0 5px;}
 }
-   
+#email{
+padding-right:60px;
+}
+#key{
+padding-right:60px;
+}
+#f{
+margin-left:-80px;
+}
+#jumin{
+padding-right:60px;
+}
+#pw{
+padding-right:60px;
+}
+#pwcheck{
+padding-right:60px;
+}
+#address{
+padding-right:60px;
+}
+#phone{
+padding-right:60px;
+}
+#submitbtn{
+margin-top:35px;
+margin-left: 150px; 
+width: 100px; 
+height: 40px;  
+text-align: center; 
+line-height:5px;" 
+}
     </style>
 <body>
 <%
@@ -142,16 +185,22 @@ ul{list-style:none; }
                 <col width="30%"/>
                 <col width="auto"/>
               </colgroup>
+              <thead>
+              </thead>
+              
               <tbody>
                 <tr>
                   <th><p><span>👉아이디</span></p></th>
-                  <td><input type="email" name="email" id = "email" value ="${emailCheck }" placeholder = "ID를 입력하세요.(email@email.com)." required></td>
-                <td><a id = "emailcheck" href = "#">인증받기</a></td>
-                  	  <td><p id = "ppp"></p></td>
-                  	  <c:if test = "${!empty emailCheck}">
-                  	  <br>
-                  	  <th><p>인증번호 : </th><p><td><input type = "text" name = "key" id = "key"></td>
+                  	<td><input type="email" name="email" id = "email" value ="${emailCheck }" placeholder = "ID를 입력하세요.(email@email.com)." required></td>
+               		<td><a id = "emailcheck" href = "#">인증받기</a></td>
+                  	<td><p id = "ppp"></p></td>
+                <c:if test = "${!empty emailCheck}">
+                 	<br>
+                 <tr>
+                  	  <th><p><span>👉인증번호 : </span></p></th>
+                  	  <td><input type = "text" name = "key" id = "key"></td>
                   	  <td><a id = "idCheck" href = "#">완료</a></td>
+                  	  </tr>
                   	  <script>
                   		let idCheck = document.getElementById('idCheck')
                   	  	idCheck.addEventListener('click', function() {
@@ -177,11 +226,8 @@ ul{list-style:none; }
                 </tr>
                 <tr>
                   <th><p><span>👫성별</span></p></th>
-                  <td><input type="radio" name="gender" ckecked value="M" 
-                  style="width:18px;height:18px;border:1px">남성<br>
-               <input type="radio" name="gender" value="F" 
-               style="width:18px;height:18px;border:1px"
-               >여성</td>
+                  	<td><input type="radio" name="gender" ckecked value="M"  style="margin-left:100px;width:18px;height:18px;border:1px;"><span >남성</span></td>
+               	 	<td><input type="radio" name="gender" value="F"  style="margin-left:-100px;width:18px;height:18px;border:1px;"><span id="f">여성</span></td>
                 </tr>
                 <tr>
                   <th><p><span>📆생년월일</span></p></th>
@@ -190,7 +236,7 @@ ul{list-style:none; }
                 
      <tr>
                   <th><p><span>📪주소</span></p></th>
-                  <td><input type="text" name="address" value = "${address}" placeholder = "주소를 입력하세요."></td>
+                  <td><input type="text" name="address" id="address" value = "${address}" placeholder = "주소를 입력하세요."></td>
                		<td><input type="hidden" name="acces"></td>
                 </tr>
       
@@ -217,7 +263,7 @@ ul{list-style:none; }
                   </td>
                 </tr>
                 <tr>
-                  <td><input type="submit" value="✔회원가입">
+                  <td><input type="submit" id = "submitbtn"value="✔회원가입">
           <input type="hidden" name="loginway"></td>
                 </tr>
                 
