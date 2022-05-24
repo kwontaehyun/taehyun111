@@ -10,7 +10,7 @@ public class reviewDAO extends DAO {
 
 	public List<reviewVO> reviewList(String proDuctNum) {
 		conn();
-		String sql = "select * from review where productnum = ?";
+		String sql = "select * from review where productnum = ? order by reviewnum ";
 		List<reviewVO> list = new ArrayList<reviewVO>();
 		try {
 			psmt = conn.prepareStatement(sql);
@@ -64,7 +64,7 @@ public class reviewDAO extends DAO {
 			psmt.setInt(1, review.getProDuctNum());
 			rs = psmt.executeQuery();
 			while (rs.next()) {
-				String sql2 = "insert into review values(review_num_seq.nextval,?,?,?,?,?)";
+				String sql2 = "insert into review values(review_num_seq.nextval,?,?,?,?,? ) ";
 				psmt = conn.prepareStatement(sql2);
 				psmt.setString(1, review.getRImg());
 				psmt.setString(2, review.getContent());

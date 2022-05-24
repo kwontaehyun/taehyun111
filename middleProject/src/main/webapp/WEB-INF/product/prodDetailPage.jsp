@@ -195,10 +195,10 @@ input {
 	color:#666;
 
 }
-#co{
+.co{
 width: 500px;
 }
-#em{
+.em{
 
 width: 300px;
 }
@@ -357,8 +357,8 @@ width: 300px;
 				<table border="1">
 					<thead>
 						<tr>
-							<th id="em">작성자</th>
-							<th id="co">댓글</th>
+							<th class="em">작성자</th>
+							<th class="co">댓글</th>
 							<th>평점</th>
 							<th>이미지</th>
 							<th>수정</th>
