@@ -372,9 +372,7 @@ width: 300px;
 								<td><span id="co">${list.content}</span></td>
 								<td><span id="gr">&#9733; ${list.grade}</span></td>
 								<td><span id="im"><c:if test="${!empty list.RImg}">
-											<img
-												src="${pageContext.servletContext.contextPath }/reviewUpload/${list.RImg }"
-												name="img">
+											<img src="${pageContext.servletContext.contextPath }/reviewUpload/${list.RImg }" name="img" style="width:200px; height:150px;">
 										</c:if></span></td>
 								<td><a href="#btn" id="mBtn">수정</a></td>
 								<td><a 
