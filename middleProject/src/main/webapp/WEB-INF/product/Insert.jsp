@@ -26,6 +26,9 @@ th {
 input {
 	margin-bottom: 10px;
 }
+select{
+margin-bottom: 10px;
+}
 
 .red_txt {
 	color: #ee7272;
@@ -48,8 +51,16 @@ input {
 	border: 1px solid #ececec;
 	font-size: 14px;
 	color: #4c4c4c;
-	height: 35px;
+	height: 50px;
 	padding: 10px;
+	width: 100%;
+}
+.join_form select {
+border: 1px solid #ececec;
+	font-size: 14px;
+	color: #4c4c4c;
+	height: 50px;
+	
 	width: 100%;
 }
 
@@ -105,11 +116,19 @@ input {
 									<td><input type="number" name="price"
 										placeholder="상품가격을 입력하세요."></td>
 								</tr>
+								
 								<tr>
-									<th><span>👓카테고리</span></th>
-									<td><input type="text" name="category"
-										placeholder="카테고리를 입력하세요."></td>
+								<th><span>👓카테고리</span></th>
+								<td><select name="category" class="select">
+								<option value =""disabled selected>카테고리를 선택하세요.</option>
+								<option value="아우터">아우터</option>
+								<option value="상의">상의</option>
+								<option value="하의">하의</option>
+								<option value="신발">신발</option>
+								<option value="악세사리">악세사리</option>
+								</select></td>
 								</tr>
+								
 								<tr>
 									<th><span>📃상품설명</span></th>
 									<td><input type="text" name="comment"
