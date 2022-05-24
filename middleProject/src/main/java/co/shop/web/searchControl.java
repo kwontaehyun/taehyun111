@@ -27,17 +27,17 @@ public class searchControl implements Controller {
 		String phone = request.getParameter("phone");
 		
 //		if(info.getPhone().length() == 11 ) {
-//			request.setAttribute("info", info);
-//			request.getRequestDispatcher("userSearch.jsp").forward(request, response);
-//		} else  {
+//
+//		}
+//			else {	
 //			String error = "전화번호 ......";
 //			request.setAttribute("error", error);
 //			request.getRequestDispatcher("userSearch.jsp").forward(request, response);
-//			
-//		}
+//			}
 		
 		request.setAttribute("info", info);
 		request.getRequestDispatcher("userSearch.jsp").forward(request, response);
+
 	}
 
 
