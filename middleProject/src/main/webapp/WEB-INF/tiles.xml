@@ -36,6 +36,17 @@
   	<put-attribute name="body" value="/{1}/{2}.jsp"/>
   </definition>
   
+    <definition name="user.category" template="/WEB-INF/view/layout.jsp">
+    <put-attribute name="header" value="/WEB-INF/view/header.jsp" />
+    <put-attribute name="menu" value="/WEB-INF/view/menu.jsp" />
+    <put-attribute name="body" value="/WEB-INF/product/categoryList.jsp"/>
+    <put-attribute name="footer" value="/WEB-INF/view/footer.jsp" />
+  </definition>
+  
+  <definition name="WILDCARD:*/*" extends="user.category">
+  	<put-attribute name="body" value="/{1}/{2}.jsp"/>
+  </definition>
+  
   <definition name="user.mypage" template="/WEB-INF/usermypage/layout.jsp">
     <put-attribute name="mypageheader" value="/WEB-INF/usermypage/header.jsp" />
     <put-attribute name="mypagemenu" value="/WEB-INF/usermypage/menu.jsp" />

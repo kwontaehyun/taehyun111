@@ -1,8 +1,6 @@
 /**
  * 
  */
-
-
 let cnt = 1;
 let sale = 0;
 let sales = 0;
@@ -11,13 +9,24 @@ let cartcnt = 0;
 
 btnAry = [];
 
-fetch('productMain.do')
+function getParam(sname) {
+	let params = location.search.substr(location.search.indexOf("?") + 1);
+	let sval = "";
+	params = params.split("?");
+	for (let i = 0; i < params.length; i++) {
+		temp = params[i].split("=");
+		if ([temp[0]] == sname) { sval = temp[1]; }
+	}
+	return sval;
+}
+
+
+fetch(`http://localhost/middleProject/categoryList.do?category=${getParam("category")}`)
 	.then(result => result.json())
 	.then(result => {
 		pageing(result);
 	})
-
-	.catch(error => console.log(error));
+	.error(error => console.log(error))
 
 function pageing(result) {
 	let div = document.createElement('div');
@@ -25,7 +34,7 @@ function pageing(result) {
 	let div2 = document.createElement('div');
 	div2.className = "row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center"
 	div.appendChild(div2)
-	
+
 	document.getElementById('list').appendChild(div);
 	result.forEach((val, idx) => {
 
@@ -107,7 +116,7 @@ function firstPage(val) {
 	for (let field in val) {
 		if (field == 'proDuctNum') {
 			aTag.setAttribute("id", `aTag${val[field]}`)
-			aTag.addEventListener('click', function(){
+			aTag.addEventListener('click', function() {
 				location.href = `http://localhost/middleProject/detailProduct.do?proDuctNum=${val[field]}`
 			})
 			cartAtag.addEventListener('click', function() {
@@ -153,12 +162,12 @@ function firstPage(val) {
 					div4.appendChild(saleDiv);
 
 					let priceSale = sale - (sale * (val[field] / 100));
-					Saleprice.style.fontWeight="700";
+					Saleprice.style.fontWeight = "700";
 					Saleprice.innerHTML = `  ${priceSale}원`;
 					div6.appendChild(Saleprice)
 
 					price.className = "text-muted text-decoration-line-through";
-					price.style.fontSize="15px";
+					price.style.fontSize = "15px";
 					price.innerHTML = `${sale}원`;
 					div6.appendChild(price)
 
@@ -187,4 +196,3 @@ function firstPage(val) {
 	div4.appendChild(cardfooterDiv)
 	return div3;
 }
-

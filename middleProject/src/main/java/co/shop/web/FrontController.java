@@ -63,13 +63,13 @@ public class FrontController extends HttpServlet {
 		
 		//회원가입 확인 
 		map.put("/insertCheck.do", new insertCheckControl());
-		map.put("/phoneCheck.do", new insertPhoneCheck());
-		map.put("/idphoneCheck.do", new idphoneCheckControl());
+		map.put("/idphoneCheck.do", new idCheckControl());
 		
 		//아이디 찾기?
 		map.put("/idFind.do", new emailControl());
 		map.put("/idFindCheck.do", new keyCheckControl());
-		
+		map.put("/phoneCheck.do", new insertPhoneCheck());
+		map.put("/phoneKeyCheck.do", new phoneKeyCheck());
 		//결제
 		map.put("/kakaopay.do", new kakaoPayControl());
 		map.put("/payInfo.do", new kakaoPayInfoControl());
@@ -77,34 +77,25 @@ public class FrontController extends HttpServlet {
 		map.put("/userPay.do", new userPayControl());
 		map.put("/adminPay.do", new adminPayControl());
 		
-		
-		map.put("/insertCheck.do", new insertCheckControl());
-		map.put("/phoneCheck.do", new insertPhoneCheck());
-		map.put("/idphoneCheck.do", new idphoneCheckControl());
-
 		//로그인 관련 
 		map.put("/login.do", new loginControl());
 		map.put("/logout.do", new logoutControl());
 		map.put("/kakaologin.do", new kakaoLoginControl());
-		
-		
-		
-		map.put("/productMain.do", new productControl());
-		map.put("/detailProduct.do", new detailControl());
-		map.put("/Productmenu.do", new prodMenuControl());
-		
+
 		//장바구니
 		map.put("/shoppingBasket.do", new shoppingBasketControl());
 		map.put("/basketDelete.do", new basketDeleteControl());
 		map.put("/cartCntCheck.do", new basketControl());
-		
 		
 		//상품 관련 
 		map.put("/productInsert.do", new productInsertControl());
 		map.put("/productModify.do", new productModifyControl());
 		map.put("/productDelete.do", new productDeleteControl());
 		map.put("/categoryList.do", new productMenuListControl());
-	
+		map.put("/productMain.do", new productControl());
+		map.put("/detailProduct.do", new detailControl());
+		map.put("/Productmenu.do", new prodMenuControl());
+		
 		//차트
 		map.put("/userChart.do", new genderChartControl());
 		map.put("/prodChart.do", new prodGenderChartControl());

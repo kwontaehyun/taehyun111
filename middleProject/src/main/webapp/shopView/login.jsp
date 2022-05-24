@@ -97,7 +97,8 @@ input[type=submit]{
 		<input type="submit" value="로그인">
 		</form>
 		<div>
-			<button type="button" onclick="location.href='http://localhost/middleProject/findID.jsp'" class="botton">비밀번호 찾기</button>
+			<button type="button" onclick="location.href='http://localhost/middleProject/findId.jsp'" class="botton">아이디 찾기</button>
+			<button type="button" onclick="location.href='http://localhost/middleProject/findPW.jsp'" class="botton">비밀번호 찾기</button>
 			<button type="button" onclick="location.href='${pageContext.servletContext.contextPath }/shopView/insert.jsp'" class="botton">회원가입</button>
 		</div>
 		<form id="form-kakao-login" method="post" action="/middleProject/kakaologin.do">

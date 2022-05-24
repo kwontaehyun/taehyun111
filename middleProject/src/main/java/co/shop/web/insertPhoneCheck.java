@@ -20,10 +20,6 @@ public class insertPhoneCheck implements Controller {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
 		String phoneNum = (String) request.getParameter("phone");
-		String pw = (String) request.getParameter("pw");
-		String pwcheck = (String) request.getParameter("pwcheck");
-		String jumin = (String) request.getParameter("jumin");
-		String address = (String) request.getParameter("address");
 		String api_key = "NCSPIGAE2RY8UCUQ";
 		String api_secret = "NCKM4MSIEV91WW6I5JR0UXGJSPLXKQOJ";
 		Coolsms coolsms = new Coolsms(api_key, api_secret);
@@ -39,18 +35,14 @@ public class insertPhoneCheck implements Controller {
 		
 		session.setAttribute("numCode", numCode);
 		session.setAttribute("phoneNum", phoneNum);
-		session.setAttribute("pw", pw);
-		session.setAttribute("pwcheck", pwcheck);
-		session.setAttribute("jumin", jumin);
-		session.setAttribute("address", address);
-		response.sendRedirect("/middleProject/shopView/insert.jsp");
+		response.sendRedirect("/middleProject/findId.jsp");
 	}
 	public String numCode() {
 		
 		String num = null;
 		StringBuffer temp = new StringBuffer();
 		Random rnd = new Random();
-		for (int i = 0; i < 4; i++) {
+		for (int i = 0; i < 6; i++) {
 			temp.append((rnd.nextInt(10)));
 		}
 		num = temp.toString();

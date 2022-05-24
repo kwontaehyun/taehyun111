@@ -35,7 +35,13 @@ public class productModifyControl implements Controller {
 		int price = Integer.parseInt(multi.getParameter("price"));
 		String category = multi.getParameter("category");
 		String comment = multi.getParameter("comment");
-		int sale = Integer.parseInt(multi.getParameter("sale"));
+		String saleCheck = multi.getParameter("sale");
+		int sale = 0;
+		if(saleCheck == null) {
+			sale = 0;
+		}else {
+			sale = Integer.parseInt(multi.getParameter("sale"));
+		}
 		String pimg = multi.getFilesystemName("pimg");
 		String gender = multi.getParameter("gender");
 		String email = multi.getParameter("email");

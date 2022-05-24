@@ -26,7 +26,8 @@ public class insertCheckControl implements Controller {
 
 		String emailCheck = request.getParameter("email");
 		if(emailCheck == null) {
-			System.out.println("이메일 값 안넘어옴.");
+			request.setAttribute("error", "이메일을 제대로 입력해주세요");
+			request.getRequestDispatcher("/shopView/insert.jsp").forward(request, response);
 		}else {
 			// 인증코드 생성
 			String AuthenticationKey = authCodeMaker();

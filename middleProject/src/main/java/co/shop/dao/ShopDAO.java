@@ -63,14 +63,14 @@ public class ShopDAO extends DAO {
 			psmt.setString(1, email);
 			int r = psmt.executeUpdate();
 			if (r > 0) {
-				return false;
+				return true;
 			} 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			disconn();
 		}
-		return true;
+		return false;
 	}
 
 	public Map<String, Integer> genderChart() {
@@ -191,5 +191,23 @@ public class ShopDAO extends DAO {
 		}
 		return false;
 
+	}
+	
+	public String findId(String tel) {
+		conn();
+		String email = null;
+		String sql = "select email from membership where tel = ?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, tel);
+			rs = psmt.executeQuery();
+			if(rs.next()) {
+				email = rs.getString("email");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return email;
 	}
 }

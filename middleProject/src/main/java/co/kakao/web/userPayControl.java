@@ -22,7 +22,7 @@ public class userPayControl implements Controller{
 		List<payVO> list = service.userPayment(email);
 		
 		request.setAttribute("list", list);
-		request.setAttribute("currentpage", 1);
+		request.setAttribute("btn", list.size());
 		request.setAttribute("maxpage", 100);
 		request.setAttribute("page", 8);
 		request.getRequestDispatcher("/userpay.jsp").forward(request, response);

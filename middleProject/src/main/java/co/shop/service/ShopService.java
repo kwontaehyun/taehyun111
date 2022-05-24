@@ -56,4 +56,8 @@ public class ShopService {
 	public ShopVO search(String email) {
 		return dao.search(email);
 	}
+	
+	public String findId(String tel) {
+		return dao.findId(tel);
+	}
 }

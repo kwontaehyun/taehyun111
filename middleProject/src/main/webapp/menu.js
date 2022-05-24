@@ -14,6 +14,7 @@ fetch('Productmenu.do')
 			aTag.innerHTML = val;
 			aTag.className = "dropdown-item";
 			aTag.setAttribute("id", `${val}`)
+			aTag.setAttribute("href", `http://localhost/middleProject/category.jsp?category=${val}`)
 			liTag.appendChild(aTag);
 			ulTag.appendChild(liTag);
 		})
@@ -23,11 +24,14 @@ fetch('Productmenu.do')
 	.catch(error => console.log(error))
 
 fetch('cartCntCheck.do')
-	.then(result => result.json()) 
+	.then(result => result.json())
 	.then(result => {
 		console.log(result)
 		let cartCnt = document.querySelector('#CartCnt');
 		cartCnt.innerHTML = result.length;
-		
+
 	})
 	.catch(error => console.log(error))
+	
+	
+	
