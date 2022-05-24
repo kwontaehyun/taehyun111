@@ -109,12 +109,12 @@ border: 1px solid #ececec;
 								<tr>
 									<th><span>✍상품이름</span></th>
 									<td><input type="text" name="name"
-										placeholder="상품이름을 입력하세요."></td>
+										placeholder="상품이름을 입력하세요." required></td>
 								</tr>
 								<tr>
 									<th><span>💵상품가격</span></th>
-									<td><input type="number" name="price"
-										placeholder="상품가격을 입력하세요."></td>
+									<td><input type="number" name="price" 
+										placeholder="상품가격을 입력하세요." required></td>
 								</tr>
 								
 								<tr>
@@ -132,12 +132,12 @@ border: 1px solid #ececec;
 								<tr>
 									<th><span>📃상품설명</span></th>
 									<td><input type="text" name="comment"
-										placeholder="상품설명을 입력하세요."></td>
+										placeholder="상품설명을 입력하세요." required></td>
 								</tr>
 								<tr>
 									<th><span>🔮세일</span></th>
 									<td><input type="number" name="sale"
-										placeholder="할인을 입력하세요."></td>
+										placeholder="할인을 입력하세요." ></td>
 								</tr>
 								<tr>
 								<th><span>👫성별</span></th>
