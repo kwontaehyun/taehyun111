@@ -63,7 +63,6 @@ form tr th span {
         <header>
         <h3>내정보 보기</h3>
     </header>
-        <form action="" name="myFrm">
             <table>
                 <tr>
                     <th><span>이메일</span></th>
@@ -86,7 +85,6 @@ form tr th span {
                     <td> ${info.address } </td>
                 </tr>
             </table>
-    </form>
         </div>
 </body>
 

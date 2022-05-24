@@ -56,7 +56,7 @@ public class updateControl implements Controller {
 		 else  {
 				String error = "전화번호 다시 입력!!";
 				request.setAttribute("error", error);
-				request.getRequestDispatcher("userSearch.jsp").forward(request, response);
+				request.getRequestDispatcher("/search.do").forward(request, response);
 			}
 		
 			
