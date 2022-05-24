@@ -14,8 +14,8 @@
 	margin: 0;
 	padding: 0;
 	font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
-}
 
+}
 .del {
 	margin: 0 auto;
 	width: 800px;
@@ -70,11 +70,11 @@ width:100%
  padding: 6px 0;
  position:relative;
 }
+
 input{
 	border:none;
     margin-top: 50px;
 }
-
 
 
 .w-btn {
@@ -129,9 +129,6 @@ background: url( "https://play-lh.googleusercontent.com/W43xj43ErMIs5BQgCdMKEa0N
 table{
 text-align:center;
 }
-
-
-
 
 
 </style>
