@@ -374,10 +374,12 @@ width: 300px;
 								<td><span id="im"><c:if test="${!empty list.RImg}">
 											<img src="${pageContext.servletContext.contextPath }/reviewUpload/${list.RImg }" name="img" style="width:200px; height:150px;">
 										</c:if></span></td>
+								<c:if test = "${list.email == email}">
 								<td><a href="#btn" id="mBtn">수정</a></td>
 								<td><a 
 									href="http://localhost/middleProject/delReview.do?proDuctNum=${vo.proDuctNum }&reNum=${list.reviewNum}" class="bi bi-x-square-fill"></a>
 								</td>
+								</c:if>
 							</tr>
 						</tbody>
 						
