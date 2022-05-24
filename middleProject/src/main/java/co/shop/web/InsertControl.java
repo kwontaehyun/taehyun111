@@ -62,10 +62,9 @@ public class InsertControl implements Controller {
 					// 전화번호길이
 					if (phone.length() == 11) {
 						request.getRequestDispatcher("shopView/login.jsp").forward(request, response);
-//								HttpSession session = request.getSession();
-//								session.setAttribute("email", email);
-//							session.setAttribute("pw", pw);
-//								response.sendRedirect("insert.jsp");
+						session.setAttribute("email", email);
+						session.setAttribute("role", 0);
+						response.sendRedirect("/middleProject/index.jsp");
 
 					} else {
 						String error = "전화번호를 다시 입력해주세요.";

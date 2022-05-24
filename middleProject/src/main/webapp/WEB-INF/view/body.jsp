@@ -92,6 +92,9 @@ text-align: center;
 <%
 String email = (String) session.getAttribute("email");
 int role = (Integer) session.getAttribute("role");
+session.removeAttribute("AuthenticationKey");
+session.removeAttribute("meg");
+session.removeAttribute("emailCheck");
 %>
 
 <c:if test = "${!empty error }">

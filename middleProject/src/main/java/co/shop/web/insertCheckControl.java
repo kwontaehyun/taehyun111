@@ -75,6 +75,7 @@ public class insertCheckControl implements Controller {
 				msg.setText("인증 번호 :" + AuthenticationKey);
 				HttpSession setion = request.getSession();
 				setion.setAttribute("AuthenticationKey", AuthenticationKey);
+				setion.setAttribute("meg", "meg");
 				setion.setAttribute("emailCheck", emailCheck);
 				Transport.send(msg);
 

@@ -196,7 +196,7 @@ line-height:5px;"
                   	<td><input type="email" name="email" id = "email" value ="${emailCheck }" placeholder = "ID를 입력하세요.(email@email.com)." required></td>
                		<td><a id = "emailcheck" href = "#">인증받기</a></td>
                   	<td><p id = "ppp"></p></td>
-                <c:if test = "${!empty emailCheck}">
+                <c:if test = "${!empty meg}">
                  	<br>
                  <tr>
                   	  <th><p><span>👉인증번호 : </span></p></th>

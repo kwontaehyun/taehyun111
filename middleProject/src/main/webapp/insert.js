@@ -39,11 +39,14 @@ fetch('../userList.do')
 					pTag.innerHTML = '사용가능한 이메일 계정입니다.';
 				}
 				
-				if(emailvalue == null){
+				if(emailvalue == ''){
 					pTag.innerHTML = '';
-				} //교수님한테 물어보기.
+				} //이거안됌...
 				
 				if(emailvalue.indexOf('@') == -1){
+					pTag.innerHTML = '아이디는 이메일 형식입니다.'
+				}
+				if(emailvalue.indexOf('.') == -1){
 					pTag.innerHTML = '아이디는 이메일 형식입니다.'
 				}
 				

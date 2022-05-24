@@ -63,8 +63,7 @@ public class FrontController extends HttpServlet {
 		
 		//회원가입 확인 
 		map.put("/insertCheck.do", new insertCheckControl());
-		map.put("/idphoneCheck.do", new idCheckControl());
-		
+		map.put("/idCheck.do", new idCheckControl());
 		//아이디 찾기?
 		map.put("/idFind.do", new emailControl());
 		map.put("/idFindCheck.do", new keyCheckControl());

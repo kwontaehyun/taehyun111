@@ -19,6 +19,7 @@ public class idCheckControl implements Controller{
 			String AuthenticationKey = (String) session.getAttribute("AuthenticationKey");
 			if(AuthenticationKey.equals(key)) {
 				session.removeAttribute("AuthenticationKey");
+				session.removeAttribute("meg");
 				request.setAttribute("success", "이메일 인증에 성공하셨습니다.");
 				request.getRequestDispatcher("/shopView/insert.jsp").forward(request, response);
 			}
