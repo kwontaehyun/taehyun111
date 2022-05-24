@@ -5,52 +5,116 @@
 <html>
 <head>
 <style>
-body {
-	margin: 0 auto;
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+*{
+	font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
 }
+
+#body{
+	text-align: center;
+	margin-top: 150px;
+}
+table{
+margin:0 auto;
+}
+
+
+a{
+text-decoration: none;
+}
+.font{
+font-weight: 700;
+font-size: 50px;
+color: black;
+}
+#margin{
+	margin-top: 20px;
+}
+
+td input{
+	width: 250px;
+	padding:5px;
+}
+th {
+width: 100px;
+
+}
+input[type=submit]{
+	margin-top: 10px;
+	border: none;
+	padding: 15px 150px;
+	border-radius: 10px;
+	font-size: 20px;
+	font-weight: 700;
+	margin-bottom:20px;
+}
+.botton{
+	border: none;
+	background: none;
+	font-size:15px;
+
+}
+
+.kaka{
+	background: rgb(253, 249, 0);
+	margin-top: 10px;
+	border: none;
+	padding: 15px 110px;
+	border-radius: 10px;
+	font-size: 20px;
+	font-weight: 700;
+}
+
+
+
+
 </style>
 
 <meta charset="UTF-8">
 <title>login.jsp</title>
 </head>
 <body id = "body">
+<div class="margin">
 	<c:if test="${!empty error}">
 		<script>
 			alert(`${error}`)
 		</script>
 	</c:if>
-	<a href="http://localhost/middleProject/">yedam shop</a>
-	<form action="${pageContext.servletContext.contextPath }/login.do"
-		method="post">
-		<p>
-			아이디 : <input type="email" name="email" required>
-		</p>
-		<br>
-		<p>
-			비밀번호 : <input type="password" name="pw" required>
-		</p>
-		<a href = "http://localhost/middleProject/findID.jsp">비밀번호 찾기</a>
-		<br> <input type="submit" value="로그인">
-	</form>
-	<form action="${pageContext.servletContext.contextPath }/shopView/insert.jsp" method="post">
-		<input type="submit" value="회원가입"
-			onsubmit="location.href='${pageContext.servletContext.contextPath }/shopView/insert.jsp'">
-	</form>
-	<form id="form-kakao-login" method="post"
-		action="/middleProject/kakaologin.do">
-		<input type="hidden" name="email" /> <input type="hidden"
-			name="birthday" /> <input type="hidden" name="gender" />
+	<a href="http://localhost/middleProject/" class="font">YEDAM SHOP</a>
+	<form action="${pageContext.servletContext.contextPath }/login.do" method="post" id="margin">
+		<table>
+		<tbody>
+		<tr>
+		<th>아이디</th>
+		<td><input type="email" name="email" required></td>
+		</tr>
+		<tr>
+		<th>비밀번호</th>
+		<td><input type="password" name="pw" required> </td>
+		</tr>
+		</tbody>
+		</table>
+		<input type="submit" value="로그인">
+		</form>
+		<div>
+			<button type="button" onclick="location.href='http://localhost/middleProject/findID.jsp'" class="botton">비밀번호 찾기</button>
+			<button type="button" onclick="location.href='${pageContext.servletContext.contextPath }/shopView/insert.jsp'" class="botton">회원가입</button>
+		</div>
+		<form id="form-kakao-login" method="post" action="/middleProject/kakaologin.do">
+			<input type="hidden" name="email" /> 
+			<input type="hidden" name="birthday" /> 
+			<input type="hidden" name="gender" />
 			<input type = "hidden" name = "age_range">
-	</form>
+		</form>
 	<p id="reauthenticate-popup-result"></p>
-	
+<button id="custom-login-btn" onclick="javascript:Kakao.Auth.loginForm()"  class="kaka" class="bi bi-chat-fill"> 
+ <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-fill" viewBox="0 0 16 16">
+  <path d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9.06 9.06 0 0 0 8 15z"/>
+</svg>  카카오 로그인
 
-<button id="custom-login-btn" onclick="javascript:Kakao.Auth.loginForm()">
-  <img
-    src="//k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg"
-    width="222"
-    alt="카카오 로그인 버튼"
-  />
+  
+  
+  
   
   <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 	<script type="text/javascript">
@@ -91,6 +155,7 @@ body {
 	</script>
 	
 </button>
+</div>
 
 </body>
 </html>
