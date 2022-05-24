@@ -638,6 +638,7 @@ ul {
 				<script>
 					alert(`${error}`)
 				</script>
+				
 			</c:if>
 			<form action="${pageContext.servletContext.contextPath }/update.do"
 				method="post">
@@ -657,12 +658,12 @@ ul {
 							<tr>
 								<th><span>비밀번호</span></th>
 								<td><input type="text" name="pw" value="${info.pw }"
-									placeholder="수정할 비밀번호를 입력하세요."></td>
+									placeholder="수정할 비밀번호를 입력하세요." required></td>
 							</tr>
 							<tr>
 								<th><span>성별</span></th>
 								<td><input type="radio" name="gender" class="gender"
-									checked value="M"
+									checked value="M" 
 									style="width: 15px; height: 15px; border: 1px; margin-top:5px; ">남성 <br>
 									<input type="radio" name="gender" class="gender" value="F"
 									style="width: 15px; height: 15px; border: 1px; margin-top:5px;">여성</td>
@@ -670,16 +671,16 @@ ul {
 							<tr>
 								<th><span>생년월일</span></th>
 								<td><input type="date" name="jumin" value="${info.jumin }"
-									placeholder="수정할 주민번호를 입력하세요."></td>
+									required placeholder="수정할 주민번호를 입력하세요."></td>
 							</tr>
 							<tr>
 								<th><span>주소</span></th>
-								<td><input type="text" name="address"
+								<td><input type="text" name="address" required
 									value="${info.address }" placeholder="수정할 주소를 입력하세요."></td>
 							</tr>
 							<tr>
 								<th><span>연락처</span></th>
-								<td><input type="text" name="phone" value="${info.phone }"
+								<td><input type="text" name="phone" value="${info.phone }" required
 									placeholder="수정할 연락처를 입력하세요."></td>
 							</tr>
 							<tr>

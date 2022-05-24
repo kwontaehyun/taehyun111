@@ -31,7 +31,8 @@ public class updateControl implements Controller {
 		String acces = request.getParameter("acces");
 		String phone = request.getParameter("phone");
 		String loginway = request.getParameter("loginway");
-
+		
+		
 		ShopVO vo = new ShopVO();
 		vo.setEmail(email);
 		vo.setPw(pw);
@@ -41,31 +42,24 @@ public class updateControl implements Controller {
 		vo.setAcces(acces);
 		vo.setPhone(phone);
 		vo.setLoginway(loginway);
-
-		//service.update(vo);
 		
-		
-
-		ShopService service1 = new ShopService();
-		service1.update(vo);
-					
-		ShopService service = new ShopService();
-		ShopVO info = service.search(email);
-		request.setAttribute("info", info);
-		
-		
-		if(phone.length() == 11 ) {
+		if(phone.length()==11) {				
+			ShopService service1 = new ShopService();
+			service1.update(vo);
+			ShopService service = new ShopService();
+			ShopVO info = service.search(email);
 			request.setAttribute("info", info);
+			
 			request.getRequestDispatcher("userSearch.jsp").forward(request, response);
-
-		} else  {
-			String error = "전화번호 다시 입력!!";
-			request.setAttribute("error", error);
-			request.getRequestDispatcher("userSearch.jsp").forward(request, response);
+			
 		}
+		 else  {
+				String error = "전화번호 다시 입력!!";
+				request.setAttribute("error", error);
+				request.getRequestDispatcher("userSearch.jsp").forward(request, response);
+			}
 		
-//		request.setAttribute("info", info);
-//		request.getRequestDispatcher("userlist.jsp").forward(request, response);
+			
 		
 	}
 
