@@ -140,10 +140,13 @@ border: 1px solid #ececec;
 										placeholder="할인을 입력하세요."></td>
 								</tr>
 								<tr>
-									<th><span>👫성별</span></th>
-									<td><input type="radio" name="gender" class="gender" checked value="M" style="width: 15px; height: 15px; border: 1px; margin-top: 5px;">남성
-									<br><input type="radio" name="gender" class="gender" value="F" style="width: 15px; height: 15px; border: 1px; margin-top: 5px;">여성
-									<br><input type="radio" name="gender" class="gender" value="MF" style="width: 15px; height: 15px; border: 1px; margin-top: 5px;">공용</td>
+								<th><span>👫성별</span></th>
+								<td><select name="gender" class="select">
+								<option value =""disabled selected>성별을 선택하세요..</option>
+								<option value="M">남성</option>
+								<option value="F">여성</option>
+								<option value="MF">공용</option>
+								</select></td>
 								</tr>
 								<tr>
 									<th><span>👉아이디</span></th>
