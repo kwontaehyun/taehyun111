@@ -22,7 +22,7 @@ html {
 }
 
 body {
-	height:800px;
+	height:976px;
 	font-family: 'Noto Sans KR';
 	
 }
@@ -78,7 +78,7 @@ ul {
 
 .container {
 	width: 90%;
-	height:742px;
+	height:917px;
 }
 
 .gender {

@@ -274,7 +274,7 @@ margin-right:100px;
       
       <tr>
                   <th><p><span>📞연락처</span></p></th>
-                  <td><input type="number" name="phone" id="phone" placeholder = "전화번호를 입력하세요. ex)01012345678">
+                  <td><input type="number" name="phone" id="phone" minlength="11" maxlength="11" placeholder = "전화번호를 입력하세요. ex)01012345678">
                   </td>
                 </tr>
                 <tr>

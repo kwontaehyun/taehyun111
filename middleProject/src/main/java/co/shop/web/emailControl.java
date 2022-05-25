@@ -88,7 +88,7 @@ public class emailControl implements Controller {
 			}
 			request.setAttribute("meg", "meg");
 			request.setAttribute("email", email);
-			request.getRequestDispatcher("/findID.jsp").forward(request, response);
+			request.getRequestDispatcher("/findPW.jsp").forward(request, response);
 		}
 		else {
 			String error = "아이디가 틀립니다.";

@@ -382,25 +382,35 @@ width: 300px;
 							<th>삭제</th>
 						</tr>
 					</thead>
-					<c:forEach items="${list}" var="list">
-						<tbody>
-							<tr>
-								<td><span id="em">${list.email}</span></td>
-								<td><span id="co">${list.content}</span></td>
-								<td><span id="gr">&#9733; ${list.grade}</span></td>
-								<td><span id="im"><c:if test="${!empty list.RImg}">
-											<img src="${pageContext.servletContext.contextPath }/reviewUpload/${list.RImg }" name="img" style="width:200px; height:150px;">
-										</c:if></span></td>
-								<c:if test = "${list.email == email}">
-								<td><a href="#btn" id="mBtn">수정</a></td>
-								<td><a 
-									href="http://localhost/middleProject/delReview.do?proDuctNum=${vo.proDuctNum }&reNum=${list.reviewNum}" class="bi bi-x-square-fill"></a>
-								</td>
-								</c:if>
-							</tr>
-						</tbody>
-						
-					</c:forEach>
+				<c:forEach items="${list}" var="list">
+                  <tbody>
+                     <tr>
+                        <c:if test = "${list.email != email}">
+                        <td><span class="em">${list.email}</span></td>
+                        <td><span class="co">${list.content}</span></td>
+                        <td><span id="gr">&#9733; ${list.grade}</span></td>
+                        <td><span id="im"><c:if test="${!empty list.RImg}">
+                                 <img src="${pageContext.servletContext.contextPath }/reviewUpload/${list.RImg }" name="img" style="width:200px; height:150px;">
+                              </c:if></span></td>
+                        </c:if>
+                        
+                        
+                        <c:if test = "${list.email == email}">
+                        <td><span id="em">${list.email}</span></td>
+                        <td><span id="co">${list.content}</span></td>
+                        <td><span id="gr">&#9733; ${list.grade}</span></td>
+                        <td><span id="im"><c:if test="${!empty list.RImg}">
+                                 <img src="${pageContext.servletContext.contextPath }/reviewUpload/${list.RImg }" name="img" style="width:200px; height:150px;">
+                              </c:if></span></td>
+                        <td><a href="#btn" id="mBtn">수정</a></td>
+                        <td><a 
+                           href="http://localhost/middleProject/delReview.do?proDuctNum=${vo.proDuctNum }&reNum=${list.reviewNum}" class="bi bi-x-square-fill"></a>
+                        </td>
+                        </c:if>
+                     </tr>
+                  </tbody>
+                  
+               </c:forEach>
 
 				</table>
 				

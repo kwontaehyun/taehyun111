@@ -45,7 +45,7 @@ public class keyCheckControl implements Controller {
 			session.removeAttribute("AuthenticationKey");
 			String checkMeg = "가입하신 휴대폰으로 비밀번호가 발송되었습니다.\n 로그인화면으로 돌아갑니다.";
 			request.setAttribute("checkMeg", checkMeg);
-			request.getRequestDispatcher("/findID.jsp").forward(request, response);
+			request.getRequestDispatcher("/findPW.jsp").forward(request, response);
 		}
 		
 	}
