@@ -24,23 +24,26 @@ text-decoration: none;
 }
 .font{
 font-weight: 700;
-font-size: 50px;
+font-size: 60px;
 color: black;
+
 }
 #margin{
 	margin-top: 20px;
 }
 
 td input{
-	width: 250px;
+	margin-right: 20px;
+	width: 240px;
 	padding:5px;
+	
 }
 th {
 width: 100px;
 
 }
 input[type=submit]{
-	margin-top: 10px;
+	margin-top: 20px;
 	border: none;
 	padding: 15px 150px;
 	border-radius: 10px;
@@ -67,14 +70,13 @@ input[type=submit]{
 
 
 
-
 </style>
 
 <meta charset="UTF-8">
 <title>login.jsp</title>
 </head>
 <body id = "body">
-<div class="margin">
+<div >
 	<c:if test="${!empty error}">
 		<script>
 			alert(`${error}`)
@@ -85,7 +87,7 @@ input[type=submit]{
 		<table>
 		<tbody>
 		<tr>
-		<th>아이디</th>
+		<th >아이디</th>
 		<td><input type="email" name="email" required></td>
 		</tr>
 		<tr>

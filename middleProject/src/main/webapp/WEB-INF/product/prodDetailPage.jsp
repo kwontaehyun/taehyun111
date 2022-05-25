@@ -76,6 +76,23 @@ background: url( "https://play-lh.googleusercontent.com/W43xj43ErMIs5BQgCdMKEa0N
     width : 124px;
     height : 54px;
 }
+
+#ckbt{
+margin-left:7px;
+width:75px;
+height:34px;
+    position: relative;
+    border-radius: 15px;
+    font-family: "paybooc-Light", sans-serif;
+    text-decoration: solid 1px;
+    font-weight: 600;
+    transition: 0.25s;
+     border: #fff200;
+
+
+}
+
+
 .kakaoimg {
 width : 10px;
 height : 10px;
@@ -410,7 +427,7 @@ width: 300px;
 				<input type="radio" id="1-star" name="grade" value="1"> <label for="1-star" class="star">&#9733;</label>
 			</div><br>
 			<input type="file" name="profile"><br> 
-			<input type="submit" value="작성하기" id="btn" class="w-btn-outline w-btn-yellow-outline">
+			<input type="submit" value="작성하기" id="btn" class="w-btn-outline w-btn-yellow-outline" id="">
 			<div id="image_container"></div>
 			</fieldset>
 		</form>
