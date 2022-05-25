@@ -19,7 +19,7 @@
 .del {
 	margin: 0 auto;
 	width: 800px;
-	height: 823px;
+	height: 934px;
 }
 
 header h5 {

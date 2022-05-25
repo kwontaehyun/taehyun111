@@ -19,7 +19,7 @@
   margin: 0 auto;
   padding:20px;
   width:500px;
-  height:825px;
+  height:940px;
 }
 
 header h3 {

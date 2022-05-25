@@ -112,6 +112,7 @@ height:34px;
 
 }
 </style>
+<title>findPw.jsp</title>
 </head>
 <div class="find">
 <body>
@@ -131,7 +132,7 @@ height:34px;
 	<form action = "${pageContext.servletContext.contextPath }/idFind.do">
 	<h4>비밀번호를 잊어버리셨습니까 ? </h4><br>
 	<p>가입할 때 사용하신 <span id="tt">이메일</span>을 입력해주세요.</p>
-	<span>이메일  <input id = "mail" type = "email" name = "email" value = "${email }" required placeholder="이메일을 입력해주세요..."></span>
+	<span>이메일  <input id = "mail" type = "email" name = "email" value = "${email }" required placeholder="이메일을 입력해주세요."></span>
 	<br><input id= "btn" class="w-btn-outline w-btn-yellow-outline" type = "submit" value = "인증번호 받기">	
 	</form>
 	<c:if test = "${!empty meg }">

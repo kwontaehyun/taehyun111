@@ -4,10 +4,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>yedamMap.jsp</title>
 <style>
+<style>
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
 body {
-	font-family: "맑은 고딕", "고딕";
+	font-family: 	font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
 }
 
 #frm {
@@ -31,7 +34,7 @@ a:active {
 }
 #map{
 width:95%; 
-height:825px; 
+  height:914px;
 }
 
 </style>

@@ -51,21 +51,28 @@ public class InsertControl implements Controller {
 			vo.setLoginway(loginway);
 
 			ShopService service = new ShopService();
-			service.insertMember(vo);
+			
+			jumin = jumin.replace("-", "");
 
 			// 아이디중복
 			boolean id = service.idcheck(email);
 
-			if (id == true) {
 				// 비밀번호 확인
 				if (pw.equals(pwcheck)) {
 					// 전화번호길이
 					if (phone.length() == 11) {
-						request.getRequestDispatcher("shopView/login.jsp").forward(request, response);
+						
+						if (jumin.length() == 8) {
+						service.insertMember(vo);
 						session.setAttribute("email", email);
 						session.setAttribute("role", 0);
 						response.sendRedirect("/middleProject/index.jsp");
-
+						
+						}else {
+							String error = "생년월일을 다시 입력해주세요.";
+							request.setAttribute("error", error);
+							request.getRequestDispatcher("shopView/insert.jsp").forward(request, response);
+						}
 					} else {
 						String error = "전화번호를 다시 입력해주세요.";
 						request.setAttribute("error", error);
@@ -78,12 +85,7 @@ public class InsertControl implements Controller {
 					request.getRequestDispatcher("shopView/insert.jsp").forward(request, response);
 
 				}
-			} else if (id == false) {
-				String error = "중복된 아이디입니다.";
-				request.setAttribute("error", error);
-				request.getRequestDispatcher("shopView/insert.jsp").forward(request, response);
-
-			}
+			
 		}
 
 	}
