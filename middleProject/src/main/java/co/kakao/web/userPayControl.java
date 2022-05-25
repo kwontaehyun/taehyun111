@@ -18,9 +18,20 @@ public class userPayControl implements Controller{
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		String email = (String) session.getAttribute("email");
-		payService service = new payService();
-		List<payVO> list = service.userPayment(email);
 		
+		int firstPage = 0;
+		int lastPage = 5;
+		String firstPageCheck = request.getParameter("firstPage");
+		String lastPageCheck = request.getParameter("lastPage");
+		if (firstPageCheck != null || lastPageCheck != null) {
+			firstPage = Integer.parseInt(request.getParameter("firstPage"));
+			lastPage = Integer.parseInt(request.getParameter("lastPage"));
+		}
+		
+		payService service = new payService();
+		int count = service.userCount(email);
+		List<payVO> list = service.userPayment(email, firstPage, lastPage);
+		request.setAttribute("count", count);
 		request.setAttribute("list", list);
 		request.setAttribute("btn", list.size());
 		request.setAttribute("maxpage", 100);

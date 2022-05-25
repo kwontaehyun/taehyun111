@@ -8,40 +8,17 @@ import co.shop.vo.reviewVO;
 
 public class reviewDAO extends DAO {
 
-	public List<reviewVO> reviewList(String proDuctNum) {
+	
+	
+	public List<reviewVO> reviewPage(String proDuctNum, int firstPage, int lastPage) {
 		conn();
-		String sql = "select * from review where productnum = ? order by reviewnum ";
+		String sql = "select* from (select rownum as rn, review.* from review where productnum = ?) where rn between ? and ?";
 		List<reviewVO> list = new ArrayList<reviewVO>();
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, proDuctNum);
-			rs = psmt.executeQuery();
-			while (rs.next()) {
-				reviewVO vo = new reviewVO();
-				vo.setReviewNum(rs.getInt("reviewnum"));
-				vo.setRImg(rs.getString("rimg"));
-				vo.setContent(rs.getString("content"));
-				vo.setProDuctNum(rs.getInt("productnum"));
-				vo.setEmail(rs.getString("email"));
-				vo.setGrade(rs.getInt("grade"));
-				list.add(vo);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			disconn();
-		}
-		return list;
-	}
-	
-	public List<reviewVO> reviewPage(int firstPage, int lastPage) {
-		conn();
-		String sql = "select* from (select rownum as rn, review.* from review) where rn between ? and ?";
-		List<reviewVO> list = new ArrayList<reviewVO>();
-		try {
-			psmt = conn.prepareStatement(sql);
-			psmt.setInt(1, firstPage);
-			psmt.setInt(2, lastPage);
+			psmt.setInt(2, firstPage);
+			psmt.setInt(3, lastPage);
 			rs = psmt.executeQuery();
 			while (rs.next()) {
 				reviewVO vo = new reviewVO();
@@ -62,12 +39,13 @@ public class reviewDAO extends DAO {
 		return list;
 	}
 	
-	public int count() {
+	public int count(String proDuctNum) {
 		conn();
-		String sql = "select count(*) from review;";
+		String sql = "select count(*) from review where productnum = ?";
 		int count = 0;
 		try {
 			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, proDuctNum);
 			rs = psmt.executeQuery();
 			if(rs.next()) {
 				count = rs.getInt("count(*)");

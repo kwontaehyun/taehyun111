@@ -8,16 +8,12 @@ import co.shop.vo.reviewVO;
 public class reviewService {
 	reviewDAO dao = new reviewDAO();
 	
-	public List<reviewVO> detailPagelist(String productNum){
-		return dao.reviewList(productNum);
+	public List<reviewVO> detailPagelist(String productNum, int firstPage, int lastPage){
+		return dao.reviewPage(productNum, firstPage, lastPage);
 	}
 	
-	public List<reviewVO> detailPagelist(int firstPage, int lastPage){
-		return dao.reviewPage(firstPage, lastPage);
-	}
-	
-	public int count() {
-		return dao.count();
+	public int count(String proDuctNum) {
+		return dao.count(proDuctNum);
 	}
 	
 	public int AvgGrade(String productNum) {

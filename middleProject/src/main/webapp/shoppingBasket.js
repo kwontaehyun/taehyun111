@@ -14,14 +14,11 @@ let proDuctNum = ""
 let proDuctNumAry = ""
 
 let allBtn = document.querySelectorAll('#pageing');
-console.log(allBtn)
 
 allBtn.forEach((val, idx) => {
 	val.innerHTML = idx+1;
 	val.addEventListener('click', function() {
 		location.href= `http://localhost/middleProject/shoppingBasket.do?firstPage=${1 + (5 * (idx))}&lastPage=${(idx+1) * 5}`
-		console.log(1 + (5 * (idx)))
-		console.log((idx+1) * 5)
 	});
 	
 })

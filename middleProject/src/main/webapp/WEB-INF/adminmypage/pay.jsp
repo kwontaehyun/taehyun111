@@ -98,6 +98,17 @@ margin-top:20px;
 		</tbody >
 		</c:forEach>
 		</table>
+		
+		<c:forEach begin = "1" end = "${count}" step = "5">
+   			<a id ="pageing" href = "#"></a>
+   			</c:forEach>
+   			
+   			<script src = "pay.js">
+   			
+   			</script>
+		
+		
+		
 		<h4 id="center">총 판매가격 : ${money }<span>원</span></h4>
 	</c:if>
 	</div>

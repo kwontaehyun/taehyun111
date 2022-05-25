@@ -436,49 +436,63 @@ width: 300px;
 				<input type="radio" id="2-stars" name="grade" value="2"> <label for="2-stars" class="star">&#9733;</label> 
 				<input type="radio" id="1-star" name="grade" value="1"> <label for="1-star" class="star">&#9733;</label>
 			</div><br>
+			
 			<input type="file" name="profile"><br> 
+			
+			<c:forEach begin = "1" end = "${count}" step = "5">
+   			<a id ="page" href = "#"></a>
+   			</c:forEach>
+			
 			<input type="submit" value="작성하기" id="btn" class="w-btn-outline w-btn-yellow-outline" id="">
 			<div id="image_container"></div>
 			</fieldset>
 		</form>
 		</div>
 		<span id="btnList"></span>
+		
 	</c:if>
+	
+	
+	
 	</div>
+	<script src = "detailProd.js"></script>
+	
 </body>
 <script>
-	let mBtn = document.querySelectorAll('#mBtn');
-	let co = document.querySelectorAll('#co');
-	let gr = document.querySelectorAll('#gr');
-	let im = document.querySelectorAll('#im');
-	let textarea = document.getElementById('textraea');
-	let img = document.createElement("img");
-	let grade =	document.querySelectorAll('#form > div > input[type=radio]')
-	let cnt = 1;
-	let tbody = document.querySelectorAll('table > tbody')
-	document.addEventListener('DOMContentLoaded', function() {
-		mBtn.forEach((val,idx) =>{
-			val.addEventListener('click', function() {
+let mBtn = document.querySelectorAll('#mBtn');
+let co = document.querySelectorAll('#co');
+let gr = document.querySelectorAll('#gr');
+let im = document.querySelectorAll('#im');
+let textarea = document.getElementById('textraea');
+let img = document.createElement("img");
+let grade = document.querySelectorAll('#form > div > input[type=radio]')
+let cnt = 1;
+let tbody = document.querySelectorAll('table > tbody')
 
-				let btn = document.getElementById('btn')
-				btn.setAttribute("value", "수정하기");
-				let form = document.getElementById('form')
-				form.setAttribute("action", "moReview.do")
-				
-				textarea.innerHTML = co[idx].innerHTML;
-				for(let i =0; i<5; i++){
-					if(grade[i].value == gr[idx].innerHTML){
-						grade[i].innerHTML = idx+1;
-					}
+document.addEventListener('DOMContentLoaded', function() {
+
+	mBtn.forEach((val, idx) => {
+		val.addEventListener('click', function() {
+
+			let btn = document.getElementById('btn')
+			btn.setAttribute("value", "수정하기");
+			let form = document.getElementById('form')
+			form.setAttribute("action", "moReview.do")
+
+			textarea.innerHTML = co[idx].innerHTML;
+			for (let i = 0; i < 5; i++) {
+				if (grade[i].value == gr[idx].innerHTML) {
+					grade[i].innerHTML = idx + 1;
 				}
-				console.log(im[idx].firstElementChild.src)
-				img.setAttribute("src", im[idx].firstElementChild.src);
-				document.querySelector("#image_container").appendChild(img);
+			}
+			console.log(im[idx].firstElementChild.src)
+			img.setAttribute("src", im[idx].firstElementChild.src);
+			document.querySelector("#image_container").appendChild(img);
 
-			})
 		})
-	})	
+	})
 	
-	
+})
+
 </script>
 </html>

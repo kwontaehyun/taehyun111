@@ -98,6 +98,13 @@ text-align : center;
 				
 				</div>
 			</c:forEach>
+			
+			<c:forEach begin = "1" end = "${count}" step = "5">
+   			<a id ="page" href = "#"></a>
+   			</c:forEach>
+   			<script src = "pay.js">
+   			
+   			</script>
 	</c:if>
 </body>
 </html>
