@@ -25,16 +25,15 @@ button {
     position: relative;
     border: none;
     display: inline-block;
-    padding: 10px 10x;
+    padding: 15px 30px;
     border-radius: 15px;
     font-family: "paybooc-Light", sans-serif;
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
     text-decoration: none;
     font-weight: 600;
     transition: 0.25s;
 background: url( "https://play-lh.googleusercontent.com/W43xj43ErMIs5BQgCdMKEa0NXCoUUW8DjQc5SxcDfLrC26H8sHDmoFIUWLYmsQahpo0" ) no-repeat;
 }
-
 
 .w-btn-outline {
     position: relative;
@@ -47,22 +46,29 @@ background: url( "https://play-lh.googleusercontent.com/W43xj43ErMIs5BQgCdMKEa0N
     transition: 0.25s;
      border: #fff200;
 }
-
 .w-btn:hover {
     letter-spacing: 2px;
-    transform: scale(0.8);
+    transform: scale(1.2);
     cursor: pointer;
 }
 
 .w-btn-outline:hover {
     letter-spacing: 2px;
-    transform: scale(0.8);
+    transform: scale(1.2);
     cursor: pointer;
 }
 
+.w-btn:active {
+    transform: scale(1.5);
+}
+
+.w-btn-outline:active {
+    transform: scale(1.5);
+  
+}
 .w-btn-yellow-outline:hover {
-    background-color:rgb(35, 35, 35);
-    color: white;
+    background-color: #ffea00;
+    color: #6e6e6e;
 }
 .w-btn-yellow {
     background-color: #fce205;

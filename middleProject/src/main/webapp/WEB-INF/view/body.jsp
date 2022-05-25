@@ -26,6 +26,7 @@ button {
 background: url( "https://play-lh.googleusercontent.com/W43xj43ErMIs5BQgCdMKEa0NXCoUUW8DjQc5SxcDfLrC26H8sHDmoFIUWLYmsQahpo0" ) no-repeat;
 }
 
+
 .w-btn-outline {
     position: relative;
     padding: 15px 30px;
@@ -37,6 +38,7 @@ background: url( "https://play-lh.googleusercontent.com/W43xj43ErMIs5BQgCdMKEa0N
     transition: 0.25s;
      border: #fff200;
 }
+
 .w-btn:hover {
     letter-spacing: 2px;
     transform: scale(1.2);
@@ -49,17 +51,9 @@ background: url( "https://play-lh.googleusercontent.com/W43xj43ErMIs5BQgCdMKEa0N
     cursor: pointer;
 }
 
-.w-btn:active {
-    transform: scale(1.5);
-}
-
-.w-btn-outline:active {
-    transform: scale(1.5);
-  
-}
 .w-btn-yellow-outline:hover {
-    background-color: #ffea00;
-    color: #6e6e6e;
+    background-color:rgb(35, 35, 35);
+    color: white;
 }
 .w-btn-yellow {
     background-color: #fce205;

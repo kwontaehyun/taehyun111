@@ -18,6 +18,23 @@ public class payService {
 		return dao.adminPaySelect();
 	}
 	
+	public List<payVO> userPayment(String email, int firstPage, int lastPage){
+		return dao.userPay(email, firstPage, lastPage);
+	}
+	
+	public int userCount(String email) {
+		return dao.userCount(email);
+	}
+	
+	public List<payVO> sumPaySelect(int firstPage, int lastPage){
+		return dao.adminPay(firstPage, lastPage);
+	}
+	
+	public int adminCount() {
+		return dao.adminCount();
+	}
+	
+	
 	public int sumPayMoney() {
 		return dao.sumPay();
 	}
