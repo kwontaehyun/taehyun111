@@ -27,7 +27,6 @@ public class reviewDAO extends DAO {
 				list.add(vo);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			disconn();
@@ -47,7 +46,6 @@ public class reviewDAO extends DAO {
 				avgGrade = rs.getInt("grade");
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			disconn();
@@ -126,8 +124,6 @@ public class reviewDAO extends DAO {
 	}
 
 	// 댓글수정
-	// update review set rimg='여.안경2.PNG',content='ghfhfhfhf',grade=2 where
-	// reviewnum=104;
 	public void reviewUpdate(reviewVO vo) {
 		conn();
 		String sql = "update review set rimg=?,content=?,grade=? where reviewnum=?AND email=?";
