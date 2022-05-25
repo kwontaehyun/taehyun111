@@ -58,8 +58,8 @@ background: url( "https://play-lh.googleusercontent.com/W43xj43ErMIs5BQgCdMKEa0N
   
 }
 .w-btn-yellow-outline:hover {
-    background-color: #ffea00;
-    color: #6e6e6e;
+     background-color:rgb(35, 35, 35);
+    color: white;
 }
 .w-btn-yellow {
     background-color: #fce205;
