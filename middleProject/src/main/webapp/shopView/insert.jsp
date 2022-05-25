@@ -182,6 +182,15 @@ width: 100%;
 
 margin-right:100px;
 }
+
+#submitbtn{
+margin-left:200px;
+margin-bottom:20px;
+border:none;
+text-align:center;
+}
+
+
     </style>
 <body>
 <%
@@ -283,12 +292,13 @@ margin-right:100px;
                 
               </tbody>
             </table>
-          
+            <input type="submit" id = "submitbtn"value="✔ 회원가입">      
+             <a id="homepage" href="${pageContext.servletContext.contextPath }/index.jsp">Main Page</a>
           </form>
           <div class="btn_wrap">
-          <input type="submit" id = "submitbtn"value="✔ 회원가입">
+  
           <input type="hidden" name="loginway">
-            <a id="homepage" href="${pageContext.servletContext.contextPath }/index.jsp">Main Page</a>
+           
           </div>
         </div> <!-- form_txtInput E -->
       </div><!-- content E-->
