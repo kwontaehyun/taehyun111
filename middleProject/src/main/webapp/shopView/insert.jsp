@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -5,7 +6,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>회원가입</title>
     <style>
    @charset "utf-8";
    @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
@@ -33,16 +34,9 @@ ul{list-style:none; }
 .con_term .term_txt ul li,.con_term .term_txt p ,.con_term .term_txt div{color:#818181;font-size:12px; line-height:17px;margin: 0 0 15px;}
 .left_margin{margin:0 0 0 20px;}
 .con_term .term_txt div.txt_bold{font-weight: bold; margin:0 0 25px;}
-.btn_wrap{text-align:center; margin:40px 0 30px 139px;}
-.btn_wrap a{	color: #fff;
-	background-color: #4380ce;
-	font-weight: bold;
-	padding: 10px;
-	height: 22px;
-	line-height: 22px;
-	width: 103px;
-	display: block;
-	text-align: center;}
+
+
+
 .btn_wrap a.wide{width:587px;margin: 0 0 0 20px;}
 .find_txt ul li{color:#9a9a9a;font-size:13px;text-align:center; line-height:17px; margin:0 0 20px;}
 .form_txtInput .checkbox_wrap {position: relative;padding: 5px;text-align: right;}
@@ -91,7 +85,7 @@ ul{list-style:none; }
 .popWrap .pop_txt_con .pop_exTxt{font-size:14px;color:#9a9a9a;line-height:20px;}
 .popWrap .pop_txt_con .pop_exTxt span{color:#254ee9}
 .popWrap .pop_btnWrap{margin:30px 0 0;}
-.popWrap .pop_btnWrap a{color: #fff; background-color: #4380ce; font-weight: bold; padding: 10px;  height: 22px; line-height: 22px; width: 103px; display: block; text-align: center;}
+
 .join_form table input.send_number::placeholder{text-align:right;}
 .join_form table input.send_number:-ms-input-placeholder {text-align:right;}
 .join_form table input.send_number::-ms-input-placeholder {text-align:right;}
@@ -119,7 +113,7 @@ ul{list-style:none; }
   .wrap.wd668.line .sub_tit_txt,.wrap .sub_tit_txt{margin:0 0 10px 0;}
   .btn_wrap a,.btn_wrap a.wide{width:auto;margin:0;}
   .btn_wrap{overflow: hidden;}
-  .join_form.idpwFind table td select{width:30%;height:37px; float:left;}
+
   .join_form.idpwFind table tr.email input:after,.mar10:after,  .join_form.idpwFind table td select:after{content:'';display: block;clear:both;}
   .popWrap{right: auto; max-width: 80vw; margin: 30px auto 0; left: 50%; transform: translateX(-50%);}
   .join_form table td a.btn_confirm{width: 100px; height: 35px;line-height: 35px; font-size: 12px;margin:5px 0 0 ;}
@@ -151,11 +145,42 @@ padding-right:60px;
 }
 #submitbtn{
 margin-top:35px;
-margin-left: 150px; 
+margin-left:200px; 
 width: 100px; 
 height: 40px;  
 text-align: center; 
 line-height:5px;" 
+}
+
+#homepage{
+margin-left:30px;
+margin-bottom:20px;
+width: 100px; 
+height: 40px;  
+text-align: center; 
+line-height:5px;
+}
+
+#pwOverlapCheck{
+height:-4px;
+width:230px;
+text-align:left; 
+margin-left:20px;
+}
+
+#ppp{
+height:-4px;
+width:230px;
+text-align: center; 
+}
+.select {
+border: 1px solid #ececec;
+font-size: 14px;
+color: #4c4c4c;
+height: 50px;	
+width: 100%;
+
+margin-right:100px;
 }
     </style>
 <body>
@@ -194,9 +219,11 @@ line-height:5px;"
                 <tr>
                   <th><p><span>👉아이디</span></p></th>
                   	<td><input type="email" name="email" id = "email" value ="${emailCheck }" placeholder = "ID를 입력하세요.(email@email.com)." required></td>
-               		<td><a id = "emailcheck" href = "#">인증받기</a></td>
+               		<td><a id = "emailcheck" href = "#">인증받기</a></td></tr>
+               		<tr>
+               		<th><p></p></th>
                   	<td><p id = "ppp"></p></td>
-                <c:if test = "${!empty meg}">
+                <c:if test = "${!empty meg}"></tr>
                  	<br>
                  <tr>
                   	  <th><p><span>👉인증번호 : </span></p></th>
@@ -219,17 +246,21 @@ line-height:5px;"
                   <td><input type="password" name="pw" id="pw" placeholder = "비밀번호를 입력하세요."></td>
                 </tr>
                 <tr>
-                	<td><p id = "pwOverlapCheck"></p></td>
+                <th><p></p></th>
+                <td><p id = "pwOverlapCheck"></p></td>
                 </tr>
                 <tr>
                   <th><p><span>🔐비밀번호 확인</span></p></th>
                   <td><input type="password" name="pwcheck" id="pwcheck" placeholder = "비밀번호를 한번 더 입력하세요."></td>
                 </tr>
-                <tr>
-                  <th><p><span>👫성별</span></p></th>
-                  	<td><input type="radio" name="gender" ckecked value="M"  style="margin-left:100px;width:18px;height:18px;border:1px;"><span >남성</span></td>
-               	 	<td><input type="radio" name="gender" value="F"  style="margin-left:-100px;width:18px;height:18px;border:1px;"><span id="f">여성</span></td>
-                </tr>
+          		 <tr>
+				  <th><span>👫성별</span></th>
+				  <td><select name="gender" class="select">
+				  <option value =""disabled selected>성별을 선택하세요..</option>
+				  <option value="M">남성</option>
+				  <option value="F">여성</option>
+				  </select></td>
+				  </tr>
                 <tr>
                   <th><p><span>📆생년월일</span></p></th>
                   <td><input type="date" name="jumin" id="jumin"> 
@@ -247,8 +278,7 @@ line-height:5px;"
                   </td>
                 </tr>
                 <tr>
-                  <td><input type="submit" id = "submitbtn"value="✔회원가입">
-          <input type="hidden" name="loginway"></td>
+                  <td></td>
                 </tr>
                 
               </tbody>
@@ -256,6 +286,8 @@ line-height:5px;"
           
           </form>
           <div class="btn_wrap">
+          <input type="submit" id = "submitbtn"value="✔ 회원가입">
+          <input type="hidden" name="loginway">
             <a id="homepage" href="${pageContext.servletContext.contextPath }/index.jsp">Main Page</a>
           </div>
         </div> <!-- form_txtInput E -->

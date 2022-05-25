@@ -1,3 +1,5 @@
+
+
 /**
  * 
  */
@@ -29,29 +31,28 @@ fetch('../userList.do')
 
 
 		email.addEventListener('change', function() {
-			for (let field in pAry) {
-				pTag.innerHTML = ''
-				let emailvalue = document.getElementById('email').value;
-				if (pAry[field] == emailvalue && emailvalue != null) {
-					pTag.innerHTML = '이미 존재하는 이메일 계정입니다.';
-					return;
-				}else if(pAry[field] != emailvalue && emailvalue != null){
-					pTag.innerHTML = '사용가능한 이메일 계정입니다.';
-				}
-				
-				if(emailvalue == ''){
-					pTag.innerHTML = '';
-				} //이거안됌...
-				
-				if(emailvalue.indexOf('@') == -1){
-					pTag.innerHTML = '아이디는 이메일 형식입니다.'
-				}
-				if(emailvalue.indexOf('.') == -1){
-					pTag.innerHTML = '아이디는 이메일 형식입니다.'
-				}
-				
-			}
-		})
+         for (let field in pAry) {
+            
+            let emailvalue = document.getElementById('email').value;
+            if(emailvalue == ''){
+               pTag.innerHTML = '';
+            }
+            else if (pAry[field] == emailvalue && emailvalue != '') {
+               pTag.innerHTML = '이미 존재하는 이메일 계정입니다.';
+               return;
+            }else if(pAry[field] != emailvalue && emailvalue != ''){
+               pTag.innerHTML = '사용가능한 이메일 계정입니다.';
+            }
+            
+            if(emailvalue.indexOf('@') == -1 && emailvalue != ''){
+               pTag.innerHTML = '아이디는 이메일 형식입니다.'
+            }
+            if(emailvalue.indexOf('co.') == -1 && emailvalue != ''){
+               pTag.innerHTML = '아이디는 이메일 형식입니다.'
+            }
+            
+         }
+      })
 
 		let pwcheck = document.getElementById('pwcheck');
 		pwcheck.addEventListener('change', function() {
