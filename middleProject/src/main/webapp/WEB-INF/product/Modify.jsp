@@ -89,7 +89,7 @@ input {
 	String email = (String) request.getParameter("email");
 	%>
 
-	<div class="wrap wd668">
+	
 		<div class="container">
 			<div class="all">
 				<h2 class="sub_tit_txt">📦상품수정📦</h2>
@@ -151,7 +151,7 @@ input {
 								</tr>
 								<tr>
 									<th><span>👫성별</span></th>
-									<td><input type="radio" name="gender" class="gender" checked value="M" style="width: 15px; height: 15px; border: 1px; margin-top: 5px;">남성
+									<td><input type="radio" name="gender" class="gender" value="M" style="width: 15px; height: 15px; border: 1px; margin-top: 5px;">남성
 										<br>
 									<input type="radio" name="gender" class="gender" value="F" style="width: 15px; height: 15px; border: 1px; margin-top: 5px;">여성<br>
 									<input type="radio" name="gender" class="gender" value="MF" style="width: 15px; height: 15px; border: 1px; margin-top: 5px;">공용</td>
