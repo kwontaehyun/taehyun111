@@ -12,6 +12,14 @@ public class reviewService {
 		return dao.reviewList(productNum);
 	}
 	
+	public List<reviewVO> detailPagelist(int firstPage, int lastPage){
+		return dao.reviewPage(firstPage, lastPage);
+	}
+	
+	public int count() {
+		return dao.count();
+	}
+	
 	public int AvgGrade(String productNum) {
 		return dao.avgGrade(productNum);
 	}

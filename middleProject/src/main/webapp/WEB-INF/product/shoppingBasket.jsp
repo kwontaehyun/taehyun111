@@ -181,6 +181,11 @@ width : 800px;
 				
 				</div>
 			</c:forEach>
+			<c:forEach begin = "1" end = "${count }" step = "5">
+   				<button id = "pageing"></button>
+   </c:forEach>
+   
+  
 
 			<div id = "btn">
 			<button class="w-btn-outline w-btn-yellow-outline" id="delBtn">선택삭제</button>

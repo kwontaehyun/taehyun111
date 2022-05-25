@@ -20,7 +20,15 @@ public class shoppingBasketControl implements Controller {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		String email = (String) session.getAttribute("email");
-
+		String firstPageCheck = request.getParameter("firstPage");
+		String lastPageCheck = request.getParameter("lastPage");
+		int firstPage = 0;
+		int lastPage = 5;
+		
+		if (firstPageCheck != null || lastPageCheck != null) {
+			firstPage = Integer.parseInt(request.getParameter("firstPage"));
+			lastPage = Integer.parseInt(request.getParameter("lastPage"));
+		}
 		if (email == null) {
 			String error = "로그인을 하셔야 이용이 가능합니다.";
 			request.setAttribute("error", error);
@@ -30,8 +38,10 @@ public class shoppingBasketControl implements Controller {
 			basketService service = new basketService();
 
 			if (proDuctNumCheck == null) {
-				List<basketVO> list = service.basketList(email);
+				List<basketVO> list = service.basketList(email, firstPage, lastPage);
 				request.setAttribute("list", list);
+				int count = service.count(email);
+				request.setAttribute("count", count);
 				request.getRequestDispatcher("shoppingpage.jsp").forward(request, response);
 			} else {
 				String proDuctNum = request.getParameter("proDuctNum");

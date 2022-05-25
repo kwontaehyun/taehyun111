@@ -26,7 +26,7 @@ public class basketControl implements Controller{
 		if(email != null) {
 
 			basketService service = new basketService();
-			List<basketVO> list = service.basketList(email);
+			List<basketVO> list = service.userBasketList(email);
 			
 			Gson gson = new GsonBuilder().create();
 			response.getWriter().print(gson.toJson(list));

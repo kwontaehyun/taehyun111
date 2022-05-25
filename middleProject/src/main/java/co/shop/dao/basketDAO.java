@@ -7,7 +7,7 @@ import java.util.List;
 import co.shop.vo.basketVO;
 
 public class basketDAO extends DAO{
-	public List<basketVO> shoppingBasketList(String email){
+	public List<basketVO> BasketList(String email){
 		conn();
 		String sql = "select DISTINCT * from shoppingbasket where email = ?";
 		List<basketVO> list = new ArrayList<basketVO>();
@@ -35,6 +35,38 @@ public class basketDAO extends DAO{
 		}
 		return list;
 	}
+	
+	public List<basketVO> shopBasketList(String email, int firstPage, int lastPage){
+		conn();
+		String sql = "select* from (select rownum as rn, shoppingbasket.* from shoppingbasket where email = ?) where rn between ? and ?";
+		List<basketVO> list = new ArrayList<basketVO>();
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, email);
+			psmt.setInt(2, firstPage);
+			psmt.setInt(3, lastPage);
+			rs = psmt.executeQuery();
+			while(rs.next()) {
+				basketVO vo = new basketVO();
+				vo.setProDuctNum(rs.getInt("productnum"));
+				vo.setProDuctName(rs.getString("productname"));
+				vo.setProDuctPrice(rs.getInt("productprice"));
+				vo.setComment(rs.getString("coment"));
+				vo.setSale(rs.getInt("sale"));
+				vo.setpImg(rs.getString("pimg"));
+				vo.setGender(rs.getString("gender"));
+				vo.setEmail(rs.getString("email"));
+				list.add(vo);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			disconn();
+		}
+		return list;
+	}
+	
 	
 	public void shoppingBasketInsert(basketVO vo) {
 		conn();
@@ -122,5 +154,25 @@ public class basketDAO extends DAO{
 		return false;
 	}
 	
+	public int count(String email) {
+		conn();
+		String sql = "select count(*) from shoppingbasket where email = ?";
+		int count = 0;
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, email);
+			rs = psmt.executeQuery();
+			if(rs.next()) {
+				count = rs.getInt("count(*)");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			disconn();
+		}
+		return count;
+		
+	}
 	
 }

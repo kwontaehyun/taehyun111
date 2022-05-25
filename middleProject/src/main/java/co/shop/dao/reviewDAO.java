@@ -34,6 +34,54 @@ public class reviewDAO extends DAO {
 		}
 		return list;
 	}
+	
+	public List<reviewVO> reviewPage(int firstPage, int lastPage) {
+		conn();
+		String sql = "select* from (select rownum as rn, review.* from review) where rn between ? and ?";
+		List<reviewVO> list = new ArrayList<reviewVO>();
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, firstPage);
+			psmt.setInt(2, lastPage);
+			rs = psmt.executeQuery();
+			while (rs.next()) {
+				reviewVO vo = new reviewVO();
+				vo.setReviewNum(rs.getInt("reviewnum"));
+				vo.setRImg(rs.getString("rimg"));
+				vo.setContent(rs.getString("content"));
+				vo.setProDuctNum(rs.getInt("productnum"));
+				vo.setEmail(rs.getString("email"));
+				vo.setGrade(rs.getInt("grade"));
+				list.add(vo);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			disconn();
+		}
+		return list;
+	}
+	
+	public int count() {
+		conn();
+		String sql = "select count(*) from review;";
+		int count = 0;
+		try {
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			if(rs.next()) {
+				count = rs.getInt("count(*)");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			disconn();
+		}
+		return count;
+		
+	}
 
 	public int avgGrade(String proDuctNum) {
 		conn();

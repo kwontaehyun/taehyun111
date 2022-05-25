@@ -52,6 +52,101 @@ public class payDAO extends DAO{
 		return list;
 	}
 	
+	public List<payVO> userPay(String email, int firstPage, int lastPage){
+		conn();
+		String sql = "select* from (select rownum as rn, kakaopay.* from kakaopay where email = ?) where rn between ? and ?";
+		List<payVO> list = new ArrayList<payVO>();
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, email);
+			psmt.setInt(2, firstPage);
+			psmt.setInt(3, lastPage);
+			rs = psmt.executeQuery();
+			while (rs.next()) {
+				payVO vo = new payVO();
+				vo.setProDuctName(rs.getString("productname"));
+				vo.setPayPrice(rs.getInt("payprice"));
+				vo.setpImg(rs.getString("payimg"));
+				vo.setItemCount(rs.getInt("itemcount"));
+				vo.setDate(rs.getString("paydate"));
+				list.add(vo);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			disconn();
+		}
+		return list;
+	}
+	
+	public int userCount(String email) {
+		conn();
+		String sql = "select count(*) from kakaopay where email = ?";
+		int count = 0;
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, email);
+			rs = psmt.executeQuery();
+			if(rs.next()) {
+				count = rs.getInt("count(*)");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			disconn();
+		}
+		return count;
+	}
+	
+	public List<payVO> adminPay(int firstPage, int lastPage){
+		conn();
+		String sql = "select* from (select rownum as rn, kakaopay.* from kakaopay) where rn between ? and ?";
+		List<payVO> list = new ArrayList<payVO>();
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, firstPage);
+			psmt.setInt(2, lastPage);
+			rs = psmt.executeQuery();
+			while (rs.next()) {
+				payVO vo = new payVO();
+				vo.setProDuctName(rs.getString("productname"));
+				vo.setPayPrice(rs.getInt("payprice"));
+				vo.setpImg(rs.getString("payimg"));
+				vo.setItemCount(rs.getInt("itemcount"));
+				vo.setDate(rs.getString("paydate"));
+				list.add(vo);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			disconn();
+		}
+		return list;
+	}
+	
+	public int adminCount() {
+		conn();
+		String sql = "select count(*) from kakaopay";
+		int count = 0;
+		try {
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			if(rs.next()) {
+				count = rs.getInt("count(*)");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			disconn();
+		}
+		return count;
+		
+	}
+	
 	public List<payVO> adminPaySelect(){
 		conn();
 		String sql = "select* from kakaopay";
