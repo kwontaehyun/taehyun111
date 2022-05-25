@@ -134,7 +134,7 @@ height:34px;
 	<h4>아이디를 잊어버리셨습니까 ? </h4><br>
 	<p>가입할 때 사용하신 <span id="tt">휴대폰번호</span>를 입력해주세요.</p>
 	<span>휴대폰 번호  
-	<input type = "number" name = "phone" value = "${phoneNum }" required placeholder="전화번호를 입력해주세요."></span>
+	<input type = "number" id= "phone" name = "phone" value = "${phoneNum }" required placeholder="전화번호를 입력해주세요."></span>
 	<br><input id= "btn" class="w-btn-outline w-btn-yellow-outline" type = "submit" value ="인증">
 	</form>
 	<c:if test = "${!empty phoneNum}">
