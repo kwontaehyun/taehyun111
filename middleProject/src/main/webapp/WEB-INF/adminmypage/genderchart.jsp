@@ -15,28 +15,38 @@
 	}
 	.list {
 	  height:914px;	
+	  width : 100%
 	}
 	#piechart{
 		float : left;
-		margin-top : 250px;
+		margin-top : 100px;
 		margin-left : 250px;
 	}
 	#piechart2{
 		float : right;
+		margin-top : 100px;
 		margin-right : 250px;
-		margin-top : 250px;
 	}
-	
+	h1{
+padding:30px 10px;
+margin : 0 auto;
+text-align : center;
+width : 800px;
+margin-top : 100px;
 
+}
+#all {
+
+}
 	</style>
 </head>
 
-
 <body>
 <div class="list">
-	<div>
-		<span id="piechart" style="width: 500px; height: 400px;"></span> <span
-			id="piechart2" style="width: 500px; height: 400px;"></span>
+	<div id = "all">
+<h1>💹Chart</h1>
+		<span id="piechart" style="width: 500px; height: 500px;"></span> <span
+			id="piechart2" style="width: 500px; height:500px;"></span>
 	</div>
 		</div>
 	<script type="text/javascript">
@@ -61,7 +71,8 @@
 			var data = google.visualization.arrayToDataTable(aryData);
 
 			var options = {
-				title: '남녀 가입 비율'
+				title: '👔남녀 상품 비율',
+				 is3D: true,
 			};
 
 			var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -89,7 +100,8 @@
 				var data = google.visualization.arrayToDataTable(aryData);
 
 				var options = {
-					title: '남녀 상품 비율'
+					title: '👫남녀 회원 비율',
+					 is3D: true,
 				};
 
 				var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
