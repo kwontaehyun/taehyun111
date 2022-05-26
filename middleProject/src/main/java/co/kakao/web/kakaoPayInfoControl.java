@@ -41,7 +41,6 @@ public class kakaoPayInfoControl implements Controller {
 		payVo.setProDuctName(vo.getProDuctName());
 		payService.kakaoPay(payVo);
 		baskService.deletebasket(Integer.parseInt(item_code));
-		service.deleteMember(Integer.parseInt(item_code));
 		session.removeAttribute("item_code");
 		
 		response.sendRedirect("/middleProject/index.jsp");

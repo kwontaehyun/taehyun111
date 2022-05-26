@@ -44,7 +44,6 @@ public class basketPay implements Controller {
 			payVo.setProDuctName(vo.getProDuctName());
 			payService.kakaoPay(payVo);
 			baskService.deletebasket(Integer.parseInt(proDuctNum[i]));
-			service.deleteMember(Integer.parseInt(proDuctNum[i]));
 			
 		}
 		session.removeAttribute("proDuctNumAry");
