@@ -13,7 +13,7 @@ fetch('../userList.do')
 
 		let email = document.getElementById('email')
 		loginbtn.addEventListener('click', function() {
-			location.href = `http://localhost/middleProject/insertCheck.do?email=${email.value}`
+			location.href = `http://192.168.0.8/middleProject/insertCheck.do?email=${email.value}`
 		})
 
 		console.log(result);

@@ -47,7 +47,7 @@ width:95%;
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=13be2cad1a846175daeb3ba0ef15dde6"></script>
 	<script>
 		let url = location.href;
-		console.log(url); // http://localhost/HelloAjax/ajax/daumApi.html?x=36.378512&y=127.344399
+		console.log(url); // http://192.168.0.8/HelloAjax/ajax/daumApi.html?x=36.378512&y=127.344399
 		let xpos = url.indexOf('x=');
 		let ypos = url.indexOf('y=');
 		let lat = 35.86907273664552;

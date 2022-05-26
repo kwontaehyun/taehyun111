@@ -21,7 +21,7 @@ function getParam(sname) {
 }
 
 
-fetch(`http://localhost/middleProject/categoryList.do?category=${getParam("category")}`)
+fetch(`http://192.168.0.8/middleProject/categoryList.do?category=${getParam("category")}`)
 	.then(result => result.json())
 	.then(result => {
 		pageing(result);
@@ -117,13 +117,13 @@ function firstPage(val) {
 		if (field == 'proDuctNum') {
 			aTag.setAttribute("id", `aTag${val[field]}`)
 			aTag.addEventListener('click', function() {
-				location.href = `http://localhost/middleProject/detailProduct.do?proDuctNum=${val[field]}`
+				location.href = `http://192.168.0.8/middleProject/detailProduct.do?proDuctNum=${val[field]}`
 			})
 			cartAtag.addEventListener('click', function() {
 				if (confirm("장바구니에 추가하시겠습니까?") == true) {    //확인
-					location.href = `http://localhost/middleProject/shoppingBasket.do?proDuctNum=${val[field]}`
+					location.href = `http://192.168.0.8/middleProject/shoppingBasket.do?proDuctNum=${val[field]}`
 				} else {   //취소
-					location.href = `http://localhost/middleProject/index.jsp`
+					location.href = `http://192.168.0.8/middleProject/index.jsp`
 				}
 			})
 		}

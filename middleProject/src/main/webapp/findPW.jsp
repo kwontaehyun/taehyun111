@@ -125,7 +125,7 @@ height:34px;
 	<c:if test="${!empty checkMeg}">
 		<script>
 			alert(`${checkMeg}`)
-			setTimeout(location.href='http://localhost/middleProject/shopView/login.jsp',4000);
+			setTimeout(location.href='http://192.168.0.8/middleProject/shopView/login.jsp',4000);
 		</script>
 	</c:if>
 

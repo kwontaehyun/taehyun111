@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
@@ -10,9 +10,9 @@
 <style>
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 *{
-	box-sizing:border-box;
-	padding:0;
-	font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+   box-sizing:border-box;
+   padding:0;
+   font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
 
 }
 
@@ -112,40 +112,40 @@ text-align : center;
 /* 센터 */
 
 body{
-	height:100%;
+   height:100%;
 
 }
 .center{
-	text-align: center;
+   text-align: center;
 }
 table{
-	width:100%;
-	font-size: 20px;
+   width:100%;
+   font-size: 20px;
 
 }
 a{
-	text-decoration: none;
-	color:#666;
+   text-decoration: none;
+   color:#666;
 }
 tr{
-	border: 1px solid;
+   border: 1px solid;
 }
 th{
-	font-size:15pt;
- 	color:#fff;
- 	background:black;
- 	text-decoration: none;
- 	padding:10px;
- 	text-align: center;
+   font-size:15pt;
+    color:#fff;
+    background:black;
+    text-decoration: none;
+    padding:10px;
+    text-align: center;
 
 }
 td{
-	text-align: center;
-	height: 130px;
+   text-align: center;
+   height: 130px;
 }
 h4{
-	font-size:15pt;
-	margin-bottom: 30px;
+   font-size:15pt;
+   margin-bottom: 30px;
 }
 input{
     border: 0;
@@ -154,63 +154,58 @@ input{
     margin-bottom:20px;
 }
 #left{
-	float:left;
-	width:40%;
-	height: 30%;
-	margin-left:6%;
-	margin-right: 10%;
-	margin-top: 5%;
-	
+   float:left;
+   width:40%;
+   height: 30%;
+   margin-left:6%;
+   margin-right: 10%;
+   margin-top: 5%;
+   
 }
 
 #prod_right {
-	float:left;
+   float:left;
 }
 
 input {
-	padding: 10px;
+   padding: 10px;
 
 }
 
 #dea{
-	clear:both;
-	padding-top: 50px;
-	padding-right: 100px;
-	padding-left:100px;
+   clear:both;
+   padding-top: 50px;
+   padding-right: 100px;
+   padding-left:100px;
 }
 
 /* */
 .right{
-	overflow: hidden;
-	
+   overflow: hidden;
 }
 
-.right form {
-	
-	float: right;
-}
 
 .padding{
-	padding-top:300px;
-	text-align:left;
-	
+   padding-top:300px;
+   text-align:left;
+   
 }
 
 #censle{
-	text-decoration : line-through;
+   text-decoration : line-through;
 
 }
 
 .size{
-	font-size: 30px;
-	font-weight: 700;
+   font-size: 30px;
+   font-weight: 700;
 }
 .name{
-	font-weight: 700;
-	font-size: 50px;
+   font-weight: 700;
+   font-size: 50px;
 }
 .gr{
-	color:#666;
+   color:#666;
 
 }
 .co{
@@ -229,176 +224,184 @@ width: 300px;
 /*평점관련 */
 
 #area {
-	float: left;
+   float: left;
 }
 
 
 
 /* star */
 .star-rating {
-	display: flex;
-	flex-direction: row-reverse;
-	font-size: 1.5em;
-	justify-content: space-around;
-	text-align: center;
-	width: 5em;
-	margin:0 auto;
+   display: flex;
+   flex-direction: row-reverse;
+   font-size: 1.5em;
+   justify-content: space-around;
+   text-align: center;
+   width: 5em;
+   margin:0 auto;
 }
 
 .star-rating input {
-	display: none;
+   display: none;
 }
 
 .star-rating label {
-	color: #ccc;
-	cursor: pointer;
+   color: #ccc;
+   cursor: pointer;
 }
 
 .star-rating :checked ~label {
-	color: #fc0;
+   color: #fc0;
 }
 
 .star-rating label:hover, .star-rating label:hover ~label {
-	color: #fc0;
+   color: #fc0;
 }
 #page{
-	text-align:center;
-	font-size:0;
-	margin:0 auto;
-	margin-bottom : 30px;
-	border:1px solid #e6e6e6;
-	width:35px;
-	height:35px;
-	line-height:28px;
-	background-color:#fff;
-	font-size:20px;
-	color:#999999;
+   text-align:center;
+   font-size:0;
+   margin: 0 auto;
+   border:1px solid #e6e6e6;
+   width:35px;
+   height:35px;
+   line-height:28px;
+   background-color:#fff;
+   font-size:20px;
+   color:#999999;
+   clear:both;
  }
  #all {
  height : 100%;
+ }
+ 
+ .clic{
+ margin-left : 48%;
+ margin-top: 15px;
+ 
+ 
+ 
  }
 
 </style>
 
 </head>
 <body>
-	<%
-	int role = (Integer) session.getAttribute("role");
-	%>
+   <%
+   int role = (Integer) session.getAttribute("role");
+   %>
 
 <div>
 <c:if test="${!empty error}">
-		<script>
-			alert(`${error}`)
-		</script>
-	</c:if>
-	<c:if test="${!empty vo}">
-		<c:if test="${role == 1}">
-		<div class="right">
-			<div id="all">
-			<form action="${pageContext.servletContext.contextPath }/productDelete.do">
-				<input type="hidden" name="num" value="${vo.proDuctNum }"> 
-				<input  type="submit" value="상품삭제" id = "delProdBtn">
-			</form>
-			<form action="${pageContext.servletContext.contextPath }/productModify.jsp" method="get" enctype="multipart/form-data">
-				<input type="hidden" value="${vo.proDuctNum}" name="num">
-				<input type="hidden" value="${vo.proDuctName}" name="name">
-				<input type="hidden" value="${vo.proDuctPrice}" name="price"> 
-				<input type="hidden" value="${vo.cateGory}" name="gory"> 
-				<input type="hidden" value="${vo.comment}" name="comment"> 
-				<input type="hidden" value="${vo.sale}" name="sale"> 
-				<input type="hidden" value="${vo.pImg}" name="pImg"> 
-				<input type="hidden" value="${vo.gender}" name="gender"> 
-				<input type="hidden" value="${vo.email}" name="email"> 
-				<input  type="submit" value="상품수정">
-			</form>
-			
-			</div>
-			<script>
-			let delProdBtn = document.getElementById('delProdBtn');
-			delProdBtn.addEventListener('click', function(){
-				if (confirm("상품을 삭제 하시겠습니까?") == true) {    //확인
-					
-				}else{
-					 event.preventDefault();
-				}
-			})
-			</script>
-			
-		</c:if>
-		<img id="left" src="upload/${vo.pImg}">
-		
-		
-		
-		
-		
-		
-		<div class="padding">
-		<h4 class="name">${vo.proDuctName}</h4>
-		<h4>${vo.comment}</h4>
-		<c:if test="${vo.sale == null || vo.sale == 0}">
-			<h4>${vo.proDuctPrice}원</h4>
-		</c:if>
-		
-			
-		
-		<div id="prod_right">
-		<c:if test="${vo.sale ne 0}">
-			<p>
-				<span>${vo.sale}%</span>  <span id="censle" >${vo.proDuctPrice}원</span> 
-			</p>
-			<h4 class="size"><fmt:formatNumber type="number" pattern="0" value="${vo.proDuctPrice - (vo.proDuctPrice*(vo.sale/100))}" /> 원 </h4>
-		</c:if>
-		<h4>성별 : ${vo.gender}</h4>
-		<h4> 평점 : <c:forEach var="cnt" begin="1" end="${avgGrade}" step="1" ><span class="gr"> &#9733; </span></c:forEach> </h4>
-		
-		<form action="kakaopay.do">
-		<fieldset id="width">
-			<input type="hidden" name="item_name" value="${vo.proDuctName }">
-			<!-- 상품명 String-->
-			<input type="hidden" name="item_code" value="${vo.proDuctNum}">
-			<!-- 상품코드 String-->
-			<input type="hidden" name="sale" value="${vo.sale}"> <input
-				type="hidden" name="quantity" value="1">
-			<!-- 상품수량 int -->
-			<input type="hidden" name="total_amount" value="${vo.proDuctPrice}">
-			<!-- 상품 총액 int -->
-			<input type="hidden" name="tax_free_amount" value="0">
-			<!-- 상품 비과세 금액 -->
-			<input type="submit" value="카카오페이결제"  class="w-btn-outline w-btn-yellow-outline">
-			
-			
-		</fieldset>
-		</form>
-		<a  name="basket" href="http://localhost/middleProject/shoppingBasket.do?proDuctNum=${vo.proDuctNum }" class="w-btn-outline w-btn-yellow-outline">장바구니 </a>
-		</div>
-		</div>
-		
-		
-		
-		
-		
-		
-		<div class="center">
-		<div class="padding">
-		<form  action="${pageContext.servletContext.contextPath }/select.do"
-			method="post" enctype="multipart/form-data" id="dea">
+      <script>
+         alert(`${error}`)
+      </script>
+   </c:if>
+   <c:if test="${!empty vo}">
+      <c:if test="${role == 1}">
+      <div class="right">
+         <div id="all">
+         <form action="${pageContext.servletContext.contextPath }/productDelete.do">
+            <input type="hidden" name="num" value="${vo.proDuctNum }"> 
+            <input  type="submit" value="상품삭제" id = "delProdBtn">
+         </form>
+         <form action="${pageContext.servletContext.contextPath }/productModify.jsp" method="get" enctype="multipart/form-data">
+            <input type="hidden" value="${vo.proDuctNum}" name="num">
+            <input type="hidden" value="${vo.proDuctName}" name="name">
+            <input type="hidden" value="${vo.proDuctPrice}" name="price"> 
+            <input type="hidden" value="${vo.cateGory}" name="gory"> 
+            <input type="hidden" value="${vo.comment}" name="comment"> 
+            <input type="hidden" value="${vo.sale}" name="sale"> 
+            <input type="hidden" value="${vo.pImg}" name="pImg"> 
+            <input type="hidden" value="${vo.gender}" name="gender"> 
+            <input type="hidden" value="${vo.email}" name="email"> 
+            <input  type="submit" value="상품수정">
+         </form>
+         
+         </div>
+         <script>
+         let delProdBtn = document.getElementById('delProdBtn');
+         delProdBtn.addEventListener('click', function(){
+            if (confirm("상품을 삭제 하시겠습니까?") == true) {    //확인
+               
+            }else{
+                event.preventDefault();
+            }
+         })
+         </script>
+         
+      </c:if>
+      <img id="left" src="upload/${vo.pImg}">
+      
+      
+      
+      
+      
+      
+      <div class="padding">
+      <h4 class="name">${vo.proDuctName}</h4>
+      <h4>${vo.comment}</h4>
+      <c:if test="${vo.sale == null || vo.sale == 0}">
+         <h4>${vo.proDuctPrice}원</h4>
+      </c:if>
+      
+         
+      
+      <div id="prod_right">
+      <c:if test="${vo.sale ne 0}">
+         <p>
+            <span>${vo.sale}%</span>  <span id="censle" >${vo.proDuctPrice}원</span> 
+         </p>
+         <h4 class="size"><fmt:formatNumber type="number" pattern="0" value="${vo.proDuctPrice - (vo.proDuctPrice*(vo.sale/100))}" /> 원 </h4>
+      </c:if>
+      <h4>성별 : ${vo.gender}</h4>
+      <h4> 평점 : <c:forEach var="cnt" begin="1" end="${avgGrade}" step="1" ><span class="gr"> &#9733; </span></c:forEach> </h4>
+      
+      <form action="kakaopay.do">
+      <fieldset id="width">
+         <input type="hidden" name="item_name" value="${vo.proDuctName }">
+         <!-- 상품명 String-->
+         <input type="hidden" name="item_code" value="${vo.proDuctNum}">
+         <!-- 상품코드 String-->
+         <input type="hidden" name="sale" value="${vo.sale}"> <input
+            type="hidden" name="quantity" value="1">
+         <!-- 상품수량 int -->
+         <input type="hidden" name="total_amount" value="${vo.proDuctPrice}">
+         <!-- 상품 총액 int -->
+         <input type="hidden" name="tax_free_amount" value="0">
+         <!-- 상품 비과세 금액 -->
+         <input type="submit" value="카카오페이결제"  class="w-btn-outline w-btn-yellow-outline">
+         
+         
+      </fieldset>
+      </form>
+      <a  name="basket" href="http://192.168.0.8/middleProject/shoppingBasket.do?proDuctNum=${vo.proDuctNum }" class="w-btn-outline w-btn-yellow-outline">장바구니 </a>
+      </div>
+      </div>
+      
+      
+      
+      
+      
+      
+      <div class="center">
+      <div class="padding">
+      <form  action="${pageContext.servletContext.contextPath }/select.do"
+         method="post" enctype="multipart/form-data" id="dea">
 
-			<input type='hidden' name='proDucNum' value='${vo.proDuctNum }'>
-			<fieldset>
-				<legend>상품평</legend>
-				<table border="1">
-					<thead>
-						<tr>
-							<th class="em">작성자</th>
-							<th class="co">댓글</th>
-							<th>평점</th>
-							<th>이미지</th>
-							<th>수정</th>
-							<th>삭제</th>
-						</tr>
-					</thead>
-				<c:forEach items="${list}" var="list">
+         <input type='hidden' name='proDucNum' value='${vo.proDuctNum }'>
+         <fieldset>
+            <legend>상품평</legend>
+            <table border="1">
+               <thead>
+                  <tr>
+                     <th class="em">작성자</th>
+                     <th class="co">댓글</th>
+                     <th>평점</th>
+                     <th>이미지</th>
+                     <th>수정</th>
+                     <th>삭제</th>
+                  </tr>
+               </thead>
+            <c:forEach items="${list}" var="list">
                   <tbody>
                      <tr>
                         <c:if test = "${list.email != email}">
@@ -420,7 +423,7 @@ width: 300px;
                               </c:if></span></td>
                         <td><a href="#btn" id="mBtn">수정</a></td>
                         <td><a 
-                           href="http://localhost/middleProject/delReview.do?proDuctNum=${vo.proDuctNum }&reNum=${list.reviewNum}" class="bi bi-x-square-fill"></a>
+                           href="http://192.168.0.8/middleProject/delReview.do?proDuctNum=${vo.proDuctNum }&reNum=${list.reviewNum}" class="bi bi-x-square-fill"></a>
                         </td>
                         </c:if>
                      </tr>
@@ -428,51 +431,53 @@ width: 300px;
                   
                </c:forEach>
 
-				</table>
-				
-			</fieldset>
-		</form>
-			</div>
-		<hr>
-		<form action="${pageContext.servletContext.contextPath }/review.do"
-			method="post" enctype="multipart/form-data" id="form">
-			<fieldset>
-			<legend>리뷰 쓰기</legend>
-			<input type='hidden' name='prodNum' value='${vo.proDuctNum }'>
-			<input type='hidden' name='proNum' value='${list[0].proDuctNum }'>
-			<input type='hidden' name='reNum' value='${list[0].reviewNum }'>
-			<p>내용</p>
-			<textarea id="textraea" rows="6" cols="50" name="content" required></textarea>
-			<br>
-			<span>평점</span>
-			<div class="star-rating">
-				<input type="radio" id="5-stars" name="grade" value="5"> <label for="5-stars" class="star">&#9733;</label> 
-				<input type="radio" id="4-stars" name="grade" value="4"> <label for="4-stars" class="star">&#9733;</label> 
-				<input type="radio" id="3-stars" name="grade" value="3"> <label for="3-stars" class="star">&#9733;</label>
-				<input type="radio" id="2-stars" name="grade" value="2"> <label for="2-stars" class="star">&#9733;</label> 
-				<input type="radio" id="1-star" name="grade" value="1"> <label for="1-star" class="star">&#9733;</label>
-			</div><br>
-			
-			<input type="file" name="profile"><br> 
-			
-			<c:forEach begin = "1" end = "${count}" step = "5">
-   			<button class="rara" id="page" onlick="location.href='#'"></button>
-   			</c:forEach><br>
-			
-			<input type="submit" value="작성하기" id="btn" class="w-btn-outline w-btn-yellow-outline" id="">
-			<div id="image_container"></div>
-			</fieldset>
-		</form>
-		</div>
-		<span id="btnList"></span>
-		</div>
-	</c:if>
-	
-	
-	
-	</div>
-	<script src = "detailProd.js"></script>
-	
+            </table>
+            
+         </fieldset>
+      </form>
+      <div class="clic">
+      <c:forEach begin = "1" end = "${count}" step = "5">
+            <button id="page" onlick="location.href='#'"></button>
+            </c:forEach><br></div>
+         </div>
+      <hr>
+      <form action="${pageContext.servletContext.contextPath }/review.do"
+         method="post" enctype="multipart/form-data" id="form">
+         <fieldset>
+         <legend>리뷰 쓰기</legend>
+         <input type='hidden' name='prodNum' value='${vo.proDuctNum }'>
+         <input type='hidden' name='proNum' value='${list[0].proDuctNum }'>
+         <input type='hidden' name='reNum' value='${list[0].reviewNum }'>
+         <p>내용</p>
+         <textarea id="textraea" rows="6" cols="50" name="content" required></textarea>
+         <br>
+         <span>평점</span>
+         <div class="star-rating">
+            <input type="radio" id="5-stars" name="grade" value="5"> <label for="5-stars" class="star">&#9733;</label> 
+            <input type="radio" id="4-stars" name="grade" value="4"> <label for="4-stars" class="star">&#9733;</label> 
+            <input type="radio" id="3-stars" name="grade" value="3"> <label for="3-stars" class="star">&#9733;</label>
+            <input type="radio" id="2-stars" name="grade" value="2"> <label for="2-stars" class="star">&#9733;</label> 
+            <input type="radio" id="1-star" name="grade" value="1"> <label for="1-star" class="star">&#9733;</label>
+         </div><br>
+         
+         <input type="file" name="profile"><br> 
+         
+         
+         
+         <input type="submit" value="작성하기" id="btn" class="w-btn-outline w-btn-yellow-outline" id="">
+         <div id="image_container"></div>
+         </fieldset>
+      </form>
+      </div>
+      <span id="btnList"></span>
+      </div>
+   </c:if>
+   
+   
+   
+   </div>
+   <script src = "detailProd.js"></script>
+   
 </body>
 <script>
 let mBtn = document.querySelectorAll('#mBtn');
@@ -487,27 +492,27 @@ let tbody = document.querySelectorAll('table > tbody')
 
 document.addEventListener('DOMContentLoaded', function() {
 
-	mBtn.forEach((val, idx) => {
-		val.addEventListener('click', function() {
+   mBtn.forEach((val, idx) => {
+      val.addEventListener('click', function() {
 
-			let btn = document.getElementById('btn')
-			btn.setAttribute("value", "수정하기");
-			let form = document.getElementById('form')
-			form.setAttribute("action", "moReview.do")
+         let btn = document.getElementById('btn')
+         btn.setAttribute("value", "수정하기");
+         let form = document.getElementById('form')
+         form.setAttribute("action", "moReview.do")
 
-			textarea.innerHTML = co[idx].innerHTML;
-			for (let i = 0; i < 5; i++) {
-				if (grade[i].value == gr[idx].innerHTML) {
-					grade[i].innerHTML = idx + 1;
-				}
-			}
-			console.log(im[idx].firstElementChild.src)
-			img.setAttribute("src", im[idx].firstElementChild.src);
-			document.querySelector("#image_container").appendChild(img);
+         textarea.innerHTML = co[idx].innerHTML;
+         for (let i = 0; i < 5; i++) {
+            if (grade[i].value == gr[idx].innerHTML) {
+               grade[i].innerHTML = idx + 1;
+            }
+         }
+         console.log(im[idx].firstElementChild.src)
+         img.setAttribute("src", im[idx].firstElementChild.src);
+         document.querySelector("#image_container").appendChild(img);
 
-		})
-	})
-	
+      })
+   })
+   
 })
 
 </script>

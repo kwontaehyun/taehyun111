@@ -73,7 +73,7 @@ public class kakaoPayControl implements Controller{
 				map.put("quantity", quantity); // 상품수량
 				map.put("total_amount", Integer.toString(total_amount)); // 가격
 				map.put("tax_free_amount", tax_free_amount); // 비과세
-				map.put("approval_url", "http://localhost/middleProject/payInfo.do");
+				map.put("approval_url", "http://192.168.0.8/middleProject/payInfo.do");
 				session.setAttribute("item_code", item_code);
 				
 			}else{
@@ -109,12 +109,12 @@ public class kakaoPayControl implements Controller{
 				map.put("quantity", "1"); // 상품수량
 				map.put("total_amount", Integer.toString(sumMoney)); // 가격
 				map.put("tax_free_amount", "0"); // 비과세
-				map.put("approval_url", "http://localhost/middleProject/basketPay.do");
+				map.put("approval_url", "http://192.168.0.8/middleProject/basketPay.do");
 			}
 			
 			
-			map.put("cancel_url", "http://localhost/middleProject/cancel.jsp");
-			map.put("fail_url", "http://localhost/middleProject/fail.jsp");
+			map.put("cancel_url", "http://192.168.0.8/middleProject/cancel.jsp");
+			map.put("fail_url", "http://192.168.0.8/middleProject/fail.jsp");
 			
 			String stringParams = "";
 			for(Map.Entry<String, String> elem : map.entrySet()) {

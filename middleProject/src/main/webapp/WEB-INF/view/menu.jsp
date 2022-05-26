@@ -28,7 +28,7 @@
 	<!-- Navigation-->
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<div class="container px-4 px-lg-5">
-			<a class="navbar-brand" href="http://localhost/middleProject/">YEDAM SHOP</a>
+			<a class="navbar-brand" href="http://192.168.0.8/middleProject/">YEDAM SHOP</a>
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
 				aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -101,7 +101,7 @@
 						</div>
 					</c:when>
 					<c:when test="${email == null}">
-						<a href="http://localhost/middleProject/shopView/login.jsp"><svg
+						<a href="http://192.168.0.8/middleProject/shopView/login.jsp"><svg
 								xmlns="http://www.w3.org/2000/svg" width="35" height="35"
 								fill="currentColor" class="bi bi-person" viewBox="0 0 16 16"
 								id="loginBtn">
@@ -113,7 +113,7 @@
 				</c:choose>
 				<form class="d-flex">
 					<a class="btn btn-outline-dark"
-						href="http://localhost/middleProject/shoppingBasket.do"> <i
+						href="http://192.168.0.8/middleProject/shoppingBasket.do"> <i
 						class="bi-cart-fill me-1"></i> Cart <span
 						class="badge bg-dark text-white ms-1 rounded-pill" id="CartCnt"></span>
 					</a>

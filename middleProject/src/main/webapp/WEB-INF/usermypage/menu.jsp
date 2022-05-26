@@ -48,7 +48,7 @@ int role = (Integer) session.getAttribute("role");
 							<a class="nav-link" href="${pageContext.request.contextPath }/search.do">회원정보수정</a> 
 							<a class="nav-link" href="${pageContext.request.contextPath }/delsearch.do">회원탈퇴</a>
 							<a class="nav-link" href="${pageContext.request.contextPath }/findMap.jsp">찾아오시는길</a>
-							<a class="nav-link" href="http://localhost/middleProject/shoppingBasket.do">장바구니</a>
+							<a class="nav-link" href="http://192.168.0.8/middleProject/shoppingBasket.do">장바구니</a>
 							<c:choose>
 								<c:when test="${role == 0}">
 									<a class="nav-link" href="${pageContext.request.contextPath }/userPay.do">구매내역</a>
@@ -63,7 +63,7 @@ int role = (Integer) session.getAttribute("role");
 					
 					<c:if test="${role == 1}">
 					<a class="nav-link"
-						href="http://localhost/middleProject/chart.jsp">
+						href="http://192.168.0.8/middleProject/chart.jsp">
 						<div class="sb-nav-link-icon">
 							<svg class="svg-inline--fa fa-chart-area" aria-hidden="true"
 								focusable="false" data-prefix="fas" data-icon="chart-area"

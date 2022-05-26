@@ -18,7 +18,7 @@ let allBtn = document.querySelectorAll('#pageing');
 allBtn.forEach((val, idx) => {
 	val.innerHTML = idx+1;
 	val.addEventListener('click', function() {
-		location.href= `http://localhost/middleProject/shoppingBasket.do?firstPage=${1 + (5 * (idx))}&lastPage=${(idx+1) * 5}`
+		location.href= `http://192.168.0.8/middleProject/shoppingBasket.do?firstPage=${1 + (5 * (idx))}&lastPage=${(idx+1) * 5}`
 	});
 	
 })

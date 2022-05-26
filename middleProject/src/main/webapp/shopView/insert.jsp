@@ -243,7 +243,7 @@ text-align:center;
                   		let idCheck = document.getElementById('idCheck')
                   	  	idCheck.addEventListener('click', function() {
 							let key = document.getElementById('key');
-							location.href = "http://localhost/middleProject/idCheck.do?key=" + key.value
+							location.href = "http://192.168.0.8/middleProject/idCheck.do?key=" + key.value
 						})
                   	  </script>
                   	  </c:if>
