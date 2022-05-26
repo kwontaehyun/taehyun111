@@ -35,4 +35,7 @@ public class reviewService {
 	public  reviewVO selReview(int reviewNum) {
 		return dao.selReview(reviewNum);
 	}
+	public void adminReviewDelete(int reviewNum) {
+		dao.adminReviewDelete(reviewNum);
+	}
 }

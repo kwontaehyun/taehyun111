@@ -69,10 +69,6 @@ margin-right:50px;
 }
 
 #pageing{
-	text-align:center;
-	font-size:0;
-	margin:0 auto;
-	margin : 30px 10px 50px 0px;
 	border:1px solid #e6e6e6;
 	width:35px;
 	height:35px;
@@ -83,7 +79,8 @@ margin-right:50px;
 	
  }
  #also {
- padding-left : 300px;
+ text-align:center;
+ margin-left:-2%;
  }
 </style>
 </head>
@@ -118,6 +115,7 @@ margin-right:50px;
 		</tbody >
 		</c:forEach>
 		</table>
+		<h4 id="center">총 판매가격 : ${money }<span>원</span></h4>
 		<div id = "also">
 		<c:forEach begin = "1" end = "${count}" step = "5">
    			<button class="w-btn-outline w-btn-yellow-outline" id="pageing" onlick="location.href='#'"></button>
@@ -129,7 +127,7 @@ margin-right:50px;
 		
 		
 		
-		<h4 id="center">총 판매가격 : ${money }<span>원</span></h4>
+		
 	</c:if>
 	</div>
 </body>

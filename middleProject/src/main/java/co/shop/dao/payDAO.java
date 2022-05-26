@@ -113,6 +113,7 @@ public class payDAO extends DAO{
 				payVO vo = new payVO();
 				vo.setProDuctName(rs.getString("productname"));
 				vo.setPayPrice(rs.getInt("payprice"));
+				vo.setEmail(rs.getString("email"));
 				vo.setpImg(rs.getString("payimg"));
 				vo.setItemCount(rs.getInt("itemcount"));
 				vo.setDate(rs.getString("paydate"));

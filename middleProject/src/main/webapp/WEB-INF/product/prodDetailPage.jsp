@@ -407,10 +407,14 @@ width: 300px;
                         <c:if test = "${list.email != email}">
                         <td><span class="em">${list.email}</span></td>
                         <td><span class="co">${list.content}</span></td>
-                        <td><span id="gr">&#9733; ${list.grade}</span></td>
-                        <td><span id="im"><c:if test="${!empty list.RImg}">
+                        <td><span class="gr">&#9733; ${list.grade}</span></td>
+                        <td><span class="im"><c:if test="${!empty list.RImg}">
                                  <img src="${pageContext.servletContext.contextPath }/reviewUpload/${list.RImg }" name="img" style="width:200px; height:150px;">
                               </c:if></span></td>
+                              <td><a></a></td>
+                              <c:if test = "${!empty email && role == 1}"><td><a 
+                           href="http://192.168.0.8/middleProject/delReview.do?proDuctNum=${vo.proDuctNum }&reNum=${list.reviewNum}" class="bi bi-x-square-fill"></a>
+                        </td></c:if>
                         </c:if>
                         
                         
@@ -489,7 +493,6 @@ let img = document.createElement("img");
 let grade = document.querySelectorAll('#form > div > input[type=radio]')
 let cnt = 1;
 let tbody = document.querySelectorAll('table > tbody')
-
 document.addEventListener('DOMContentLoaded', function() {
 
    mBtn.forEach((val, idx) => {
@@ -506,9 +509,6 @@ document.addEventListener('DOMContentLoaded', function() {
                grade[i].innerHTML = idx + 1;
             }
          }
-         console.log(im[idx].firstElementChild.src)
-         img.setAttribute("src", im[idx].firstElementChild.src);
-         document.querySelector("#image_container").appendChild(img);
 
       })
    })

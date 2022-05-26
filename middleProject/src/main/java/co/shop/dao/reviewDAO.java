@@ -12,7 +12,7 @@ public class reviewDAO extends DAO {
 	
 	public List<reviewVO> reviewPage(String proDuctNum, int firstPage, int lastPage) {
 		conn();
-		String sql = "select* from (select rownum as rn, review.* from review where productnum = ?) where rn between ? and ?";
+		String sql = "select* from (select rownum as rn, review.* from review where productnum = ? ) where rn between ? and ? order by reviewnum desc";
 		List<reviewVO> list = new ArrayList<reviewVO>();
 		try {
 			psmt = conn.prepareStatement(sql);
@@ -123,6 +123,23 @@ public class reviewDAO extends DAO {
 		}
 
 	}
+	
+	public void adminReviewDelete(int reviewNum) {
+		conn();
+		String sql = "delete from review where REVIEWNUM=?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, reviewNum);
+			int r = psmt.executeUpdate();
+			System.out.println(r + " 건 삭제 ");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disconn();
+		}
+
+	}
+	
 
 	public reviewVO selReview(int reviewNum) {
 		conn();
