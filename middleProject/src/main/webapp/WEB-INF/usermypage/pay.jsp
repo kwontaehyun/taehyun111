@@ -59,6 +59,26 @@ padding:30px 10px;
 margin : 0 auto;
 text-align : center;
 }
+
+#all {
+margin : 0 auto;
+text-align:center;
+}
+
+#page{
+	text-align:center;
+	font-size:0;
+	margin:0 auto;
+	margin : 30px 10px 50px 0px;
+	border:1px solid #e6e6e6;
+	width:35px;
+	height:35px;
+	line-height:28px;
+	background-color:#fff;
+	font-size:20px;
+	color:#999999;
+ }
+
 </style>
 </head>
 <body>
@@ -98,10 +118,11 @@ text-align : center;
 				
 				</div>
 			</c:forEach>
-			
+			<div id = "all">
 			<c:forEach begin = "1" end = "${count}" step = "5">
-   			<a id ="page" href = "#"></a>
+   			<button class="w-btn-outline w-btn-yellow-outline" id="page" onlick="location.href='#'"></button>
    			</c:forEach>
+   			</div>
    			<script src = "pay.js">
    			
    			</script>

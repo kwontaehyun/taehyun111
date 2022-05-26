@@ -128,7 +128,19 @@ margin : 0 auto;
 text-align : center;
 width : 800px;
 }
-
+#pageing{
+	text-align:center;
+	font-size:0;
+	margin:0 auto;
+	margin : 30px 10px 50px 0px;
+	border:1px solid #e6e6e6;
+	width:35px;
+	height:35px;
+	line-height:28px;
+	background-color:#fff;
+	font-size:20px;
+	color:#999999;
+ }
 </style>
 
 </head>
@@ -182,7 +194,7 @@ width : 800px;
 				</div>
 			</c:forEach>
 			<c:forEach begin = "1" end = "${count }" step = "5">
-   				<button id = "pageing"></button>
+   				<button class="rara" id="pageing" onlick="location.href='#'"></button>
    </c:forEach>
    
   

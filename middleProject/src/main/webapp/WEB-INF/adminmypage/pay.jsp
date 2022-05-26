@@ -19,7 +19,7 @@
 .pading{
 margin: 0 auto;
 padding-right: 50px;
-height:1000px;
+height:1050px;
 }
 
 #right{
@@ -63,12 +63,32 @@ padding:10px;
 
 #center{
 text-align: center;
-margin-bottom:20px;
 margin-top:20px;
+margin-bottom:50px;
+margin-right:50px;
 }
+
+#pageing{
+	text-align:center;
+	font-size:0;
+	margin:0 auto;
+	margin : 30px 10px 50px 0px;
+	border:1px solid #e6e6e6;
+	width:35px;
+	height:35px;
+	line-height:28px;
+	background-color:#fff;
+	font-size:20px;
+	color:#999999;
+	
+ }
+ #also {
+ padding-left : 300px;
+ }
 </style>
 </head>
 <body>
+
 <div class="pading">
 	
 	<c:if test = "${!empty list}">
@@ -98,11 +118,11 @@ margin-top:20px;
 		</tbody >
 		</c:forEach>
 		</table>
-		
+		<div id = "also">
 		<c:forEach begin = "1" end = "${count}" step = "5">
-   			<a id ="pageing" href = "#"></a>
+   			<button class="w-btn-outline w-btn-yellow-outline" id="pageing" onlick="location.href='#'"></button>
    			</c:forEach>
-   			
+   			</div>
    			<script src = "pay.js">
    			
    			</script>

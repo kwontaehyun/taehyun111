@@ -32,6 +32,7 @@ button {
     text-decoration: none;
     font-weight: 600;
     transition: 0.25s;
+    
 background: url( "https://play-lh.googleusercontent.com/W43xj43ErMIs5BQgCdMKEa0NXCoUUW8DjQc5SxcDfLrC26H8sHDmoFIUWLYmsQahpo0" ) no-repeat;
 }
 
@@ -232,9 +233,7 @@ width: 300px;
 }
 
 
-.bt {
-	float: left;
-} 
+
 /* star */
 .star-rating {
 	display: flex;
@@ -262,6 +261,22 @@ width: 300px;
 .star-rating label:hover, .star-rating label:hover ~label {
 	color: #fc0;
 }
+#page{
+	text-align:center;
+	font-size:0;
+	margin:0 auto;
+	margin-bottom : 30px;
+	border:1px solid #e6e6e6;
+	width:35px;
+	height:35px;
+	line-height:28px;
+	background-color:#fff;
+	font-size:20px;
+	color:#999999;
+ }
+ #all {
+ height : 100%;
+ }
 
 </style>
 
@@ -280,6 +295,7 @@ width: 300px;
 	<c:if test="${!empty vo}">
 		<c:if test="${role == 1}">
 		<div class="right">
+			<div id="all">
 			<form action="${pageContext.servletContext.contextPath }/productDelete.do">
 				<input type="hidden" name="num" value="${vo.proDuctNum }"> 
 				<input  type="submit" value="상품삭제" id = "delProdBtn">
@@ -440,8 +456,8 @@ width: 300px;
 			<input type="file" name="profile"><br> 
 			
 			<c:forEach begin = "1" end = "${count}" step = "5">
-   			<a id ="page" href = "#"></a>
-   			</c:forEach>
+   			<button class="rara" id="page" onlick="location.href='#'"></button>
+   			</c:forEach><br>
 			
 			<input type="submit" value="작성하기" id="btn" class="w-btn-outline w-btn-yellow-outline" id="">
 			<div id="image_container"></div>
@@ -449,7 +465,7 @@ width: 300px;
 		</form>
 		</div>
 		<span id="btnList"></span>
-		
+		</div>
 	</c:if>
 	
 	

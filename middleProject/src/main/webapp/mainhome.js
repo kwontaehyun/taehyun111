@@ -36,7 +36,7 @@ function pageing(result) {
 			btn.setAttribute("id", `btn${cnt}`);
 			btn.style.margin = "10px";
 			btn.style.fontSize = "20px";
-			btn.style.border = "1px solid blue"
+			btn.style.border = "1px solid black"
 			btn.style.background = "white";
 			cnt++;
 			spanBtn.appendChild(btn);
